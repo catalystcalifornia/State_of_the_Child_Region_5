@@ -1,6 +1,9 @@
 ---
 title: "Draft Findings and Visuals"
-author: "mariatkhan"
+author: 
+  - Alexandra Baker
+  - Maria T. Khan
+  - Chris Ringewald
 date: "2022-10-26"
 output: html_document
 ---
