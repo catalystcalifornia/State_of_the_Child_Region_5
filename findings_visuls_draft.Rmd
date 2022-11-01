@@ -101,11 +101,17 @@ con <- dbConnect(drv, dbname = "region5stateofthechild",
 ## Children with Special Needs 
 
 ## Languages of Children and Families
+
+According to the latest American Community Survey data calculated by Luz Wilkerson, the Antelope Valley has a diverse set of language speakers. The East Antelope Valley and Palmdale areas have a larger shares of Spanish speakers than the County or State as a whole. There are relatively fewer speakers of Asian or Pacific Islander languages, with West Antelope Valley having the largest share of this group. 
 ```{r}
 source("W:/Project/RDA Team/Region 5 State of the Child/R/language.R")
 
-data
+library(kableExtra)
+kbl(data) %>%
+  kable_styling()
+
 ```
+Source: [American Community Survey 2016-2020 5-year estimates calculated for Antelope Valley neighborhoods by Lucy Wilkerson](https://public.tableau.com/app/profile/luz3725/viz/2020CensusData-AVBESTSTARTREGION5/GRAPI)
 
 # Resources(and barriers to access)
 
