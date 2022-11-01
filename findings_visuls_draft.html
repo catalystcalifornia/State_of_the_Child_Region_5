@@ -2300,6 +2300,180 @@ California Real Cost Measure, 2021</a></p>
 </div>
 <div id="food-insecurity" class="section level2">
 <h2>Food Insecurity</h2>
+<p>Feeding America estimates that 22,740 children are food insecure<a href="https://map.feedingamerica.org/">1</a>. Over 10,000 Antelope
+Valley children under 5 participate in WIC. Latinx children comprise the
+largest share of Antelope Valley WIC participants, with nearly 1 in 5
+Palmdale participants live in a Spanish-only home. Black children make
+up nearly 1 in 4 Lancaster WIC participants.</p>
+<pre class="r"><code>source(&quot;W:/Project/RDA Team/Region 5 State of the Child/R/food_security.R&quot;)
+
+library(kableExtra)
+kbl(wic_data) %&gt;%
+  kable_styling()</code></pre>
+<table class="table" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+geography
+</th>
+<th style="text-align:right;">
+wic_under5
+</th>
+<th style="text-align:right;">
+white
+</th>
+<th style="text-align:right;">
+asian
+</th>
+<th style="text-align:right;">
+other
+</th>
+<th style="text-align:right;">
+hisp_span
+</th>
+<th style="text-align:right;">
+hisp_eng
+</th>
+<th style="text-align:right;">
+black
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Best Start - Lancaster
+</td>
+<td style="text-align:right;">
+4464
+</td>
+<td style="text-align:right;">
+5.1
+</td>
+<td style="text-align:right;">
+0.6
+</td>
+<td style="text-align:right;">
+5.3
+</td>
+<td style="text-align:right;">
+12.0
+</td>
+<td style="text-align:right;">
+52.7
+</td>
+<td style="text-align:right;">
+24.4
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Best Start - Palmdale
+</td>
+<td style="text-align:right;">
+5449
+</td>
+<td style="text-align:right;">
+3.0
+</td>
+<td style="text-align:right;">
+0.6
+</td>
+<td style="text-align:right;">
+2.7
+</td>
+<td style="text-align:right;">
+19.4
+</td>
+<td style="text-align:right;">
+61.4
+</td>
+<td style="text-align:right;">
+12.9
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Service Planning Area 1 - Antelope Valley
+</td>
+<td style="text-align:right;">
+10278
+</td>
+<td style="text-align:right;">
+4.3
+</td>
+<td style="text-align:right;">
+0.6
+</td>
+<td style="text-align:right;">
+4.0
+</td>
+<td style="text-align:right;">
+16.1
+</td>
+<td style="text-align:right;">
+57.3
+</td>
+<td style="text-align:right;">
+17.7
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Supervisor District 5
+</td>
+<td style="text-align:right;">
+25228
+</td>
+<td style="text-align:right;">
+2.6
+</td>
+<td style="text-align:right;">
+5.7
+</td>
+<td style="text-align:right;">
+4.3
+</td>
+<td style="text-align:right;">
+18.0
+</td>
+<td style="text-align:right;">
+62.2
+</td>
+<td style="text-align:right;">
+7.2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Los Angeles County
+</td>
+<td style="text-align:right;">
+211170
+</td>
+<td style="text-align:right;">
+3.9
+</td>
+<td style="text-align:right;">
+2.8
+</td>
+<td style="text-align:right;">
+3.9
+</td>
+<td style="text-align:right;">
+26.6
+</td>
+<td style="text-align:right;">
+55.1
+</td>
+<td style="text-align:right;">
+7.5
+</td>
+</tr>
+</tbody>
+</table>
+<p>Source: <a href="https://lawicdata.org/data-research/by-region/">L.A.
+County WIC Administrative Data, 2021</a></p>
 </div>
 </div>
 <div id="education" class="section level1">
