@@ -94,9 +94,22 @@ con <- dbConnect(drv, dbname = "region5stateofthechild",
 
 ## Foster Youth Population 
 
-## Student Homelessness 
+## Student Homelessness
 
-## Homelessness 
+## Homelessness
+
+The 2022 Los Angeles County homeless count counted over 65,000 homeless people in Los Angeles County, 1,000 of whom lived in the cities of Lancaster and Palmdale.
+
+```{r}
+source("W:/Project/RDA Team/Region 5 State of the Child/R/homeless.R")
+
+library(kableExtra)
+kbl(av_table) %>%
+  kable_styling()
+
+```
+Source: [Los Angeles Homeless Services Authority, 2022](https://www.lahsa.org/data)
+
 
 ## Children with Special Needs 
 
