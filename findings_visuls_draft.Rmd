@@ -28,6 +28,9 @@ library(dplyr)
 library(ggplot2)
 library(RPostgreSQL)
 library(tidyr)
+library(data.table)
+library(sysfonts)
+library(showtext)
 
 #### First 5 LA Style Guide ####
 ## COLORS## Taken from W:\Project\RDA Team\Region 5 State of the Child\Documentation\F5LA_BrandGuidelines_COLORS.pdf
