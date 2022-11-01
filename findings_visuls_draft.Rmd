@@ -98,6 +98,11 @@ con <- dbConnect(drv, dbname = "region5stateofthechild",
 ## Children with Special Needs 
 
 ## Languages of Children and Families
+```{r}
+source("W:/Project/RDA Team/Region 5 State of the Child/R/language.R")
+
+data
+```
 
 # Resources(and barriers to access)
 
