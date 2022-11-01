@@ -1929,6 +1929,102 @@ con &lt;- dbConnect(drv, dbname = &quot;region5stateofthechild&quot;,
 </div>
 <div id="homelessness" class="section level2">
 <h2>Homelessness</h2>
+<p>The 2022 Los Angeles County homeless count counted over 65,000
+homeless people in Los Angeles County, 1,000 of whom lived in the cities
+of Lancaster and Palmdale.</p>
+<pre class="r"><code>source(&quot;W:/Project/RDA Team/Region 5 State of the Child/R/homeless.R&quot;)
+
+library(kableExtra)
+kbl(av_table) %&gt;%
+  kable_styling()</code></pre>
+<table class="table" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+name
+</th>
+<th style="text-align:right;">
+Adult &amp; youth sheltered &amp; adult unsheltered
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Lake Los Angeles
+</td>
+<td style="text-align:right;">
+391
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Lancaster
+</td>
+<td style="text-align:right;">
+636
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Littlerock/Juniper Hills
+</td>
+<td style="text-align:right;">
+67
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Littlerock/Pearblossom
+</td>
+<td style="text-align:right;">
+381
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+North Lancaster
+</td>
+<td style="text-align:right;">
+29
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Palmdale
+</td>
+<td style="text-align:right;">
+309
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Pearblossom/Llano
+</td>
+<td style="text-align:right;">
+116
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Unincorporated Palmdale
+</td>
+<td style="text-align:right;">
+5
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Los Angeles County
+</td>
+<td style="text-align:right;">
+65111
+</td>
+</tr>
+</tbody>
+</table>
+<p>Source: <a href="https://www.lahsa.org/data">Los Angeles Homeless
+Services Authority, 2022</a></p>
 </div>
 <div id="children-with-special-needs" class="section level2">
 <h2>Children with Special Needs</h2>
