@@ -121,12 +121,22 @@ Source: [American Community Survey 2016-2020 5-year estimates calculated for Ant
 
 ## Housing Insecurity 
 
-## Cost of Living 
+## Cost of Living
+
+According to the United Ways of California, roughly half of households in and around Lancaster and Palmdale do not earn sufficient incomes to meet their basic costs of living (i.e., they earn incomes below the real cost measure of living). Lancaster and Palmdale adjusted median household incomes are well below other parts of the County and State.
+```{r}
+source("W:/Project/RDA Team/Region 5 State of the Child/R/cost_of_living.R")
+
+library(kableExtra)
+kbl(rcm_data) %>%
+  kable_styling()
+
+```
+Source: [United Ways of California Real Cost Measure, 2021](https://www.unitedwaysca.org/realcost/39-real-cost)
 
 ## Food Insecurity 
 
 # Education
-
 
 ## Highschool Graduation
 
