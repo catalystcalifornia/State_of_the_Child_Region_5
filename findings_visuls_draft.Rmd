@@ -86,7 +86,21 @@ con <- dbConnect(drv, dbname = "region5stateofthechild",
 
 ## Population of Children and Families
 
+The Antelope Valley is a 2,200 square mile area in northern Los Angeles County [1](https://en.wikipedia.org/wiki/Antelope_Valley). According to the US Census, it's two largest cities, Lancaster and Palmdale, have populations of 170,150 and 165,761, respectively.[1](https://www.census.gov/quickfacts/fact/table/palmdalecitycalifornia,lancastercitycalifornia/PST045221). For comparison, both cities are more populous than Pasadena and Pomona, two well-known mid-size cities on the other side of the valley. 
+
 ## Racial Ethnic Breakdown 
+
+According to the latest American Community Survey data calculated by Lucy Wilkerson, Region 5 is majority Latinx. The regional share of the Black population is twice the LA County share and nearly three times the State share. On the other hand, the region is home to relatively fewer Asian residents than the County and State as a whole. 
+
+```{r}
+source("W:/Project/RDA Team/Region 5 State of the Child/R/race.R")
+
+library(kableExtra)
+kbl(race_data) %>%
+  kable_styling()
+
+```
+Source: [American Community Survey 2016-2020 5-year estimates calculated for Antelope Valley neighborhoods by Lucy Wilkerson](https://public.tableau.com/app/profile/luz3725/viz/2020CensusData-AVBESTSTARTREGION5/GRAPI)
 
 ## Black Infant Mortality 
 
@@ -115,7 +129,7 @@ Source: [Los Angeles Homeless Services Authority, 2022](https://www.lahsa.org/da
 
 ## Languages of Children and Families
 
-According to the latest American Community Survey data calculated by Luz Wilkerson, the Antelope Valley has a diverse set of language speakers. The East Antelope Valley and Palmdale areas have a larger shares of Spanish speakers than the County or State as a whole. There are relatively fewer speakers of Asian or Pacific Islander languages, with West Antelope Valley having the largest share of this group. 
+According to the latest American Community Survey data calculated by Lucy Wilkerson, the Antelope Valley has a diverse set of language speakers. The East Antelope Valley and Palmdale areas have a larger shares of Spanish speakers than the County or State as a whole. There are relatively fewer speakers of Asian or Pacific Islander languages, with West Antelope Valley having the largest share of this group. 
 ```{r}
 source("W:/Project/RDA Team/Region 5 State of the Child/R/language.R")
 
