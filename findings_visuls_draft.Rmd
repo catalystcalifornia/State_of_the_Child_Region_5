@@ -104,6 +104,12 @@ Source: [American Community Survey 2016-2020 5-year estimates calculated for Ant
 
 ## Black Infant Mortality 
 
+According to the California Department of Public Health, Los Angeles County Black infant mortality rates are more than twice the rate of infant mortality overall (9.3 vs. 4.2 infant deaths per 1,000 live births). Not available by race, but First 5 LA reports Children's Data Network infant mortality rates for the total populations of the Lancaster and Palmdale Best Start geographies at 6.0 and 5.7 per 1,000, respectively.[1](https://www.first5la.org/wp-content/uploads/2020/09/First-5-LA-2020-Indicators-Report.pdf)
+
+**9.3 Black LA County infant deaths per 1,000 live births compared to total rate of 4.2 per 1,000**[1](https://data.chhs.ca.gov/dataset/infant-mortality-deaths-per-1000-live-births-lghc-indicator-01/resource/ae78da8f-1661-45f6-b2d0-1014857d16e3)
+
+Recent data are a challenge as this data, from the California Health and Human Services Open Data Portal is from 2015-2017. The [African American Infant and Maternal Mortality (AAIMM) Initiative](https://www.blackinfantsandfamilies.org/) is a coalition working to address the unacceptably high rates of Black infant and maternal deaths in the County. [A Pathway to Equity](http://publichealth.lacounty.gov/centerforhealthequity/PDF/AAIM-ActionPlan.pdf) is a framework for understanding the causes of infant mortality and the steps needed to address it.
+
 ## Children of Incarcerated 
 
 ## Foster Youth Population 
