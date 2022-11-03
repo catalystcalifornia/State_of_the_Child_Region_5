@@ -110,7 +110,33 @@ According to the California Department of Public Health, Los Angeles County Blac
 
 Recent data are a challenge as this data, from the California Health and Human Services Open Data Portal is from 2015-2017. The [African American Infant and Maternal Mortality (AAIMM) Initiative](https://www.blackinfantsandfamilies.org/) is a coalition working to address the unacceptably high rates of Black infant and maternal deaths in the County. [A Pathway to Equity](http://publichealth.lacounty.gov/centerforhealthequity/PDF/AAIM-ActionPlan.pdf) is a framework for understanding the causes of infant mortality and the steps needed to address it.
 
-## Children of Incarcerated 
+## Children of Incarcerated
+
+According to Catalyst California calculations of Vera Institute for Justice, County of Los Angeles Probation, and the Bureau of Justice Statistics, there are an estimated **90,000 children in Los Angeles County with a parent in State Prison, LA County Jail, or under LA County probation and 17,000 of these children are ages 0 to 5**. This means that roughly 1 in 20 LA County children have an incarcerated parent or parent under probation. Roughly 20,000 of these children are Black with 4,000 of them between the age 0 to 5.
+
+Because the criminal justice system over criminalizes Black and Brown parents, children of incarcerated parents or parents under probation are more likely to be Latino or Black than their share of the total population. **Black children make up 22% of Los Angeles County children with an incarcerated parent or parent under probation but are only 7.5% of the total population**. By contrast, White children make up 11.6% of county children with an incarcerated parent or parent under probation but are 20.4% of the total population.
+
+```{r}
+
+Race <- c("Percent children of incarcerated or probation parent", "Percent of County children", "Difference")
+Black <- c("22.0%",	"7.5%",	"14.5%")
+Latino <- c("63.0%",	"55.7%",	"7.3%")
+NHPI <- c("0.1%",	"0.2%",	"-0.1%")
+AIAN <- c("0.1%",	"0.2%",	"-0.1%")
+Other <- c("2.8%",	"3.3%",	"-0.5%")
+White <- c("11.6%",	"20.4%",	"-8.8%")
+Asian <- c("0.4%",	"12.7%",	"-12.3%")
+Total <- c("100%",	"100%",	"0%")
+
+incarc_table <- rbind(Race, Black, Latino, NHPI, AIAN, Other, White, Asian, Total)
+
+library(kableExtra)
+kbl(incarc_table) %>%
+  kable_styling()
+
+```
+
+This matters because separation or probation impacts the ability of parents to live with, supervise, and be attentive to their children. They are not as able to help with homework, know who their kids’ friends are, have a sense of how school is going, and what their children are eating, for example. Each of these things impact a child’s ability to succeed in school, be healthy, and otherwise thrive.
 
 ## Foster Youth Population 
 
