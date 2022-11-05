@@ -148,7 +148,7 @@ This matters because separation or probation impacts the ability of parents to l
 
 
 
-According to the California Department Of Education, 
+According to the California Department Of Education 2021_22 school year data, Student Homelessness on average in the Antelope Valley, 2.1%, is slightly lower than the the state average, 2.9%, and Los Angeles County average, 2.8%. However, school district level data tells a different story. Student Homelessness is especially high in the Westside Union Elementary School District with an average rate of 7.2%, over 3 times the average of the entire Antelope Valley, 2.1%. That means that approx. 7 out of every 100 students in the Westside Union Elementary School District is experiencing homelessness. Although there are high rates among all groups in the the Westside Union Elementary School District, the high rates of homelessness among Non-Hispanic American Indian Alaskan Native (14.3%), Non-Hispanic Black (7.6%) and Latinx students (8.2%), and students who identified as Non-Hispanic Two or More Races (8.1%) especially stand out. The Eastside Union Elementary School District and Lancaster Elementary School District also had above average rates, being 2 and 1.2 times higher than the state average respectively. Regionally, students who identified as Non-Hispanic Two or More Races and Non-Hispanic Black and Non-Hispanic American Indian Alaskan Native students had the highest rates. 
 ```{r}
 # 2021-22 School Year Totals
 source("W:/Project/RDA Team/Region 5 State of the Child/R/student_homelessness.R")
@@ -157,8 +157,9 @@ library(kableExtra)
  
 kbl(av_table) %>%
   kable_styling(bootstrap_options = c("striped", "bordered", "condensed"))
-
-
+# View(av_table)
+total_grade_only <- total_grade_only %>% select(year, geoname, ends_with("_rate"))
+View(total_grade_only)
 ```
 
 
