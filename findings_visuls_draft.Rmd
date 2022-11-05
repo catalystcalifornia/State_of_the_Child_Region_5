@@ -15,7 +15,7 @@ output:
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(comment=FALSE, message=FALSE, warning=FALSE)
-devtools::install_github("haozhu233/kableExtra")
+# devtools::install_github("haozhu233/kableExtra")
 library(usethis)
 
 
@@ -147,18 +147,66 @@ This matters because separation or probation impacts the ability of parents to l
 ## Student Homelessness
 
 
+
+According to the California Department Of Education, 
 ```{r}
+# 2021-22 School Year Totals
 source("W:/Project/RDA Team/Region 5 State of the Child/R/student_homelessness.R")
-# library(kableExtra)
+library(kableExtra)
 
  
 kbl(av_table) %>%
   kable_styling(bootstrap_options = c("striped", "bordered", "condensed"))
 
+
 ```
 
-# AV Bar Chart
+
 ```{r}
+kbl(total_race_only) %>%
+  kable_styling(bootstrap_options = c("striped", "bordered", "condensed"))
+
+```
+
+  
+```{r}
+kbl(total_grade_only) %>%
+  kable_styling(bootstrap_options = c("striped", "bordered", "condensed"))
+```
+  
+
+```{r}
+kbl(lancaster_race_only) %>%
+  kable_styling(bootstrap_options = c("striped", "bordered", "condensed"))
+```
+
+
+```{r}
+kbl(avhs_race_only) %>%
+  kable_styling(bootstrap_options = c("striped", "bordered", "condensed"))
+```
+
+
+```{r}
+kbl(palmdale_race_only) %>%
+  kable_styling(bootstrap_options = c("striped", "bordered", "condensed"))
+```
+
+
+```{r}
+kbl(westside_race_only) %>%
+  kable_styling(bootstrap_options = c("striped", "bordered", "condensed"))
+```
+
+
+```{r}
+kbl(eastside_race_only) %>%
+  kable_styling(bootstrap_options = c("striped", "bordered", "condensed"))
+```
+
+
+```{r}
+# AV Bar Chart
 s <- AV 
 tot = subset(s, select=c(total_rate)) %>% round(1)  # pull out total_rate
 s = subset(s, select=-c(total_rate)) # pull out raced rates
