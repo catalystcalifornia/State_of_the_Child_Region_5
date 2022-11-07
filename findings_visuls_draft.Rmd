@@ -284,11 +284,17 @@ Source: [Los Angeles Homeless Services Authority, 2022](https://www.lahsa.org/da
 
 
 ## Children with Special Needs 
+
+Overall in the Antelope Valley, 14.9% of students have disabilities. The percentage of students with special needs in the Antelope Valley has steady gone up by 2.6 percentage points since the 2015-16 school year. The grades with the highest percentage of students with special needs were 6th grade (73.5%), 8th grade (71.8%), and 7th grade (73.5%). This means that the middle school grades have an extremely high amouunt of students with special needs and need additional resources. Antelope Valley Union Joint High Schoot District has the highest and Eastside Elementary School District has the lowest, 12.5%. That said
 ```{r}
 source("W:/Project/RDA Team/Region 5 State of the Child/R/disabilties.R")
 library(kableExtra)
 kbl(av_table) %>%
   kable_styling(bootstrap_options = c("striped", "bordered", "condensed"))
+View(av_table)
+total_grade_only <- total_grade_only %>% select(year, geoname, ends_with("_rate"))
+View(total_grade_only)
+
 ```
 
 
