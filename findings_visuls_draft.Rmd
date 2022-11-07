@@ -169,7 +169,7 @@ kbl(av_table) %>%
 # total_grade_only <- total_grade_only %>% select(year, geoname, ends_with("_rate"))
 # View(total_grade_only)
 ```
-
+Source: [California Department of Education, 2015-2022](https://dq.cde.ca.gov/dataquest/)
 
 
 ```{r}
@@ -266,7 +266,7 @@ av_plot
 
 
 ```
-
+Source: [California Department of Education, 2015-2022](https://dq.cde.ca.gov/dataquest/)
 
 ## Homelessness
 
@@ -285,7 +285,7 @@ Source: [Los Angeles Homeless Services Authority, 2022](https://www.lahsa.org/da
 
 ## Children with Special Needs 
 
-Overall in the Antelope Valley, 14.9% of students have disabilities. The percentage of students with special needs in the Antelope Valley has steady gone up by 2.6 percentage points since the 2015-16 school year. The grades with the highest percentage of students with special needs were 6th grade (73.5%), 8th grade (71.8%), and 7th grade (73.5%). This means that the middle school grades have an extremely high amouunt of students with special needs and need additional resources. Antelope Valley Union Joint High Schoot District has the highest and Eastside Elementary School District has the lowest, 12.5%. That said
+Overall in the Antelope Valley, 14.9% of students have special needs, 2.4 percentage points higher than the state average.[2](https://lao.ca.gov/reports/2019/4110/overview-spec-ed-110619.pdf) The percentage of students with special needs in the Antelope Valley has steadily increased by 2.6 percentage points since the 2015-16 school year. The grades with the highest percentage of students with special needs were 6th grade (73.5%), 8th grade (71.8%), and 7th grade (73.5%). At the school district level, the Antelope Valley Union Joint High School District has the highest, 17.2% and Eastside Elementary School District has the lowest, 12.5%.  Students in the 4th and 5th grades also had a larger percentage of students with special needs. Despite the high reported numbers of students with disabilities, the actual numbers are likely higher. Younger students with disabilities tend to be underrepresented because students are assessed for special needs on an as-needed basis, therefore, it takes time for students to be assessed and as more time passes, more students are assessed thereby increasing the reported number of students with disabilities. 
 ```{r}
 source("W:/Project/RDA Team/Region 5 State of the Child/R/disabilties.R")
 library(kableExtra)
@@ -294,9 +294,12 @@ kbl(av_table) %>%
 View(av_table)
 total_grade_only <- total_grade_only %>% select(year, geoname, ends_with("_rate"))
 View(total_grade_only)
+View(av_table)
 
 ```
+Source: [California Department of Education, 2015-2022](https://dq.cde.ca.gov/dataquest/)
 
+American Indian Alaskan Native (AIAN) students had the highest percentage of students with disabilities by race/ethnicity with 21.3% of AIAN students having special needs. Black (20.8%), Two or More Races (16.7%) and White students (15.6%) all had above Antelope Valley average rates as well. Given the extremely large number of students with disabilities, the Antelope Valley has an urgent priority need for additional resources for students with disabilities. 
 
 ```{r}
 # AV Bar Chart
@@ -390,7 +393,7 @@ av_plot <- av_plot + theme(
 av_plot <- av_plot + ylim(0, max_y)     # add buffer between title and chart/data labels
 av_plot
 ```
-
+Source: [California Department of Education, 2015-2022](https://dq.cde.ca.gov/dataquest/)
 ## Languages of Children and Families
 
 According to the latest American Community Survey data calculated by Lucy Wilkerson, the Antelope Valley has a diverse set of language speakers. The East Antelope Valley and Palmdale areas have a larger shares of Spanish speakers than the County or State as a whole. There are relatively fewer speakers of Asian or Pacific Islander languages, with West Antelope Valley having the largest share of this group. 
