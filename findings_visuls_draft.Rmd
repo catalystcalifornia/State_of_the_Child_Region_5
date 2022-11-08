@@ -16,7 +16,7 @@ output:
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(comment=FALSE, message=FALSE, warning=FALSE)
 
-library(usethis)
+# library(usethis)
 
 
 
@@ -24,9 +24,10 @@ library(usethis)
 
 The following site holds the draft findings and draft visuals from various data sources to better understand the well-being and health of children in Best Start Region 5, the Antelope Valley. The findings and visuals are being developed by Catalyst California for the Region 5 State of the Child report in collaboration with The Children's Bureau. 
 
-# Prep and Set Up 
+
 
 ```{r}
+# Prep and Set Up 
 #### Loading Libraries ####
 library(dplyr)
 library(ggplot2)
@@ -35,7 +36,10 @@ library(tidyr)
 library(data.table)
 library(sysfonts)
 library(showtext)
-
+# install.packages("sysfonts")
+# install.packages("showtext")
+# install.packages("kableExtra")
+# install.packages("janitor")
 #### First 5 LA Style Guide ####
 ## COLORS## Taken from W:\Project\RDA Team\Region 5 State of the Child\Documentation\F5LA_BrandGuidelines_COLORS.pdf
 #primary
