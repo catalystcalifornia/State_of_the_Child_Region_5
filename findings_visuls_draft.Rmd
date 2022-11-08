@@ -16,7 +16,7 @@ output:
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(comment=FALSE, message=FALSE, warning=FALSE)
 
-library(usethis)
+# library(usethis)
 
 
 
@@ -24,9 +24,10 @@ library(usethis)
 
 The following site holds the draft findings and draft visuals from various data sources to better understand the well-being and health of children in Best Start Region 5, the Antelope Valley. The findings and visuals are being developed by Catalyst California for the Region 5 State of the Child report in collaboration with The Children's Bureau. 
 
-# Prep and Set Up 
+
 
 ```{r}
+# Prep and Set Up 
 #### Loading Libraries ####
 library(dplyr)
 library(ggplot2)
@@ -35,7 +36,10 @@ library(tidyr)
 library(data.table)
 library(sysfonts)
 library(showtext)
-
+# install.packages("sysfonts")
+# install.packages("showtext")
+# install.packages("kableExtra")
+# install.packages("janitor")
 #### First 5 LA Style Guide ####
 ## COLORS## Taken from W:\Project\RDA Team\Region 5 State of the Child\Documentation\F5LA_BrandGuidelines_COLORS.pdf
 #primary
@@ -394,6 +398,8 @@ av_plot <- av_plot + ylim(0, max_y)     # add buffer between title and chart/dat
 av_plot
 ```
 Source: [California Department of Education, 2015-2022](https://dq.cde.ca.gov/dataquest/)
+
+
 ## Languages of Children and Families
 
 According to the latest American Community Survey data calculated by Lucy Wilkerson, the Antelope Valley has a diverse set of language speakers. The East Antelope Valley and Palmdale areas have a larger shares of Spanish speakers than the County or State as a whole. There are relatively fewer speakers of Asian or Pacific Islander languages, with West Antelope Valley having the largest share of this group. 
@@ -413,12 +419,22 @@ Source: [American Community Survey 2016-2020 5-year estimates calculated for Ant
 
 ## Rent Burden (Cost Burden Renter)
 ```{r}
-# source("W:/Project/RDA Team/Region 5 State of the Child/R/rent_burden.R")
-# 
-# library(kableExtra)
-# kbl(av_table) %>%
-#   kable_styling(bootstrap_options = c("striped", "bordered", "condensed"))
+source("W:/Project/RDA Team/Region 5 State of the Child/R/rent_burden.R")
+
+
+library(kableExtra)
+kbl(CT) %>%
+  kable_styling(bootstrap_options = c("striped", "bordered", "condensed"))
 ```
+Source: [American Community Survey 2016-2020 5-year estimates calculated for Antelope Valley neighborhoods by Lucy Wilkerson](https://public.tableau.com/app/profile/luz3725/viz/2020CensusData-AVBESTSTARTREGION5/GRAPI)
+
+
+```{r}
+kbl(AV) %>%
+  kable_styling(bootstrap_options = c("striped", "bordered", "condensed"))
+```
+Source: [American Community Survey 2016-2020 5-year estimates calculated for Antelope Valley neighborhoods by Lucy Wilkerson](https://public.tableau.com/app/profile/luz3725/viz/2020CensusData-AVBESTSTARTREGION5/GRAPI)
+
 
 
 ## Housing Insecurity 
