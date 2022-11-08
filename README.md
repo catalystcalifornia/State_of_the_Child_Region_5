@@ -1,6 +1,9 @@
 # State_of_the_Child_Region_5
 Draft Findings and Visuals for the State of the Child Region 5 Report.
 
+ <li>
+      <a href="https://advancementprojectca-rda.github.io/State_of_the_Child_Region_5/findings_visuals_draft.html"> Draft Findings HTML Link<br>https://advancementprojectca-rda.github.io/State_of_the_Child_Region_5/findings_visuals_draft.html</a>
+      </li>
 
 <details>
   <summary>Table of Contents</summary>
@@ -30,7 +33,7 @@ Draft Findings and Visuals for the State of the Child Region 5 Report.
 
 ## About The Project
 
-The State of the Child Report seeks to understand the conditions of children and families within this current moment.
+The State of the Child Antelope Valley Report seeks to understand the conditions of children and families within this current moment in the Antelope Valley, California Best Start Region 5. It encompasses topics including demographics, education, economic wellbeing, etc.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
