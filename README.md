@@ -2,7 +2,7 @@
 Draft Findings and Visuals for the State of the Child Region 5 Report.
 
  <li>
-      <a href="https://advancementprojectca-rda.github.io/State_of_the_Child_Region_5/findings_visuals_draft.html"> Draft Findings HTML Link</a>
+      <a href="https://advancementprojectca-rda.github.io/State_of_the_Child_Region_5/findings_visuals_draft.html"> Draft Findings HTML Link<br>https://advancementprojectca-rda.github.io/State_of_the_Child_Region_5/findings_visuals_draft.html</a>
       </li>
 
 <details>
