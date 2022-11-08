@@ -15,7 +15,7 @@ output:
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(comment=FALSE, message=FALSE, warning=FALSE)
-# devtools::install_github("haozhu233/kableExtra")
+
 library(usethis)
 
 
@@ -150,9 +150,9 @@ This matters because separation or probation impacts the ability of parents to l
 
 According to the California Department Of Education 2021_22 school year data, Student Homelessness on average in the Antelope Valley, 2.1%, is slightly lower than the the state average, 2.9%, and Los Angeles County average, 2.8%. However, school district level data tells a different story.
 
-Student Homelessness is especially high in the Westside Union Elementary School District with an average rate of 7.2%, over 3 times the average of the entire Antelope Valley, 2.1%. That means that approx. 7 out of every 100 students in the Westside Union Elementary School District is experiencing homelessness. Although there are high rates among all groups in the the Westside Union Elementary School District, the high rates of homelessness among Non-Hispanic American Indian Alaskan Native (14.3%), Non-Hispanic Black (7.6%) and Latinx students (8.2%), and students who identified as Non-Hispanic Two or More Races (8.1%) especially stand out. 
+Student Homelessness is especially high in the Westside Union Elementary School District with an average rate of 7.2%, over 3 times the average of the entire Antelope Valley, 2.1%. That means that approx. 7 out of every 100 students in the Westside Union Elementary School District is experiencing homelessness. Although there are high rates among all groups in the the Westside Union Elementary School District, the high rates of homelessness among Non-Hispanic American Indian Alaskan Native (AIAN) students (14.3%), Non-Hispanic Black students (7.6%), Latinx students (8.2%), and students who identified as Non-Hispanic Two or More Races (8.1%) especially stand out. 
 
-The Eastside Union Elementary School District and Lancaster Elementary School District also had above average rates, being 2 and 1.2 times higher than the state average respectively. Regionally, students who identified as Non-Hispanic Two or More Races and Non-Hispanic Black and Non-Hispanic American Indian Alaskan Native students had the highest rates. 
+The Eastside Union Elementary School District and Lancaster Elementary School District also had above average rates, being 2 and 1.2 times higher than the state average respectively. Regionally, students who identified as Non-Hispanic Two or More Races and Non-Hispanic Black and Non-Hispanic AIAN students had the highest rates. 
 
 The bulk of the students experiencing homelessness in the Antelope Valley are in grades 1-8. Notably, student homelessness rates range between 15 to 20% of students. Second-grade students had the highest rates with 2 out of 10 experiencing homelessness. 
 
