@@ -273,11 +273,11 @@ Source: [California Department of Education, 2015-2022](https://dq.cde.ca.gov/da
 The 2022 Los Angeles County homeless count counted over 65,000 homeless people in Los Angeles County, 1,000 of whom lived in the cities of Lancaster and Palmdale.
 
 ```{r}
-source("W:/Project/RDA Team/Region 5 State of the Child/R/homeless.R")
-
-library(kableExtra)
-kbl(av_table) %>%
-  kable_styling(bootstrap_options = c("striped", "bordered", "condensed"))
+# source("W:/Project/RDA Team/Region 5 State of the Child/R/homeless.R")
+# 
+# library(kableExtra)
+# kbl(av_table) %>%
+#   kable_styling(bootstrap_options = c("striped", "bordered", "condensed"))
 
 ```
 Source: [Los Angeles Homeless Services Authority, 2022](https://www.lahsa.org/data)
@@ -413,11 +413,11 @@ Source: [American Community Survey 2016-2020 5-year estimates calculated for Ant
 
 ## Rent Burden (Cost Burden Renter)
 ```{r}
-source("W:/Project/RDA Team/Region 5 State of the Child/R/rent_burden.R")
-
-library(kableExtra)
-kbl(av_table) %>%
-  kable_styling(bootstrap_options = c("striped", "bordered", "condensed"))
+# source("W:/Project/RDA Team/Region 5 State of the Child/R/rent_burden.R")
+# 
+# library(kableExtra)
+# kbl(av_table) %>%
+#   kable_styling(bootstrap_options = c("striped", "bordered", "condensed"))
 ```
 
 
