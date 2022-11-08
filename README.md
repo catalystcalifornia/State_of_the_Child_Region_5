@@ -39,8 +39,9 @@ The State of the Child Antelope Valley Report seeks to understand the conditions
 
 
 ### Data Source(s)
-<!--*[2020 US Census American Community Survey (ACS) 5-year Estimates, Table B02018](https://data.census.gov/cedsci/table?t=Asian&g=0400000US06%240500000_0500000US06037&tid=ACSDT5Y2020.B02018)
-*[2019 US Census American Community Survey (ACS) 1-year Estimates, Table S0201](https://data.census.gov/cedsci/table?q=S0201&t=-00%20-%20All%20available%20races&g=0400000US06%240500000&tid=ACSSPP1Y2019.S0201)-->
+# *[American Community Survey 2016-2020 5-year estimates calculated for Antelope Valley neighborhoods by Lucy Wilkerson](https://public.tableau.com/app/profile/luz3725/viz/2020CensusData-AVBESTSTARTREGION5/GRAPI)
+# *[2019 US Census American Community Survey (ACS) 1-year Estimates, Table S0201](https://data.census.gov/cedsci/table?q=S0201&t=-00%20-%20All%20available%20races&g=0400000US06%240500000&tid=ACSSPP1Y2019.S0201)
+*
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
