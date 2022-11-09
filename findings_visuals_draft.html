@@ -1849,10 +1849,7 @@ library(tidyr)
 library(data.table)
 library(sysfonts)
 library(showtext)
-# install.packages(&quot;sysfonts&quot;)
-# install.packages(&quot;showtext&quot;)
-# install.packages(&quot;kableExtra&quot;)
-# install.packages(&quot;janitor&quot;)
+
 #### First 5 LA Style Guide ####
 ## COLORS## Taken from W:\Project\RDA Team\Region 5 State of the Child\Documentation\F5LA_BrandGuidelines_COLORS.pdf
 #primary
@@ -3410,20 +3407,2905 @@ Valley neighborhoods by Lucy Wilkerson</a></p>
 <h1>Economics</h1>
 <div id="rent-burden-cost-burden-renter" class="section level2">
 <h2>Rent Burden (Cost Burden Renter)</h2>
-<pre class="r"><code># source(&quot;W:/Project/RDA Team/Region 5 State of the Child/R/rent_burden.R&quot;)
-# 
-# 
-# library(kableExtra)
-# kbl(CT) %&gt;%
-#   kable_styling(bootstrap_options = c(&quot;striped&quot;, &quot;bordered&quot;, &quot;condensed&quot;))</code></pre>
+<pre class="r"><code>source(&quot;W:/Project/RDA Team/Region 5 State of the Child/R/rent_burden.R&quot;)
+library(kableExtra)
+kbl(AV) %&gt;%
+  kable_styling(bootstrap_options = c(&quot;striped&quot;, &quot;bordered&quot;, &quot;condensed&quot;))</code></pre>
+<table class="table table-striped table-bordered table-condensed" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+geoname
+</th>
+<th style="text-align:right;">
+latino_rate
+</th>
+<th style="text-align:right;">
+nh_aian_rate
+</th>
+<th style="text-align:right;">
+nh_asian_rate
+</th>
+<th style="text-align:right;">
+nh_black_rate
+</th>
+<th style="text-align:right;">
+nh_other_rate
+</th>
+<th style="text-align:right;">
+nh_pacisl_rate
+</th>
+<th style="text-align:right;">
+nh_white_rate
+</th>
+<th style="text-align:right;">
+total_rate
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+85
+</td>
+<td style="text-align:left;">
+Antelope Valley Best Start Region 5
+</td>
+<td style="text-align:right;">
+55.22749
+</td>
+<td style="text-align:right;">
+78.35821
+</td>
+<td style="text-align:right;">
+37.72776
+</td>
+<td style="text-align:right;">
+62.59194
+</td>
+<td style="text-align:right;">
+56.96401
+</td>
+<td style="text-align:right;">
+50
+</td>
+<td style="text-align:right;">
+49.8243
+</td>
+<td style="text-align:right;">
+55.32402
+</td>
+</tr>
+</tbody>
+</table>
 <p>Source: <a href="https://public.tableau.com/app/profile/luz3725/viz/2020CensusData-AVBESTSTARTREGION5/GRAPI">American
 Community Survey 2016-2020 5-year estimates calculated for Antelope
 Valley neighborhoods by Lucy Wilkerson</a></p>
-<pre class="r"><code># kbl(AV) %&gt;%
-#   kable_styling(bootstrap_options = c(&quot;striped&quot;, &quot;bordered&quot;, &quot;condensed&quot;))</code></pre>
-<p>Source: <a href="https://public.tableau.com/app/profile/luz3725/viz/2020CensusData-AVBESTSTARTREGION5/GRAPI">American
+<pre class="r"><code>kbl(CT) %&gt;%
+  kable_styling(bootstrap_options = c(&quot;striped&quot;, &quot;bordered&quot;, &quot;condensed&quot;))</code></pre>
+<table class="table table-striped table-bordered table-condensed" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+geoid
+</th>
+<th style="text-align:left;">
+geoname
+</th>
+<th style="text-align:right;">
+latino_rate
+</th>
+<th style="text-align:right;">
+nh_aian_rate
+</th>
+<th style="text-align:right;">
+nh_asian_rate
+</th>
+<th style="text-align:right;">
+nh_black_rate
+</th>
+<th style="text-align:right;">
+nh_other_rate
+</th>
+<th style="text-align:right;">
+nh_pacisl_rate
+</th>
+<th style="text-align:right;">
+nh_white_rate
+</th>
+<th style="text-align:right;">
+total_rate
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+06037900103
+</td>
+<td style="text-align:left;">
+LAKE LOS ANGELES
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+62.50000
+</td>
+<td style="text-align:right;">
+39.10256
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+06037900104
+</td>
+<td style="text-align:left;">
+LAKE LOS ANGELES
+</td>
+<td style="text-align:right;">
+52.63158
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+42.85714
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+06037900301
+</td>
+<td style="text-align:left;">
+LANCASTER
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+06037900501
+</td>
+<td style="text-align:left;">
+LANCASTER
+</td>
+<td style="text-align:right;">
+50.00000
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+65.71429
+</td>
+<td style="text-align:right;">
+44.05594
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+06037900504
+</td>
+<td style="text-align:left;">
+LANCASTER
+</td>
+<td style="text-align:right;">
+63.63636
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+60.41667
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+52.13675
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+06037900505
+</td>
+<td style="text-align:left;">
+LANCASTER
+</td>
+<td style="text-align:right;">
+84.00000
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+83.33333
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+73.52941
+</td>
+<td style="text-align:right;">
+76.08200
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+06037900506
+</td>
+<td style="text-align:left;">
+LANCASTER
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+61.97183
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+55.14019
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+06037900508
+</td>
+<td style="text-align:left;">
+LANCASTER
+</td>
+<td style="text-align:right;">
+55.17241
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+67.85714
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+61.53846
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+06037900509
+</td>
+<td style="text-align:left;">
+LANCASTER
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+06037900510
+</td>
+<td style="text-align:left;">
+LANCASTER
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+06037900602
+</td>
+<td style="text-align:left;">
+LANCASTER
+</td>
+<td style="text-align:right;">
+70.00000
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+76.04167
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+06037900606
+</td>
+<td style="text-align:left;">
+LANCASTER
+</td>
+<td style="text-align:right;">
+56.25000
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+64.06250
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+63.63636
+</td>
+<td style="text-align:right;">
+62.50000
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+06037900607
+</td>
+<td style="text-align:left;">
+LANCASTER
+</td>
+<td style="text-align:right;">
+51.28205
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+65.38462
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+06037900608
+</td>
+<td style="text-align:left;">
+LANCASTER
+</td>
+<td style="text-align:right;">
+70.37037
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+66.66667
+</td>
+<td style="text-align:right;">
+75.65789
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+06037900609
+</td>
+<td style="text-align:left;">
+LANCASTER
+</td>
+<td style="text-align:right;">
+63.63636
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+67.21311
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+44.44444
+</td>
+<td style="text-align:right;">
+61.64384
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+06037900610
+</td>
+<td style="text-align:left;">
+LANCASTER
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+06037900611
+</td>
+<td style="text-align:left;">
+LANCASTER
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+06037900701
+</td>
+<td style="text-align:left;">
+LANCASTER
+</td>
+<td style="text-align:right;">
+56.25000
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+42.59259
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+66.66667
+</td>
+<td style="text-align:right;">
+55.87906
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+06037900703
+</td>
+<td style="text-align:left;">
+LANCASTER
+</td>
+<td style="text-align:right;">
+58.44156
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+70.51282
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+53.73134
+</td>
+<td style="text-align:right;">
+60.32389
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+06037900704
+</td>
+<td style="text-align:left;">
+LANCASTER
+</td>
+<td style="text-align:right;">
+42.85714
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+59.59596
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+32.18391
+</td>
+<td style="text-align:right;">
+45.44741
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+06037900705
+</td>
+<td style="text-align:left;">
+LANCASTER
+</td>
+<td style="text-align:right;">
+60.00000
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+70.00000
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+41.75824
+</td>
+<td style="text-align:right;">
+51.89504
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+06037900804
+</td>
+<td style="text-align:left;">
+LANCASTER
+</td>
+<td style="text-align:right;">
+43.18182
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+69.44444
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+71.01449
+</td>
+<td style="text-align:right;">
+57.35608
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+06037900805
+</td>
+<td style="text-align:left;">
+LANCASTER
+</td>
+<td style="text-align:right;">
+50.00000
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+52.50000
+</td>
+<td style="text-align:right;">
+51.64835
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+06037900806
+</td>
+<td style="text-align:left;">
+LANCASTER
+</td>
+<td style="text-align:right;">
+59.21053
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+70.58824
+</td>
+<td style="text-align:right;">
+59.84252
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+63.15789
+</td>
+<td style="text-align:right;">
+61.74699
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+06037900807
+</td>
+<td style="text-align:left;">
+LANCASTER
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+06037900808
+</td>
+<td style="text-align:left;">
+LANCASTER
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+06037900901
+</td>
+<td style="text-align:left;">
+LANCASTER
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+06037901003
+</td>
+<td style="text-align:left;">
+LANCASTER
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+06037901007
+</td>
+<td style="text-align:left;">
+LANCASTER
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+06037901008
+</td>
+<td style="text-align:left;">
+LANCASTER
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+36.36364
+</td>
+<td style="text-align:right;">
+45.20548
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+06037901009
+</td>
+<td style="text-align:left;">
+LANCASTER
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+70.21277
+</td>
+<td style="text-align:right;">
+51.78571
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+06037901010
+</td>
+<td style="text-align:left;">
+LANCASTER
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+40.00000
+</td>
+<td style="text-align:right;">
+40.00000
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+06037901011
+</td>
+<td style="text-align:left;">
+LANCASTER
+</td>
+<td style="text-align:right;">
+50.00000
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+47.42268
+</td>
+<td style="text-align:right;">
+45.95960
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+06037901012
+</td>
+<td style="text-align:left;">
+LANCASTER
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+06037901013
+</td>
+<td style="text-align:left;">
+LANCASTER
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+06037901014
+</td>
+<td style="text-align:left;">
+LANCASTER
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+06037901101
+</td>
+<td style="text-align:left;">
+QUARTZ HILL
+</td>
+<td style="text-align:right;">
+57.14286
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+52.54237
+</td>
+<td style="text-align:right;">
+49.58678
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+06037901102
+</td>
+<td style="text-align:left;">
+QUARTZ HILL
+</td>
+<td style="text-align:right;">
+52.38095
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+39.18919
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+06037901214
+</td>
+<td style="text-align:left;">
+LANCASTER
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+06037901215
+</td>
+<td style="text-align:left;">
+LANCASTER
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+06037901216
+</td>
+<td style="text-align:left;">
+LANCASTER
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+06037901217
+</td>
+<td style="text-align:left;">
+WEST ANTELOPE VALLEY
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+06037901218
+</td>
+<td style="text-align:left;">
+PALMDALE
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+06037901300
+</td>
+<td style="text-align:left;">
+EAST ANTELOPE VALLEY
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+06037910002
+</td>
+<td style="text-align:left;">
+EAST ANTELOPE VALLEY
+</td>
+<td style="text-align:right;">
+81.96721
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+62.85714
+</td>
+<td style="text-align:right;">
+70.67669
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+06037910210
+</td>
+<td style="text-align:left;">
+PALMDALE
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+06037910211
+</td>
+<td style="text-align:left;">
+LANCASTER
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+06037910212
+</td>
+<td style="text-align:left;">
+PALMDALE
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+06037910213
+</td>
+<td style="text-align:left;">
+PALMDALE
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+06037910214
+</td>
+<td style="text-align:left;">
+PALMDALE
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+06037910215
+</td>
+<td style="text-align:left;">
+PALMDALE
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+06037910216
+</td>
+<td style="text-align:left;">
+PALMDALE
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+06037910217
+</td>
+<td style="text-align:left;">
+PALMDALE
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+06037910218
+</td>
+<td style="text-align:left;">
+PALMDALE
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+06037910301
+</td>
+<td style="text-align:left;">
+QUARTZ HILL
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+06037910302
+</td>
+<td style="text-align:left;">
+PALMDALE
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+06037910401
+</td>
+<td style="text-align:left;">
+PALMDALE
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+29.11392
+</td>
+<td style="text-align:right;">
+37.19512
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+06037910404
+</td>
+<td style="text-align:left;">
+PALMDALE
+</td>
+<td style="text-align:right;">
+47.61905
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+73.33333
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+48.91304
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+06037910405
+</td>
+<td style="text-align:left;">
+PALMDALE
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+06037910501
+</td>
+<td style="text-align:left;">
+PALMDALE
+</td>
+<td style="text-align:right;">
+53.59477
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+76.47059
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+61.66667
+</td>
+<td style="text-align:right;">
+65.09186
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+06037910502
+</td>
+<td style="text-align:left;">
+PALMDALE
+</td>
+<td style="text-align:right;">
+62.92135
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+86.20690
+</td>
+<td style="text-align:right;">
+69.75138
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+06037910504
+</td>
+<td style="text-align:left;">
+PALMDALE
+</td>
+<td style="text-align:right;">
+50.00000
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+54.34298
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+06037910505
+</td>
+<td style="text-align:left;">
+PALMDALE
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+55.55556
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+06037910601
+</td>
+<td style="text-align:left;">
+PALMDALE
+</td>
+<td style="text-align:right;">
+64.86486
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+87.09677
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+64.64646
+</td>
+<td style="text-align:right;">
+72.66515
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+06037910602
+</td>
+<td style="text-align:left;">
+PALMDALE
+</td>
+<td style="text-align:right;">
+29.82456
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+69.04762
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+62.50000
+</td>
+<td style="text-align:right;">
+51.36986
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+06037910605
+</td>
+<td style="text-align:left;">
+PALMDALE
+</td>
+<td style="text-align:right;">
+75.47170
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+54.15778
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+06037910606
+</td>
+<td style="text-align:left;">
+PALMDALE
+</td>
+<td style="text-align:right;">
+50.00000
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+49.09091
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+06037910607
+</td>
+<td style="text-align:left;">
+PALMDALE
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+06037910608
+</td>
+<td style="text-align:left;">
+PALMDALE
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+06037910706
+</td>
+<td style="text-align:left;">
+PALMDALE
+</td>
+<td style="text-align:right;">
+61.22449
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+58.10056
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+06037910707
+</td>
+<td style="text-align:left;">
+PALMDALE
+</td>
+<td style="text-align:right;">
+68.96552
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+62.00000
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+64.34109
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+06037910709
+</td>
+<td style="text-align:left;">
+PALMDALE
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+06037910712
+</td>
+<td style="text-align:left;">
+PALMDALE
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+57.69231
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+06037910713
+</td>
+<td style="text-align:left;">
+PALMDALE
+</td>
+<td style="text-align:right;">
+45.16129
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+57.83133
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+06037910714
+</td>
+<td style="text-align:left;">
+PALMDALE
+</td>
+<td style="text-align:right;">
+71.79487
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+82.35294
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+71.42857
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+06037910715
+</td>
+<td style="text-align:left;">
+PALMDALE
+</td>
+<td style="text-align:right;">
+46.15385
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+86.36364
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+57.62712
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+06037910716
+</td>
+<td style="text-align:left;">
+PALMDALE
+</td>
+<td style="text-align:right;">
+70.68966
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+73.33333
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+06037910717
+</td>
+<td style="text-align:left;">
+PALMDALE
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+06037910718
+</td>
+<td style="text-align:left;">
+PALMDALE
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+06037910719
+</td>
+<td style="text-align:left;">
+PALMDALE
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+06037910720
+</td>
+<td style="text-align:left;">
+PALMDALE
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+06037910721
+</td>
+<td style="text-align:left;">
+PALMDALE
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+06037910804
+</td>
+<td style="text-align:left;">
+PALMDALE
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+06037911100
+</td>
+<td style="text-align:left;">
+EAST ANTELOPE VALLEY
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+</tr>
+</tbody>
+</table>
+<p>Sources: <a href="https://public.tableau.com/app/profile/luz3725/viz/2020CensusData-AVBESTSTARTREGION5/GRAPI">American
 Community Survey 2016-2020 5-year estimates calculated for Antelope
-Valley neighborhoods by Lucy Wilkerson</a></p>
+Valley neighborhoods by Lucy Wilkerson</a> and <a href="https://www.huduser.gov/portal/datasets/cp.html#2006-2018">HUD
+CHAS 2014-2018</a></p>
+<pre class="r"><code># AV Bar Chart
+s &lt;- AV 
+tot = subset(s, select=c(total_rate)) %&gt;% round(1)  # pull out total_rate
+s = subset(s, select=-c(total_rate)) # pull out raced rates
+oldnames = c(&quot;nh_black_rate&quot;,&quot;nh_aian_rate&quot;, &quot;nh_asian_rate&quot;, &quot;nh_other_rate&quot;, &quot;latino_rate&quot;, &quot;nh_pacisl_rate&quot;, &quot;nh_white_rate&quot;)
+engvar = c(&quot;Black&quot;, &quot;AIAN&quot;, &quot;Asian&quot;, &quot;Other&quot;, &quot;Latinx&quot;, &quot;NHPI&quot;, &quot;White&quot;)
+s = s %&gt;% rename_at(vars(oldnames), ~ engvar)
+
+# create english / spanish labels
+engvar = c(&quot;Black&quot;, &quot;AIAN&quot;, &quot;Asian&quot;, &quot;Other&quot;, &quot;Latinx&quot;, &quot;NHPI&quot;, &quot;White&quot;)
+esvar = c(&quot;Negro&quot;, &quot;Indígena Americano&quot;, &quot;Asiático&quot;, &quot;Otra Raza&quot;, &quot;Latino&quot;, &quot;Isleño del Pacifico&quot;, &quot;Blanco&quot;) 
+#esvar_long = c(&quot;NEGRO O AFROAMERICANO&quot;, &quot;INDÍGENA AMERICANO O NATIVO DE ALASKA&quot;, &quot;ASIÁTICO&quot;, &quot;OTRA RAZA&quot;, &quot;LATINO&quot;, &quot;ISLEÑO DEL PACIFICO&quot;, &quot;BLANCO&quot;)
+labels &lt;- data.frame(engvar, esvar)
+# labels
+
+
+# convert df to long format
+s_long &lt;- reshape2::melt(s, id.vars=c(&quot;geoname&quot;))
+# Round &#39;value&#39; field to 1 decimal, rename &#39;variable&#39; field, add Spanish labels
+s_long &lt;- s_long %&gt;% mutate(value = round(value, 1)) %&gt;% dplyr::rename(engvar = variable)  %&gt;% 
+  left_join(labels, by = &quot;engvar&quot;)
+s_long &lt;- s_long %&gt;% filter(value &gt; 0)
+
+
+df &lt;- data.frame(s_long, tot)       # add total_rate to long table
+df &lt;- na.omit(df)             # drop NA&#39;s
+# df
+
+engtot_stat &lt;- paste(&quot;Overall Rate =&quot;, min(df$total_rate))   # total_rate line annotation
+estot_stat &lt;- paste(&quot;Promedio Total =&quot;, min(df$total_rate))   # total_rate line annotation
+
+
+# Set region name for file name
+region &lt;- &quot;Antelope Valley&quot;
+
+
+# write the name of your indicator here:
+var &lt;- &quot;rent_burdened&quot;
+
+
+# Define chart height as max y value varies by indicator. Set vertical position for total line label - may need to be customized for each chart.
+max_y = 1.15 * max(df$value) 
+annotate_y = 1.12 * df$total_rate
+
+# specify language: comment out based on language of chart created below
+lang &lt;- &quot;eng&quot;
+
+
+
+
+# # ggplot method that should export as .svg ##
+av_plot &lt;- 
+  #English
+  ggplot(df, aes(x= reorder(engvar, -value), y=value)) +     # set up manual fill using &#39;test&#39;, add &quot;-&quot; before value to order bars when MAX is best
+  annotate(&quot;text&quot;, x=6.25, y = annotate_y, label = str_wrap(engtot_stat, width = 20), hjust=-0.33, vjust = 0.35, family= font_table_text, color = red) +  
+  labs(title = &quot;**&lt;span style=&#39;font-size:20pt;&#39;&gt;Rent Burdened (%)&lt;/span&gt;**&quot;, subtitle = region, caption = &quot;*American Indian and Alaska Native (AIAN), Native Hawaiian and Pacific Islander (NHPI)&quot;) +
+  # rest of chart    
+  geom_bar(stat=&quot;identity&quot;, position = position_dodge(0.7), show.legend = FALSE) +
+  geom_col(fill = lightblue, color = darkblue) +         # all bars in &quot;#355C7D&quot;
+  geom_hline(aes(yintercept = round(total_rate, 1)), color = red, size = .5) + 
+  geom_text(aes(label = round(value, digits = 1)), family = font_bar_label, hjust = -.5) +       # format data labels, adjust hjust to avoid overlap w/ total line
+  # scale_y_continuous(limits = c(0, max_y), breaks = seq(0, max_y, by = 20)) +
+  scale_x_discrete(labels = function(engvar) str_wrap(engvar, width = 20)) +            # wrap long labels
+  xlab(&quot;&quot;) +
+  ylab(&quot;&quot;) +
+  coord_flip()
+# av_plot
+
+av_plot &lt;- av_plot + theme(
+  panel.background = element_rect(fill = &quot;transparent&quot;), # bg of the panel
+  plot.background = element_rect(fill = &#39;transparent&#39;, color=NA), 
+  panel.grid.major.y = element_line(colour = textgrey),    # add major y-axis gridlines
+  panel.grid.minor = element_blank(), # bg of the plot
+  axis.title.x = element_blank(),
+  axis.title.y = element_blank(),
+  axis.text.x = element_text(size = 12, family= font_axis_label),
+  axis.text.y = element_text(size = 12, family= font_axis_label),
+  axis.ticks = element_blank(),
+  plot.title = element_markdown(family = font_title, face = &quot;bold&quot;, size = 15, hjust = 0),
+  plot.title.position = &quot;plot&quot;,
+  plot.subtitle = element_text(family = font_title, hjust = 0), 
+  plot.margin = margin(t = 10,
+                       b = 10,
+                       r = 10,
+                       l = 10)
+)
+
+
+av_plot &lt;- av_plot + ylim(0, max_y)     # add buffer between title and chart/data labels
+av_plot</code></pre>
+<p><img src="data:image/png;base64,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QIAHAAAAAEADCPAAAAAAAGgAAR4AAAAAAA0gwAMAAAAAoAEEeAAAAAAANIAADwAAAACABhDgAQAAAADQAAI8AAAAAAAaQIAHAAAAAEADCPAAAAAAAGgAAR4AAAAAAA0gwAMAAAAAoAEEeAAAAAAANIAADwAAAACABhDgAQAAAADQAAI8AAAAAAAaQIAHAAAAAEADCPAAAAAAAGgAAR4AAAAAAA0gwAMAAAAAoAEEeAAAAAAANIAADwAAAACABhDgAQAAAADQAAI8AAAAAAAaQIAHAAAAAEADCPAAAAAAAGiAPo/n+/rrr7/55pslS5aUKFEii4csWLDg4sWLc+bMydXCAADIKYsXL75z545NY58+fby9vWfMmKEoik1X3bp127VrZ92SxWEAAKBAydMAn5qaunXr1qJFi/73v//t379/Fo9q2bJlnTp1crMuAABy0rx5886dO2fT+Oqrr3p7e0+ZMiU1NdWma9SoUTbJPIvDAABAgZKnAf7QoUN6vX7YsGGzZ8/u3bu3wWDIylG+vr65XRgAADnonXfeUe/AJycnBwcHJyQklC9fvlq1aiLy/vvvm81mdVhkZOTChQslo590WRwGAAAKlDwN8Js2bWrbtm3dunUdHR337NnTtm1b696YmJiFCxf++uuvBoPBx8enc+fOL774ooisXr06PDw8KChIRK5evbp27drw8PDo6GgPD4+WLVt27txZr9eLyJw5cwwGQ926dX/66afw8PAyZcr079+/evXqeXmBAACIyNChQ0UkJSWle/fuCQkJvr6+O3fuLFWqlIhMnjzZMmzYsGEiUq5cuSFDhticIYvDAABAgZJ3Af73338PDw8PDAy0s7Nr06aNGuatByxcuDAhIeHTTz8VkUOHDp07d04N8NZ0Ol21atW6devm6up67dq1JUuWJCQkWFbjX7x4MTIyskePHkajccOGDUFBQQsXLixevHieXB8AAH9LTU3t2bPnhg0bPD09f/7559KlS9sMOH/+/LJly0Rk2rRpRqPxUefJ4jAAAFAQ5F2A37hxY/369YsUKSIibdq0+fbbb8+fP28d0S9fvtynT5+yZcuKSI8ePTI8ibe3t7e3t7pdokQJs9m8YMECS4B/8ODBJ5984ujoKCL+/v7Dhg3bt29fly5dslLe3Llzs31pAIDnWzZ+RsTFxa1bt05EIiMjfX19O3fu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ewgAAADUNlfgAQAAIAKuwMdk0dLh6R4CAAAA6eEKPAAAAERAwAMAAEAEBDwAAABEQMADAABABAQ8AAAAREDAAwAAQAQEPAAAAERAwAMAAEAEMtM9APZO52NGp3sIAEAazG6e7hEAkG6uwMdEvQMAAOy3XIGPz+tD+6Z7CABAreo0Jj/dQwAg/VyBBwAAgAgIeAAAAIiAgAcAAIAICHgAAACIgIAHAACACAh4AAAAiICABwAAgAgIeAAAAIiAgAcAAIAICHgAAACIgIAHAACACAh4AAAAiICABwAAgAgIeAAAAIiAgAcAAIAICHgAAACIgIAHAACACAh4AAAAiICABwAA43yNRgAAIABJREFUgAgIeAAAAIiAgAcAAIAICHgAAACIgIAHAACACAh4AAAAiICABwAAgAgIeAAAAIiAgAcAAIAICHgAAACIgIAHAACACAh4AAAAiICABwAAgAgIeAAAAIiAgAcAAIAICHgAAACIgIAHAACACAh4AAAAiICABwAAgAgIeAAAAIiAgAcAAIAICHgAAACIgIAHAACACNRIwD/77LOXXXbZ11hxw4YN+fn5ZWVlqSn33nvvkCFDqm9oAAAAEKXMdA/g//jiiy+mTp3aq1evOnX+918Wunfv3qlTp/SOCgAgRm+//faMGTMqTPzlL3954IEHVjKrwsSCgoKpU6cuX768adOmZ511Vrdu3WpuwABU7psV8Ds7+uij0z0EAIAozZ8//7rrrqswceDAgQceeGAls8pPmTNnTu/evQsLC5M3b7311qFDh9555501N2YAKpGGgF+5cmV+fv6KFSsKCwsPOeSQ7t279+rVKzMzc968eXfccUcIoXfv3iGEU0899eqrr/7DH/6wYsWKESNGhBDGjRuXnZ3duXPnp59+esWKFYcddthFF1103HHHhRC2bt06ZMiQbt269evXL7mXV199dezYsePHj2/WrFntHyMAQNoVFRWFEDp06PD9738/NTGZ6JXMStmxY8egQYMKCwuPOeaY3r17z5o165VXXhkzZszAgQPbt29fS8cAQDlpCPiMjIxjjjmmT58+Bx100KpVq+6///5NmzZddNFFJ5544ogRI0aMGPHAAw9kZ2dnZ2fvvO6yZcsKCgp+/OMf16tX78knnxwxYsR9993XtGnT+vXrDx06dPjw4Z07d27Xrl1RUdHdd989ePBg9Q4A7LeSld69e/dbb7216rNSsrKy/vznP48aNWrcuHENGjS49NJLW7ZsGUJYvHixgAdIizQEfNu2bdu2bZv8uVmzZmVlZffee+9FF12UnZ198MEHhxAaNWqUlZW1y3U3bNhw22231a9fP4Rw5ZVXXnLJJX/961/PP//8EMJRRx3Vu3fvsWPHjhs37ve//32HDh3+9V//teqjGj9+/D4eFwBATdurVywvv/xyCOEPf/jD9OnTs7Oz27Rpc/rppycvs1cyq4IOHTo8+OCDIYSPPvootdl169bt+7FA0hVXXBG8GudbKnl6V6M0BPxXX3312GOPLVmyZOPGjQ0aNGjSpMmGDRvKyspSX1xXieOOOy5Z7yGEzMzMdu3arV27NjW3b9++r7/++jXXXFNcXOxPAACwn6tbt24IIRXby5cvf/vtt4cNG5adnV3JrF1uatOmTdOmTQsh5OXlHXnkkbUxegB2UtsBn0gkRo0alZOTM3To0ObNmxcVFS1cuHDRokVVXP2ggw4qf/OAAw4oLS1N3axbt+6PfvSj22+/fcCAATk5OXs1sGr/p5GaMOW+0ekeAgCQTnv1iuXyyy+///77s7Oz27VrN2fOnJEjR65du7Z58+YDBgyoZNbO21m2bNk555zzySeftG7d+qWXXjr88MOr74Dgf0XxahzSrrYDfu3atcuWLZs8eXKTJk1CCE2bNq3Gz1Bt2bJlypQpp5566hNPPHHaaac1b968urYMABCdOnXqXHLJJcmfTznllOeff37BggXvv/9+5bMqmDlzZr9+/YqKik455ZQnnnjCFwwBpNGe37VevbZt2xZCyMz8//9wsHjx4v8/mjp1QgjFxcVfb+MTJkw49NBDhw0bdsopp4wZM6asrGzfBgsAELHx48efffbZy5YtSyQSCxYsSL7nMfkG+N3N2rZt26RJkyZNmvThhx+GEMaMGfPDH/6wqKhoyJAhc+bMUe8A6VVTAb9jx45PdlJSUtKqVau8vLyJEydu3Lhxy5Yts2fPfumll1Jr5eXl1a1b9/HHH1+1atXy5cv3ao8vv/zyq6++esUVV2RkZAwcOLCwsDA/P7+ajwoAIBKrV6++5pprZs6c+d3vfjcnJ6dr1647duxo0aLFeeedV8ms4uLigQMHDhw48JVXXvnLX/4ybNiw5BWRe+65JycnJysrKysra9SoUek+OID9VE0F/Nq1awfvZP369XXq1Lnxxhs3b948aNCgYcOGrVy5svzHXXJycn7xi1/Mnz//+uuvf/fdd6u+uy+++OKee+4ZPHhw8p359evXv/LKK/Pz83f5TjAAgG+91q1bz5s37+STT65Xr97WrVtDCKeddtrzzz/fuHHjSmaV30JJSUn5n1O8yREgXTISiUS6x0BVdT5mdAjh9aF90z0QAKBWdRqTP7v59BBC7tzX9nbdkpKSVatWHXrooTv/L3GVzALgGygN/40cAAC1JjMz8zvf+c7ezgLgG6i2v8QOAAAA+BoEPAAAAERAwAMAAEAEBDwAAABEQMADAABABAQ8AAAAREDAAwAAQAQEPAAAAERAwAMAAEAEBDwAAABEQMADAABABAQ8AAAAREDAAwAAQAQEPAAAAERAwAMAAEAEBDwAAABEQMADAABABAQ8AAAAREDAAwAAQAQEPAAAAERAwAMAAEAEBDwAAABEQMADAABABAQ8AAAAREDAAwAAQAQEPAAAAERAwAMAAEAEBDwAAABEQMADAABABAQ8AAAAREDAAwAAQAQEPAAAAERAwAMAAEAEBDwAAABEQMADAABABAQ8AAAAREDAAwAAQAQEPAAAAERAwAMAAEAEBDwAAABEIDPdA2CvdRqTn+4hAAAAUNtcgQcAAIAIZCQSiXSPAQCAPSg8vUsIIXfua+keCABp4wo8AAAAREDAAwAAQAQEPAAAAERAwAMAAEAEBDwAAABEQMADAABABAQ8AAAAREDAAwAAQAQy0z0A9k7nY0anewgAQBrMbh7CPr8SWLR0ePWMBoB0cAU+JuodAABgv+UKfHxeH9o33UMAAGrd1OlhH14GdBqTX62jASANXIEHAACACAh4AAAAiICABwAAgAgIeAAAAIiAgAcAAIAICHgAAACIgIAHAACACAh4AAAAiICABwAAgAgIeAAAAIiAgAcAAIAICHgAAACIgIAHAACACAh4AAAAiICABwAAgAgIeAAAAIiAgAcAAIAICHgAAACIgIAHAACACAh4AAAAiICABwAAgAgIeAAAAIiAgAcAAIAICHgAAACIgIAHAACACAh4AAAAiICABwAAgAgIeAAAAIiAgAcAAIAICHgAAACIgIAHAACACAh4AAAAiICABwAAgAgIeAAAAIiAgAcAAIAICHgAAACIgIAHAACACAh4AAAAiICABwAAgAgIeAAAAIiAgAcAAIAIfHMDvqCgYO3atekeBQAAAHwjZNbCPkpLS5966qm33nrrgw8+aNCgQbt27c4666zvfe975ZfZsGHDrFmz+vTpU6fO//6bwrRp07KzswcPHlwLIwQA4O23354xY0aFib/85S8PPPDA0aNHJxKJCrM6d+7cs2fP2hodADUf8OvWrbv99tuLiop+8IMf9O3bt7Cw8K233rrxxhvPO++8n/3sZxkZGcnFvvjii6lTp/bq1SsV8AAA1Kb58+dfd911FSYOHDjwwAMPvPHGG0tKSirMuvzyywU8QG2q2YBPJBJjx4494IADRo4cmZOTk5x48sknn3zyyaNGjWrVqlWPHj1qdAAAAFRRUVFRCKFDhw7f//73UxMPPPDAEMINN9xQVlaWnFJQUHDfffeFEI4++uh0DBNg/1WzAf+Xv/zlww8/vPfee1P1ntShQ4fzzz9/8uTJJ598cv369efNm3fHHXeEEHr37h1COPXUU6+++urkkq+99trTTz+9YsWKww477KKLLjruuONSG/n0008ffPDBZcuWHXTQQV26dBkwYEBWVlYIYdy4cdnZ2RdeeOF999339ttvT506tUaPEQDg2yEZ8N27d7/11lsrzLr++utTP19yySUhhDZt2gwaNKg2hwdAzb5ffdGiRSeddFLTpk13nnXuuedu3Ljxgw8+CCGceOKJI0aMCCE88MADU6ZM+cUvfpFcZtmyZc8888yPf/zjUaNGNW/efMSIEevXr0/O+vjjj6+66qojjjhi7NixV1111fvvvz9y5MjUxktLS8eMGbN58+Z+/frV6AECAHxrbNy4MYTw3HPPde3atUePHr/5zW9SL71S3n333UmTJoUQbr755nr16qVhlAD7sZq9Ar9q1apu3brtclaDBg2aNm26cuXK4447Ljs7++CDDw4hNGrUKHkVPWnDhg233XZb/fr1QwhXXnnlJZdc8te//vX8888PITz44IOnnnpq//79QwjNmjW77rrrLr744jfeeOP4448PIcyfP/+ss876j//4j6oPdfz48V//OAEAYlD5C56lS5eGEN5///3kzTlz5kyaNGnYsGHZ2dmpZSZMmFBaWtqiRYsvvvjCyyeqxRVXXBG8GudbKnl6V6OaDfjUZ6V2qU6dOpV/Zd1xxx2XrPcQQmZmZrt27ZL/sVxZWdnbb7998803p5Y86KCD/vmf/3nJkiXJgM/MzLzwwgur4QAAAPYbvXr1at68eWZm5iGHHLJ8+fIXXnhh7dq1b731VpcuXZILLF++PBn55557buqriAGoNTUb8G3btl25cuUuZ23evHndunVt27atZPWDDjqo/M0DDjigtLQ0hFBUVLR9+/aRI0dW6P/UJ+2POOKIvX1PV7X/00hNmHLf6HQPAQCI2B5f8AwZMiT1c9euXRcsWNCmTZvkWolEolOnTiGEbt263XvvvTU6TvZDUbwah7Sr2YDv2LHjhAkT1q1b16xZswqznnvuuYYNGx555JFfY7O5ubn16tUbPnx4+e+0K2/n3QEAULnx48c///zzY8eOPfroo1955ZVFixaFEFKv1h555JE333wzhHDbbbelc5QA+7Ga/RK7M844o02bNuPGjdu8eXP56cuWLcvPz//P//zP1Dvkk9fSi4uLq7LZjIyMDh06zJo1q/zEzz//PPVz3bp193XoAAD7k9WrV19zzTUzZ8787ne/m5OT07Vr1x07drRo0eK8884LIWzZsiX5X8RfcMEFJ5xwQroHC7CfqtmAz8jIuPrqq4uLi4cMGTJjxoxly5a99tprDzzwwPDhw88555zy32+Xl5dXt27dxx9/fNWqVcuXL9/jlgcOHLhw4cL777//448//uijj/Lz86+44oqCgoIaPBgAgG+v1q1bz5s37+STT65Xr97WrVtDCKeddtrzzz/fuHHjEMJdd921Zs2azMzMW265Jd0jBdh/1exb6EMIeXl5d9555/Tp0xcuXPjHP/6xYcOG7dq1GzlyZIV3v+fk5PziF7945JFHkt8zf9RRR+1xs+PHj588efJvfvObOnXqHHXUUaNHj87Ly6vJQwEA+Dbr0qXL/PnzS0pKVq1adeihhx544IGpWb/+9a9//etfp3FsAIQQMhKJRLrHQFV1PmZ0COH1oX3TPRAAoLZtmNovhNDoJ49+vdU7jckPISxaOrw6xwRA7arZt9ADAAAA1ULAAwAAQAQEPAAAAERAwAMAAEAEBDwAAABEQMADAABABAQ8AAAAREDAAwAAQAQEPAAAAERAwAMAAEAEBDwAAABEQMADAABABAQ8AAAAREDAAwAAQAQEPAAAAERAwAMAAEAEBDwAAABEQMADAABABAQ8AAAAREDAAwAAQAQEPAAAAERAwAMAAEAEBDwAAABEQMADAABABAQ8AAAAREDAAwAAQAQEPAAAAERAwAMAAEAEBDwAAABEQMADAABABAQ8AAAAREDAAwAAQAQEPAAAAERAwAMAAEAEBDwAAABEQMADAABABAQ8AAAAREDAAwAAQAQEPAAAAERAwAMAAEAEBDwAAABEIDPdA2CvdRqTn+4hAAC1rnkIXgYA7N9cgQcAAIAIZCQSiXSPAQCAPSg8vUsIIXfua+keCABp4wo8AAAAREDAAwAAQAQEPAAAAERAwAMAAEAEBDwAAABEQMADAABABAQ8AAAAREDAAwAAQAQy0z0A9k7nY0anewgAQBrMbh6CVwI7WbR0eLqHAFB7XIGPiedsAACA/ZYr8PF5fWjfdA8BAKh1U6cHLwPK6TQmP91DAKhtrsADAABABAQ8AAAAREDAAwAAQAQEPAAAAERAwAMAAEAEBDwAAABEQMADAABABAQ8AAAAREDAAwAAQAQEPAAAAERAwAMAAEAEBDwAAABEQMADAABABAQ8AAAAREDAAwAAQAQEPAAAAERAwAMAAEAEBDwAAABEQMADAABABAQ8AAAAREDAAwAAQAQEPAAAAERAwAMAAEAEBDwAAABEQMADAABABAQ8AAAAREDAAwAAQAQEPAAAAERAwAMAAEAEBDwAAABEQMADAABABAQ8AAAAREDAAwAAQAQEPAAAAERAwAMAAEAEBDwAAABEQMADAABABAQ8AAAAREDAAwAAQAQEPAAAAETg2xPwS5Yseffdd9M9CgAAAKgRmbWwj2effXbChAmpm9nZ2S1atOjWrdu5556bmfm/A5g3b95nn33Wt2/fr72XOXPmZGdnH3vssfs6XAAAAPjmqY2ADyG0aNFixIgRyZ+3bdu2fPnyhx9+uKCg4LLLLktOXL169YoVK2pnMAAA7OcWLFjw0ksvLV++/Mgjj/y3f/u3zp07p2YVFBRMnTp1+fLlTZs2Peuss7p16/Y1NgJQE2op4LOysvLy8lI327RpU1ZW9tBDD6UCHgAAakEikRgxYsTIkSNTU2644Yb77rvv4osvDiHMmTOnd+/ehYWFyVm33nrr0KFD77zzzr3aCEANqaWA36WcnJxdTl+5cmV+fv6KFSsKCwsPOeSQ7t279+rVK/Vm+40bNz700ENLlizZvn17+/bte/Xq1b59+503Mnv27IkTJ44ePfo73/lODR4DAABRmT59ejK8+/Tp07Fjx/nz5y9atKhXr14hhB07dgwaNKiwsPCYY47p3bv3rFmzXnnllTFjxgwcOLDCC85KNgJQc9IQ8Fu3bl26dOm0adP69++/ywUyMjKOOeaYPn36HHTQQatWrbr//vs3bdp00UUXhRA2bNhw5ZVXtm/ffujQoXXr1p03b95vfvObcePGHXbYYeW38Oabb953333Dhw9X7wAAlHf77beHEM4+++zHHnssOWX9+vVNmzYNIWRlZf35z38eNWrUuHHjGjRocOmll7Zs2TKEsHjx4goBX8lGAGpOLQX8Rx99dO6555afctZZZ/Xo0WOXC7dt27Zt27bJn5s1a1ZWVnbvvfcmA37y5Mlt2rT51a9+lZzbrl27M844o0K9//3vf7/tttt+8YtfHH/88VUf4fjx46u+MAAA3wR7+xKutLT01VdfDSF88cUXHTt2LCoqatKkSdeuXY888sjUMh06dHjwwQdDCB999FFyyssvv7xu3bq92ghVd8UVVwSvxvmWSp7e1aiWAr5ly5Y33XRT8ucdO3YUFBQ8+eSTQ4cOHT16dP369Sss/NVXXz322GNLlizZuHFjgwYNmjRpsmHDhrKysoyMjIULF1599dXlF27dunX5m59//vlNN93Up0+f008/vUaPCACA6BQWFiYSiRDCwoULk1NWrly5aNGiAQMGVPgKuk2bNk2bNi2EkJeXV6HMq74RgOpVSwGfmZnZrFmz1M2WLVt+73vfGzx48IsvvljhynwikRg1alROTs7QoUObN29eVFS0cOHCRYsWhRAKCwu3bNnSvHnz3e2luLh4xIgRxcXFqe8dqbpq/6eRmjDlvtHpHgIAwDfI3r6EW7JkSfKz66eddtqIESO2bt36m9/85s0335w3b96UKVNSiy1btuycc8755JNPWrdu/dJLLx1++OFfYyPslShejUPape1L7LKyslq3bv3pp59WmL527dply5ZNnjy5SZMmIYSmTZumPnGUm5tbv379goKCVq1a7XKb8+bN+9d//dfBgwdff/31Xbp06dChQ40eAgAAcTnkkEOSP1x//fXJN2wWFxf37dt31apVW7duTb4zdObMmf369SsqKjrllFOeeOKJ8lehqr4RgJpQJ1073r59+8qVK1u0aFFh+rZt20IIqe+cDyEsXrw4+UNGRkbnzp2ffPLJ8suvWbMm9XP79u2HDBly3HHHnX/++XfddVdxcXFNjR4AgAjl5eUdddRRIYQnn3xyx44d27dvf+6550IIrVu3Tob3mDFjfvjDHxYVFQ0ZMmTOnDmpet+2bdukSZMmTZr04Ycf7nEjADWklgK+pKRk3T8UFBS89dZbI0eOLC0tPfXUUyss2apVq7y8vIkTJ27cuHHLli2zZ89+6aWXUnMHDhz48ccf33zzze+9997f//73P/3pT8OGDfvwww+Tcw8//PBk+ffr169Ro0b33HNP7RwdAACxGDNmTAjhnnvuadasWbNmzR566KEQwtChQ0MIf/nLX4YNG1ZWVpZcICcnJysrKysra9SoUcXFxQMHDhw4cOArr7xS+UYAak4tBfwnn3wy8B8uvfTS8ePHN27c+Le//W2jRo0qDqhOnRtvvHHz5s2DBg0aNmzYypUry38epnHjxuPHjz/ooIPGjBlz0003rVy58uabb975Cz8zMzOHDh36+uuvz507t8aPDQCAePzwhz+cOnVqXl5eYWFh8gvk77rrruQLzpKSktRiJeUkk76KGwGoORnJr9AkCp2PGR1CeH1o33QPBACobRum9gshNPrJo+keyDdFpzH5IYRFS4d/7S0UFBRs3769VatWGRkZ6d0IQBWl7UvsAAAgjfLy8r4hGwGoorR9iR0AAABQdQIeAAAAIiDgAQAAIAICHgAAACIg4AEAACACAh4AAAAiIOABAAAgAgIeAAAAIiDgAQAAIAICHgAAACIg4AEAACACAh4AAAAiIOABAAAgAgIeAAAAIiDgAQAAIAICHgAAACIg4AEAACACAh4AAAAiIOABAAAgAgIeAAAAIiDgAQAAIAICHgAAACIg4AEAACACAh4AAAAiIOABAAAgAgIeAAAAIiDgAQAAIAICHgAAACIg4AEAACACAh4AAAAiIOABAAAgAgIeAAAAIiDgAQAAIAICHgAAACIg4AEAACACAh4AAAAiIOABAAAgAgIeAAAAIiDgAQAAIAICHgAAACIg4AEAACACmekeAHut05j8dA8BAKh1zUPwMgBg/+YKPAAAAEQgI5FIpHsMAADsQeHpXUIIuXNfS/dAAEgbV+ABAAAgAgIeAAAAIiDgAQAAIAICHgAAACIg4AEAACACAh4AAAAiIOABAAAgAgIeAAAAIpCZ7gGwdzofMzrdQwAA0mB28xC8EoCasWjp8HQPAarEFfiYeM4GAADYb7kCH5/Xh/ZN9xAAgFo3dXrwMgCqW6cx+ekeAuwFV+ABAAAgAgIeAAAAIiDgAQAAIAICHgAAACIg4AEAACACAh4AAAAiIOABAAAgAgIeAAAAIiDgAQAAIAICHgAAACIg4AEAACACAh4AAAAiIOABAAAgAgIeAAAAIiDgAQAAIAICHgAAACIg4AEAACACAh4AAAAiIOABAAAgAgIeAAAAIiDgAQAAIAICHgAAACIg4AEAACACAh4AAAAiIOABAAAgAgIeAAAAIiDgAQAAIAICHgAAACIg4AEAACACAh4AAAAiIOABAAAgAgIeAAAAIiDgAQAAIAICHgAAACIg4AEAACACAh4AAAAiIOABAAAgAgIeAAAAIiDgAQAAIAICHgAAACIg4AEAACACtR3wjz766Hnnnbdu3bqdZy1cuLBv3757u9azzz7bp0+f1atXV5i+cuXKc889d+vWrfs+ZgAAAEi7zNrcWUlJyfPPP9+4cePnnnvuoosuqq61tm/ffscdd4wZMyY7O7saRwsAAFDB6NGjE4lEhYmdO3fu2bNnCGHdunWPPPLIihUrmjRp0qNHj+7du1e+tc2bN48cOXLbtm3XXnttXl5eTQ2ab4taDfi//e1vmZmZl1xyyV133dW/f/8q9vYe12revPnmzZsnTZo0ePDgGhg1AADA/7rxxhtLSkoqTLz88st79uz5t7/9rWfPnsXFxcmJo0eP/vnPf/7ggw/ublNlZWX9+/d/6qmnQggDBw4U8OxRrb6F/plnnjnrrLM6d+5cv379l156qbrWysnJufrqq1988cW//e1v1ThaAACACm644YYR/3DppZcmJx599NEhhCFDhhQXF3fq1GnKlCm//OUvQwiTJ0+uJFKuuuqqZL1DFdVewH/44YcrVqw466yz6tSpc+aZZz7zzDPVuFb79u0vvPDCu+++e5efkwcAAKgW119//Y3/UFZWFkJo06bNoEGDQgifffZZCGH48OEDBgz43e9+17Jly9TEnd19993jxo1r3LhxLY6d6NXeW+hnzJhxwgknNGrUKIRw5plnTps27d133z322GOra63evXu/9dZbd95556233lq3bt29Hd748eP3dhUAAOBb4Ou1QEFBwQMPPBBCOO200yZMmBBCaNOmzSeffDJs2LAXXnhhzZo1n3zySb169ZYvX77z9t95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qt5DCI0aNWrcuPG6deuSN7ds2eJqHqRF5Y8+z6fwjZJIJP7nf/7n7LPPrl+/fnKKJ1DYIwEfgffee69r164VJp5yyilbt25dvXp1WoYE+7l69eqVv7lhw4YNGza0aNEieXPLli0HHHBA8oft27enYXywv6r80ef5FL5RXn311bVr1/7whz9MTfEECnvkLfQR+PTTT5s3b15hYsOGDXNycj799NP27dunZVRAyuTJk1u0aNGxY8fkzS1btnzxxRcXX3xxQUFBRkZG69atBwwYkHx3PVCjKn/0eT6Fb5THH3+8R48eDRs2TE3xBAp7JOAjUP6rPsrLyMjIyMio5cEAFUybNm3hwoV33HFH6vHYpUuXzz//vFOnTm3bti0uLn7uueduueWWkSNHdujQIb1DhW+9yh99nk/hm+Pdd99dvnz5VVddVX6iJ1DYIwEfgUMPPfSzzz6rMLG4uHjTpk2pt+wCaTFt2rTp06ffdNNN5b9xp1GjRqlPyNevX/+nP/3pZ5999vzzz3v9ATWt8kef51P45nj88ce7du1a4TvtPIHCHvkMfATat2//t7/9rcLEBQsWHHDAAb6lE9Jo8uTJTz/99M0337zHd962bds29RV3QG0q/+jzfArfEKtWrXr99dfPP//8PS7pCRQqEPAR6NWr18cffzx79uzUlK+++uqJJ54499xzk9/zAdSyRCJxzz33zJ07d/To0d/5zncqzJ01a1b5VxuJRGLx4sWHH3547Y4R9keVP/o8n8I3xBNPPPFP//RP7dq1qzDdEyjsUd0RI0akewzsQYMGDXJyciZOnFhSUpKdnb106dLf//73DRo0uPTSS7OystI9OtjvlJaWjh079pVXXrnqqqsaNWpU/A+lpaX169cvKSmZNm3aww8/XFpaWqdOnYKCgoceeui9994bNmyY/xoHatQeH32eT+GbYN26df/93/996aWXVnj/vCdQqIqMRCKR7jFQJa+++urMmTPff//9Zs2aHX/88f369fNqA9Livffeu/baa3ee/v3vf3/w4MHJn2fPnj1z5szVq1c3aNDgu9/97oABAyq8TAFqyB4ffZ5PIb0mTJjwzjvv3H333buc6wkUKifgAQAAIAI+Aw8AAAAREPAAAAAQAQEPAAAAERDwAAAAEAEBDwAAABEQ8AAAABABAQ8AAAAREPAAAAAQAQEPAAAAERDwAAAAEAEBDwAAABEQ8AAAABABAQ8AAAAREPAAAAAQAQEPAAAAERDwAABx27p1a8+ePStM7NKlS/v27atrF4sWLfrOd75TXVsLIRx22GHz58/f42KLFy9O7rfaB1D1Xe+swn1byZJ7u+VdKikpycjI+OUvf5ma8uSTT/7oRz+qZJUTTzwx7POdNmrUqGuvvTZ1c+czqsIvscIClQx76NCho0eP3t1+a/94k3v8+OOPU1Puuuuuyve4V1ID+yacxsmDTcrOzj7uuOP+9Kc/VX2D5Q/hsssuO+CAA6p4ULt7yO/tw6G6Vk+e3pWcbJWcFZXch8nDrPwM30cCHgAgYsOHD7/xxhvXrl3br1+/F154ITnx3XffrVOnTuPGjRcsWFAte+ncufMHH3xQLZuKdAAp1X7fVkVOTs6MGTPef//9qiycSCRWrFgR9u1Oe+211/Lz82+55ZbkzT0e9S4X2N2wf/vb306dOvXNN9/c3d5r/3hrVGpg35wRrlmzJpFIFBcXjx07dtCgQVW8q8P/PYRp06YtWLDg+OOP/4YcVNWVP7336mQrr5L7cI9n+L4Q8AAAERs9enT9+vU3bdr0q1/9KnUd/qGHHurfv//PfvazKVOmJKcsXry4Y8eOI0eOPOigg44//vhly5addtppDRo0+K//+q/kAjNmzDjmmGMOOOCAM844Y/369SGEN99885//+Z8HDBhw8sknl7/I9qc//enwww8/+OCDL7zwwi1btoQQ7r///jZt2uTk5Jx22mkfffRRandjxoxp1KhRq1atZs2atcvB726x0aNHN23atE2bNnPnzk1OKT+Ar7G7qq+y864r2Pm+rXxH27dvHzBgQG5ubm5u7uDBg0tLS1ML79ixo1u3brfffvsuVyyvtLR01KhRV111VVX22LFjxw0bNmRkZKTutC5dukyfPj25/JNPPnnSSSeFXf3Gyxs5cuQ111yTmZlZlaPe3QK7G3ZWVtbVV189cuTIXW4qLcdbiZ332KpVq+XLl4cQ/vjHP2ZlZRUXF4cQbr/99iuuuGKXy+/yCnx6T+Ok7Ozss846q3379u+8884utx92erynDuG444778ssvO3bs+MYbb1Tyx6GCSh4O+36Alf8RK7+j8qd3JSdbVVS4D5P2eIbvCwEPABCxwsLC999//8UXX/zv//7v5JTS0tLHHnvsJz/5Sb9+/WbMmLFt27YQQmZm5ooVK5o3b/7JJ580aNCgV69eEyZMWLRo0cSJEwsKCj766KN+/fqNGTPm888/79ChwyWXXBJCyMrKWrFixb/8y7/85S9/Se1uzZo1l1122bRp09asWbNx48a77777yy+/vPbaa59++unPP/88Ly8veVErMzPzgw8+KCkp+fjjjwcNGrS7F7K7XOy999675ZZbnn/++TfeeGPOnDkVVvkau6v6KpXvenf3beU7evrpp1evXv3RRx998MEHy5YtK19lV1xxRbt27a655ppdrlheSUlJ//79v/zyy9SbLCrZ4+zZs+vVq5dIJFKL9enTZ8aMGcmfn3zyyb59++7yN56ydevWOXPm/OAHP6jKUVeywO6GHUI499xzZ82atXXr1p3v5No/3krsco+nn3568kExe/bs3Nzc5DvD58yZ06NHjz3+KivZbK2dxik7duyYPXv2+++/37Fjx11uf+fHe2rdd955p2HDhmvWrElNqWThlEoeDvt4gFX/I1bh9K7kLK2K8vdh+emVn+H7JAEAwLfIs88+27dv3+TPP/3pTx9//PFEIrFkyZKGDRuWlZUlEonhw4f/x3/8R3KBI4444o033pg4cWLPnj2TU4qKirKzs7dv375kyZL69evv2LEjkUi89tprRx55ZCKRmDRp0jnnnLO7Xf/hD38444wzkrvLyckpLS1NJBKvv/5669atKyzZsmXLefPm7XKxe++99+yzz04u9swzzyT3mxrA19tdFVfZ5a73eN+++eablYxt3rx5LVq0ePLJJzdt2pSclVz+3nvv7dGjR/Lu3eWKKTt27Khbt24ikViwYMGxxx5bUlIyffr08847b3crfv7558mgTd1pH374YbNmzUpLS0tKSg455JDVq1fv8jee2tQ777zTsmXLyo868Y9f4u4W2OOwW7Ro8e677yZ2UvvHu2PHjp0rqZI9PvjggxdeeGEikWjduvWvfvWra665Zvv27QcffHBhYeEul08N7JtwGpc/2Lp16x599NH5+fm72/7Oj/fyh5AM+Cr+cUieLbt7OOz7Ae7xj1hK+dO7kpOtkrOikvsw9aBI7P4M30euwAMAfKs89NBD+fn5yS9YmjJlysMPP5ycnpubm5GREULIyspq1KhRcmJWVlZpaemGDRteeOGF5CoNGzbcvn37unXrQgiNGzdOvYk6af369Y0bNy4/pbS09KqrrjrssMPq16//k5/8JPGPC6GNGjWqU6dOCCE7O7vCG2XL23mxL7/88pBDDknOTf2wL7ur+iqV77qS+7aSHZ1yyinjxo276667mjdvftFFF23atCmEUFBQcO211x566KGpN/HucoQVnHTSSR06dLjvvvv2eGgVHHHEES1atHj11Vfnz5/frl27Vq1a7e43nlRYWNiwYcMqHvUeF9h52Em5ubmFhYW7HHAtH29S8iPNSb/73e8q2WPyCvyKFSuysrL69u07d+7cV155pX379g0bNqziCNN7GqcOtqSkZNmyZRdccMHutr/z470SVVl4lw+HajnAqv8Rq3B6J+3uLN3lWVF+Vvn7sII9nuFfj4AHAPj2KCwsnDt37tatW5OvOLdv375w4cLPP/+88rVatGhR4Xpjy5YtQwjJ4C+vadOmBQUF5ac89thjzz///KxZszZu3Dh58uR9P4RGjRpt2LAh+XOFfX293VV9lcp3vcf7dnc76tOnz9y5c1euXLlmzZrkJx3q16+/ZMmShQsXJj+qXfUR/va3v73tttuKior29tCS7yp/6qmn+vbtG3b/G0/Kzc1N7WKPR12VU67CsFMr5ubmVjLmWjveSuxyj23bts3MzJw4cWK3bt06dOjw97///amnnurRo0fVR5jG03ivtr/z470SVVx454dDJQPYpV0eYNX/iJU/vcvb5Vm6L6pyhn8NAh4A4Nvj0Ucf7d69e7169ZI3s7Kyevbs+eijj1a+1plnnjl//vxkhj3yyCNnn3327pbs2bPnyy+/PHfu3PXr1/fv3/+GG2744osv8vLy8vLyli1blp+f/+mnn+78Gem90rVr17lz5y5evHj9+vUTJkyoMPdr7K7qq1S+6z3et7vc0e233z548OCNGzfWq1evadOmyZzIzc1t3br15MmTL7vsss8//7zqI2zVqtVFF100duzYSvaYmZm5Y8eOCleYL7jgglmzZj377LN9+vQJe/qNH3HEERs2bEg20h6PuiqnXIVhJ0deVFR0xBFH7PIwa/l4K7G7X83pp58+YcKEbt261alT58QTT7z//vuTAV/FX2UaT+O92v7Oj/dKtlCVhXf5cKiWA6z6r7j86V3ezmfpvqjiGf41CHgAgG+Phx9+uFevXuWn9OrVa3ffHJ7SvHnzhx9++PLLL2/SpMnvf//7UaNG7W7Jli1bPvjggwMGDGjbtu3WrVuHDRv24x//eMuWLS1bthw2bNidd95ZVFQ0aNCgfTmEDh06DBkypEePHh07dvzBD35QUlJSfu7X2F3VV6l813u8b3e5o//8z/9cs2ZNixYtDjvssEQicemll6aWP/nkk/v16zd48OC9Oqhrr7029SXqu1wxNzf39NNPb9OmTfm1jjrqqO3btzdv3jx5WbLy3/gBBxzQvXv35557ripHXcVTrvywQwgzZsw488wz69evH0I47LDDXnrppTQebyV296s5/fTTv/rqq27duoUQTjvttG3btiW/57yKv8o0nsZ7tf2dH++VbKEqC1fycNjHA6z6r7j86V1BhbN0X5Q/w6tXxu4+mAEAAOyfXn311YEDB7755pt169at9o2XlJR06NBhypQpnTp1CiGMHTu2a9euyf/sDWpBjZ7eYaczvHq5Ag8AAPwfJ5xwQp8+fYYPH14TG//1r3/dr1+/VNu8/PLLxx577P9rzw5tAIBhIIh1/6k7QAMbcJK9QEjI6TcOwWj1vc/z4X9Z4AEAACDAAg8AAAABAh4AAAACBDwAAAAECHgAAAAIEPAAAAAQIOABAAAgQMADAABAgIAHAACAAAEPAAAAAQIeAAAAAgQ8AAAABAh4AAAACBDwAAAAECDgAQAAIEDAAwAAQICABwAAgAABDwAAAAECHgAAAAIEPAAAAAQIeAAAAAgQ8AAAABAg4AEAACBAwAMAAECAgAcAAIAAAQ8AAAABAh4AAAACLkGbQUfk8bCfAAAAAElFTkSuQmCC" width="672" /></p>
 </div>
 <div id="housing-insecurity" class="section level2">
 <h2>Housing Insecurity</h2>
