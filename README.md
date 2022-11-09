@@ -95,7 +95,8 @@ The data cleaning, analysis, and visualization was conducted with the following 
 
 
 ```
-list.of.packages <- c("openxlsx","tidycensus", "tidyr","dplyr","stringr","RPostgreSQL","data.table", "kableExtra", "ggplot2", "ggtext", "janitor","sf") 
+list.of.packages <- c("openxlsx", "tidycensus", "tidyr","dplyr", "stringr", "RPostgreSQL",
+"data.table", "kableExtra", "ggplot2", "ggtext", "janitor","sf") 
 new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"Package"])]
 if(length(new.packages)) install.packages(new.packages)
 
