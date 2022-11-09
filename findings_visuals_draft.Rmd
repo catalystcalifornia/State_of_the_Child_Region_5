@@ -1,0 +1,492 @@
+---
+title: "Region 5 State of the Child: Draft Data Findings and Visuals"
+author: "Catalyst California"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+output:
+  html_document:
+    code_folding: hide
+    number_sections: no
+    theme: sandstone
+    toc: yes
+    toc_depth: 3
+    toc_float: yes
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(comment=FALSE, message=FALSE, warning=FALSE)
+
+# library(usethis)
+
+
+
+```
+
+The following site holds the draft findings and draft visuals from various data sources to better understand the well-being and health of children in Best Start Region 5, the Antelope Valley. The findings and visuals are being developed by Catalyst California for the Region 5 State of the Child report in collaboration with The Children's Bureau. 
+
+
+
+```{r}
+# Prep and Set Up 
+#### Loading Libraries ####
+library(dplyr)
+library(ggplot2)
+library(RPostgreSQL)
+library(tidyr)
+library(data.table)
+library(sysfonts)
+library(showtext)
+# install.packages("sysfonts")
+# install.packages("showtext")
+# install.packages("kableExtra")
+# install.packages("janitor")
+#### First 5 LA Style Guide ####
+## COLORS## Taken from W:\Project\RDA Team\Region 5 State of the Child\Documentation\F5LA_BrandGuidelines_COLORS.pdf
+#primary
+lightblue <- "#009CDB"
+darkblue <- "#332985"
+tealblue <- "#22BCB8"
+black <- "#000000"
+textgrey <- "#919191"
+#secondary 
+green <- "#54B847"
+orange <- "#F58326"
+hotpink <- "#EC098C"
+red <- "#EF4034"
+
+## FONTS ##
+# Step 1: Download fonts (Gotham Bold and Gotham Book) 
+# Step 2: Load the downloaded fonts into the R script:
+# General: See tutorial here, under "THE SHOWTEXT PACKAGE" section: https://r-coder.com/custom-fonts-r/#The_showtext_package 
+# Step 3: Run the code below in each R script
+
+font_add(family = "GothamBold", regular = "C:/Windows/Fonts/Gotham-Bold 700.otf")
+font_add(family = "GothamBook", regular = "C:/Windows/Fonts/Gotham-Book 325.otf")
+
+showtext_auto()
+
+# define fonts in chart
+font_title <- "GothamBold"
+font_subtitle <- "GothamBook"
+font_caption <- "GothamBook"
+font_bar_label <- "GothamBold"
+font_axis_label <- "GothamBook"
+font_table_text<-"GothamBook"
+
+#### Loading Database from PgAdmin/Postgres #### 
+source("password_protection.R")
+
+drv <- dbDriver("PostgreSQL")
+
+con <- dbConnect(drv, dbname = "region5stateofthechild",
+                   host = "aws-postgres-db.c5udgz7ro8hq.us-west-2.rds.amazonaws.com", port = 5432,
+                   user = "postgres", password = pw)
+
+#### Static Visual Functions ####
+
+#Reference: W:\Project\RDA Team\LAFed\R\LAFed\visual_functions_static.R
+
+```
+
+# Introduction 
+
+# Demographics 
+
+## Population of Children and Families
+
+The Antelope Valley is a 2,200 square mile area in northern Los Angeles County [1](https://en.wikipedia.org/wiki/Antelope_Valley). According to the US Census, it's two largest cities, Lancaster and Palmdale, have populations of 170,150 and 165,761, respectively.[1](https://www.census.gov/quickfacts/fact/table/palmdalecitycalifornia,lancastercitycalifornia/PST045221). For comparison, both cities are more populous than Pasadena and Pomona, two well-known mid-size cities on the other side of the valley. 
+
+## Racial Ethnic Breakdown 
+
+According to the latest American Community Survey data calculated by Lucy Wilkerson, Region 5 is majority Latinx. The regional share of the Black population is twice the LA County share and nearly three times the State share. On the other hand, the region is home to relatively fewer Asian residents than the County and State as a whole. 
+
+```{r}
+source("W:/Project/RDA Team/Region 5 State of the Child/R/race.R")
+
+library(kableExtra)
+kbl(race_data) %>%
+  kable_styling(bootstrap_options = c("striped", "bordered", "condensed"))
+
+```
+Source: [American Community Survey 2016-2020 5-year estimates calculated for Antelope Valley neighborhoods by Lucy Wilkerson](https://public.tableau.com/app/profile/luz3725/viz/2020CensusData-AVBESTSTARTREGION5/GRAPI)
+
+## Black Infant Mortality 
+
+According to the California Department of Public Health, Los Angeles County Black infant mortality rates are more than twice the rate of infant mortality overall (9.3 vs. 4.2 infant deaths per 1,000 live births). Not available by race, but First 5 LA reports Children's Data Network infant mortality rates for the total populations of the Lancaster and Palmdale Best Start geographies at 6.0 and 5.7 per 1,000, respectively.[1](https://www.first5la.org/wp-content/uploads/2020/09/First-5-LA-2020-Indicators-Report.pdf)
+
+**9.3 Black LA County infant deaths per 1,000 live births compared to total rate of 4.2 per 1,000**[1](https://data.chhs.ca.gov/dataset/infant-mortality-deaths-per-1000-live-births-lghc-indicator-01/resource/ae78da8f-1661-45f6-b2d0-1014857d16e3)
+
+Recent data are a challenge as this data, from the California Health and Human Services Open Data Portal is from 2015-2017. The [African American Infant and Maternal Mortality (AAIMM) Initiative](https://www.blackinfantsandfamilies.org/) is a coalition working to address the unacceptably high rates of Black infant and maternal deaths in the County. [A Pathway to Equity](http://publichealth.lacounty.gov/centerforhealthequity/PDF/AAIM-ActionPlan.pdf) is a framework for understanding the causes of infant mortality and the steps needed to address it.
+
+## Children of Incarcerated
+
+According to Catalyst California calculations of Vera Institute for Justice, County of Los Angeles Probation, and the Bureau of Justice Statistics, there are an estimated **90,000 children in Los Angeles County with a parent in State Prison, LA County Jail, or under LA County probation and 17,000 of these children are ages 0 to 5**. This means that roughly 1 in 20 LA County children have an incarcerated parent or parent under probation. Roughly 20,000 of these children are Black with 4,000 of them between the age 0 to 5.
+
+Because the criminal justice system over criminalizes Black and Brown parents, children of incarcerated parents or parents under probation are more likely to be Latino or Black than their share of the total population. **Black children make up 22% of Los Angeles County children with an incarcerated parent or parent under probation but are only 7.5% of the total population**. By contrast, White children make up 11.6% of county children with an incarcerated parent or parent under probation but are 20.4% of the total population.
+
+```{r}
+
+Race <- c("Percent children of incarcerated or probation parent", "Percent of County children", "Difference")
+Black <- c("22.0%",	"7.5%",	"14.5%")
+Latino <- c("63.0%",	"55.7%",	"7.3%")
+NHPI <- c("0.1%",	"0.2%",	"-0.1%")
+AIAN <- c("0.1%",	"0.2%",	"-0.1%")
+Other <- c("2.8%",	"3.3%",	"-0.5%")
+White <- c("11.6%",	"20.4%",	"-8.8%")
+Asian <- c("0.4%",	"12.7%",	"-12.3%")
+Total <- c("100%",	"100%",	"0%")
+
+incarc_table <- rbind(Race, Black, Latino, NHPI, AIAN, Other, White, Asian, Total)
+
+library(kableExtra)
+kbl(incarc_table) %>%
+  kable_styling(bootstrap_options = c("striped", "bordered", "condensed"))
+
+```
+
+This matters because separation or probation impacts the ability of parents to live with, supervise, and be attentive to their children. They are not as able to help with homework, know who their kids’ friends are, have a sense of how school is going, and what their children are eating, for example. Each of these things impact a child’s ability to succeed in school, be healthy, and otherwise thrive.
+
+## Foster Youth Population 
+
+## Student Homelessness
+
+
+
+According to the California Department Of Education 2021_22 school year data, Student Homelessness on average in the Antelope Valley, 2.1%, is slightly lower than the the state average, 2.9%, and Los Angeles County average, 2.8%. However, school district level data tells a different story.
+
+Student Homelessness is especially high in the Westside Union Elementary School District with an average rate of 7.2%, over 3 times the average of the entire Antelope Valley, 2.1%. That means that approx. 7 out of every 100 students in the Westside Union Elementary School District is experiencing homelessness. Although there are high rates among all groups in the the Westside Union Elementary School District, the high rates of homelessness among Non-Hispanic American Indian Alaskan Native (AIAN) students (14.3%), Non-Hispanic Black students (7.6%), Latinx students (8.2%), and students who identified as Non-Hispanic Two or More Races (8.1%) especially stand out. 
+
+The Eastside Union Elementary School District and Lancaster Elementary School District also had above average rates, being 2 and 1.2 times higher than the state average respectively. Regionally, students who identified as Non-Hispanic Two or More Races and Non-Hispanic Black and Non-Hispanic AIAN students had the highest rates. 
+
+The bulk of the students experiencing homelessness in the Antelope Valley are in grades 1-8. Notably, student homelessness rates range between 15 to 20% of students. Second-grade students had the highest rates with 2 out of 10 experiencing homelessness. 
+
+Given this information, interventions targeting current elementary and middle school students,  and Black, Latinx, AIAN, and Two or More Race students are pressing.
+```{r}
+# 2021-22 School Year Totals
+source("W:/Project/RDA Team/Region 5 State of the Child/R/student_homelessness.R")
+library(kableExtra)
+
+ 
+kbl(av_table) %>%
+  kable_styling(bootstrap_options = c("striped", "bordered", "condensed"))
+# View(av_table)
+# total_grade_only <- total_grade_only %>% select(year, geoname, ends_with("_rate"))
+# View(total_grade_only)
+```
+Source: [California Department of Education, 2015-2022](https://dq.cde.ca.gov/dataquest/)
+
+
+```{r}
+# AV Bar Chart
+s <- AV 
+tot = subset(s, select=c(total_rate)) %>% round(1)  # pull out total_rate
+s = subset(s, select=-c(total_rate)) # pull out raced rates
+oldnames = c("nh_black_rate","nh_aian_rate", "nh_asian_rate", "nh_filipino_rate", "latino_rate", "nh_pacisl_rate", "nh_white_rate", "nh_twoormor_rate")
+engvar = c("Black", "AIAN", "Asian", "Filipinx", "Latinx", "NHPI", "White", "Two or more")
+s = s %>% rename_at(vars(oldnames), ~ engvar)
+
+# create english / spanish labels
+engvar = c("Black", "AIAN", "Asian", "Filipinx", "Latinx", "NHPI", "White", "Two or more")
+esvar = c("Negro", "Indígena Americano", "Asiático", "Filipino", "Latino", "Isleño del Pacifico", "Blanco", "Dos o mas") 
+#esvar_long = c("NEGRO O AFROAMERICANO", "INDÍGENA AMERICANO O NATIVO DE ALASKA", "ASIÁTICO", "FILIPINO", "LATINO", "ISLEÑO DEL PACIFICO", "BLANCO", "DOS O MAS")
+labels <- data.frame(engvar, esvar)
+# labels
+
+
+# convert df to long format
+s_long <- reshape2::melt(s, id.vars=c("geoname"))
+# Round 'value' field to 1 decimal, rename 'variable' field, add Spanish labels
+s_long <- s_long %>% mutate(value = round(value, 1)) %>% dplyr::rename(engvar = variable)  %>% 
+  left_join(labels, by = "engvar")
+s_long <- s_long %>% filter(value > 0)
+
+
+df <- data.frame(s_long, tot)       # add total_rate to long table
+df <- na.omit(df)             # drop NA's
+# df
+
+engtot_stat <- paste("Overall Rate =", min(df$total_rate))   # total_rate line annotation
+estot_stat <- paste("Promedio Total =", min(df$total_rate))   # total_rate line annotation
+
+
+# Set region name for file name
+region <- "Antelope Valley"
+
+
+# write the name of your indicator here:
+var <- "student_homelessness"
+
+
+# Define chart height as max y value varies by indicator. Set vertical position for total line label - may need to be customized for each chart.
+max_y = 1.15 * max(df$value) 
+annotate_y = 1.12 * df$total_rate
+
+# specify language: comment out based on language of chart created below
+lang <- "eng"
+
+
+
+
+# # ggplot method that should export as .svg ##
+av_plot <- 
+  #English
+  ggplot(df, aes(x= reorder(engvar, -value), y=value)) +     # set up manual fill using 'test', add "-" before value to order bars when MAX is best
+  annotate("text", x=6.25, y = annotate_y, label = str_wrap(engtot_stat, width = 20), hjust=-0.33, vjust = 0.35, family= font_table_text, color = red) +  
+  labs(title = "**<span style='font-size:20pt;'>Student Homelessness (%)</span>**", subtitle = region, caption = "*American Indian and Alaska Native (AIAN), Native Hawaiian and Pacific Islander (NHPI)") +
+  # rest of chart    
+  geom_bar(stat="identity", position = position_dodge(0.7), show.legend = FALSE) +
+  geom_col(fill = lightblue, color = darkblue) +         # all bars in "#355C7D"
+  geom_hline(aes(yintercept = round(total_rate, 1)), color = red, size = .5) + 
+  geom_text(aes(label = round(value, digits = 1)), family = font_bar_label, hjust = -.5) +       # format data labels, adjust hjust to avoid overlap w/ total line
+  # scale_y_continuous(limits = c(0, max_y), breaks = seq(0, max_y, by = 20)) +
+  scale_x_discrete(labels = function(engvar) str_wrap(engvar, width = 20)) +            # wrap long labels
+  xlab("") +
+  ylab("") +
+  coord_flip()
+# av_plot
+
+av_plot <- av_plot + theme(
+  panel.background = element_rect(fill = "transparent"), # bg of the panel
+  plot.background = element_rect(fill = 'transparent', color=NA), 
+  panel.grid.major.y = element_line(colour = textgrey),    # add major y-axis gridlines
+  panel.grid.minor = element_blank(), # bg of the plot
+  axis.title.x = element_blank(),
+  axis.title.y = element_blank(),
+  axis.text.x = element_text(size = 12, family= font_axis_label),
+  axis.text.y = element_text(size = 12, family= font_axis_label),
+  axis.ticks = element_blank(),
+  plot.title = element_markdown(family = font_title, face = "bold", size = 15, hjust = 0),
+  plot.title.position = "plot",
+  plot.subtitle = element_text(family = font_title, hjust = 0), 
+  plot.margin = margin(t = 10,
+                       b = 10,
+                       r = 10,
+                       l = 10)
+)
+
+
+av_plot <- av_plot + ylim(0, max_y)     # add buffer between title and chart/data labels
+av_plot
+
+
+```
+Source: [California Department of Education, 2015-2022](https://dq.cde.ca.gov/dataquest/)
+
+## Homelessness
+
+The 2022 Los Angeles County homeless count counted over 65,000 homeless people in Los Angeles County, 1,000 of whom lived in the cities of Lancaster and Palmdale.
+
+```{r}
+source("W:/Project/RDA Team/Region 5 State of the Child/R/homeless.R")
+
+library(kableExtra)
+kbl(av_table) %>%
+  kable_styling(bootstrap_options = c("striped", "bordered", "condensed"))
+
+```
+Source: [Los Angeles Homeless Services Authority, 2022](https://www.lahsa.org/data)
+
+
+## Children with Special Needs 
+
+Overall in the Antelope Valley, 14.9% of students have special needs, 2.4 percentage points higher than the state average.[2](https://lao.ca.gov/reports/2019/4110/overview-spec-ed-110619.pdf) The percentage of students with special needs in the Antelope Valley has steadily increased by 2.6 percentage points since the 2015-16 school year. The grades with the highest percentage of students with special needs were 6th grade (73.5%), 8th grade (71.8%), and 7th grade (73.5%). At the school district level, the Antelope Valley Union Joint High School District has the highest, 17.2% and Eastside Elementary School District has the lowest, 12.5%.  Students in the 4th and 5th grades also had a larger percentage of students with special needs. Despite the high reported numbers of students with disabilities, the actual numbers are likely higher. Younger students with disabilities tend to be underrepresented because students are assessed for special needs on an as-needed basis, therefore, it takes time for students to be assessed and as more time passes, more students are assessed thereby increasing the reported number of students with disabilities. 
+```{r}
+source("W:/Project/RDA Team/Region 5 State of the Child/R/disabilties.R")
+library(kableExtra)
+kbl(av_table) %>%
+  kable_styling(bootstrap_options = c("striped", "bordered", "condensed"))
+View(av_table)
+total_grade_only <- total_grade_only %>% select(year, geoname, ends_with("_rate"))
+View(total_grade_only)
+View(av_table)
+
+```
+Source: [California Department of Education, 2015-2022](https://dq.cde.ca.gov/dataquest/)
+
+American Indian Alaskan Native (AIAN) students had the highest percentage of students with disabilities by race/ethnicity with 21.3% of AIAN students having special needs. Black (20.8%), Two or More Races (16.7%) and White students (15.6%) all had above Antelope Valley average rates as well. Given the extremely large number of students with disabilities, the Antelope Valley has an urgent priority need for additional resources for students with disabilities. 
+
+```{r}
+# AV Bar Chart
+s <- AV 
+tot = subset(s, select=c(total_rate)) %>% round(1)  # pull out total_rate
+s = subset(s, select=-c(total_rate)) # pull out raced rates
+oldnames = c("nh_black_rate","nh_aian_rate", "nh_asian_rate", "nh_filipino_rate", "latino_rate", "nh_pacisl_rate", "nh_white_rate", "nh_twoormor_rate")
+engvar = c("Black", "AIAN", "Asian", "Filipinx", "Latinx", "NHPI", "White", "Two or more")
+s = s %>% rename_at(vars(oldnames), ~ engvar)
+
+# create english / spanish labels
+engvar = c("Black", "AIAN", "Asian", "Filipinx", "Latinx", "NHPI", "White", "Two or more")
+esvar = c("Negro", "Indígena Americano", "Asiático", "Filipino", "Latino", "Isleño del Pacifico", "Blanco", "Dos o mas") 
+#esvar_long = c("NEGRO O AFROAMERICANO", "INDÍGENA AMERICANO O NATIVO DE ALASKA", "ASIÁTICO", "FILIPINO", "LATINO", "ISLEÑO DEL PACIFICO", "BLANCO", "DOS O MAS")
+labels <- data.frame(engvar, esvar)
+# labels
+
+
+# convert df to long format
+s_long <- reshape2::melt(s, id.vars=c("geoname"))
+# Round 'value' field to 1 decimal, rename 'variable' field, add Spanish labels
+s_long <- s_long %>% mutate(value = round(value, 1)) %>% dplyr::rename(engvar = variable)  %>% 
+  left_join(labels, by = "engvar")
+s_long <- s_long %>% filter(value > 0)
+
+
+df <- data.frame(s_long, tot)       # add total_rate to long table
+df <- na.omit(df)             # drop NA's
+# df
+
+engtot_stat <- paste("Overall Rate =", min(df$total_rate))   # total_rate line annotation
+estot_stat <- paste("Promedio Total =", min(df$total_rate))   # total_rate line annotation
+
+
+# Set region name for file name
+region <- "Antelope Valley"
+
+
+# write the name of your indicator here:
+var <- "special_needs"
+
+
+# Define chart height as max y value varies by indicator. Set vertical position for total line label - may need to be customized for each chart.
+max_y = 1.15 * max(df$value) 
+annotate_y = 1.12 * df$total_rate
+
+# specify language: comment out based on language of chart created below
+lang <- "eng"
+
+
+
+
+# # ggplot method that should export as .svg ##
+av_plot <- 
+  #English
+  ggplot(df, aes(x= reorder(engvar, -value), y=value)) +     # set up manual fill using 'test', add "-" before value to order bars when MAX is best
+  annotate("text", x=6.25, y = annotate_y, label = str_wrap(engtot_stat, width = 20), hjust=-0.33, vjust = 0.35, family= font_table_text, color = red) +  
+  labs(title = "**<span style='font-size:20pt;'>Children with Special Needs (%)</span>**", subtitle = region, caption = "*American Indian and Alaska Native (AIAN), Native Hawaiian and Pacific Islander (NHPI)") +
+  # rest of chart    
+  geom_bar(stat="identity", position = position_dodge(0.7), show.legend = FALSE) +
+  geom_col(fill = lightblue, color = darkblue) +         # all bars in "#355C7D"
+  geom_hline(aes(yintercept = round(total_rate, 1)), color = red, size = .5) + 
+  geom_text(aes(label = round(value, digits = 1)), family = font_bar_label, hjust = -.5) +       # format data labels, adjust hjust to avoid overlap w/ total line
+  # scale_y_continuous(limits = c(0, max_y), breaks = seq(0, max_y, by = 20)) +
+  scale_x_discrete(labels = function(engvar) str_wrap(engvar, width = 20)) +            # wrap long labels
+  xlab("") +
+  ylab("") +
+  coord_flip()
+# av_plot
+
+av_plot <- av_plot + theme(
+  panel.background = element_rect(fill = "transparent"), # bg of the panel
+  plot.background = element_rect(fill = 'transparent', color=NA), 
+  panel.grid.major.y = element_line(colour = textgrey),    # add major y-axis gridlines
+  panel.grid.minor = element_blank(), # bg of the plot
+  axis.title.x = element_blank(),
+  axis.title.y = element_blank(),
+  axis.text.x = element_text(size = 12, family= font_axis_label),
+  axis.text.y = element_text(size = 12, family= font_axis_label),
+  axis.ticks = element_blank(),
+  plot.title = element_markdown(family = font_title, face = "bold", size = 15, hjust = 0),
+  plot.title.position = "plot",
+  plot.subtitle = element_text(family = font_title, hjust = 0), 
+  plot.margin = margin(t = 10,
+                       b = 10,
+                       r = 10,
+                       l = 10)
+)
+
+
+av_plot <- av_plot + ylim(0, max_y)     # add buffer between title and chart/data labels
+av_plot
+```
+Source: [California Department of Education, 2015-2022](https://dq.cde.ca.gov/dataquest/)
+
+
+## Languages of Children and Families
+
+According to the latest American Community Survey data calculated by Lucy Wilkerson, the Antelope Valley has a diverse set of language speakers. The East Antelope Valley and Palmdale areas have a larger shares of Spanish speakers than the County or State as a whole. There are relatively fewer speakers of Asian or Pacific Islander languages, with West Antelope Valley having the largest share of this group. 
+```{r}
+source("W:/Project/RDA Team/Region 5 State of the Child/R/language.R")
+
+library(kableExtra)
+kbl(data) %>%
+  kable_styling(bootstrap_options = c("striped", "bordered", "condensed"))
+
+```
+Source: [American Community Survey 2016-2020 5-year estimates calculated for Antelope Valley neighborhoods by Lucy Wilkerson](https://public.tableau.com/app/profile/luz3725/viz/2020CensusData-AVBESTSTARTREGION5/GRAPI)
+
+# Resources(and barriers to access)
+
+# Economics 
+
+## Rent Burden (Cost Burden Renter)
+```{r}
+source("W:/Project/RDA Team/Region 5 State of the Child/R/rent_burden.R")
+
+
+library(kableExtra)
+kbl(CT) %>%
+  kable_styling(bootstrap_options = c("striped", "bordered", "condensed"))
+```
+Source: [American Community Survey 2016-2020 5-year estimates calculated for Antelope Valley neighborhoods by Lucy Wilkerson](https://public.tableau.com/app/profile/luz3725/viz/2020CensusData-AVBESTSTARTREGION5/GRAPI)
+
+
+```{r}
+kbl(AV) %>%
+  kable_styling(bootstrap_options = c("striped", "bordered", "condensed"))
+```
+Source: [American Community Survey 2016-2020 5-year estimates calculated for Antelope Valley neighborhoods by Lucy Wilkerson](https://public.tableau.com/app/profile/luz3725/viz/2020CensusData-AVBESTSTARTREGION5/GRAPI)
+
+
+
+## Housing Insecurity 
+
+## Cost of Living
+
+According to the United Ways of California, roughly half of households in and around Lancaster and Palmdale do not earn sufficient incomes to meet their basic costs of living (i.e., they earn incomes below the real cost measure of living). Lancaster and Palmdale adjusted median household incomes are well below other parts of the County and State.
+```{r}
+source("W:/Project/RDA Team/Region 5 State of the Child/R/cost_of_living.R")
+
+library(kableExtra)
+kbl(rcm_data) %>%
+  kable_styling(bootstrap_options = c("striped", "bordered", "condensed"))
+
+```
+Source: [United Ways of California Real Cost Measure, 2021](https://www.unitedwaysca.org/realcost/39-real-cost)
+
+## Food Insecurity 
+
+Feeding America estimates that 22,740 children are food insecure[1](https://map.feedingamerica.org/). Over 10,000 Antelope Valley children under 5  participate in WIC. Latinx children comprise the largest share of Antelope Valley WIC participants, with nearly 1 in 5 Palmdale participants live in a Spanish-only home. Black children make up nearly 1 in 4 Lancaster WIC participants.
+```{r}
+source("W:/Project/RDA Team/Region 5 State of the Child/R/food_security.R")
+
+library(kableExtra)
+kbl(wic_data) %>%
+  kable_styling(bootstrap_options = c("striped", "bordered", "condensed"))
+
+```
+Source: [L.A. County WIC Administrative Data, 2021](https://lawicdata.org/data-research/by-region/)
+
+# Education
+
+## Highschool Graduation
+
+## Teacher & Staff Diversity 
+
+## Chronic Absenteeism 
+
+## Suspensions 
+
+## Explusions 
+
+## Early Childhood Edducation 
+
+## 3rd Grade Math Scores
+
+## 3rd Grade English Scores
+
+# Safety and Education 
+
+## Parks and Safe Spaces
+
+## Police Violence
+
+## Traffic Stops
