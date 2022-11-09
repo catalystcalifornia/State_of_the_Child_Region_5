@@ -54,7 +54,8 @@ The State of the Child Antelope Valley Report seeks to understand the conditions
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 ### Built with
-<img-align="left" alt="R" width="32px", src="https://upload.wikimedia.org/wikipedia/commons/1/1b/R_logo.svg"/><img-align="left" alt="RStudio" width="32px", src="https://upload.wikimedia.org/wikipedia/commons/d/d0/RStudio_logo_flat.svg"/>
+<img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/R_logo.svg" align="left" alt="R" width="32px"> 
+<img src="https://upload.wikimedia.org/wikipedia/commons/d/d0/RStudio_logo_flat.svg" align="left" alt="RStudio" width="32px">
 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
@@ -92,8 +93,11 @@ The data cleaning, analysis, and visualization was conducted with the following 
 * kableExtra
 * RPostgreSQL
 * usethis
-  ```sh
-list.of.packages <- c("openxlsx","tidycensus", "tidyr","dplyr","stringr","RPostgreSQL","data.table", "kableExtra", "ggplot2", "ggtext", "janitor","sf") 
+
+
+```
+list.of.packages <- c("openxlsx", "tidycensus", "tidyr","dplyr", "stringr", "RPostgreSQL",
+"data.table", "kableExtra", "ggplot2", "ggtext", "janitor","sf") 
 new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"Package"])]
 if(length(new.packages)) install.packages(new.packages)
 
@@ -112,13 +116,14 @@ library(kableExtra)
 library(ggplot2)
 library(ggtext)
 library(usethis)
-
-  ```
+```
 
 4. Enter your API in `.Renviron` File for Repeated Use
 [https://walker-data.com/tidycensus/reference/census_api_key.html](https://walker-data.com/tidycensus/reference/census_api_key.html)
-```r
 
+
+
+```
 if (FALSE) {
 census_api_key("111111abc", install = TRUE)
 # First time, reload your environment so you can use the key without restarting R.
