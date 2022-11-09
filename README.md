@@ -41,7 +41,15 @@ The State of the Child Antelope Valley Report seeks to understand the conditions
 ### Data Source(s)
 # *[American Community Survey 2016-2020 5-year estimates calculated for Antelope Valley neighborhoods by Lucy Wilkerson](https://public.tableau.com/app/profile/luz3725/viz/2020CensusData-AVBESTSTARTREGION5/GRAPI)
 # *[2019 US Census American Community Survey (ACS) 1-year Estimates, Table S0201](https://data.census.gov/cedsci/table?q=S0201&t=-00%20-%20All%20available%20races&g=0400000US06%240500000&tid=ACSSPP1Y2019.S0201)
-*
+# *[Children's Data Network Infant Mortality Rates](https://www.first5la.org/wp-content/uploads/2020/09/First-5-LA-2020-Indicators-Report.pdf)
+# *[California Department of Public Health](https://data.chhs.ca.gov/dataset/infant-mortality-deaths-per-1000-live-births-lghc-indicator-01/resource/ae78da8f-1661-45f6-b2d0-1014857d16e3)
+# *[African American Infant and Maternal Mortality (AAIMM) Initiative](https://www.blackinfantsandfamilies.org/)
+# *[A Pathway to Equity](http://publichealth.lacounty.gov/centerforhealthequity/PDF/AAIM-ActionPlan.pdf)
+# *[Vera Institute for Justice](https://www.vera.org/)
+# *[California Department of Education, 2015-2022](https://dq.cde.ca.gov/dataquest/)
+# *[Los Angeles Homeless Services Authority, 2022](https://www.lahsa.org/data)
+# *[United Ways of California Real Cost Measure, 2021](https://www.unitedwaysca.org/realcost/39-real-cost)
+# *[L.A. County WIC Administrative Data, 2021](https://lawicdata.org/data-research/by-region/)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -60,55 +68,94 @@ To get a local copy up and running follow these simple example steps. -->
 
 ### Prerequisites
 
-<!--This is an example of how to list things you need to use the software and how to install them.-->
-* dplyr
-* tidycensus
-* ggplot2
-* stringr
-* tidyverse
-* data.table
-* scales
-* plotly
-* rjson
-* RPostgreSQL
-  ```sh
-  npm install npm@latest -g
-  ```
+The data cleaning, analysis, and visualization was conducted with the following software. In addition to that, there are several R packages that were used to pull Census data and perform different functions.
+* [R](https://cran.rstudio.com/)
+* [RStudio](https://posit.co/download/rstudio-desktop/)
+
 
 ### Installation
 
-1. Get a free API Key at [https://example.com](https://example.com)
+1. Get a free TidyCensus API Key at [https://walker-data.com/tidycensus/articles/basic-usage.html](https://walker-data.com/tidycensus/articles/basic-usage.html)
 2. Clone the repo
    ```sh
    git clone https://github.com/github_username/repo_name.git
    ```
-3. Install NPM packages
-   ```sh
-   npm install
-   ```
-4. Enter your API in `config.js`
-   ```js
-   const API_KEY = 'ENTER YOUR API';
-   ```
+3. Install R packages
+* dplyr
+* tidyr
+* ggplot2
+* stringr
+* sf
+* data.table
+* janitor
+* ggtext
+* kableExtra
+* RPostgreSQL
+* usethis
+  ```sh
+list.of.packages <- c("openxlsx","tidycensus", "tidyr","dplyr","stringr","RPostgreSQL","data.table", "kableExtra", "ggplot2", "ggtext", "janitor","sf") 
+new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"Package"])]
+if(length(new.packages)) install.packages(new.packages)
+
+devtools::install_github("r-lib/usethis")
+
+library(openxlsx)
+library(stringr)
+library(tidycensus)
+library(tidyr)
+library(dplyr)
+library(RPostgreSQL)
+library(data.table)
+library(sf)
+library(janitor)
+library(kableExtra)
+library(ggplot2)
+library(ggtext)
+library(usethis)
+
+  ```
+
+4. Enter your API in `.Renviron` File for Repeated Use
+[https://walker-data.com/tidycensus/reference/census_api_key.html](https://walker-data.com/tidycensus/reference/census_api_key.html)
+```r
+
+if (FALSE) {
+census_api_key("111111abc", install = TRUE)
+# First time, reload your environment so you can use the key without restarting R.
+readRenviron("~/.Renviron")
+# You can check it with:
+Sys.getenv("CENSUS_API_KEY")
+}
+
+if (FALSE) {
+# If you need to overwrite an existing key:
+census_api_key("111111abc", overwrite = TRUE, install = TRUE)
+# First time, relead your environment so you can use the key without restarting R.
+readRenviron("~/.Renviron")
+# You can check it with:
+Sys.getenv("CENSUS_API_KEY")
+}
+
+```
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 
-## Usage
+<!--## Usage
 
-<!--Use this space to show useful examples of how a project can be used (e.g. iframes, citation, etc). Additional screenshots, code examples and demos work well in this space. You may also link to more resources.-->
+Use this space to show useful examples of how a project can be used (e.g. iframes, citation, etc). Additional screenshots, code examples and demos work well in this space. You may also link to more resources.-->
 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 
-## Roadmap
+<!--## Roadmap
 
-<!--Use this space to list out future goals for this project (if any)-->
+Use this space to list out future goals for this project (if any)
 - [ ] Feature 1
 - [ ] Feature 2
 - [ ] Feature 3
-    - [ ] Nested Feature
+    - [ ] Nested Feature-->
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -116,9 +163,10 @@ To get a local copy up and running follow these simple example steps. -->
 ## Contributors
 
 * [Alexandra Baker](https://github.com/bakeralexan)
-* [Maria Khan](https://github.com/mariatkhan)
 * [Chris Ringewald](https://github.com/cringewald)
 * [David Segovia](https://github.com/davidseg1997)
+* [Maria Khan](https://github.com/mariatkhan)
+
 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
@@ -128,16 +176,17 @@ To get a local copy up and running follow these simple example steps. -->
 
 <!--Use this space to add a contact for questions/concerns that visitors may have-->
 
-Your Name - [@twitter_handle](https://twitter.com/twitter_handle) - email@email_client.com
+[Chris Ringewald](https://www.linkedin.com/in/chris-ringewald-6766369/) - cringewald@catalystcalifornia.org
+[Alexandra Baker](https://www.linkedin.com/in/alexandra-baker-84696075/) - abaker@catalystcalifornia.org
 
-Project Link: [https://github.com/github_username/repo_name](https://github.com/github_username/repo_name)
+Project Link: [https://github.com/advancementprojectca-rda/State_of_the_Child_Region_5](https://github.com/advancementprojectca-rda/State_of_the_Child_Region_5)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
-
+<!--
 
 ## License
 
-<!--Distributed under the MIT License. See `LICENSE.txt` for more information.-->
+Distributed under the MIT License. See `LICENSE.txt` for more information.-->
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -145,8 +194,8 @@ Project Link: [https://github.com/github_username/repo_name](https://github.com/
 ## Acknowledgments
 <!--Use this space for any additional acknowledgments (project partners, etc)-->
 
-* []()
-* []()
-* []()
+* [Children's Bureau](https://www.all4kids.org/)
+* [Tracey La Monica](traceylamonica@all4kids.org)
+* [Sylvia Scott](sylviascott@all4kids.org)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
