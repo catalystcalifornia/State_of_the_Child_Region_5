@@ -54,7 +54,8 @@ The State of the Child Antelope Valley Report seeks to understand the conditions
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 ### Built with
-<img-align="left" alt="R" width="32px", src="https://upload.wikimedia.org/wikipedia/commons/1/1b/R_logo.svg"/><img-align="left" alt="RStudio" width="32px", src="https://upload.wikimedia.org/wikipedia/commons/d/d0/RStudio_logo_flat.svg"/>
+<img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/R_logo.svg" align="left" alt="R" width="32px"> 
+<img src="https://upload.wikimedia.org/wikipedia/commons/d/d0/RStudio_logo_flat.svg" align="left" alt="RStudio" width="32px">
 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
