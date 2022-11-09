@@ -92,7 +92,9 @@ The data cleaning, analysis, and visualization was conducted with the following 
 * kableExtra
 * RPostgreSQL
 * usethis
-  ```sh
+
+
+  ```r
 list.of.packages <- c("openxlsx","tidycensus", "tidyr","dplyr","stringr","RPostgreSQL","data.table", "kableExtra", "ggplot2", "ggtext", "janitor","sf") 
 new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"Package"])]
 if(length(new.packages)) install.packages(new.packages)
@@ -112,13 +114,12 @@ library(kableExtra)
 library(ggplot2)
 library(ggtext)
 library(usethis)
-
-  ```
+```
 
 4. Enter your API in `.Renviron` File for Repeated Use
 [https://walker-data.com/tidycensus/reference/census_api_key.html](https://walker-data.com/tidycensus/reference/census_api_key.html)
-```r
 
+```r
 if (FALSE) {
 census_api_key("111111abc", install = TRUE)
 # First time, reload your environment so you can use the key without restarting R.
