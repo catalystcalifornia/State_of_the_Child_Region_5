@@ -15,8 +15,10 @@ output:
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(comment=FALSE, message=FALSE, warning=FALSE)
-
+# install.packages("devtools")
+# devtools::install_github("r-lib/usethis")
 # library(usethis)
+
 
 
 
@@ -419,19 +421,19 @@ Source: [American Community Survey 2016-2020 5-year estimates calculated for Ant
 
 ## Rent Burden (Cost Burden Renter)
 ```{r}
-source("W:/Project/RDA Team/Region 5 State of the Child/R/rent_burden.R")
-
-
-library(kableExtra)
-kbl(CT) %>%
-  kable_styling(bootstrap_options = c("striped", "bordered", "condensed"))
+# source("W:/Project/RDA Team/Region 5 State of the Child/R/rent_burden.R")
+# 
+# 
+# library(kableExtra)
+# kbl(CT) %>%
+#   kable_styling(bootstrap_options = c("striped", "bordered", "condensed"))
 ```
 Source: [American Community Survey 2016-2020 5-year estimates calculated for Antelope Valley neighborhoods by Lucy Wilkerson](https://public.tableau.com/app/profile/luz3725/viz/2020CensusData-AVBESTSTARTREGION5/GRAPI)
 
 
 ```{r}
-kbl(AV) %>%
-  kable_styling(bootstrap_options = c("striped", "bordered", "condensed"))
+# kbl(AV) %>%
+#   kable_styling(bootstrap_options = c("striped", "bordered", "condensed"))
 ```
 Source: [American Community Survey 2016-2020 5-year estimates calculated for Antelope Valley neighborhoods by Lucy Wilkerson](https://public.tableau.com/app/profile/luz3725/viz/2020CensusData-AVBESTSTARTREGION5/GRAPI)
 
@@ -477,7 +479,7 @@ Source: [L.A. County WIC Administrative Data, 2021](https://lawicdata.org/data-r
 
 ## Explusions 
 
-## Early Childhood Edducation 
+## Early Childhood Education 
 
 ## 3rd Grade Math Scores
 
