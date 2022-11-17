@@ -150,13 +150,24 @@ This matters because separation or probation impacts the ability of parents to l
 
 ## Foster Youth Population 
 
+## Student Migrant Population
+
+## Student Population by Gender
+### Male
+### Female
+### Non-binary
+
+## Student Population in Charter Schools
+
+## Socioeconomically Disadvantaged
+
 ## Student Homelessness
 
-
-
-According to the California Department Of Education 2021_22 school year data, Student Homelessness on average in the Antelope Valley, 2.1%, is slightly lower than the the state average, 2.9%, and Los Angeles County average, 2.8%. However, school district level data tells a different story.
+According to the California Department Of Education 2021_22 school year data, Student Homelessness on average in the Antelope Valley, 2.2%, is slightly lower than the the state average, 2.9%, and Los Angeles County average, 2.8%. However, school district level data tells a different story.
 
 Student Homelessness is especially high in the Westside Union Elementary School District with an average rate of 7.2%, over 3 times the average of the entire Antelope Valley, 2.1%. That means that approx. 7 out of every 100 students in the Westside Union Elementary School District is experiencing homelessness. Although there are high rates among all groups in the the Westside Union Elementary School District, the high rates of homelessness among Non-Hispanic American Indian Alaskan Native (AIAN) students (14.3%), Non-Hispanic Black students (7.6%), Latinx students (8.2%), and students who identified as Non-Hispanic Two or More Races (8.1%) especially stand out. 
+
+The Hughes-Elizabeth Lakes Union Elementary School District and the Wilsona Elementary School District had the next highest rates, both being 2.3 times higher than the state average. For the Hughes-Elizabeth Lakes Union Elementary School District, the high rates for Latinx students were the highest (5.7%). In the case of the Wilsona Elementary School District, the high rates for Black (11.5%), Latinx (6.6%), and White students (6.2%) especially drove up the average.
 
 The Eastside Union Elementary School District and Lancaster Elementary School District also had above average rates, being 2 and 1.2 times higher than the state average respectively. Regionally, students who identified as Non-Hispanic Two or More Races and Non-Hispanic Black and Non-Hispanic AIAN students had the highest rates. 
 
@@ -172,10 +183,18 @@ library(kableExtra)
 kbl(av_table) %>%
   kable_styling(bootstrap_options = c("striped", "bordered", "condensed"))
 # View(av_table)
-# total_grade_only <- total_grade_only %>% select(year, geoname, ends_with("_rate"))
-# View(total_grade_only)
+
 ```
 Source: [California Department of Education, 2015-2022](https://dq.cde.ca.gov/dataquest/)
+
+```{r}
+# total_grade_only <- total_grade_only %>% select(year, geoname, ends_with("_rate"))
+# View(total_grade_only)
+total_grade_only <- total_grade_only %>% filter(year=="2021-22")
+kbl(total_grade_only) %>%
+  kable_styling(bootstrap_options = c("striped", "bordered", "condensed"))
+# View(av_table)
+```
 
 
 ```{r}
@@ -289,9 +308,9 @@ kbl(av_table) %>%
 Source: [Los Angeles Homeless Services Authority, 2022](https://www.lahsa.org/data)
 
 
-## Children with Special Needs 
+## Children with Disabilities 
 
-Overall in the Antelope Valley, 14.9% of students have special needs, 2.4 percentage points higher than the state average.[2](https://lao.ca.gov/reports/2019/4110/overview-spec-ed-110619.pdf) The percentage of students with special needs in the Antelope Valley has steadily increased by 2.6 percentage points since the 2015-16 school year. The grades with the highest percentage of students with special needs were 6th grade (73.5%), 8th grade (71.8%), and 7th grade (73.5%). At the school district level, the Antelope Valley Union Joint High School District has the highest, 17.2% and Eastside Elementary School District has the lowest, 12.5%.  Students in the 4th and 5th grades also had a larger percentage of students with special needs. Despite the high reported numbers of students with disabilities, the actual numbers are likely higher. Younger students with disabilities tend to be underrepresented because students are assessed for special needs on an as-needed basis, therefore, it takes time for students to be assessed and as more time passes, more students are assessed thereby increasing the reported number of students with disabilities. 
+Overall in the Antelope Valley, 14.9% of students have disabilities, 2.4 percentage points higher than the state average.[2](https://lao.ca.gov/reports/2019/4110/overview-spec-ed-110619.pdf) The percentage of students with disabilities in the Antelope Valley has steadily increased by 2.6 percentage points since the 2015-16 school year. The grades with the highest percentage of students with disabilities were 6th grade (73.5%), 8th grade (71.8%), and 7th grade (73.5%). At the school district level, the Antelope Valley Union Joint High School District has the highest, 17.2% and Eastside Elementary School District has the lowest, 12.5%.  Students in the 4th and 5th grades also had a larger percentage of students with disabilities. Despite the high reported numbers of students with disabilities, the actual numbers are likely higher. Younger students with disabilities tend to be underrepresented because students are assessed for disabilities on an as-needed basis, therefore, it takes time for students to be assessed and as more time passes, more students are assessed thereby increasing the reported number of students with disabilities. 
 ```{r}
 source("W:/Project/RDA Team/Region 5 State of the Child/R/disabilties.R")
 library(kableExtra)
@@ -305,7 +324,7 @@ View(av_table)
 ```
 Source: [California Department of Education, 2015-2022](https://dq.cde.ca.gov/dataquest/)
 
-American Indian Alaskan Native (AIAN) students had the highest percentage of students with disabilities by race/ethnicity with 21.3% of AIAN students having special needs. Black (20.8%), Two or More Races (16.7%) and White students (15.6%) all had above Antelope Valley average rates as well. Given the extremely large number of students with disabilities, the Antelope Valley has an urgent priority need for additional resources for students with disabilities. 
+American Indian Alaskan Native (AIAN) students had the highest percentage of students with disabilities by race/ethnicity with 21.3% of AIAN students having disabilities. Black (20.8%), Two or More Races (16.7%) and White students (15.6%) all had above Antelope Valley average rates as well. Given the extremely large number of students with disabilities, the Antelope Valley has an urgent priority need for additional resources for students with disabilities. 
 
 ```{r}
 # AV Bar Chart
@@ -363,7 +382,7 @@ av_plot <-
   #English
   ggplot(df, aes(x= reorder(engvar, -value), y=value)) +     # set up manual fill using 'test', add "-" before value to order bars when MAX is best
   annotate("text", x=6.25, y = annotate_y, label = str_wrap(engtot_stat, width = 20), hjust=-0.33, vjust = 0.35, family= font_table_text, color = red) +  
-  labs(title = "**<span style='font-size:20pt;'>Children with Special Needs (%)</span>**", subtitle = region, caption = "*American Indian and Alaska Native (AIAN), Native Hawaiian and Pacific Islander (NHPI)") +
+  labs(title = "**<span style='font-size:20pt;'>Children with Disabilities (%)</span>**", subtitle = region, caption = "*American Indian and Alaska Native (AIAN), Native Hawaiian and Pacific Islander (NHPI)") +
   # rest of chart    
   geom_bar(stat="identity", position = position_dodge(0.7), show.legend = FALSE) +
   geom_col(fill = lightblue, color = darkblue) +         # all bars in "#355C7D"
@@ -414,6 +433,10 @@ kbl(data) %>%
 
 ```
 Source: [American Community Survey 2016-2020 5-year estimates calculated for Antelope Valley neighborhoods by Lucy Wilkerson](https://public.tableau.com/app/profile/luz3725/viz/2020CensusData-AVBESTSTARTREGION5/GRAPI)
+
+## English Language Learners
+
+
 
 # Resources(and barriers to access)
 
