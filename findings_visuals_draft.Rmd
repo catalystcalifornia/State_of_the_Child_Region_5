@@ -149,17 +149,89 @@ kbl(incarc_table) %>%
 This matters because separation or probation impacts the ability of parents to live with, supervise, and be attentive to their children. They are not as able to help with homework, know who their kids’ friends are, have a sense of how school is going, and what their children are eating, for example. Each of these things impact a child’s ability to succeed in school, be healthy, and otherwise thrive.
 
 ## Foster Youth Population 
+```{r}
+source("W:/Project/RDA Team/Region 5 State of the Child/R/foster.R")
+library(kableExtra)
+
+ 
+kbl(av_table) %>%
+  kable_styling(bootstrap_options = c("striped", "bordered", "condensed"))
+# View(av_table)
+
+```
+
 
 ## Student Migrant Population
+```{r}
+source("W:/Project/RDA Team/Region 5 State of the Child/R/migrant.R")
+library(kableExtra)
+
+ 
+kbl(av_table) %>%
+  kable_styling(bootstrap_options = c("striped", "bordered", "condensed"))
+# View(av_table)
+
+```
+
 
 ## Student Population by Gender
 ### Male
+```{r}
+source("W:/Project/RDA Team/Region 5 State of the Child/R/male.R")
+library(kableExtra)
+
+ 
+kbl(av_table) %>%
+  kable_styling(bootstrap_options = c("striped", "bordered", "condensed"))
+# View(av_table)
+```
+
 ### Female
+```{r}
+source("W:/Project/RDA Team/Region 5 State of the Child/R/female.R")
+library(kableExtra)
+
+ 
+kbl(av_table) %>%
+  kable_styling(bootstrap_options = c("striped", "bordered", "condensed"))
+# View(av_table)
+```
+
 ### Non-binary
+```{r}
+source("W:/Project/RDA Team/Region 5 State of the Child/R/non-binary.R")
+library(kableExtra)
+
+ 
+kbl(av_table) %>%
+  kable_styling(bootstrap_options = c("striped", "bordered", "condensed"))
+# View(av_table)
+```
+
 
 ## Student Population in Charter Schools
+```{r}
+source("W:/Project/RDA Team/Region 5 State of the Child/R/charter.R")
+library(kableExtra)
+
+ 
+kbl(av_table) %>%
+  kable_styling(bootstrap_options = c("striped", "bordered", "condensed"))
+# View(av_table)
+```
+
 
 ## Socioeconomically Disadvantaged
+```{r}
+source("W:/Project/RDA Team/Region 5 State of the Child/R/socioeconomically_disadvantaged.R")
+library(kableExtra)
+
+ 
+kbl(av_table) %>%
+  kable_styling(bootstrap_options = c("striped", "bordered", "condensed"))
+# View(av_table)
+```
+
 
 ## Student Homelessness
 
@@ -318,8 +390,8 @@ kbl(av_table) %>%
   kable_styling(bootstrap_options = c("striped", "bordered", "condensed"))
 View(av_table)
 total_grade_only <- total_grade_only %>% select(year, geoname, ends_with("_rate"))
-View(total_grade_only)
-View(av_table)
+# View(total_grade_only)
+# View(av_table)
 
 ```
 Source: [California Department of Education, 2015-2022](https://dq.cde.ca.gov/dataquest/)
