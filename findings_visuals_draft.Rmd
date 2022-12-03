@@ -679,3 +679,58 @@ Source: [L.A. County WIC Administrative Data, 2021](https://lawicdata.org/data-r
 ## Police Violence
 
 ## Traffic Stops
+Black and NHPI populations are significantly more likely to be stopped by the Sheriff's Police Department than the race groups. 
+For example, Blacks are 2.4 times more likely to be stopped than Whites and NHPIs are 2.5 times more likely to be stopped than Whites. While there is not a data set available that can be clipped for the just the Antelope Valley region, we do see that within the police jurisdiction that covers this region, there is a racial discrepancy in stop rates. 
+```{r}
+df <- dbGetQuery(con, "SELECT * FROM lasd_stop_rate_by_race_2020")
+
+
+
+df_stop_rate<-df%>%
+  gather(measure_rate, value_rate, asian:twoormor_rate, factor_key = TRUE)%>%
+  filter(grepl('_rate', measure_rate)) %>% #filtering for rates only 
+  mutate(race_label = ifelse(measure_rate %in% 'total_rate', "Total",
+                             ifelse(measure_rate %in% 'latinx_rate', "Latinx",
+                                    ifelse(measure_rate %in% 'black_rate', "Black",
+                                           ifelse(measure_rate %in% 'asian_rate',"Asian",
+                                                  ifelse(measure_rate %in% 'aian_rate', "American Indian/Alaska Native",
+                                                         ifelse(measure_rate %in% 'white_rate', "White",
+                                                                ifelse(measure_rate %in% 'nhopi_rate', "Native Hawaiian/Pacific Islander",
+                                                                       ifelse(measure_rate %in% 'twoormor_rate', "Two or More", "Blank")))))))))
+
+df_stop_rate$value_rate <- as.numeric(df_stop_rate$value_rate)
+
+#convert to long for estimates only
+
+df_stop_est<-df%>%
+  select(1:12)%>%
+  gather(measure_est, value_est, asian:all_races, factor_key = TRUE)%>%
+  filter(!grepl('_rate', measure_est)) %>% #filtering for rates only 
+  mutate(race_label = ifelse(measure_est %in% 'all_races', "Total",
+                             ifelse(measure_est %in% 'hispanic', "Latinx",
+                                    ifelse(measure_est %in% 'black', "Black",
+                                           ifelse(measure_est %in% 'asian',"Asian",
+                                                  ifelse(measure_est %in% 'native_american', "American Indian/Alaska Native",
+                                                         ifelse(measure_est %in% 'white', "White",
+                                                                ifelse(measure_est %in% 'pacific_islander', "Native Hawaiian/Pacific Islander",
+                                                                       ifelse(measure_est %in% 'multiracial', "Two or More", "Blank")))))))))%>%
+  filter(!grepl('Blank', race_label))
+
+#change order of rows to match rates table
+
+df_stop_est<-df_stop_est[c(8,3,2,1,5,7,6,4),]
+  
+
+
+#now recombine
+
+stop_data<-cbind(df_stop_rate, df_stop_est)%>%
+  select(1:5,10:12)
+
+library(kableExtra)
+kbl(stop_data) %>%
+  kable_styling(bootstrap_options = c("striped", "bordered", "condensed"))
+
+```
+Source: [Open Justice CA DOJ Portal, 2020](https://openjustice.doj.ca.gov/data) <br>
+[American Community Survey Table DP05, 2020](https://data.census.gov/table?tid=ACSDP5Y2020.DP05)
