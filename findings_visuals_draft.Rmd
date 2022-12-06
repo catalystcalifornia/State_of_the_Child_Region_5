@@ -1471,5 +1471,14 @@ kbl(ece_access_prek_2020) %>%
 ## Parks and Safe Spaces
 
 ## Police Violence
+In Antelope Valley ZIP codes, law enforcement visits the most violence on Black residents per 100,000 people. Source: California Department of Justice 2016-21 and American Community Survey 5-year population estimates. Catalyst California aggregated incidents of violence and population figures and calculated rates of violence visited on civilians per 1,000 people.
+```{r}
+source("W:/Project/RDA Team/Region 5 State of the Child/R/use_of_force.R")
+
+library(kableExtra)
+kbl(police_violence_data) %>%
+  kable_styling(bootstrap_options = c("striped", "bordered", "condensed"))
+
+```
 
 ## Traffic Stops
