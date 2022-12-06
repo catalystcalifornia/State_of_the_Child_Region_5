@@ -264,6 +264,7 @@ kbl(av_table) %>%
 # View(av_table)
 
 ```
+
 ```{r}
 # AV Bar Chart
 s <- AV 
