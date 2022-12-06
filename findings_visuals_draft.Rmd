@@ -1432,6 +1432,36 @@ Source: [L.A. County WIC Administrative Data, 2021](https://lawicdata.org/data-r
 
 ## Early Childhood Education 
 
+```{r}
+# Load PostgreSQL driver and databases, get data, and close connection -------------------------------------------------
+pw <- {"password"}
+
+drv <- dbDriver("PostgreSQL")
+
+con <- dbConnect(drv,
+                 dbname = "region5stateofthechild",
+                 host = "aws-postgres-db.c5udgz7ro8hq.us-west-2.rds.amazonaws.com", 
+                 port = 5432,
+                 user = "postgres",
+                 password = pw)
+
+
+ece_access_it_2020 <- st_read(con, query = "SELECT * FROM data.ece_access_it_2020")
+
+ece_access_prek_2020 <- st_read(con, query = "SELECT * FROM data.ece_access_prek_2020")
+
+dbDisconnect(con)
+
+library(kableExtra)
+kbl(ece_access_it_2020) %>%
+  kable_styling(bootstrap_options = c("striped", "bordered", "condensed"))
+
+library(kableExtra)
+kbl(ece_access_prek_2020) %>%
+  kable_styling(bootstrap_options = c("striped", "bordered", "condensed"))
+
+```
+
 ## 3rd Grade Math Scores
 
 ## 3rd Grade English Scores
