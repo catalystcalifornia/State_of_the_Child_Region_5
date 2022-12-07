@@ -727,6 +727,10 @@ df_stop_est<-df_stop_est[c(8,3,2,1,5,7,6,4),]
 stop_data<-cbind(df_stop_rate, df_stop_est)%>%
   select(1:5,10:12)
 
+stop_data <- stop_data[c(8, 7, 5)] %>% rename(Race = race_label,
+                                              Stops_Estimated = value_est,
+                                              Stops_Rate = value_rate)
+
 library(kableExtra)
 kbl(stop_data) %>%
   kable_styling(bootstrap_options = c("striped", "bordered", "condensed"))
