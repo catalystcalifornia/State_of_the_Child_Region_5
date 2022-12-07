@@ -39,17 +39,17 @@ The State of the Child Antelope Valley Report seeks to understand the conditions
 
 
 ### Data Source(s)
-# *[American Community Survey 2016-2020 5-year estimates calculated for Antelope Valley neighborhoods by Lucy Wilkerson](https://public.tableau.com/app/profile/luz3725/viz/2020CensusData-AVBESTSTARTREGION5/GRAPI)
-# *[2019 US Census American Community Survey (ACS) 1-year Estimates, Table S0201](https://data.census.gov/cedsci/table?q=S0201&t=-00%20-%20All%20available%20races&g=0400000US06%240500000&tid=ACSSPP1Y2019.S0201)
-# *[Children's Data Network Infant Mortality Rates](https://www.first5la.org/wp-content/uploads/2020/09/First-5-LA-2020-Indicators-Report.pdf)
-# *[California Department of Public Health](https://data.chhs.ca.gov/dataset/infant-mortality-deaths-per-1000-live-births-lghc-indicator-01/resource/ae78da8f-1661-45f6-b2d0-1014857d16e3)
-# *[African American Infant and Maternal Mortality (AAIMM) Initiative](https://www.blackinfantsandfamilies.org/)
-# *[A Pathway to Equity](http://publichealth.lacounty.gov/centerforhealthequity/PDF/AAIM-ActionPlan.pdf)
-# *[Vera Institute for Justice](https://www.vera.org/)
-# *[California Department of Education, 2015-2022](https://dq.cde.ca.gov/dataquest/)
-# *[Los Angeles Homeless Services Authority, 2022](https://www.lahsa.org/data)
-# *[United Ways of California Real Cost Measure, 2021](https://www.unitedwaysca.org/realcost/39-real-cost)
-# *[L.A. County WIC Administrative Data, 2021](https://lawicdata.org/data-research/by-region/)
+ *[American Community Survey 2016-2020 5-year estimates calculated for Antelope Valley neighborhoods by Lucy Wilkerson](https://public.tableau.com/app/profile/luz3725/viz/2020CensusData-AVBESTSTARTREGION5/GRAPI)
+ *[2019 US Census American Community Survey (ACS) 1-year Estimates, Table S0201](https://data.census.gov/cedsci/table?q=S0201&t=-00%20-%20All%20available%20races&g=0400000US06%240500000&tid=ACSSPP1Y2019.S0201)
+ *[Children's Data Network Infant Mortality Rates](https://www.first5la.org/wp-content/uploads/2020/09/First-5-LA-2020-Indicators-Report.pdf)
+ *[California Department of Public Health](https://data.chhs.ca.gov/dataset/infant-mortality-deaths-per-1000-live-births-lghc-indicator-01/resource/ae78da8f-1661-45f6-b2d0-1014857d16e3)
+ *[African American Infant and Maternal Mortality (AAIMM) Initiative](https://www.blackinfantsandfamilies.org/)
+ *[A Pathway to Equity](http://publichealth.lacounty.gov/centerforhealthequity/PDF/AAIM-ActionPlan.pdf)
+ *[Vera Institute for Justice](https://www.vera.org/)
+ *[California Department of Education, 2015-2022](https://dq.cde.ca.gov/dataquest/)
+ *[Los Angeles Homeless Services Authority, 2022](https://www.lahsa.org/data)
+ *[United Ways of California Real Cost Measure, 2021](https://www.unitedwaysca.org/realcost/39-real-cost)
+ *[L.A. County WIC Administrative Data, 2021](https://lawicdata.org/data-research/by-region/)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
