@@ -22,8 +22,14 @@ knitr::opts_chunk$set(comment=FALSE, message=FALSE, warning=FALSE)
 # install.packages("showtext")
 # install.packages("kableExtra")
 # install.packages("janitor")
-
-
+# install.packages("extrafont")
+# install.packages("tigris")
+# install.packages("ggtext")
+# install.packages("ggrepel")
+# install.packages("flextable")
+# install.packages("highcharter")
+# install.packages("tidycensus")
+# install.packages("survey")
 
 ```
 
@@ -35,6 +41,8 @@ The following site holds the draft findings and draft visuals from various data 
 library(dplyr)
 library(ggplot2)
 library(RPostgreSQL)
+library(devtools)
+library(janitor)
 library(tidyr)
 library(data.table)
 library(sysfonts)
@@ -1485,6 +1493,10 @@ kbl(police_violence_data) %>%
 Black and NHPI populations are significantly more likely to be stopped by the Sheriff's Police Department than the race groups. 
 For example, Blacks are 2.4 times more likely to be stopped than Whites and NHPIs are 2.5 times more likely to be stopped than Whites. While there is not a data set available that can be clipped for the just the Antelope Valley region, we do see that within the police jurisdiction that covers this region, there is a racial discrepancy in stop rates. 
 ```{r}
+library(RPostgreSQL)
+con <- dbConnect(drv, dbname = "region5stateofthechild",
+                   host = "aws-postgres-db.c5udgz7ro8hq.us-west-2.rds.amazonaws.com", port = 5432,
+                   user = "postgres", password = pw)
 df <- dbGetQuery(con, "SELECT * FROM lasd_stop_rate_by_race_2020")
 
 
