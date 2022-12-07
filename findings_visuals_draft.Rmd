@@ -1390,7 +1390,9 @@ Sources: [American Community Survey 2016-2020 5-year estimates calculated for An
 ```
 
 
-## Housing Insecurity 
+## Foreclosures
+
+## Evictions
 
 ## Cost of Living
 
@@ -1428,8 +1430,6 @@ Source: [L.A. County WIC Administrative Data, 2021](https://lawicdata.org/data-r
 
 ## Suspensions 
 
-## Explusions 
-
 ## Early Childhood Education 
 
 ```{r}
@@ -1466,7 +1466,7 @@ kbl(ece_access_prek_2020) %>%
 
 ## 3rd Grade English Scores
 
-# Safety and Education 
+# Safety and Justice 
 
 ## Parks and Safe Spaces
 
