@@ -27,9 +27,7 @@ knitr::opts_chunk$set(comment=FALSE, message=FALSE, warning=FALSE)
 
 ```
 
-The following site holds the draft findings and draft visuals from various data sources to better understand the well-being and health of children in Best Start Region 5, the Antelope Valley. The findings and visuals are being developed by Catalyst California for the Region 5 State of the Child report in collaboration with The Children's Bureau. 
-
-
+The following site holds the draft findings and draft visuals from various data sources to better understand the well-being and health of children in Best Start Region 5, the Antelope Valley. The findings and visuals are being developed by Catalyst California for the Region 5 State of the Child report in collaboration with The Children's Bureau.
 
 ```{r}
 # Prep and Set Up 
@@ -90,13 +88,14 @@ con <- dbConnect(drv, dbname = "region5stateofthechild",
 
 ```
 
-# Introduction 
-
 # Demographics 
 
 ## Population of Children and Families
 
-The Antelope Valley is a 2,200 square mile area in northern Los Angeles County [1](https://en.wikipedia.org/wiki/Antelope_Valley). According to the US Census, it's two largest cities, Lancaster and Palmdale, have populations of 170,150 and 165,761, respectively.[1](https://www.census.gov/quickfacts/fact/table/palmdalecitycalifornia,lancastercitycalifornia/PST045221). For comparison, both cities are more populous than Pasadena and Pomona, two well-known mid-size cities on the other side of the valley. 
+The Antelope Valley is a 2,200 square mile area in northern Los Angeles County [1](https://en.wikipedia.org/wiki/Antelope_Valley). According to the US Census, it's two largest cities, Lancaster and Palmdale, have populations of 170,150 and 165,761, respectively.[1](https://www.census.gov/quickfacts/fact/table/palmdalecitycalifornia,lancastercitycalifornia/PST045221). For comparison, both cities are more populous than Pasadena and Pomona, two well-known mid-size cities on the other side of the valley.
+
+The Antelope Valley Best Start Region 5 is home to a population of 368,522 people [1](https://public.tableau.com/app/profile/luz3725/viz/2020CensusData-AVBESTSTARTREGION5/GRAPI). According to Catalyst California calculations of 2020 American Community Survey estimates, the Lancaster and Palmdale Best Start geographies hold 12,821 and 13,068 children ages 0 to 5, respectively. These 25,000+ children represent more than 7% of the Lancaster and Palmdale Best Start geography populations.
+
 
 ## Racial Ethnic Breakdown 
 
@@ -159,7 +158,100 @@ kbl(av_table) %>%
 # View(av_table)
 
 ```
+```{r}
+# AV Bar Chart
+s <- AV 
+tot = subset(s, select=c(total_rate)) %>% round(1)  # pull out total_rate
+s = subset(s, select=-c(total_rate)) # pull out raced rates
+oldnames = c("nh_black_rate","nh_aian_rate", "nh_asian_rate", "nh_filipino_rate", "latino_rate", "nh_pacisl_rate", "nh_white_rate", "nh_twoormor_rate")
+engvar = c("Black", "AIAN", "Asian", "Filipinx", "Latinx", "NHPI", "White", "Two or more")
+s = s %>% rename_at(vars(oldnames), ~ engvar)
 
+# create english / spanish labels
+engvar = c("Black", "AIAN", "Asian", "Filipinx", "Latinx", "NHPI", "White", "Two or more")
+esvar = c("Negro", "Indígena Americano", "Asiático", "Filipino", "Latino", "Isleño del Pacifico", "Blanco", "Dos o mas") 
+#esvar_long = c("NEGRO O AFROAMERICANO", "INDÍGENA AMERICANO O NATIVO DE ALASKA", "ASIÁTICO", "FILIPINO", "LATINO", "ISLEÑO DEL PACIFICO", "BLANCO", "DOS O MAS")
+labels <- data.frame(engvar, esvar)
+# labels
+
+
+# convert df to long format
+s_long <- reshape2::melt(s, id.vars=c("geoname"))
+# Round 'value' field to 1 decimal, rename 'variable' field, add Spanish labels
+s_long <- s_long %>% mutate(value = round(value, 1)) %>% dplyr::rename(engvar = variable)  %>% 
+  left_join(labels, by = "engvar")
+s_long <- s_long %>% filter(value > 0)
+
+
+df <- data.frame(s_long, tot)       # add total_rate to long table
+df <- na.omit(df)             # drop NA's
+# df
+
+engtot_stat <- paste("Overall Rate =", min(df$total_rate))   # total_rate line annotation
+estot_stat <- paste("Promedio Total =", min(df$total_rate))   # total_rate line annotation
+
+
+# Set region name for file name
+region <- "Antelope Valley"
+
+
+# write the name of your indicator here:
+var <- "foster"
+
+
+# Define chart height as max y value varies by indicator. Set vertical position for total line label - may need to be customized for each chart.
+max_y = 1.15 * max(df$value) 
+annotate_y = 1.12 * df$total_rate
+
+# specify language: comment out based on language of chart created below
+lang <- "eng"
+
+
+
+
+# # ggplot method that should export as .svg ##
+av_plot <- 
+  #English
+  ggplot(df, aes(x= reorder(engvar, -value), y=value)) +     # set up manual fill using 'test', add "-" before value to order bars when MAX is best
+  annotate("text", x=6.25, y = annotate_y, label = str_wrap(engtot_stat, width = 20), hjust=-0.33, vjust = 0.35, family= font_table_text, color = red) +  
+  labs(title = "**<span style='font-size:20pt;'>Population of Students in Foster Care(%)</span>**", subtitle = region, caption = "*American Indian and Alaska Native (AIAN), Native Hawaiian and Pacific Islander (NHPI)") +
+  # rest of chart    
+  geom_bar(stat="identity", position = position_dodge(0.7), show.legend = FALSE) +
+  geom_col(fill = lightblue, color = darkblue) +         # all bars in "#355C7D"
+  geom_hline(aes(yintercept = round(total_rate, 1)), color = red, size = .5) + 
+  geom_text(aes(label = round(value, digits = 1)), family = font_bar_label, hjust = -.5) +       # format data labels, adjust hjust to avoid overlap w/ total line
+  # scale_y_continuous(limits = c(0, max_y), breaks = seq(0, max_y, by = 20)) +
+  scale_x_discrete(labels = function(engvar) str_wrap(engvar, width = 20)) +            # wrap long labels
+  xlab("") +
+  ylab("") +
+  coord_flip()
+# av_plot
+
+av_plot <- av_plot + theme(
+  panel.background = element_rect(fill = "transparent"), # bg of the panel
+  plot.background = element_rect(fill = 'transparent', color=NA), 
+  panel.grid.major.y = element_line(colour = textgrey),    # add major y-axis gridlines
+  panel.grid.minor = element_blank(), # bg of the plot
+  axis.title.x = element_blank(),
+  axis.title.y = element_blank(),
+  axis.text.x = element_text(size = 12, family= font_axis_label),
+  axis.text.y = element_text(size = 12, family= font_axis_label),
+  axis.ticks = element_blank(),
+  plot.title = element_markdown(family = font_title, face = "bold", size = 15, hjust = 0),
+  plot.title.position = "plot",
+  plot.subtitle = element_text(family = font_title, hjust = 0), 
+  plot.margin = margin(t = 10,
+                       b = 10,
+                       r = 10,
+                       l = 10)
+)
+
+
+av_plot <- av_plot + ylim(0, max_y)     # add buffer between title and chart/data labels
+av_plot
+
+
+```
 
 ## Student Migrant Population
 ```{r}
@@ -173,6 +265,100 @@ kbl(av_table) %>%
 
 ```
 
+```{r}
+# AV Bar Chart
+s <- AV 
+tot = subset(s, select=c(total_rate)) %>% round(1)  # pull out total_rate
+s = subset(s, select=-c(total_rate)) # pull out raced rates
+oldnames = c("nh_black_rate","nh_aian_rate", "nh_asian_rate", "nh_filipino_rate", "latino_rate", "nh_pacisl_rate", "nh_white_rate", "nh_twoormor_rate")
+engvar = c("Black", "AIAN", "Asian", "Filipinx", "Latinx", "NHPI", "White", "Two or more")
+s = s %>% rename_at(vars(oldnames), ~ engvar)
+
+# create english / spanish labels
+engvar = c("Black", "AIAN", "Asian", "Filipinx", "Latinx", "NHPI", "White", "Two or more")
+esvar = c("Negro", "Indígena Americano", "Asiático", "Filipino", "Latino", "Isleño del Pacifico", "Blanco", "Dos o mas") 
+#esvar_long = c("NEGRO O AFROAMERICANO", "INDÍGENA AMERICANO O NATIVO DE ALASKA", "ASIÁTICO", "FILIPINO", "LATINO", "ISLEÑO DEL PACIFICO", "BLANCO", "DOS O MAS")
+labels <- data.frame(engvar, esvar)
+# labels
+
+
+# convert df to long format
+s_long <- reshape2::melt(s, id.vars=c("geoname"))
+# Round 'value' field to 1 decimal, rename 'variable' field, add Spanish labels
+s_long <- s_long %>% mutate(value = round(value, 1)) %>% dplyr::rename(engvar = variable)  %>% 
+  left_join(labels, by = "engvar")
+s_long <- s_long %>% filter(value > 0)
+
+
+df <- data.frame(s_long, tot)       # add total_rate to long table
+df <- na.omit(df)             # drop NA's
+# df
+
+engtot_stat <- paste("Overall Rate =", min(df$total_rate))   # total_rate line annotation
+estot_stat <- paste("Promedio Total =", min(df$total_rate))   # total_rate line annotation
+
+
+# Set region name for file name
+region <- "Antelope Valley"
+
+
+# write the name of your indicator here:
+var <- "migrant"
+
+
+# Define chart height as max y value varies by indicator. Set vertical position for total line label - may need to be customized for each chart.
+max_y = 1.15 * max(df$value) 
+annotate_y = 1.12 * df$total_rate
+
+# specify language: comment out based on language of chart created below
+lang <- "eng"
+
+
+
+
+# # ggplot method that should export as .svg ##
+av_plot <- 
+  #English
+  ggplot(df, aes(x= reorder(engvar, -value), y=value)) +     # set up manual fill using 'test', add "-" before value to order bars when MAX is best
+  annotate("text", x=6.25, y = annotate_y, label = str_wrap(engtot_stat, width = 20), hjust=-0.33, vjust = 0.35, family= font_table_text, color = red) +  
+  labs(title = "**<span style='font-size:20pt;'>Student Migrant Population (%)</span>**", subtitle = region, caption = "*American Indian and Alaska Native (AIAN), Native Hawaiian and Pacific Islander (NHPI)") +
+  # rest of chart    
+  geom_bar(stat="identity", position = position_dodge(0.7), show.legend = FALSE) +
+  geom_col(fill = lightblue, color = darkblue) +         # all bars in "#355C7D"
+  geom_hline(aes(yintercept = round(total_rate, 1)), color = red, size = .5) + 
+  geom_text(aes(label = round(value, digits = 1)), family = font_bar_label, hjust = -.5) +       # format data labels, adjust hjust to avoid overlap w/ total line
+  # scale_y_continuous(limits = c(0, max_y), breaks = seq(0, max_y, by = 20)) +
+  scale_x_discrete(labels = function(engvar) str_wrap(engvar, width = 20)) +            # wrap long labels
+  xlab("") +
+  ylab("") +
+  coord_flip()
+# av_plot
+
+av_plot <- av_plot + theme(
+  panel.background = element_rect(fill = "transparent"), # bg of the panel
+  plot.background = element_rect(fill = 'transparent', color=NA), 
+  panel.grid.major.y = element_line(colour = textgrey),    # add major y-axis gridlines
+  panel.grid.minor = element_blank(), # bg of the plot
+  axis.title.x = element_blank(),
+  axis.title.y = element_blank(),
+  axis.text.x = element_text(size = 12, family= font_axis_label),
+  axis.text.y = element_text(size = 12, family= font_axis_label),
+  axis.ticks = element_blank(),
+  plot.title = element_markdown(family = font_title, face = "bold", size = 15, hjust = 0),
+  plot.title.position = "plot",
+  plot.subtitle = element_text(family = font_title, hjust = 0), 
+  plot.margin = margin(t = 10,
+                       b = 10,
+                       r = 10,
+                       l = 10)
+)
+
+
+av_plot <- av_plot + ylim(0, max_y)     # add buffer between title and chart/data labels
+av_plot
+
+
+```
 
 ## Student Population by Gender
 ### Male
@@ -185,6 +371,100 @@ kbl(av_table) %>%
   kable_styling(bootstrap_options = c("striped", "bordered", "condensed"))
 # View(av_table)
 ```
+```{r}
+# AV Bar Chart
+s <- AV 
+tot = subset(s, select=c(total_rate)) %>% round(1)  # pull out total_rate
+s = subset(s, select=-c(total_rate)) # pull out raced rates
+oldnames = c("nh_black_rate","nh_aian_rate", "nh_asian_rate", "nh_filipino_rate", "latino_rate", "nh_pacisl_rate", "nh_white_rate", "nh_twoormor_rate")
+engvar = c("Black", "AIAN", "Asian", "Filipinx", "Latinx", "NHPI", "White", "Two or more")
+s = s %>% rename_at(vars(oldnames), ~ engvar)
+
+# create english / spanish labels
+engvar = c("Black", "AIAN", "Asian", "Filipinx", "Latinx", "NHPI", "White", "Two or more")
+esvar = c("Negro", "Indígena Americano", "Asiático", "Filipino", "Latino", "Isleño del Pacifico", "Blanco", "Dos o mas") 
+#esvar_long = c("NEGRO O AFROAMERICANO", "INDÍGENA AMERICANO O NATIVO DE ALASKA", "ASIÁTICO", "FILIPINO", "LATINO", "ISLEÑO DEL PACIFICO", "BLANCO", "DOS O MAS")
+labels <- data.frame(engvar, esvar)
+# labels
+
+
+# convert df to long format
+s_long <- reshape2::melt(s, id.vars=c("geoname"))
+# Round 'value' field to 1 decimal, rename 'variable' field, add Spanish labels
+s_long <- s_long %>% mutate(value = round(value, 1)) %>% dplyr::rename(engvar = variable)  %>% 
+  left_join(labels, by = "engvar")
+s_long <- s_long %>% filter(value > 0)
+
+
+df <- data.frame(s_long, tot)       # add total_rate to long table
+df <- na.omit(df)             # drop NA's
+# df
+
+engtot_stat <- paste("Overall Rate =", min(df$total_rate))   # total_rate line annotation
+estot_stat <- paste("Promedio Total =", min(df$total_rate))   # total_rate line annotation
+
+
+# Set region name for file name
+region <- "Antelope Valley"
+
+
+# write the name of your indicator here:
+var <- "male"
+
+
+# Define chart height as max y value varies by indicator. Set vertical position for total line label - may need to be customized for each chart.
+max_y = 1.15 * max(df$value) 
+annotate_y = 1.12 * df$total_rate
+
+# specify language: comment out based on language of chart created below
+lang <- "eng"
+
+
+
+
+# # ggplot method that should export as .svg ##
+av_plot <- 
+  #English
+  ggplot(df, aes(x= reorder(engvar, -value), y=value)) +     # set up manual fill using 'test', add "-" before value to order bars when MAX is best
+  annotate("text", x=6.25, y = annotate_y, label = str_wrap(engtot_stat, width = 20), hjust=-0.33, vjust = 0.35, family= font_table_text, color = red) +  
+  labs(title = "**<span style='font-size:20pt;'>Male Students (%)</span>**", subtitle = region, caption = "*American Indian and Alaska Native (AIAN), Native Hawaiian and Pacific Islander (NHPI)") +
+  # rest of chart    
+  geom_bar(stat="identity", position = position_dodge(0.7), show.legend = FALSE) +
+  geom_col(fill = lightblue, color = darkblue) +         # all bars in "#355C7D"
+  geom_hline(aes(yintercept = round(total_rate, 1)), color = red, size = .5) + 
+  geom_text(aes(label = round(value, digits = 1)), family = font_bar_label, hjust = -.5) +       # format data labels, adjust hjust to avoid overlap w/ total line
+  # scale_y_continuous(limits = c(0, max_y), breaks = seq(0, max_y, by = 20)) +
+  scale_x_discrete(labels = function(engvar) str_wrap(engvar, width = 20)) +            # wrap long labels
+  xlab("") +
+  ylab("") +
+  coord_flip()
+# av_plot
+
+av_plot <- av_plot + theme(
+  panel.background = element_rect(fill = "transparent"), # bg of the panel
+  plot.background = element_rect(fill = 'transparent', color=NA), 
+  panel.grid.major.y = element_line(colour = textgrey),    # add major y-axis gridlines
+  panel.grid.minor = element_blank(), # bg of the plot
+  axis.title.x = element_blank(),
+  axis.title.y = element_blank(),
+  axis.text.x = element_text(size = 12, family= font_axis_label),
+  axis.text.y = element_text(size = 12, family= font_axis_label),
+  axis.ticks = element_blank(),
+  plot.title = element_markdown(family = font_title, face = "bold", size = 15, hjust = 0),
+  plot.title.position = "plot",
+  plot.subtitle = element_text(family = font_title, hjust = 0), 
+  plot.margin = margin(t = 10,
+                       b = 10,
+                       r = 10,
+                       l = 10)
+)
+
+
+av_plot <- av_plot + ylim(0, max_y)     # add buffer between title and chart/data labels
+av_plot
+
+
+```
 
 ### Female
 ```{r}
@@ -195,6 +475,100 @@ library(kableExtra)
 kbl(av_table) %>%
   kable_styling(bootstrap_options = c("striped", "bordered", "condensed"))
 # View(av_table)
+```
+```{r}
+# AV Bar Chart
+s <- AV 
+tot = subset(s, select=c(total_rate)) %>% round(1)  # pull out total_rate
+s = subset(s, select=-c(total_rate)) # pull out raced rates
+oldnames = c("nh_black_rate","nh_aian_rate", "nh_asian_rate", "nh_filipino_rate", "latino_rate", "nh_pacisl_rate", "nh_white_rate", "nh_twoormor_rate")
+engvar = c("Black", "AIAN", "Asian", "Filipinx", "Latinx", "NHPI", "White", "Two or more")
+s = s %>% rename_at(vars(oldnames), ~ engvar)
+
+# create english / spanish labels
+engvar = c("Black", "AIAN", "Asian", "Filipinx", "Latinx", "NHPI", "White", "Two or more")
+esvar = c("Negro", "Indígena Americano", "Asiático", "Filipino", "Latino", "Isleño del Pacifico", "Blanco", "Dos o mas") 
+#esvar_long = c("NEGRO O AFROAMERICANO", "INDÍGENA AMERICANO O NATIVO DE ALASKA", "ASIÁTICO", "FILIPINO", "LATINO", "ISLEÑO DEL PACIFICO", "BLANCO", "DOS O MAS")
+labels <- data.frame(engvar, esvar)
+# labels
+
+
+# convert df to long format
+s_long <- reshape2::melt(s, id.vars=c("geoname"))
+# Round 'value' field to 1 decimal, rename 'variable' field, add Spanish labels
+s_long <- s_long %>% mutate(value = round(value, 1)) %>% dplyr::rename(engvar = variable)  %>% 
+  left_join(labels, by = "engvar")
+s_long <- s_long %>% filter(value > 0)
+
+
+df <- data.frame(s_long, tot)       # add total_rate to long table
+df <- na.omit(df)             # drop NA's
+# df
+
+engtot_stat <- paste("Overall Rate =", min(df$total_rate))   # total_rate line annotation
+estot_stat <- paste("Promedio Total =", min(df$total_rate))   # total_rate line annotation
+
+
+# Set region name for file name
+region <- "Antelope Valley"
+
+
+# write the name of your indicator here:
+var <- "female_students"
+
+
+# Define chart height as max y value varies by indicator. Set vertical position for total line label - may need to be customized for each chart.
+max_y = 1.15 * max(df$value) 
+annotate_y = 1.12 * df$total_rate
+
+# specify language: comment out based on language of chart created below
+lang <- "eng"
+
+
+
+
+# # ggplot method that should export as .svg ##
+av_plot <- 
+  #English
+  ggplot(df, aes(x= reorder(engvar, -value), y=value)) +     # set up manual fill using 'test', add "-" before value to order bars when MAX is best
+  annotate("text", x=6.25, y = annotate_y, label = str_wrap(engtot_stat, width = 20), hjust=-0.33, vjust = 0.35, family= font_table_text, color = red) +  
+  labs(title = "**<span style='font-size:20pt;'>Female Students (%)</span>**", subtitle = region, caption = "*American Indian and Alaska Native (AIAN), Native Hawaiian and Pacific Islander (NHPI)") +
+  # rest of chart    
+  geom_bar(stat="identity", position = position_dodge(0.7), show.legend = FALSE) +
+  geom_col(fill = lightblue, color = darkblue) +         # all bars in "#355C7D"
+  geom_hline(aes(yintercept = round(total_rate, 1)), color = red, size = .5) + 
+  geom_text(aes(label = round(value, digits = 1)), family = font_bar_label, hjust = -.5) +       # format data labels, adjust hjust to avoid overlap w/ total line
+  # scale_y_continuous(limits = c(0, max_y), breaks = seq(0, max_y, by = 20)) +
+  scale_x_discrete(labels = function(engvar) str_wrap(engvar, width = 20)) +            # wrap long labels
+  xlab("") +
+  ylab("") +
+  coord_flip()
+# av_plot
+
+av_plot <- av_plot + theme(
+  panel.background = element_rect(fill = "transparent"), # bg of the panel
+  plot.background = element_rect(fill = 'transparent', color=NA), 
+  panel.grid.major.y = element_line(colour = textgrey),    # add major y-axis gridlines
+  panel.grid.minor = element_blank(), # bg of the plot
+  axis.title.x = element_blank(),
+  axis.title.y = element_blank(),
+  axis.text.x = element_text(size = 12, family= font_axis_label),
+  axis.text.y = element_text(size = 12, family= font_axis_label),
+  axis.ticks = element_blank(),
+  plot.title = element_markdown(family = font_title, face = "bold", size = 15, hjust = 0),
+  plot.title.position = "plot",
+  plot.subtitle = element_text(family = font_title, hjust = 0), 
+  plot.margin = margin(t = 10,
+                       b = 10,
+                       r = 10,
+                       l = 10)
+)
+
+
+av_plot <- av_plot + ylim(0, max_y)     # add buffer between title and chart/data labels
+av_plot
+
+
 ```
 
 ### Non-binary
@@ -208,6 +582,100 @@ kbl(av_table) %>%
 # View(av_table)
 ```
 
+```{r}
+# AV Bar Chart
+s <- AV 
+tot = subset(s, select=c(total_rate)) %>% round(1)  # pull out total_rate
+s = subset(s, select=-c(total_rate)) # pull out raced rates
+oldnames = c("nh_black_rate","nh_aian_rate", "nh_asian_rate", "nh_filipino_rate", "latino_rate", "nh_pacisl_rate", "nh_white_rate", "nh_twoormor_rate")
+engvar = c("Black", "AIAN", "Asian", "Filipinx", "Latinx", "NHPI", "White", "Two or more")
+s = s %>% rename_at(vars(oldnames), ~ engvar)
+
+# create english / spanish labels
+engvar = c("Black", "AIAN", "Asian", "Filipinx", "Latinx", "NHPI", "White", "Two or more")
+esvar = c("Negro", "Indígena Americano", "Asiático", "Filipino", "Latino", "Isleño del Pacifico", "Blanco", "Dos o mas") 
+#esvar_long = c("NEGRO O AFROAMERICANO", "INDÍGENA AMERICANO O NATIVO DE ALASKA", "ASIÁTICO", "FILIPINO", "LATINO", "ISLEÑO DEL PACIFICO", "BLANCO", "DOS O MAS")
+labels <- data.frame(engvar, esvar)
+# labels
+
+
+# convert df to long format
+s_long <- reshape2::melt(s, id.vars=c("geoname"))
+# Round 'value' field to 1 decimal, rename 'variable' field, add Spanish labels
+s_long <- s_long %>% mutate(value = round(value, 1)) %>% dplyr::rename(engvar = variable)  %>% 
+  left_join(labels, by = "engvar")
+s_long <- s_long %>% filter(value > 0)
+
+
+df <- data.frame(s_long, tot)       # add total_rate to long table
+df <- na.omit(df)             # drop NA's
+# df
+
+engtot_stat <- paste("Overall Rate =", min(df$total_rate))   # total_rate line annotation
+estot_stat <- paste("Promedio Total =", min(df$total_rate))   # total_rate line annotation
+
+
+# Set region name for file name
+region <- "Antelope Valley"
+
+
+# write the name of your indicator here:
+var <- "non-binary"
+
+
+# Define chart height as max y value varies by indicator. Set vertical position for total line label - may need to be customized for each chart.
+max_y = 1.15 * max(df$value) 
+annotate_y = 1.12 * df$total_rate
+
+# specify language: comment out based on language of chart created below
+lang <- "eng"
+
+
+
+
+# # ggplot method that should export as .svg ##
+av_plot <- 
+  #English
+  ggplot(df, aes(x= reorder(engvar, -value), y=value)) +     # set up manual fill using 'test', add "-" before value to order bars when MAX is best
+  annotate("text", x=6.25, y = annotate_y, label = str_wrap(engtot_stat, width = 20), hjust=-0.33, vjust = 0.35, family= font_table_text, color = red) +  
+  labs(title = "**<span style='font-size:20pt;'>Non-binary Students (%)</span>**", subtitle = region, caption = "*American Indian and Alaska Native (AIAN), Native Hawaiian and Pacific Islander (NHPI)") +
+  # rest of chart    
+  geom_bar(stat="identity", position = position_dodge(0.7), show.legend = FALSE) +
+  geom_col(fill = lightblue, color = darkblue) +         # all bars in "#355C7D"
+  geom_hline(aes(yintercept = round(total_rate, 1)), color = red, size = .5) + 
+  geom_text(aes(label = round(value, digits = 1)), family = font_bar_label, hjust = -.5) +       # format data labels, adjust hjust to avoid overlap w/ total line
+  # scale_y_continuous(limits = c(0, max_y), breaks = seq(0, max_y, by = 20)) +
+  scale_x_discrete(labels = function(engvar) str_wrap(engvar, width = 20)) +            # wrap long labels
+  xlab("") +
+  ylab("") +
+  coord_flip()
+# av_plot
+
+av_plot <- av_plot + theme(
+  panel.background = element_rect(fill = "transparent"), # bg of the panel
+  plot.background = element_rect(fill = 'transparent', color=NA), 
+  panel.grid.major.y = element_line(colour = textgrey),    # add major y-axis gridlines
+  panel.grid.minor = element_blank(), # bg of the plot
+  axis.title.x = element_blank(),
+  axis.title.y = element_blank(),
+  axis.text.x = element_text(size = 12, family= font_axis_label),
+  axis.text.y = element_text(size = 12, family= font_axis_label),
+  axis.ticks = element_blank(),
+  plot.title = element_markdown(family = font_title, face = "bold", size = 15, hjust = 0),
+  plot.title.position = "plot",
+  plot.subtitle = element_text(family = font_title, hjust = 0), 
+  plot.margin = margin(t = 10,
+                       b = 10,
+                       r = 10,
+                       l = 10)
+)
+
+
+av_plot <- av_plot + ylim(0, max_y)     # add buffer between title and chart/data labels
+av_plot
+
+
+```
 
 ## Student Population in Charter Schools
 ```{r}
@@ -220,6 +688,100 @@ kbl(av_table) %>%
 # View(av_table)
 ```
 
+```{r}
+# AV Bar Chart
+s <- AV 
+tot = subset(s, select=c(total_rate)) %>% round(1)  # pull out total_rate
+s = subset(s, select=-c(total_rate)) # pull out raced rates
+oldnames = c("nh_black_rate","nh_aian_rate", "nh_asian_rate", "nh_filipino_rate", "latino_rate", "nh_pacisl_rate", "nh_white_rate", "nh_twoormor_rate")
+engvar = c("Black", "AIAN", "Asian", "Filipinx", "Latinx", "NHPI", "White", "Two or more")
+s = s %>% rename_at(vars(oldnames), ~ engvar)
+
+# create english / spanish labels
+engvar = c("Black", "AIAN", "Asian", "Filipinx", "Latinx", "NHPI", "White", "Two or more")
+esvar = c("Negro", "Indígena Americano", "Asiático", "Filipino", "Latino", "Isleño del Pacifico", "Blanco", "Dos o mas") 
+#esvar_long = c("NEGRO O AFROAMERICANO", "INDÍGENA AMERICANO O NATIVO DE ALASKA", "ASIÁTICO", "FILIPINO", "LATINO", "ISLEÑO DEL PACIFICO", "BLANCO", "DOS O MAS")
+labels <- data.frame(engvar, esvar)
+# labels
+
+
+# convert df to long format
+s_long <- reshape2::melt(s, id.vars=c("geoname"))
+# Round 'value' field to 1 decimal, rename 'variable' field, add Spanish labels
+s_long <- s_long %>% mutate(value = round(value, 1)) %>% dplyr::rename(engvar = variable)  %>% 
+  left_join(labels, by = "engvar")
+s_long <- s_long %>% filter(value > 0)
+
+
+df <- data.frame(s_long, tot)       # add total_rate to long table
+df <- na.omit(df)             # drop NA's
+# df
+
+engtot_stat <- paste("Overall Rate =", min(df$total_rate))   # total_rate line annotation
+estot_stat <- paste("Promedio Total =", min(df$total_rate))   # total_rate line annotation
+
+
+# Set region name for file name
+region <- "Antelope Valley"
+
+
+# write the name of your indicator here:
+var <- "charter_schools"
+
+
+# Define chart height as max y value varies by indicator. Set vertical position for total line label - may need to be customized for each chart.
+max_y = 1.15 * max(df$value) 
+annotate_y = 1.12 * df$total_rate
+
+# specify language: comment out based on language of chart created below
+lang <- "eng"
+
+
+
+
+# # ggplot method that should export as .svg ##
+av_plot <- 
+  #English
+  ggplot(df, aes(x= reorder(engvar, -value), y=value)) +     # set up manual fill using 'test', add "-" before value to order bars when MAX is best
+  annotate("text", x=6.25, y = annotate_y, label = str_wrap(engtot_stat, width = 20), hjust=-0.33, vjust = 0.35, family= font_table_text, color = red) +  
+  labs(title = "**<span style='font-size:20pt;'>Student Population in Charter Schools (%)</span>**", subtitle = region, caption = "*American Indian and Alaska Native (AIAN), Native Hawaiian and Pacific Islander (NHPI)") +
+  # rest of chart    
+  geom_bar(stat="identity", position = position_dodge(0.7), show.legend = FALSE) +
+  geom_col(fill = lightblue, color = darkblue) +         # all bars in "#355C7D"
+  geom_hline(aes(yintercept = round(total_rate, 1)), color = red, size = .5) + 
+  geom_text(aes(label = round(value, digits = 1)), family = font_bar_label, hjust = -.5) +       # format data labels, adjust hjust to avoid overlap w/ total line
+  # scale_y_continuous(limits = c(0, max_y), breaks = seq(0, max_y, by = 20)) +
+  scale_x_discrete(labels = function(engvar) str_wrap(engvar, width = 20)) +            # wrap long labels
+  xlab("") +
+  ylab("") +
+  coord_flip()
+# av_plot
+
+av_plot <- av_plot + theme(
+  panel.background = element_rect(fill = "transparent"), # bg of the panel
+  plot.background = element_rect(fill = 'transparent', color=NA), 
+  panel.grid.major.y = element_line(colour = textgrey),    # add major y-axis gridlines
+  panel.grid.minor = element_blank(), # bg of the plot
+  axis.title.x = element_blank(),
+  axis.title.y = element_blank(),
+  axis.text.x = element_text(size = 12, family= font_axis_label),
+  axis.text.y = element_text(size = 12, family= font_axis_label),
+  axis.ticks = element_blank(),
+  plot.title = element_markdown(family = font_title, face = "bold", size = 15, hjust = 0),
+  plot.title.position = "plot",
+  plot.subtitle = element_text(family = font_title, hjust = 0), 
+  plot.margin = margin(t = 10,
+                       b = 10,
+                       r = 10,
+                       l = 10)
+)
+
+
+av_plot <- av_plot + ylim(0, max_y)     # add buffer between title and chart/data labels
+av_plot
+
+
+```
 
 ## Socioeconomically Disadvantaged
 ```{r}
@@ -232,6 +794,100 @@ kbl(av_table) %>%
 # View(av_table)
 ```
 
+```{r}
+# AV Bar Chart
+s <- AV 
+tot = subset(s, select=c(total_rate)) %>% round(1)  # pull out total_rate
+s = subset(s, select=-c(total_rate)) # pull out raced rates
+oldnames = c("nh_black_rate","nh_aian_rate", "nh_asian_rate", "nh_filipino_rate", "latino_rate", "nh_pacisl_rate", "nh_white_rate", "nh_twoormor_rate")
+engvar = c("Black", "AIAN", "Asian", "Filipinx", "Latinx", "NHPI", "White", "Two or more")
+s = s %>% rename_at(vars(oldnames), ~ engvar)
+
+# create english / spanish labels
+engvar = c("Black", "AIAN", "Asian", "Filipinx", "Latinx", "NHPI", "White", "Two or more")
+esvar = c("Negro", "Indígena Americano", "Asiático", "Filipino", "Latino", "Isleño del Pacifico", "Blanco", "Dos o mas") 
+#esvar_long = c("NEGRO O AFROAMERICANO", "INDÍGENA AMERICANO O NATIVO DE ALASKA", "ASIÁTICO", "FILIPINO", "LATINO", "ISLEÑO DEL PACIFICO", "BLANCO", "DOS O MAS")
+labels <- data.frame(engvar, esvar)
+# labels
+
+
+# convert df to long format
+s_long <- reshape2::melt(s, id.vars=c("geoname"))
+# Round 'value' field to 1 decimal, rename 'variable' field, add Spanish labels
+s_long <- s_long %>% mutate(value = round(value, 1)) %>% dplyr::rename(engvar = variable)  %>% 
+  left_join(labels, by = "engvar")
+s_long <- s_long %>% filter(value > 0)
+
+
+df <- data.frame(s_long, tot)       # add total_rate to long table
+df <- na.omit(df)             # drop NA's
+# df
+
+engtot_stat <- paste("Overall Rate =", min(df$total_rate))   # total_rate line annotation
+estot_stat <- paste("Promedio Total =", min(df$total_rate))   # total_rate line annotation
+
+
+# Set region name for file name
+region <- "Antelope Valley"
+
+
+# write the name of your indicator here:
+var <- "socioeconomically_disadvantaged"
+
+
+# Define chart height as max y value varies by indicator. Set vertical position for total line label - may need to be customized for each chart.
+max_y = 1.15 * max(df$value) 
+annotate_y = 1.12 * df$total_rate
+
+# specify language: comment out based on language of chart created below
+lang <- "eng"
+
+
+
+
+# # ggplot method that should export as .svg ##
+av_plot <- 
+  #English
+  ggplot(df, aes(x= reorder(engvar, -value), y=value)) +     # set up manual fill using 'test', add "-" before value to order bars when MAX is best
+  annotate("text", x=6.25, y = annotate_y, label = str_wrap(engtot_stat, width = 20), hjust=-0.33, vjust = 0.35, family= font_table_text, color = red) +  
+  labs(title = "**<span style='font-size:20pt;'>Socioeconomically Disadvantaged (%)</span>**", subtitle = region, caption = "*American Indian and Alaska Native (AIAN), Native Hawaiian and Pacific Islander (NHPI)") +
+  # rest of chart    
+  geom_bar(stat="identity", position = position_dodge(0.7), show.legend = FALSE) +
+  geom_col(fill = lightblue, color = darkblue) +         # all bars in "#355C7D"
+  geom_hline(aes(yintercept = round(total_rate, 1)), color = red, size = .5) + 
+  geom_text(aes(label = round(value, digits = 1)), family = font_bar_label, hjust = -.5) +       # format data labels, adjust hjust to avoid overlap w/ total line
+  # scale_y_continuous(limits = c(0, max_y), breaks = seq(0, max_y, by = 20)) +
+  scale_x_discrete(labels = function(engvar) str_wrap(engvar, width = 20)) +            # wrap long labels
+  xlab("") +
+  ylab("") +
+  coord_flip()
+# av_plot
+
+av_plot <- av_plot + theme(
+  panel.background = element_rect(fill = "transparent"), # bg of the panel
+  plot.background = element_rect(fill = 'transparent', color=NA), 
+  panel.grid.major.y = element_line(colour = textgrey),    # add major y-axis gridlines
+  panel.grid.minor = element_blank(), # bg of the plot
+  axis.title.x = element_blank(),
+  axis.title.y = element_blank(),
+  axis.text.x = element_text(size = 12, family= font_axis_label),
+  axis.text.y = element_text(size = 12, family= font_axis_label),
+  axis.ticks = element_blank(),
+  plot.title = element_markdown(family = font_title, face = "bold", size = 15, hjust = 0),
+  plot.title.position = "plot",
+  plot.subtitle = element_text(family = font_title, hjust = 0), 
+  plot.margin = margin(t = 10,
+                       b = 10,
+                       r = 10,
+                       l = 10)
+)
+
+
+av_plot <- av_plot + ylim(0, max_y)     # add buffer between title and chart/data labels
+av_plot
+
+
+```
 
 ## Student Homelessness
 
@@ -508,43 +1164,31 @@ Source: [American Community Survey 2016-2020 5-year estimates calculated for Ant
 
 ## English Language Learners
 
-
-
-# Resources(and barriers to access)
-
-# Economics 
-
-## Rent Burden (Cost Burden Renter)
 ```{r}
-source("W:/Project/RDA Team/Region 5 State of the Child/R/rent_burden.R")
+source("W:/Project/RDA Team/Region 5 State of the Child/R/ell.R")
 library(kableExtra)
-kbl(AV) %>%
+kbl(av_table) %>%
   kable_styling(bootstrap_options = c("striped", "bordered", "condensed"))
-
+View(av_table)
+total_grade_only <- total_grade_only %>% select(year, geoname, ends_with("_rate"))
+# View(total_grade_only)
+# View(av_table)
 
 ```
-Source: [American Community Survey 2016-2020 5-year estimates calculated for Antelope Valley neighborhoods by Lucy Wilkerson](https://public.tableau.com/app/profile/luz3725/viz/2020CensusData-AVBESTSTARTREGION5/GRAPI)
-
-
-```{r}
-kbl(CT) %>%
-  kable_styling(bootstrap_options = c("striped", "bordered", "condensed"))
-```
-Sources: [American Community Survey 2016-2020 5-year estimates calculated for Antelope Valley neighborhoods by Lucy Wilkerson](https://public.tableau.com/app/profile/luz3725/viz/2020CensusData-AVBESTSTARTREGION5/GRAPI) and [HUD CHAS 2014-2018](https://www.huduser.gov/portal/datasets/cp.html#2006-2018)
 
 ```{r}
 # AV Bar Chart
 s <- AV 
 tot = subset(s, select=c(total_rate)) %>% round(1)  # pull out total_rate
 s = subset(s, select=-c(total_rate)) # pull out raced rates
-oldnames = c("nh_black_rate","nh_aian_rate", "nh_asian_rate", "nh_other_rate", "latino_rate", "nh_pacisl_rate", "nh_white_rate")
-engvar = c("Black", "AIAN", "Asian", "Other", "Latinx", "NHPI", "White")
+oldnames = c("nh_black_rate","nh_aian_rate", "nh_asian_rate", "nh_filipino_rate", "latino_rate", "nh_pacisl_rate", "nh_white_rate", "nh_twoormor_rate")
+engvar = c("Black", "AIAN", "Asian", "Filipinx", "Latinx", "NHPI", "White", "Two or more")
 s = s %>% rename_at(vars(oldnames), ~ engvar)
 
 # create english / spanish labels
-engvar = c("Black", "AIAN", "Asian", "Other", "Latinx", "NHPI", "White")
-esvar = c("Negro", "Indígena Americano", "Asiático", "Otra Raza", "Latino", "Isleño del Pacifico", "Blanco") 
-#esvar_long = c("NEGRO O AFROAMERICANO", "INDÍGENA AMERICANO O NATIVO DE ALASKA", "ASIÁTICO", "OTRA RAZA", "LATINO", "ISLEÑO DEL PACIFICO", "BLANCO")
+engvar = c("Black", "AIAN", "Asian", "Filipinx", "Latinx", "NHPI", "White", "Two or more")
+esvar = c("Negro", "Indígena Americano", "Asiático", "Filipino", "Latino", "Isleño del Pacifico", "Blanco", "Dos o mas") 
+#esvar_long = c("NEGRO O AFROAMERICANO", "INDÍGENA AMERICANO O NATIVO DE ALASKA", "ASIÁTICO", "FILIPINO", "LATINO", "ISLEÑO DEL PACIFICO", "BLANCO", "DOS O MAS")
 labels <- data.frame(engvar, esvar)
 # labels
 
@@ -570,7 +1214,7 @@ region <- "Antelope Valley"
 
 
 # write the name of your indicator here:
-var <- "rent_burdened"
+var <- "English Language Learners"
 
 
 # Define chart height as max y value varies by indicator. Set vertical position for total line label - may need to be customized for each chart.
@@ -588,7 +1232,7 @@ av_plot <-
   #English
   ggplot(df, aes(x= reorder(engvar, -value), y=value)) +     # set up manual fill using 'test', add "-" before value to order bars when MAX is best
   annotate("text", x=6.25, y = annotate_y, label = str_wrap(engtot_stat, width = 20), hjust=-0.33, vjust = 0.35, family= font_table_text, color = red) +  
-  labs(title = "**<span style='font-size:20pt;'>Rent Burdened (%)</span>**", subtitle = region, caption = "*American Indian and Alaska Native (AIAN), Native Hawaiian and Pacific Islander (NHPI)") +
+  labs(title = "**<span style='font-size:20pt;'>English Language Learners (%)</span>**", subtitle = region, caption = "*American Indian and Alaska Native (AIAN), Native Hawaiian and Pacific Islander (NHPI)") +
   # rest of chart    
   geom_bar(stat="identity", position = position_dodge(0.7), show.legend = FALSE) +
   geom_col(fill = lightblue, color = darkblue) +         # all bars in "#355C7D"
@@ -623,10 +1267,132 @@ av_plot <- av_plot + theme(
 
 av_plot <- av_plot + ylim(0, max_y)     # add buffer between title and chart/data labels
 av_plot
+
+
+
 ```
 
 
-## Housing Insecurity 
+# Resources (and barriers to access)
+
+
+# Economics 
+
+## Rent Burden (Cost Burden Renter)
+```{r}
+#source("W:/Project/RDA Team/Region 5 State of the Child/R/rent_burden.R")
+#library(kableExtra)
+#kbl(AV) %>%
+#  kable_styling(bootstrap_options = c("striped", "bordered", "condensed"))
+
+
+```
+Source: [American Community Survey 2016-2020 5-year estimates calculated for Antelope Valley neighborhoods by Lucy Wilkerson](https://public.tableau.com/app/profile/luz3725/viz/2020CensusData-AVBESTSTARTREGION5/GRAPI)
+
+
+```{r}
+#kbl(CT) %>%
+#  kable_styling(bootstrap_options = c("striped", "bordered", "condensed"))
+```
+Sources: [American Community Survey 2016-2020 5-year estimates calculated for Antelope Valley neighborhoods by Lucy Wilkerson](https://public.tableau.com/app/profile/luz3725/viz/2020CensusData-AVBESTSTARTREGION5/GRAPI) and [HUD CHAS 2014-2018](https://www.huduser.gov/portal/datasets/cp.html#2006-2018)
+
+```{r}
+# AV Bar Chart
+# s <- AV 
+# tot = subset(s, select=c(total_rate)) %>% round(1)  # pull out total_rate
+# s = subset(s, select=-c(total_rate)) # pull out raced rates
+# oldnames = c("nh_black_rate","nh_aian_rate", "nh_asian_rate", "nh_other_rate", "latino_rate", "nh_pacisl_rate", "nh_white_rate")
+# engvar = c("Black", "AIAN", "Asian", "Other", "Latinx", "NHPI", "White")
+# s = s %>% rename_at(vars(oldnames), ~ engvar)
+#
+# # create english / spanish labels
+# engvar = c("Black", "AIAN", "Asian", "Other", "Latinx", "NHPI", "White")
+# esvar = c("Negro", "Indígena Americano", "Asiático", "Otra Raza", "Latino", "Isleño del Pacifico", "Blanco") 
+# #esvar_long = c("NEGRO O AFROAMERICANO", "INDÍGENA AMERICANO O NATIVO DE ALASKA", "ASIÁTICO", "OTRA RAZA", "LATINO", "ISLEÑO DEL PACIFICO", "BLANCO")
+# labels <- data.frame(engvar, esvar)
+# # labels
+# 
+# 
+# # convert df to long format
+# s_long <- reshape2::melt(s, id.vars=c("geoname"))
+# # Round 'value' field to 1 decimal, rename 'variable' field, add Spanish labels
+# s_long <- s_long %>% mutate(value = round(value, 1)) %>% dplyr::rename(engvar = variable)  %>% 
+#   left_join(labels, by = "engvar")
+# s_long <- s_long %>% filter(value > 0)
+# 
+# 
+# df <- data.frame(s_long, tot)       # add total_rate to long table
+# df <- na.omit(df)             # drop NA's
+# # df
+# 
+# engtot_stat <- paste("Overall Rate =", min(df$total_rate))   # total_rate line annotation
+# estot_stat <- paste("Promedio Total =", min(df$total_rate))   # total_rate line annotation
+# 
+# 
+# # Set region name for file name
+# region <- "Antelope Valley"
+# 
+# 
+# # write the name of your indicator here:
+# var <- "rent_burdened"
+# 
+# 
+# # Define chart height as max y value varies by indicator. Set vertical position for total line label - may need to be customized for each chart.
+# max_y = 1.15 * max(df$value) 
+# annotate_y = 1.12 * df$total_rate
+# 
+# # specify language: comment out based on language of chart created below
+# lang <- "eng"
+# 
+# 
+# 
+# 
+# # # ggplot method that should export as .svg ##
+# av_plot <- 
+#   #English
+#   ggplot(df, aes(x= reorder(engvar, -value), y=value)) +     # set up manual fill using 'test', add "-" before value to order bars when MAX is best
+#   annotate("text", x=6.25, y = annotate_y, label = str_wrap(engtot_stat, width = 20), hjust=-0.33, vjust = 0.35, family= font_table_text, color = red) +  
+#   labs(title = "**<span style='font-size:20pt;'>Rent Burdened (%)</span>**", subtitle = region, caption = "*American Indian and Alaska Native (AIAN), Native Hawaiian and Pacific Islander (NHPI)") +
+#   # rest of chart    
+#   geom_bar(stat="identity", position = position_dodge(0.7), show.legend = FALSE) +
+#   geom_col(fill = lightblue, color = darkblue) +         # all bars in "#355C7D"
+#   geom_hline(aes(yintercept = round(total_rate, 1)), color = red, size = .5) + 
+#   geom_text(aes(label = round(value, digits = 1)), family = font_bar_label, hjust = -.5) +       # format data labels, adjust hjust to avoid overlap w/ total line
+#   # scale_y_continuous(limits = c(0, max_y), breaks = seq(0, max_y, by = 20)) +
+#   scale_x_discrete(labels = function(engvar) str_wrap(engvar, width = 20)) +            # wrap long labels
+#   xlab("") +
+#   ylab("") +
+#   coord_flip()
+# # av_plot
+# 
+# av_plot <- av_plot + theme(
+#   panel.background = element_rect(fill = "transparent"), # bg of the panel
+#   plot.background = element_rect(fill = 'transparent', color=NA), 
+#   panel.grid.major.y = element_line(colour = textgrey),    # add major y-axis gridlines
+#   panel.grid.minor = element_blank(), # bg of the plot
+#   axis.title.x = element_blank(),
+#   axis.title.y = element_blank(),
+#   axis.text.x = element_text(size = 12, family= font_axis_label),
+#   axis.text.y = element_text(size = 12, family= font_axis_label),
+#   axis.ticks = element_blank(),
+#   plot.title = element_markdown(family = font_title, face = "bold", size = 15, hjust = 0),
+#   plot.title.position = "plot",
+#   plot.subtitle = element_text(family = font_title, hjust = 0), 
+#   plot.margin = margin(t = 10,
+#                        b = 10,
+#                        r = 10,
+#                        l = 10)
+# )
+# 
+# 
+# av_plot <- av_plot + ylim(0, max_y)     # add buffer between title and chart/data labels
+# av_plot
+```
+
+
+## Foreclosures
+
+## Evictions
 
 ## Cost of Living
 
@@ -664,19 +1430,56 @@ Source: [L.A. County WIC Administrative Data, 2021](https://lawicdata.org/data-r
 
 ## Suspensions 
 
-## Explusions 
-
 ## Early Childhood Education 
+
+```{r}
+# Load PostgreSQL driver and databases, get data, and close connection -------------------------------------------------
+pw <- {"password"}
+
+drv <- dbDriver("PostgreSQL")
+
+con <- dbConnect(drv,
+                 dbname = "region5stateofthechild",
+                 host = "aws-postgres-db.c5udgz7ro8hq.us-west-2.rds.amazonaws.com", 
+                 port = 5432,
+                 user = "postgres",
+                 password = pw)
+
+
+ece_access_it_2020 <- st_read(con, query = "SELECT * FROM data.ece_access_it_2020")
+
+ece_access_prek_2020 <- st_read(con, query = "SELECT * FROM data.ece_access_prek_2020")
+
+dbDisconnect(con)
+
+library(kableExtra)
+kbl(ece_access_it_2020) %>%
+  kable_styling(bootstrap_options = c("striped", "bordered", "condensed"))
+
+library(kableExtra)
+kbl(ece_access_prek_2020) %>%
+  kable_styling(bootstrap_options = c("striped", "bordered", "condensed"))
+
+```
 
 ## 3rd Grade Math Scores
 
 ## 3rd Grade English Scores
 
-# Safety and Education 
+# Safety and Justice 
 
 ## Parks and Safe Spaces
 
 ## Police Violence
+In Antelope Valley ZIP codes, law enforcement visits the most violence on Black residents per 100,000 people. Source: California Department of Justice 2016-21 and American Community Survey 5-year population estimates. Catalyst California aggregated incidents of violence and population figures and calculated rates of violence visited on civilians per 1,000 people.
+```{r}
+source("W:/Project/RDA Team/Region 5 State of the Child/R/use_of_force.R")
+
+library(kableExtra)
+kbl(police_violence_data) %>%
+  kable_styling(bootstrap_options = c("striped", "bordered", "condensed"))
+
+```
 
 ## Traffic Stops
 Black and NHPI populations are significantly more likely to be stopped by the Sheriff's Police Department than the race groups. 
