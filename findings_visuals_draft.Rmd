@@ -20,9 +20,9 @@ knitr::opts_chunk$set(comment=FALSE, message=FALSE, warning=FALSE)
 # library(usethis)
 
 #install packages if not already installed
-list.of.packages <- c("plyr", "openxlsx","tidyr","dplyr","stringr","RPostgreSQL","data.table", "janitor", "ggplot", "kableExtra", "extrafont", "tigris", "ggtext", "flextable", "highcharter", "tidycensus", "survey", "sysfonts", "showtext", "kableExtra", "janitor") 
-new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"Package"])]
-if(length(new.packages)) install.packages(new.packages)
+# list.of.packages <- c("plyr", "openxlsx","tidyr","dplyr","stringr","RPostgreSQL","data.table", "janitor", "ggplot", "kableExtra", "extrafont", "tigris", "ggtext", "flextable", "highcharter", "tidycensus", "survey", "sysfonts", "showtext", "kableExtra", "janitor") 
+# new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"Package"])]
+# if(length(new.packages)) install.packages(new.packages)
 
 ```
 
