@@ -733,7 +733,7 @@ Source: [California Department of Education, 2015-2022](https://dq.cde.ca.gov/da
 
 ## Homelessness
 
-The 2022 Los Angeles County homeless count counted over 65,000 homeless people in Los Angeles County, 1,000 of whom lived in the cities of Lancaster and Palmdale.
+The 2022 Los Angeles County homeless count counted over 65,000 homeless people in Los Angeles County, 1,000 of whom lived in the cities of Lancaster and Palmdale.Thousands more homeless residents live just outside city boundaries in the Antelope Valley (SPA 1). **LAHSA counted 4,598 Antelope Valley homeless persons in 2022 including 3,570 unsheltered and 1,028 sheltered persons.** Another way to break that 4,500+ homeless population shows that figure is made up of 3,681 individuals, 910 family members, and 7 unaccompanied minors.A [Vice News Report](https://www.youtube.com/watch?v=LzbU-9L1WS4) details that law enforcement contributes to moving homeless persons outside of city boundaries and into the broader region. 
 
 ```{r}
 source("W:/Project/RDA Team/Region 5 State of the Child/R/homeless.R")
@@ -1276,9 +1276,45 @@ kbl(av_staff_student_race) %>%
 
 ## Chronic Absenteeism 
 
-## Suspensions 
+## Suspensions
+The last full year of in-class learning for which the California Department of Education publishes data is 2018-19. That year suspension rates for Black students were higher than district totals in every Antelope Valley school district. American Indian or Alaska Native and Multiracial suspension rates were also often above totals in most area school districts.
+```{r}
+drv <- dbDriver("PostgreSQL")
 
-## Early Childhood Education 
+con <- dbConnect(drv, dbname = "region5stateofthechild",
+                   host = "aws-postgres-db.c5udgz7ro8hq.us-west-2.rds.amazonaws.com", port = 5432,
+                   user = "postgres", password = pw)
+
+district_suspensions_by_race_2018_19 <- st_read(con, query = "SELECT districtname as district,
+nh_black_rate as black, 
+latino_rate as latinx, 
+nh_white_rate as white, 
+nh_aian_rate as aian, 
+nh_asian_rate as asian, 
+nh_filipino_rate as filipino,  
+nh_pacisl_rate as nhpi, 
+nh_twoormor_rate as multiracial, 
+total_rate as total
+                                                FROM district_suspensions_by_race_2018_19
+WHERE districtname IN ('Acton-Agua Dulce Unified',
+    'Antelope Valley Union High',
+    'Eastside Union Elementary',
+    'Gorman Joint',
+    'Hughes-Elizabeth Lakes Union Elementary',
+    'Keppel Union Elementary',
+    'Lancaster Elementary',
+    'Palmdale Elementary',
+    'Westside Union Elementary',
+    'Wilsona Elementary') ORDER BY total_rate DESC")
+
+library(kableExtra)
+kbl(district_suspensions_by_race_2018_19) %>%
+  kable_styling(bootstrap_options = c("striped", "bordered", "condensed"))
+
+```
+
+## Early Childhood Education
+According to estimates from the [American Institutes of Research](https://elneedsassessment.org/), no Antelope Valley ZIP code had an unmet need for infant/toddler care rate below 93.55% of eligible children in 2020. Preschool accessibility was hardly better, with no Antelope Valley ZIP code having an unmet need for preschool rate below 64.23%
 
 ```{r}
 drv <- dbDriver("PostgreSQL")

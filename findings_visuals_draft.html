@@ -4439,7 +4439,14 @@ Department of Education, 2015-2022</a></p>
 <h2>Homelessness</h2>
 <p>The 2022 Los Angeles County homeless count counted over 65,000
 homeless people in Los Angeles County, 1,000 of whom lived in the cities
-of Lancaster and Palmdale.</p>
+of Lancaster and Palmdale.Thousands more homeless residents live just
+outside city boundaries in the Antelope Valley (SPA 1). <strong>LAHSA
+counted 4,598 Antelope Valley homeless persons in 2022 including 3,570
+unsheltered and 1,028 sheltered persons.</strong> Another way to break
+that 4,500+ homeless population shows that figure is made up of 3,681
+individuals, 910 family members, and 7 unaccompanied minors.A <a href="https://www.youtube.com/watch?v=LzbU-9L1WS4">Vice News Report</a>
+details that law enforcement contributes to moving homeless persons
+outside of city boundaries and into the broader region.</p>
 <pre class="r"><code>source(&quot;W:/Project/RDA Team/Region 5 State of the Child/R/homeless.R&quot;)
 
 library(kableExtra)
@@ -6649,9 +6656,409 @@ Hispanic or Latino
 </div>
 <div id="suspensions" class="section level2">
 <h2>Suspensions</h2>
+<p>The last full year of in-class learning for which the California
+Department of Education publishes data is 2018-19. That year suspension
+rates for Black students were higher than district totals in every
+Antelope Valley school district. American Indian or Alaska Native and
+Multiracial suspension rates were also often above totals in most area
+school districts.</p>
+<pre class="r"><code>drv &lt;- dbDriver(&quot;PostgreSQL&quot;)
+
+con &lt;- dbConnect(drv, dbname = &quot;region5stateofthechild&quot;,
+                   host = &quot;aws-postgres-db.c5udgz7ro8hq.us-west-2.rds.amazonaws.com&quot;, port = 5432,
+                   user = &quot;postgres&quot;, password = pw)
+
+district_suspensions_by_race_2018_19 &lt;- st_read(con, query = &quot;SELECT districtname as district,
+nh_black_rate as black, 
+latino_rate as latinx, 
+nh_white_rate as white, 
+nh_aian_rate as aian, 
+nh_asian_rate as asian, 
+nh_filipino_rate as filipino,  
+nh_pacisl_rate as nhpi, 
+nh_twoormor_rate as multiracial, 
+total_rate as total
+                                                FROM district_suspensions_by_race_2018_19
+WHERE districtname IN (&#39;Acton-Agua Dulce Unified&#39;,
+    &#39;Antelope Valley Union High&#39;,
+    &#39;Eastside Union Elementary&#39;,
+    &#39;Gorman Joint&#39;,
+    &#39;Hughes-Elizabeth Lakes Union Elementary&#39;,
+    &#39;Keppel Union Elementary&#39;,
+    &#39;Lancaster Elementary&#39;,
+    &#39;Palmdale Elementary&#39;,
+    &#39;Westside Union Elementary&#39;,
+    &#39;Wilsona Elementary&#39;) ORDER BY total_rate DESC&quot;)
+
+library(kableExtra)
+kbl(district_suspensions_by_race_2018_19) %&gt;%
+  kable_styling(bootstrap_options = c(&quot;striped&quot;, &quot;bordered&quot;, &quot;condensed&quot;))</code></pre>
+<table class="table table-striped table-bordered table-condensed" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+district
+</th>
+<th style="text-align:right;">
+black
+</th>
+<th style="text-align:right;">
+latinx
+</th>
+<th style="text-align:right;">
+white
+</th>
+<th style="text-align:right;">
+aian
+</th>
+<th style="text-align:right;">
+asian
+</th>
+<th style="text-align:right;">
+filipino
+</th>
+<th style="text-align:right;">
+nhpi
+</th>
+<th style="text-align:right;">
+multiracial
+</th>
+<th style="text-align:right;">
+total
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Antelope Valley Union High
+</td>
+<td style="text-align:right;">
+17.9
+</td>
+<td style="text-align:right;">
+6.1
+</td>
+<td style="text-align:right;">
+5.0
+</td>
+<td style="text-align:right;">
+13.8
+</td>
+<td style="text-align:right;">
+2.4
+</td>
+<td style="text-align:right;">
+1.0
+</td>
+<td style="text-align:right;">
+0.0
+</td>
+<td style="text-align:right;">
+11.1
+</td>
+<td style="text-align:right;">
+8.1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Palmdale Elementary
+</td>
+<td style="text-align:right;">
+17.9
+</td>
+<td style="text-align:right;">
+5.8
+</td>
+<td style="text-align:right;">
+7.0
+</td>
+<td style="text-align:right;">
+9.8
+</td>
+<td style="text-align:right;">
+0.8
+</td>
+<td style="text-align:right;">
+2.7
+</td>
+<td style="text-align:right;">
+5.1
+</td>
+<td style="text-align:right;">
+9.8
+</td>
+<td style="text-align:right;">
+7.8
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Eastside Union Elementary
+</td>
+<td style="text-align:right;">
+16.1
+</td>
+<td style="text-align:right;">
+4.4
+</td>
+<td style="text-align:right;">
+5.7
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+0.0
+</td>
+<td style="text-align:right;">
+0.0
+</td>
+<td style="text-align:right;">
+18.2
+</td>
+<td style="text-align:right;">
+12.9
+</td>
+<td style="text-align:right;">
+7.5
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Acton-Agua Dulce Unified
+</td>
+<td style="text-align:right;">
+30.8
+</td>
+<td style="text-align:right;">
+5.8
+</td>
+<td style="text-align:right;">
+4.0
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+3.2
+</td>
+<td style="text-align:right;">
+5.0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Lancaster Elementary
+</td>
+<td style="text-align:right;">
+10.4
+</td>
+<td style="text-align:right;">
+2.4
+</td>
+<td style="text-align:right;">
+2.9
+</td>
+<td style="text-align:right;">
+3.8
+</td>
+<td style="text-align:right;">
+0.0
+</td>
+<td style="text-align:right;">
+0.5
+</td>
+<td style="text-align:right;">
+3.2
+</td>
+<td style="text-align:right;">
+6.2
+</td>
+<td style="text-align:right;">
+5.0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Wilsona Elementary
+</td>
+<td style="text-align:right;">
+9.8
+</td>
+<td style="text-align:right;">
+2.7
+</td>
+<td style="text-align:right;">
+6.0
+</td>
+<td style="text-align:right;">
+0.0
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+7.1
+</td>
+<td style="text-align:right;">
+4.2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Keppel Union Elementary
+</td>
+<td style="text-align:right;">
+9.4
+</td>
+<td style="text-align:right;">
+3.4
+</td>
+<td style="text-align:right;">
+5.8
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+8.7
+</td>
+<td style="text-align:right;">
+4.2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Westside Union Elementary
+</td>
+<td style="text-align:right;">
+8.0
+</td>
+<td style="text-align:right;">
+2.5
+</td>
+<td style="text-align:right;">
+2.8
+</td>
+<td style="text-align:right;">
+0.0
+</td>
+<td style="text-align:right;">
+1.3
+</td>
+<td style="text-align:right;">
+0.0
+</td>
+<td style="text-align:right;">
+0.0
+</td>
+<td style="text-align:right;">
+4.1
+</td>
+<td style="text-align:right;">
+3.2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Gorman Joint
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+2.9
+</td>
+<td style="text-align:right;">
+1.9
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+2.1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Hughes-Elizabeth Lakes Union Elementary
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+1.6
+</td>
+<td style="text-align:right;">
+1.5
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+0.0
+</td>
+<td style="text-align:right;">
+1.4
+</td>
+</tr>
+</tbody>
+</table>
 </div>
 <div id="early-childhood-education" class="section level2">
 <h2>Early Childhood Education</h2>
+<p>According to estimates from the <a href="https://elneedsassessment.org/">American Institutes of
+Research</a>, no Antelope Valley ZIP code had an unmet need for
+infant/toddler care rate below 93.55% of eligible children in 2020.
+Preschool accessibility was hardly better, with no Antelope Valley ZIP
+code having an unmet need for preschool rate below 64.23%</p>
 <pre class="r"><code>drv &lt;- dbDriver(&quot;PostgreSQL&quot;)
 
 con &lt;- dbConnect(drv, dbname = &quot;region5stateofthechild&quot;,
