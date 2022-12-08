@@ -19,10 +19,12 @@ knitr::opts_chunk$set(comment=FALSE, message=FALSE, warning=FALSE)
 # devtools::install_github("r-lib/usethis")
 # library(usethis)
 
+
 #install packages if not already installed
 # list.of.packages <- c("plyr", "openxlsx","tidyr","dplyr","stringr","RPostgreSQL","data.table", "janitor", "ggplot", "kableExtra", "extrafont", "tigris", "ggtext", "flextable", "highcharter", "tidycensus", "survey", "sysfonts", "showtext", "kableExtra", "janitor") 
 # new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"Package"])]
 # if(length(new.packages)) install.packages(new.packages)
+
 
 ```
 
@@ -358,6 +360,7 @@ av_plot
 
 ### Non-binary
 ```{r}
+
 source("W:/Project/RDA Team/Region 5 State of the Child/R/non-binary.R")
 library(kableExtra)
 
@@ -431,11 +434,10 @@ av_plot <-
   xlab("") +
   ylab("") +
   coord_flip()
-# av_plot
 
 av_plot <- av_plot + theme(
   panel.background = element_rect(fill = "transparent"), # bg of the panel
-  plot.background = element_rect(fill = 'transparent', color=NA), 
+  plot.background = element_rect(fill = 'transparent', color=NA),
   panel.grid.major.y = element_line(colour = textgrey),    # add major y-axis gridlines
   panel.grid.minor = element_blank(), # bg of the plot
   axis.title.x = element_blank(),
@@ -445,7 +447,7 @@ av_plot <- av_plot + theme(
   axis.ticks = element_blank(),
   plot.title = element_markdown(family = font_title, face = "bold", size = 15, hjust = 0),
   plot.title.position = "plot",
-  plot.subtitle = element_text(family = font_title, hjust = 0), 
+  plot.subtitle = element_text(family = font_title, hjust = 0),
   plot.margin = margin(t = 10,
                        b = 10,
                        r = 10,
@@ -461,17 +463,16 @@ av_plot
 
 ## Socioeconomically Disadvantaged
 ```{r}
+
 source("W:/Project/RDA Team/Region 5 State of the Child/R/socioeconomically_disadvantaged.R")
 library(kableExtra)
-
- 
 kbl(av_table) %>%
-  kable_styling(bootstrap_options = c("striped", "bordered", "condensed"))
-# View(av_table)
+ kable_styling(bootstrap_options = c("striped", "bordered", "condensed"))
+View(av_table)
 ```
 
 ```{r}
-# AV Bar Chart
+## AV Bar Chart
 s <- AV 
 tot = subset(s, select=c(total_rate)) %>% round(1)  # pull out total_rate
 s = subset(s, select=-c(total_rate)) # pull out raced rates
@@ -519,8 +520,6 @@ annotate_y = df$total_rate
 lang <- "eng"
 
 
-
-
 # # ggplot method that should export as .svg ##
 av_plot <- 
   #English
@@ -541,7 +540,7 @@ av_plot <-
 
 av_plot <- av_plot + theme(
   panel.background = element_rect(fill = "transparent"), # bg of the panel
-  plot.background = element_rect(fill = 'transparent', color=NA), 
+  plot.background = element_rect(fill = 'transparent', color=NA),
   panel.grid.major.y = element_line(colour = textgrey),    # add major y-axis gridlines
   panel.grid.minor = element_blank(), # bg of the plot
   axis.title.x = element_blank(),
@@ -551,7 +550,7 @@ av_plot <- av_plot + theme(
   axis.ticks = element_blank(),
   plot.title = element_markdown(family = font_title, face = "bold", size = 15, hjust = 0),
   plot.title.position = "plot",
-  plot.subtitle = element_text(family = font_title, hjust = 0), 
+  plot.subtitle = element_text(family = font_title, hjust = 0),
   plot.margin = margin(t = 10,
                        b = 10,
                        r = 10,
@@ -684,6 +683,7 @@ av_plot
 
 ```
 Source: [California Department of Education, 2015-2022](https://dq.cde.ca.gov/dataquest/)
+
 
 ## Homelessness
 
@@ -1191,6 +1191,33 @@ av_plot
 
 ## Teacher & Staff Diversity 
 
+The most recent California Department of Education data on certificated staff is from the 2018-19 school year. It shows that the majority of AV school district students are Latinx but see relatively few Latinx teachers. In that year White students made up 13.4% of enrolled students and White staff made up 69.4% of certificated staff. By contrast Latinx students made up 63.2% of enrolled students and Latinx staff made up 17.9% of certificated staff
+
+```{r}
+# Load PostgreSQL driver and databases, get data, and close connection -------------------------------------------------
+library(sf)
+pw <- {"password"}
+
+drv <- dbDriver("PostgreSQL")
+
+con <- dbConnect(drv,
+                 dbname = "region5stateofthechild",
+                 host = "aws-postgres-db.c5udgz7ro8hq.us-west-2.rds.amazonaws.com", 
+                 port = 5432,
+                 user = "postgres",
+                 password = pw)
+
+
+av_staff_student_race <- st_read(con, query = "SELECT * FROM av_staff_student_race")
+
+dbDisconnect(con)
+
+library(kableExtra)
+kbl(av_staff_student_race) %>%
+  kable_styling(bootstrap_options = c("striped", "bordered", "condensed"))
+
+```
+
 ## Chronic Absenteeism 
 
 ## Suspensions 
@@ -1199,6 +1226,7 @@ av_plot
 
 ```{r}
 # Load PostgreSQL driver and databases, get data, and close connection -------------------------------------------------
+library(sf)
 pw <- {"password"}
 
 drv <- dbDriver("PostgreSQL")
