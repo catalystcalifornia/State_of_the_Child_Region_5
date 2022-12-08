@@ -1836,7 +1836,7 @@ div.tocify {
 <h1 class="title toc-ignore">Region 5 State of the Child: Draft Data
 Findings and Visuals</h1>
 <h4 class="author">Catalyst California</h4>
-<h4 class="date">07 December, 2022</h4>
+<h4 class="date">08 December, 2022</h4>
 
 </div>
 
@@ -1858,6 +1858,7 @@ library(tidyr)
 library(data.table)
 library(sysfonts)
 library(showtext)
+library(sf)
 
 #### First 5 LA Style Guide ####
 ## COLORS## Taken from W:\Project\RDA Team\Region 5 State of the Child\Documentation\F5LA_BrandGuidelines_COLORS.pdf
@@ -6960,25 +6961,15 @@ few Latinx teachers. In that year White students made up 13.4% of
 enrolled students and White staff made up 69.4% of certificated staff.
 By contrast Latinx students made up 63.2% of enrolled students and
 Latinx staff made up 17.9% of certificated staff</p>
-<pre class="r"><code># Load PostgreSQL driver and databases, get data, and close connection -------------------------------------------------
-library(sf)
-pw &lt;- {&quot;password&quot;}
+<pre class="r"><code>drv &lt;- dbDriver(&quot;PostgreSQL&quot;)
 
-drv &lt;- dbDriver(&quot;PostgreSQL&quot;)
-
-con &lt;- dbConnect(drv,
-                 dbname = &quot;region5stateofthechild&quot;,
-                 host = &quot;aws-postgres-db.c5udgz7ro8hq.us-west-2.rds.amazonaws.com&quot;, 
-                 port = 5432,
-                 user = &quot;postgres&quot;,
-                 password = pw)
-
+con &lt;- dbConnect(drv, dbname = &quot;region5stateofthechild&quot;,
+                   host = &quot;aws-postgres-db.c5udgz7ro8hq.us-west-2.rds.amazonaws.com&quot;, port = 5432,
+                   user = &quot;postgres&quot;, password = pw)
 
 av_staff_student_race &lt;- st_read(con, query = &quot;SELECT * FROM av_staff_student_race&quot;)
 
-dbDisconnect(con)</code></pre>
-<pre><code>FALSE [1] TRUE</code></pre>
-<pre class="r"><code>library(kableExtra)
+library(kableExtra)
 kbl(av_staff_student_race) %&gt;%
   kable_styling(bootstrap_options = c(&quot;striped&quot;, &quot;bordered&quot;, &quot;condensed&quot;))</code></pre>
 <table class="table table-striped table-bordered table-condensed" style="margin-left: auto; margin-right: auto;">
@@ -7176,27 +7167,17 @@ Hispanic or Latino
 </div>
 <div id="early-childhood-education" class="section level2">
 <h2>Early Childhood Education</h2>
-<pre class="r"><code># Load PostgreSQL driver and databases, get data, and close connection -------------------------------------------------
-library(sf)
-pw &lt;- {&quot;password&quot;}
+<pre class="r"><code>drv &lt;- dbDriver(&quot;PostgreSQL&quot;)
 
-drv &lt;- dbDriver(&quot;PostgreSQL&quot;)
+con &lt;- dbConnect(drv, dbname = &quot;region5stateofthechild&quot;,
+                   host = &quot;aws-postgres-db.c5udgz7ro8hq.us-west-2.rds.amazonaws.com&quot;, port = 5432,
+                   user = &quot;postgres&quot;, password = pw)
 
-con &lt;- dbConnect(drv,
-                 dbname = &quot;region5stateofthechild&quot;,
-                 host = &quot;aws-postgres-db.c5udgz7ro8hq.us-west-2.rds.amazonaws.com&quot;, 
-                 port = 5432,
-                 user = &quot;postgres&quot;,
-                 password = pw)
+ece_access_it_2020 &lt;- st_read(con, query = &quot;SELECT zipcode, neighborhood, unmet_need_children_it, pct_unmet_need_children_it FROM data.ece_access_it_2020&quot;)
 
+ece_access_prek_2020 &lt;- st_read(con, query = &quot;SELECT zipcode, neighborhood, unmet_need_children_prek, pct_unmet_need_children_prek FROM data.ece_access_prek_2020&quot;)
 
-ece_access_it_2020 &lt;- st_read(con, query = &quot;SELECT * FROM data.ece_access_it_2020&quot;)
-
-ece_access_prek_2020 &lt;- st_read(con, query = &quot;SELECT * FROM data.ece_access_prek_2020&quot;)
-
-dbDisconnect(con)</code></pre>
-<pre><code>FALSE [1] TRUE</code></pre>
-<pre class="r"><code>library(kableExtra)
+library(kableExtra)
 kbl(ece_access_it_2020) %&gt;%
   kable_styling(bootstrap_options = c(&quot;striped&quot;, &quot;bordered&quot;, &quot;condensed&quot;))</code></pre>
 <table class="table table-striped table-bordered table-condensed" style="margin-left: auto; margin-right: auto;">
@@ -7207,15 +7188,6 @@ zipcode
 </th>
 <th style="text-align:left;">
 neighborhood
-</th>
-<th style="text-align:right;">
-children_it
-</th>
-<th style="text-align:right;">
-eligible_children_it
-</th>
-<th style="text-align:right;">
-enrolled_children_it
 </th>
 <th style="text-align:right;">
 unmet_need_children_it
@@ -7234,15 +7206,6 @@ pct_unmet_need_children_it
 {“Northeast Antelope Valley”}
 </td>
 <td style="text-align:right;">
-130
-</td>
-<td style="text-align:right;">
-110
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
 110
 </td>
 <td style="text-align:right;">
@@ -7255,15 +7218,6 @@ pct_unmet_need_children_it
 </td>
 <td style="text-align:left;">
 {“Northeast Antelope Valley”,Lancaster}
-</td>
-<td style="text-align:right;">
-1488
-</td>
-<td style="text-align:right;">
-1136
-</td>
-<td style="text-align:right;">
-122
 </td>
 <td style="text-align:right;">
 1014
@@ -7280,15 +7234,6 @@ pct_unmet_need_children_it
 {Lancaster,“Northeast Antelope Valley”}
 </td>
 <td style="text-align:right;">
-2671
-</td>
-<td style="text-align:right;">
-1940
-</td>
-<td style="text-align:right;">
-215
-</td>
-<td style="text-align:right;">
 1725
 </td>
 <td style="text-align:right;">
@@ -7301,15 +7246,6 @@ pct_unmet_need_children_it
 </td>
 <td style="text-align:left;">
 {“Northwest Antelope Valley”,Lancaster}
-</td>
-<td style="text-align:right;">
-2725
-</td>
-<td style="text-align:right;">
-2080
-</td>
-<td style="text-align:right;">
-103
 </td>
 <td style="text-align:right;">
 1977
@@ -7326,15 +7262,6 @@ pct_unmet_need_children_it
 {“Angeles Crest”,Palmdale,“Tujunga Canyons”}
 </td>
 <td style="text-align:right;">
-3559
-</td>
-<td style="text-align:right;">
-2852
-</td>
-<td style="text-align:right;">
-188
-</td>
-<td style="text-align:right;">
 2664
 </td>
 <td style="text-align:right;">
@@ -7347,15 +7274,6 @@ pct_unmet_need_children_it
 </td>
 <td style="text-align:left;">
 {“Leona Valley”,Palmdale,“Southeast Antelope Valley”}
-</td>
-<td style="text-align:right;">
-2365
-</td>
-<td style="text-align:right;">
-1866
-</td>
-<td style="text-align:right;">
-66
 </td>
 <td style="text-align:right;">
 1800
@@ -7372,15 +7290,6 @@ pct_unmet_need_children_it
 {“Angeles Crest”,Palmdale,“Southeast Antelope Valley”}
 </td>
 <td style="text-align:right;">
-1821
-</td>
-<td style="text-align:right;">
-1460
-</td>
-<td style="text-align:right;">
-83
-</td>
-<td style="text-align:right;">
 1377
 </td>
 <td style="text-align:right;">
@@ -7393,15 +7302,6 @@ pct_unmet_need_children_it
 </td>
 <td style="text-align:left;">
 {“Northeast Antelope Valley”,Palmdale}
-</td>
-<td style="text-align:right;">
-239
-</td>
-<td style="text-align:right;">
-124
-</td>
-<td style="text-align:right;">
-8
 </td>
 <td style="text-align:right;">
 116
@@ -7425,15 +7325,6 @@ zipcode
 neighborhood
 </th>
 <th style="text-align:right;">
-children_prek
-</th>
-<th style="text-align:right;">
-eligible_children_prek
-</th>
-<th style="text-align:right;">
-enrolled_children_prek
-</th>
-<th style="text-align:right;">
 unmet_need_children_prek
 </th>
 <th style="text-align:right;">
@@ -7450,15 +7341,6 @@ pct_unmet_need_children_prek
 {“Northeast Antelope Valley”}
 </td>
 <td style="text-align:right;">
-139
-</td>
-<td style="text-align:right;">
-115
-</td>
-<td style="text-align:right;">
-9
-</td>
-<td style="text-align:right;">
 106
 </td>
 <td style="text-align:right;">
@@ -7471,15 +7353,6 @@ pct_unmet_need_children_prek
 </td>
 <td style="text-align:left;">
 {“Northeast Antelope Valley”,Lancaster}
-</td>
-<td style="text-align:right;">
-2109
-</td>
-<td style="text-align:right;">
-1699
-</td>
-<td style="text-align:right;">
-415
 </td>
 <td style="text-align:right;">
 1284
@@ -7496,15 +7369,6 @@ pct_unmet_need_children_prek
 {Lancaster,“Northeast Antelope Valley”}
 </td>
 <td style="text-align:right;">
-3639
-</td>
-<td style="text-align:right;">
-2820
-</td>
-<td style="text-align:right;">
-786
-</td>
-<td style="text-align:right;">
 2034
 </td>
 <td style="text-align:right;">
@@ -7517,15 +7381,6 @@ pct_unmet_need_children_prek
 </td>
 <td style="text-align:left;">
 {“Northwest Antelope Valley”,Lancaster}
-</td>
-<td style="text-align:right;">
-3764
-</td>
-<td style="text-align:right;">
-3032
-</td>
-<td style="text-align:right;">
-433
 </td>
 <td style="text-align:right;">
 2599
@@ -7542,15 +7397,6 @@ pct_unmet_need_children_prek
 {“Angeles Crest”,Palmdale,“Tujunga Canyons”}
 </td>
 <td style="text-align:right;">
-3661
-</td>
-<td style="text-align:right;">
-3052
-</td>
-<td style="text-align:right;">
-623
-</td>
-<td style="text-align:right;">
 2429
 </td>
 <td style="text-align:right;">
@@ -7563,15 +7409,6 @@ pct_unmet_need_children_prek
 </td>
 <td style="text-align:left;">
 {“Leona Valley”,Palmdale,“Southeast Antelope Valley”}
-</td>
-<td style="text-align:right;">
-2436
-</td>
-<td style="text-align:right;">
-1999
-</td>
-<td style="text-align:right;">
-220
 </td>
 <td style="text-align:right;">
 1779
@@ -7588,15 +7425,6 @@ pct_unmet_need_children_prek
 {“Angeles Crest”,Palmdale,“Southeast Antelope Valley”}
 </td>
 <td style="text-align:right;">
-1872
-</td>
-<td style="text-align:right;">
-1562
-</td>
-<td style="text-align:right;">
-232
-</td>
-<td style="text-align:right;">
 1330
 </td>
 <td style="text-align:right;">
@@ -7609,15 +7437,6 @@ pct_unmet_need_children_prek
 </td>
 <td style="text-align:left;">
 {“Northeast Antelope Valley”,Palmdale}
-</td>
-<td style="text-align:right;">
-254
-</td>
-<td style="text-align:right;">
-137
-</td>
-<td style="text-align:right;">
-49
 </td>
 <td style="text-align:right;">
 88
@@ -7640,6 +7459,25 @@ pct_unmet_need_children_prek
 <h1>Safety and Justice</h1>
 <div id="parks-and-safe-spaces" class="section level2">
 <h2>Parks and Safe Spaces</h2>
+<p>The Los Angeles County County Department of Parks and Recreation
+completed a Countywide Parks and Recreation Needs Assessment addition in
+2022. The assessment has findings for the region in an <a href="https://lacountyparkneeds.org/wp-content/uploads/2022/11/AppA_RegionalProfiles_AntelopeValley_11282022.pdf">Antelope
+Valley regional profile</a>. Some key findings from that profile:</p>
+<ul>
+<li>The regional recreation facilities and trails in the area are poorly
+served by public transportation and largely inaccessible without the use
+of a personal vehicle.</li>
+<li>The highest Regional Recreation Need is found in Lake Los Angeles,
+Littlerock, and Sun Village due to a combination of social and
+environmental factors.</li>
+<li>Community members identified heat, distance, safety, lack of
+information and limited facilities as barriers to park use for residents
+in the study area.</li>
+<li>Residents say they need more shade, cooling centers and access to
+water, affordable transit access to parks, additional facilities and
+programming, enhanced safety measures and more information about parks
+and amenities.</li>
+</ul>
 </div>
 <div id="police-violence" class="section level2">
 <h2>Police Violence</h2>

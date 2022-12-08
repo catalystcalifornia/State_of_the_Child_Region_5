@@ -48,6 +48,7 @@ library(tidyr)
 library(data.table)
 library(sysfonts)
 library(showtext)
+library(sf)
 
 #### First 5 LA Style Guide ####
 ## COLORS## Taken from W:\Project\RDA Team\Region 5 State of the Child\Documentation\F5LA_BrandGuidelines_COLORS.pdf
@@ -1438,23 +1439,13 @@ Source: [L.A. County WIC Administrative Data, 2021](https://lawicdata.org/data-r
 The most recent California Department of Education data on certificated staff is from the 2018-19 school year. It shows that the majority of AV school district students are Latinx but see relatively few Latinx teachers. In that year White students made up 13.4% of enrolled students and White staff made up 69.4% of certificated staff. By contrast Latinx students made up 63.2% of enrolled students and Latinx staff made up 17.9% of certificated staff
 
 ```{r}
-# Load PostgreSQL driver and databases, get data, and close connection -------------------------------------------------
-library(sf)
-pw <- {"password"}
-
 drv <- dbDriver("PostgreSQL")
 
-con <- dbConnect(drv,
-                 dbname = "region5stateofthechild",
-                 host = "aws-postgres-db.c5udgz7ro8hq.us-west-2.rds.amazonaws.com", 
-                 port = 5432,
-                 user = "postgres",
-                 password = pw)
-
+con <- dbConnect(drv, dbname = "region5stateofthechild",
+                   host = "aws-postgres-db.c5udgz7ro8hq.us-west-2.rds.amazonaws.com", port = 5432,
+                   user = "postgres", password = pw)
 
 av_staff_student_race <- st_read(con, query = "SELECT * FROM av_staff_student_race")
-
-dbDisconnect(con)
 
 library(kableExtra)
 kbl(av_staff_student_race) %>%
@@ -1469,25 +1460,15 @@ kbl(av_staff_student_race) %>%
 ## Early Childhood Education 
 
 ```{r}
-# Load PostgreSQL driver and databases, get data, and close connection -------------------------------------------------
-library(sf)
-pw <- {"password"}
-
 drv <- dbDriver("PostgreSQL")
 
-con <- dbConnect(drv,
-                 dbname = "region5stateofthechild",
-                 host = "aws-postgres-db.c5udgz7ro8hq.us-west-2.rds.amazonaws.com", 
-                 port = 5432,
-                 user = "postgres",
-                 password = pw)
+con <- dbConnect(drv, dbname = "region5stateofthechild",
+                   host = "aws-postgres-db.c5udgz7ro8hq.us-west-2.rds.amazonaws.com", port = 5432,
+                   user = "postgres", password = pw)
 
+ece_access_it_2020 <- st_read(con, query = "SELECT zipcode, neighborhood, unmet_need_children_it, pct_unmet_need_children_it FROM data.ece_access_it_2020")
 
-ece_access_it_2020 <- st_read(con, query = "SELECT * FROM data.ece_access_it_2020")
-
-ece_access_prek_2020 <- st_read(con, query = "SELECT * FROM data.ece_access_prek_2020")
-
-dbDisconnect(con)
+ece_access_prek_2020 <- st_read(con, query = "SELECT zipcode, neighborhood, unmet_need_children_prek, pct_unmet_need_children_prek FROM data.ece_access_prek_2020")
 
 library(kableExtra)
 kbl(ece_access_it_2020) %>%
@@ -1506,6 +1487,12 @@ kbl(ece_access_prek_2020) %>%
 # Safety and Justice 
 
 ## Parks and Safe Spaces
+The Los Angeles County County Department of Parks and Recreation completed a Countywide Parks and Recreation Needs Assessment addition in 2022. The assessment has findings for the region in an [Antelope Valley regional profile](https://lacountyparkneeds.org/wp-content/uploads/2022/11/AppA_RegionalProfiles_AntelopeValley_11282022.pdf). Some key findings from that profile:
+
+* The regional recreation facilities and trails in the area are poorly served by public transportation and largely inaccessible without the use of a personal vehicle.
+* The highest Regional Recreation Need is found in Lake Los Angeles, Littlerock, and Sun Village due to a combination of social and environmental factors.
+* Community members identified heat, distance, safety, lack of information and limited facilities as barriers to park use for residents in the study area.
+* Residents say they need more shade, cooling centers and access to water, affordable transit access to parks, additional facilities and programming, enhanced safety measures and more information about parks and amenities.
 
 ## Police Violence
 In Antelope Valley ZIP codes, law enforcement visits the most violence on Black residents per 100,000 people. Source: California Department of Justice 2016-21 and American Community Survey 5-year population estimates. Catalyst California aggregated incidents of violence and population figures and calculated rates of violence visited on civilians per 1,000 people.
