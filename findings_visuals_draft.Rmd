@@ -152,6 +152,10 @@ kbl(incarc_table) %>%
 This matters because separation or probation impacts the ability of parents to live with, supervise, and be attentive to their children. They are not as able to help with homework, know who their kids’ friends are, have a sense of how school is going, and what their children are eating, for example. Each of these things impact a child’s ability to succeed in school, be healthy, and otherwise thrive.
 
 ## Foster Youth Population 
+
+Overall in the Antelope Valley (AV) during the 2021-2022 school year, 2.3% of students are in the Foster Care System. Black (5.2%) and American Indian / Alaskan Native (5.3%) students are over 10 times more likely to be in the foster care system than Asian (0.5%) students, the group least likely to be in the foster care system in the AV. Native Hawaiian / Pacific Islander (4.2%) students also have a high rate of students in foster care compared to the AV average, almost 2 times more in fact. At the district level, the Eastside Union Elementary School District has almost double the percentage of students in foster care compared to the AV average and over 7 times more compared to the School District with the lowest percentage.
+
+##### Foster Youth Rates by District 2021-22 School Year
 ```{r}
 source("W:/Project/RDA Team/Region 5 State of the Child/R/foster.R")
 library(kableExtra)
@@ -162,6 +166,8 @@ kbl(av_table) %>%
 # View(av_table)
 
 ```
+
+Source: [California Department of Education, 2015-2022](https://dq.cde.ca.gov/dataquest/)
 
 ```{r}
 # AV Bar Chart
@@ -216,7 +222,7 @@ av_plot <-
   #English
   ggplot(df, aes(x= reorder(engvar, -value), y=value)) +     # set up manual fill using 'test', add "-" before value to order bars when MAX is best
   annotate("text", x=6.25, y = annotate_y, label = str_wrap(engtot_stat, width = 20), hjust=-0.33, vjust = 0.35, family= font_table_text, color = red) +  
-  labs(title = "**<span style='font-size:20pt;'>Population of Students in Foster Care(%)</span>**", subtitle = region, caption = "*American Indian and Alaska Native (AIAN), Native Hawaiian and Pacific Islander (NHPI)") +
+  labs(title = "**<span style='font-size:20pt;'>Population of Students in Foster Care (%)</span>**", subtitle = region, caption = "*American Indian and Alaska Native (AIAN), Native Hawaiian and Pacific Islander (NHPI)") +
   # rest of chart    
   geom_bar(stat="identity", position = position_dodge(0.7), show.legend = FALSE) +
   geom_col(fill = lightblue, color = darkblue) +         # all bars in "#355C7D"
@@ -255,7 +261,14 @@ av_plot
 
 ```
 
+Source: [California Department of Education, 2015-2022](https://dq.cde.ca.gov/dataquest/)
+
+
 ## Student Migrant Population
+
+Overall, 0.3% of students are in the California's Migrant Education Program in the Antelope Valley. Palmdale Elementary School District has a 2.7 times greater percentage of migratory students than the AV average. That is because of American Indian Alaskan Native students in the Palmdale elementary school district has 3.2 times more migratory student than even the next largest group of migratory students, Latinx students. At the region level as well, American Indian Alaskan Native student has the greatest percentage of migratory students.
+
+##### Student Migrant Population Counts by District 2021-22 School Year
 ```{r}
 source("W:/Project/RDA Team/Region 5 State of the Child/R/migrant.R")
 library(kableExtra)
@@ -266,6 +279,8 @@ kbl(av_table) %>%
 # View(av_table)
 
 ```
+
+Source: [California Department of Education, 2015-2022](https://dq.cde.ca.gov/dataquest/)
 
 ```{r}
 # AV Bar Chart
@@ -359,7 +374,14 @@ av_plot
 
 ```
 
+Source: [California Department of Education, 2015-2022](https://dq.cde.ca.gov/dataquest/)
+
 ### Non-binary
+The CDE started tracking students who identify as non-binary gender in the 2020-21 School Year. At that time, 23 students in the Antelope Valley identified as non-binary. Now in the 2021-22 School Year, that number has increased to 51 students or 0.1% of the total AV student population. By percent, AIAN students had the highest rate of students who identified (0.6%) while in raw count Latinx students had the most students (26 students).
+
+The Acton-Agua Dulce School District has the largest percentage of students who identify as non-binary during the 2020-21 school year. 44 out fo the 51 students who identify as non-binary were in the Acton-Agua School District. 
+
+##### Non-Binary Counts by School District 2021-22 School Year
 ```{r}
 
 source("W:/Project/RDA Team/Region 5 State of the Child/R/non-binary.R")
@@ -370,6 +392,8 @@ kbl(av_table) %>%
   kable_styling(bootstrap_options = c("striped", "bordered", "condensed"))
 # View(av_table)
 ```
+
+Source: [California Department of Education, 2015-2022](https://dq.cde.ca.gov/dataquest/)
 
 ```{r}
 # AV Bar Chart
@@ -462,7 +486,20 @@ av_plot
 
 ```
 
+Source: [California Department of Education, 2015-2022](https://dq.cde.ca.gov/dataquest/)
+
 ## Socioeconomically Disadvantaged
+
+The CDE has a category called Socioeconomically disadvantaged that it defines with the following criteria: 
+  * student is eligible or participating in the Free or Reduce Meal program, Migrant program, or Foster program
+  * the student's parents do not have a high school diploma
+  * the student was Homeless, Directly Certified, a Tribal Foster Youth, or enrolled in a Juvenile Court School
+
+In further definition, Direct Certification, means that the student was eligible for the Free Meal program without having to apply for it separately. That is usually because the student is already registered for other social or welfare services such as CalFresh or CalWORKs.(cde.ca.gov)
+
+In the 2021-22 school year, an extremely high percentage, 75% of students, were categorized as socioeconomically disadvantaged. In particular Black (84%), American Indian Alaskan Native (82%), and Latinx (80%) students had the highest rates in the Antelope Valley. In the the racial and ethnic groups with the lowest rates in the AV, still around half of students were considered socioeconomically disadvantaged. These high rates were specially pervasive in the Wilsona Elementary School District where 97%, almost all students where considered socioeconomically disavantaged. In that district, Black and Native Hawaiian Pacific Islander students had the highest rates (approx. 100% for both), closely followed by Latinx students (98%). 
+
+##### Socioeconomically Disadvantaged Rates by School District 2021-22 School Year
 ```{r}
 
 source("W:/Project/RDA Team/Region 5 State of the Child/R/socioeconomically_disadvantaged.R")
@@ -471,6 +508,8 @@ kbl(av_table) %>%
  kable_styling(bootstrap_options = c("striped", "bordered", "condensed"))
 View(av_table)
 ```
+
+Source: [California Department of Education, 2015-2022](https://dq.cde.ca.gov/dataquest/)
 
 ```{r}
 ## AV Bar Chart
@@ -565,6 +604,8 @@ av_plot
 
 ```
 
+Source: [California Department of Education, 2015-2022](https://dq.cde.ca.gov/dataquest/)
+
 ## Student Homelessness
 
 According to the California Department Of Education 2021_22 school year data, Student Homelessness on average in the Antelope Valley, 2.2%, is slightly lower than the the state average, 2.9%, and Los Angeles County average, 2.8%. However, school district level data tells a different story.
@@ -578,6 +619,8 @@ The Eastside Union Elementary School District and Lancaster Elementary School Di
 The bulk of the students experiencing homelessness in the Antelope Valley are in grades 1-8. Notably, student homelessness rates range between 15 to 20% of students. Second-grade students had the highest rates with 2 out of 10 experiencing homelessness. 
 
 Given this information, interventions targeting current elementary and middle school students,  and Black, Latinx, AIAN, and Two or More Race students are pressing.
+
+##### Student Homelessness Rates by School District 2021-22 School Year
 ```{r}
 # 2021-22 School Year Totals
 source("W:/Project/RDA Team/Region 5 State of the Child/R/student_homelessness.R")
@@ -589,6 +632,7 @@ kbl(av_table) %>%
 # View(av_table)
 
 ```
+
 Source: [California Department of Education, 2015-2022](https://dq.cde.ca.gov/dataquest/)
 
 
@@ -683,6 +727,7 @@ av_plot
 
 
 ```
+
 Source: [California Department of Education, 2015-2022](https://dq.cde.ca.gov/dataquest/)
 
 
@@ -698,12 +743,15 @@ kbl(av_table) %>%
   kable_styling(bootstrap_options = c("striped", "bordered", "condensed"))
 
 ```
+
 Source: [Los Angeles Homeless Services Authority, 2022](https://www.lahsa.org/data)
 
 
 ## Children with Disabilities 
 
 Overall in the Antelope Valley, 14.9% of students have disabilities, 2.4 percentage points higher than the state average.[2](https://lao.ca.gov/reports/2019/4110/overview-spec-ed-110619.pdf) The percentage of students with disabilities in the Antelope Valley has steadily increased by 2.6 percentage points since the 2015-16 school year. The grades with the highest percentage of students with disabilities were 6th grade (73.5%), 8th grade (71.8%), and 7th grade (73.5%). At the school district level, the Antelope Valley Union Joint High School District has the highest, 17.2% and Eastside Elementary School District has the lowest, 12.5%.  Students in the 4th and 5th grades also had a larger percentage of students with disabilities. Despite the high reported numbers of students with disabilities, the actual numbers are likely higher. Younger students with disabilities tend to be underrepresented because students are assessed for disabilities on an as-needed basis, therefore, it takes time for students to be assessed and as more time passes, more students are assessed thereby increasing the reported number of students with disabilities. 
+
+##### Students with Disabilities Counts by School District 2021-22 School Year
 ```{r}
 source("W:/Project/RDA Team/Region 5 State of the Child/R/disabilties.R")
 library(kableExtra)
@@ -717,6 +765,7 @@ total_grade_only <- total_grade_only %>% select(year, geoname, ends_with("_rate"
 #Raw values
 
 ```
+
 Source: [California Department of Education, 2015-2022](https://dq.cde.ca.gov/dataquest/)
 
 American Indian Alaskan Native (AIAN) students had the highest percentage of students with disabilities by race/ethnicity with 21.3% of AIAN students having disabilities. Black (20.8%), Two or More Races (16.7%) and White students (15.6%) all had above Antelope Valley average rates as well. Given the extremely large number of students with disabilities, the Antelope Valley has an urgent priority need for additional resources for students with disabilities. 
@@ -811,6 +860,7 @@ av_plot <- av_plot + theme(
 av_plot <- av_plot + ylim(0, max_y)     # add buffer between title and chart/data labels
 av_plot
 ```
+
 Source: [California Department of Education, 2015-2022](https://dq.cde.ca.gov/dataquest/)
 
 
@@ -829,6 +879,9 @@ Source: [American Community Survey 2016-2020 5-year estimates calculated for Ant
 
 ## English Language Learners
 
+In the Antelope Valley 14% of students were considered English Language Learners. Latinx students has the highest rate by race / ethnicity (20%). The Wilsona followed by the Keppel School Districts had the highest amount by school district, 32.5% and 29.3% respectively. In both cases it was because of the high rates for Latinx students.
+
+##### ELL Rates by School District 2021-22 School Year
 ```{r}
 source("W:/Project/RDA Team/Region 5 State of the Child/R/ell.R")
 library(kableExtra)
@@ -934,6 +987,7 @@ av_plot
 
 ```
 
+Source: [California Department of Education, 2015-2022](https://dq.cde.ca.gov/dataquest/)
 
 # Resources (and barriers to access)
 
@@ -941,6 +995,11 @@ av_plot
 # Economics 
 
 ## Rent Burden (Cost Burden Renter)
+
+
+East Antelope Valley had the highest rates of its population being rent burdened, meaning that they were spending over 30% of their income on rent, 62.3%.
+
+##### Rent Burden Rates by AV Neighborhood 2016-2020 (30% or more of income spent on rent)
 ```{r}
 source("W:/Project/RDA Team/Region 5 State of the Child/R/rent_burden_totals.R")
 library(kableExtra)
@@ -949,112 +1008,112 @@ kbl(av_table) %>%
 
 
 ```
+
 Source: [American Community Survey 2016-2020 5-year estimates calculated for Antelope Valley neighborhoods by Lucy Wilkerson](https://public.tableau.com/app/profile/luz3725/viz/2020CensusData-AVBESTSTARTREGION5/GRAPI)
 
-```{r}
-source("W:/Project/RDA Team/Region 5 State of the Child/R/rent_burden.R")
-library(kableExtra)
-kbl(av_table) %>%
- kable_styling(bootstrap_options = c("striped", "bordered", "condensed"))
-```
+
+<!-- ```{r} -->
+<!-- # source("W:/Project/RDA Team/Region 5 State of the Child/R/rent_burden.R") -->
+<!-- # library(kableExtra) -->
+<!-- # kbl(av_table) %>% -->
+<!-- #  kable_styling(bootstrap_options = c("striped", "bordered", "condensed")) -->
+<!-- ```  -->
+
+<!-- Sources: [HUD CHAS 2014-2018](https://www.huduser.gov/portal/datasets/cp.html#2006-2018)  -->
 
 
-
-Sources: [American Community Survey 2016-2020 5-year estimates calculated for Antelope Valley neighborhoods by Lucy Wilkerson](https://public.tableau.com/app/profile/luz3725/viz/2020CensusData-AVBESTSTARTREGION5/GRAPI) and [HUD CHAS 2014-2018](https://www.huduser.gov/portal/datasets/cp.html#2006-2018)
-
-
-```{r}
-### AV Bar Chart
-s <- AV
-tot = subset(s, select=c(total_rate)) %>% round(1)  # pull out total_rate
-s = subset(s, select=-c(total_rate)) # pull out raced rates
-# oldnames = c("nh_black_rate","nh_aian_rate", "nh_asian_rate", "nh_other_rate", "latino_rate", "nh_pacisl_rate", "nh_white_rate")
-# engvar = c("Black", "AIAN", "Asian", "Other", "Latinx", "NHPI", "White")
-# s = s %>% rename_at(vars(oldnames), ~ engvar)
-
-# create english / spanish labels
-engvar = c("Latinx", "AIAN", "Asian", "Black", "Other",  "NHPI", "White")
-esvar = c("Latino", "Indígena Americano", "Asiático", "Negro", "Otra Raza",  "Isleño del Pacifico", "Blanco")
-#esvar_long = c("NEGRO O AFROAMERICANO", "INDÍGENA AMERICANO O NATIVO DE ALASKA", "ASIÁTICO", "OTRA RAZA", "LATINO", "ISLEÑO DEL PACIFICO", "BLANCO")
-labels <- data.frame(engvar, esvar)
-# labels
-
-
-# convert df to long format
-s_long <- reshape2::melt(s, id.vars=c("Geography"))
-# Round 'value' field to 1 decimal, rename 'variable' field, add Spanish labels
-s_long <- s_long %>% mutate(value = round(value, 1)) %>% dplyr::rename(engvar = variable)  %>%
-  left_join(labels, by = "engvar")
-s_long <- s_long %>% filter(value > 0)
-
-
-df <- data.frame(s_long, tot)       # add total_rate to long table
-df <- na.omit(df)             # drop NA's
-# df
-
-engtot_stat <- paste("Overall Rate =", min(df$total_rate))   # total_rate line annotation
-estot_stat <- paste("Promedio Total =", min(df$total_rate))   # total_rate line annotation
-
-
-# Set region name for file name
-region <- "Antelope Valley"
-
-
-# write the name of your indicator here:
-var <- "rent_burdened"
-
-
-# Define chart height as max y value varies by indicator. Set vertical position for total line label - may need to be customized for each chart.
-max_y = 1.15 * max(df$value)
-annotate_y = 1.12 * df$total_rate
-
-# specify language: comment out based on language of chart created below
-lang <- "eng"
-
-
-
-
-# # ggplot method that should export as .svg ##
-av_plot <-
-  #English
-  ggplot(df, aes(x= reorder(engvar, -value), y=value)) +     # set up manual fill using 'test', add "-" before value to order bars when MAX is best
-  annotate("text", x=6.25, y = annotate_y, label = str_wrap(engtot_stat, width = 20), hjust=-0.33, vjust = 0.35, family= font_table_text, color = red) +
-  labs(title = "**<span style='font-size:20pt;'>Rent Burdened (%)</span>**", subtitle = region, caption = "*American Indian and Alaska Native (AIAN), Native Hawaiian and Pacific Islander (NHPI)") +
-  # rest of chart
-  geom_bar(stat="identity", position = position_dodge(0.7), show.legend = FALSE) +
-  geom_col(fill = lightblue, color = darkblue) +         # all bars in "#355C7D"
-  geom_hline(aes(yintercept = round(total_rate, 1)), color = red, size = .5) +
-  geom_text(aes(label = round(value, digits = 1)), family = font_bar_label, hjust = -.5) +       # format data labels, adjust hjust to avoid overlap w/ total line
-  # scale_y_continuous(limits = c(0, max_y), breaks = seq(0, max_y, by = 20)) +
-  scale_x_discrete(labels = function(engvar) str_wrap(engvar, width = 20)) +            # wrap long labels
-  xlab("") +
-  ylab("") +
-  coord_flip()
-# av_plot
-
-av_plot <- av_plot + theme(
-  panel.background = element_rect(fill = "transparent"), # bg of the panel
-  plot.background = element_rect(fill = 'transparent', color=NA),
-  panel.grid.major.y = element_line(colour = textgrey),    # add major y-axis gridlines
-  panel.grid.minor = element_blank(), # bg of the plot
-  axis.title.x = element_blank(),
-  axis.title.y = element_blank(),
-  axis.text.x = element_text(size = 12, family= font_axis_label),
-  axis.text.y = element_text(size = 12, family= font_axis_label),
-  axis.ticks = element_blank(),
-  plot.title = element_markdown(family = font_title, face = "bold", size = 15, hjust = 0),
-  plot.title.position = "plot",
-  plot.subtitle = element_text(family = font_title, hjust = 0),
-  plot.margin = margin(t = 10,
-                       b = 10,
-                       r = 10,
-                       l = 10)
-)
-
-
-av_plot <- av_plot + ylim(0, max_y)     # add buffer between title and chart/data labels
-av_plot
-```
+<!-- ```{r} -->
+<!-- ### AV Bar Chart -->
+<!-- #s <- AV -->
+<!-- # tot = subset(s, select=c(total_rate)) %>% round(1)  # pull out total_rate -->
+<!-- # s = subset(s, select=-c(total_rate)) # pull out raced rates -->
+<!-- # # oldnames = c("nh_black_rate","nh_aian_rate", "nh_asian_rate", "nh_other_rate", "latino_rate", "nh_pacisl_rate", "nh_white_rate") -->
+<!-- # # engvar = c("Black", "AIAN", "Asian", "Other", "Latinx", "NHPI", "White") -->
+<!-- # # s = s %>% rename_at(vars(oldnames), ~ engvar) -->
+<!-- #  -->
+<!-- # # create english / spanish labels -->
+<!-- # engvar = c("Latinx", "AIAN", "Asian", "Black", "Other",  "NHPI", "White") -->
+<!-- # esvar = c("Latino", "Indígena Americano", "Asiático", "Negro", "Otra Raza",  "Isleño del Pacifico", "Blanco") -->
+<!-- # #esvar_long = c("NEGRO O AFROAMERICANO", "INDÍGENA AMERICANO O NATIVO DE ALASKA", "ASIÁTICO", "OTRA RAZA", "LATINO", "ISLEÑO DEL PACIFICO", "BLANCO") -->
+<!-- # labels <- data.frame(engvar, esvar) -->
+<!-- # # labels -->
+<!-- #  -->
+<!-- #  -->
+<!-- # # convert df to long format -->
+<!-- # s_long <- reshape2::melt(s, id.vars=c("Geography")) -->
+<!-- # # Round 'value' field to 1 decimal, rename 'variable' field, add Spanish labels -->
+<!-- # s_long <- s_long %>% mutate(value = round(value, 1)) %>% dplyr::rename(engvar = variable)  %>% -->
+<!-- #   left_join(labels, by = "engvar") -->
+<!-- # s_long <- s_long %>% filter(value > 0) -->
+<!-- #  -->
+<!-- #  -->
+<!-- # df <- data.frame(s_long, tot)       # add total_rate to long table -->
+<!-- # df <- na.omit(df)             # drop NA's -->
+<!-- # # df -->
+<!-- #  -->
+<!-- # engtot_stat <- paste("Overall Rate =", min(df$total_rate))   # total_rate line annotation -->
+<!-- # estot_stat <- paste("Promedio Total =", min(df$total_rate))   # total_rate line annotation -->
+<!-- #  -->
+<!-- #  -->
+<!-- # # Set region name for file name -->
+<!-- # region <- "Antelope Valley" -->
+<!-- #  -->
+<!-- #  -->
+<!-- # # write the name of your indicator here: -->
+<!-- # var <- "rent_burdened" -->
+<!-- #  -->
+<!-- #  -->
+<!-- # # Define chart height as max y value varies by indicator. Set vertical position for total line label - may need to be customized for each chart. -->
+<!-- # max_y = 1.15 * max(df$value) -->
+<!-- # annotate_y = 1.12 * df$total_rate -->
+<!-- #  -->
+<!-- # # specify language: comment out based on language of chart created below -->
+<!-- # lang <- "eng" -->
+<!-- #  -->
+<!-- #  -->
+<!-- #  -->
+<!-- #  -->
+<!-- # # # ggplot method that should export as .svg ## -->
+<!-- # av_plot <- -->
+<!-- #   #English -->
+<!-- #   ggplot(df, aes(x= reorder(engvar, -value), y=value)) +     # set up manual fill using 'test', add "-" before value to order bars when MAX is best -->
+<!-- #   annotate("text", x=6.25, y = annotate_y, label = str_wrap(engtot_stat, width = 20), hjust=-0.33, vjust = 0.35, family= font_table_text, color = red) + -->
+<!-- #   labs(title = "**<span style='font-size:20pt;'>Rent Burdened (%)</span>**", subtitle = region, caption = "*American Indian and Alaska Native (AIAN), Native Hawaiian and Pacific Islander (NHPI)") + -->
+<!-- #   # rest of chart -->
+<!-- #   geom_bar(stat="identity", position = position_dodge(0.7), show.legend = FALSE) + -->
+<!-- #   geom_col(fill = lightblue, color = darkblue) +         # all bars in "#355C7D" -->
+<!-- #   geom_hline(aes(yintercept = round(total_rate, 1)), color = red, size = .5) + -->
+<!-- #   geom_text(aes(label = round(value, digits = 1)), family = font_bar_label, hjust = -.5) +       # format data labels, adjust hjust to avoid overlap w/ total line -->
+<!-- #   # scale_y_continuous(limits = c(0, max_y), breaks = seq(0, max_y, by = 20)) + -->
+<!-- #   scale_x_discrete(labels = function(engvar) str_wrap(engvar, width = 20)) +            # wrap long labels -->
+<!-- #   xlab("") + -->
+<!-- #   ylab("") + -->
+<!-- #   coord_flip() -->
+<!-- # # av_plot -->
+<!-- #  -->
+<!-- # av_plot <- av_plot + theme( -->
+<!-- #   panel.background = element_rect(fill = "transparent"), # bg of the panel -->
+<!-- #   plot.background = element_rect(fill = 'transparent', color=NA), -->
+<!-- #   panel.grid.major.y = element_line(colour = textgrey),    # add major y-axis gridlines -->
+<!-- #   panel.grid.minor = element_blank(), # bg of the plot -->
+<!-- #   axis.title.x = element_blank(), -->
+<!-- #   axis.title.y = element_blank(), -->
+<!-- #   axis.text.x = element_text(size = 12, family= font_axis_label), -->
+<!-- #   axis.text.y = element_text(size = 12, family= font_axis_label), -->
+<!-- #   axis.ticks = element_blank(), -->
+<!-- #   plot.title = element_markdown(family = font_title, face = "bold", size = 15, hjust = 0), -->
+<!-- #   plot.title.position = "plot", -->
+<!-- #   plot.subtitle = element_text(family = font_title, hjust = 0), -->
+<!-- #   plot.margin = margin(t = 10, -->
+<!-- #                        b = 10, -->
+<!-- #                        r = 10, -->
+<!-- #                        l = 10) -->
+<!-- # ) -->
+<!-- #  -->
+<!-- #  -->
+<!-- # av_plot <- av_plot + ylim(0, max_y)     # add buffer between title and chart/data labels -->
+<!-- # av_plot -->
+<!-- ``` -->
 
 
 ## Foreclosures
@@ -1090,12 +1149,16 @@ Source: [L.A. County WIC Administrative Data, 2021](https://lawicdata.org/data-r
 # Education
 
 ## Highschool Graduation
+
+##### Highschool Graduation Rates by School District 2021-22 School Year
 ```{r}
 source("W:/Project/RDA Team/Region 5 State of the Child/R/hs_grad.R")
 library(kableExtra)
 kbl(AV) %>%
  kable_styling(bootstrap_options = c("striped", "bordered", "condensed"))
 ```
+
+Source: [California Department of Education, Adjusted Cohort Graduation Rate and Outcome Data, 2015-2022](https://www.cde.ca.gov/ds/ad/filesacgr.asp)
 
 ```{r}
 # AV Bar Chart
@@ -1189,6 +1252,8 @@ av_plot <- av_plot + theme(
 av_plot <- av_plot + ylim(0, max_y)     # add buffer between title and chart/data labels
 av_plot
 ```
+
+Source: [California Department of Education, Adjusted Cohort Graduation Rate and Outcome Data, 2015-2022](https://www.cde.ca.gov/ds/ad/filesacgr.asp)
 
 ## Teacher & Staff Diversity 
 
