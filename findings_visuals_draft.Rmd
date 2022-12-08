@@ -688,7 +688,7 @@ Source: [California Department of Education, 2015-2022](https://dq.cde.ca.gov/da
 
 ## Homelessness
 
-The 2022 Los Angeles County homeless count counted over 65,000 homeless people in Los Angeles County, 1,000 of whom lived in the cities of Lancaster and Palmdale.
+The 2022 Los Angeles County homeless count counted over 65,000 homeless people in Los Angeles County, 1,000 of whom lived in the cities of Lancaster and Palmdale.Thousands more homeless residents live just outside city boundaries in the Antelope Valley (SPA 1). **LAHSA counted 4,598 Antelope Valley homeless persons in 2022 including 3,570 unsheltered and 1,028 sheltered persons.** Another way to break that 4,500+ homeless population shows that figure is made up of 3,681 individuals, 910 family members, and 7 unaccompanied minors.A [Vice News Report](https://www.youtube.com/watch?v=LzbU-9L1WS4) details that law enforcement contributes to moving homeless persons outside of city boundaries and into the broader region. 
 
 ```{r}
 source("W:/Project/RDA Team/Region 5 State of the Child/R/homeless.R")
