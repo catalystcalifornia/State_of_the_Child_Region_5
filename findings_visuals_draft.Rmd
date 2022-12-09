@@ -156,7 +156,7 @@ This matters because separation or probation impacts the ability of parents to l
 
 Overall in the Antelope Valley (AV) during the 2021-2022 school year, 2.3% of students are in the Foster Care System. Black (5.2%) and American Indian / Alaskan Native (5.3%) students are over 10 times more likely to be in the foster care system than Asian (0.5%) students, the group least likely to be in the foster care system in the AV. Native Hawaiian / Pacific Islander (4.2%) students also have a high rate of students in foster care compared to the AV average, almost 2 times more in fact. At the district level, the Eastside Union Elementary School District has almost double the percentage of students in foster care compared to the AV average and over 7 times more compared to the School District with the lowest percentage.
 
-##### Foster Youth Rates by District 2021-22 School Year
+ **Foster Youth Rates by District 2021-22 School Year**
 ```{r}
 source("W:/Project/RDA Team/Region 5 State of the Child/R/foster.R")
 library(kableExtra)
@@ -269,7 +269,7 @@ Source: [California Department of Education, 2015-2022](https://dq.cde.ca.gov/da
 
 Overall, 0.3% of students are in the California's Migrant Education Program in the Antelope Valley. Palmdale Elementary School District has a 2.7 times greater percentage of migratory students than the AV average. That is because of American Indian Alaskan Native students in the Palmdale elementary school district has 3.2 times more migratory student than even the next largest group of migratory students, Latinx students. At the region level as well, American Indian Alaskan Native student has the greatest percentage of migratory students.
 
-##### Student Migrant Population Counts by District 2021-22 School Year
+ **Student Migrant Population Counts by District 2021-22 School Year**
 ```{r}
 source("W:/Project/RDA Team/Region 5 State of the Child/R/migrant.R")
 library(kableExtra)
@@ -382,7 +382,7 @@ The CDE started tracking students who identify as non-binary gender in the 2020-
 
 The Acton-Agua Dulce School District has the largest percentage of students who identify as non-binary during the 2020-21 school year. 44 out fo the 51 students who identify as non-binary were in the Acton-Agua School District. 
 
-##### Non-Binary Counts by School District 2021-22 School Year
+ **Non-Binary Counts by School District 2021-22 School Year**
 ```{r}
 
 source("W:/Project/RDA Team/Region 5 State of the Child/R/non-binary.R")
@@ -500,7 +500,7 @@ In further definition, Direct Certification, means that the student was eligible
 
 In the 2021-22 school year, an extremely high percentage, 75% of students, were categorized as socioeconomically disadvantaged. In particular Black (84%), American Indian Alaskan Native (82%), and Latinx (80%) students had the highest rates in the Antelope Valley. In the the racial and ethnic groups with the lowest rates in the AV, still around half of students were considered socioeconomically disadvantaged. These high rates were specially pervasive in the Wilsona Elementary School District where 97%, almost all students where considered socioeconomically disavantaged. In that district, Black and Native Hawaiian Pacific Islander students had the highest rates (approx. 100% for both), closely followed by Latinx students (98%). 
 
-##### Socioeconomically Disadvantaged Rates by School District 2021-22 School Year
+ **Socioeconomically Disadvantaged Rates by School District 2021-22 School Year**
 ```{r}
 
 source("W:/Project/RDA Team/Region 5 State of the Child/R/socioeconomically_disadvantaged.R")
@@ -621,7 +621,7 @@ The bulk of the students experiencing homelessness in the Antelope Valley are in
 
 Given this information, interventions targeting current elementary and middle school students,  and Black, Latinx, AIAN, and Two or More Race students are pressing.
 
-##### Student Homelessness Rates by School District 2021-22 School Year
+ **Student Homelessness Rates by School District 2021-22 School Year**
 ```{r}
 # 2021-22 School Year Totals
 source("W:/Project/RDA Team/Region 5 State of the Child/R/student_homelessness.R")
@@ -753,7 +753,7 @@ Source: [Los Angeles Homeless Services Authority, 2022](https://www.lahsa.org/da
 
 Overall in the Antelope Valley, 14.9% of students have disabilities, 2.4 percentage points higher than the state average.[2](https://lao.ca.gov/reports/2019/4110/overview-spec-ed-110619.pdf) The percentage of students with disabilities in the Antelope Valley has steadily increased by 2.6 percentage points since the 2015-16 school year. The grades with the highest percentage of students with disabilities were 6th grade (73.5%), 8th grade (71.8%), and 7th grade (73.5%). At the school district level, the Antelope Valley Union Joint High School District has the highest, 17.2% and Eastside Elementary School District has the lowest, 12.5%.  Students in the 4th and 5th grades also had a larger percentage of students with disabilities. Despite the high reported numbers of students with disabilities, the actual numbers are likely higher. Younger students with disabilities tend to be underrepresented because students are assessed for disabilities on an as-needed basis, therefore, it takes time for students to be assessed and as more time passes, more students are assessed thereby increasing the reported number of students with disabilities. 
 
-##### Students with Disabilities Counts by School District 2021-22 School Year
+ **Students with Disabilities Counts by School District 2021-22 School Year**
 ```{r}
 source("W:/Project/RDA Team/Region 5 State of the Child/R/disabilties.R")
 library(kableExtra)
@@ -885,7 +885,7 @@ Source: [American Community Survey 2016-2020 5-year estimates (population age 5 
 
 In the Antelope Valley 14% of students were considered English Language Learners. Latinx students has the highest rate by race / ethnicity (20%). The Wilsona followed by the Keppel School Districts had the highest amount by school district, 32.5% and 29.3% respectively. In both cases it was because of the high rates for Latinx students.
 
-##### ELL Rates by School District 2021-22 School Year
+ **ELL Rates by School District 2021-22 School Year**
 ```{r}
 source("W:/Project/RDA Team/Region 5 State of the Child/R/ell.R")
 library(kableExtra)
@@ -1062,7 +1062,7 @@ The Los Angeles County County Department of Parks and Recreation completed a Cou
 
 East Antelope Valley had the highest rates of its population being rent burdened, meaning that they were spending over 30% of their income on rent, 62.3%.
 
-##### Rent Burden Rates by AV Neighborhood 2016-2020 (30% or more of income spent on rent)
+ **Rent Burden Rates by AV Neighborhood 2016-2020 (30% or more of income spent on rent)**
 ```{r}
 source("W:/Project/RDA Team/Region 5 State of the Child/R/rent_burden_totals.R")
 library(kableExtra)
@@ -1158,7 +1158,7 @@ Source: [L.A. County WIC Administrative Data, 2021](https://lawicdata.org/data-r
 
 The average high school graduation rate in the Antelope Valley is 46.9%. In the AV, Latinx (43.8%) followed by Black (44%) students had the lowest graduation rates while Asian (71.6%) and Filipino (70.3%) students had the highest. The Acton-Agua Dulce Unified School District has the lowest graduation rate (34.7%). Notably in the Acton-Agua Dulce Unified School District Latinx, Black, Filipino, and students who identified as non-Hispanic Two or More Races all had under 50% graduation rates. The Gorman Joint School District had the highest rate (81.9%). 
 
-##### Highschool Graduation Rates by School District 2021-22 School Year
+**Highschool Graduation Rates by School District 2021-22 School Year**
 ```{r}
 source("W:/Project/RDA Team/Region 5 State of the Child/R/hs_grad.R")
 library(kableExtra)
