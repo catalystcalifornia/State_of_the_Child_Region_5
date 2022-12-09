@@ -1205,6 +1205,8 @@ Source: [L.A. County WIC Administrative Data, 2021](https://lawicdata.org/data-r
 
 ## Highschool Graduation
 
+The average high school graduation rate in the Antelope Valley is 47%. 
+
 ##### Highschool Graduation Rates by School District 2021-22 School Year
 ```{r}
 source("W:/Project/RDA Team/Region 5 State of the Child/R/hs_grad.R")
