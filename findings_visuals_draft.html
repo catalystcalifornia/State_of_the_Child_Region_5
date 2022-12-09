@@ -1915,21 +1915,24 @@ the US Census, it’s two largest cities, Lancaster and Palmdale, have
 populations of 170,150 and 165,761, respectively.<a href="https://www.census.gov/quickfacts/fact/table/palmdalecitycalifornia,lancastercitycalifornia/PST045221">1</a>.
 For comparison, both cities are more populous than Pasadena and Pomona,
 two well-known mid-size cities on the other side of the valley.</p>
-<p>The Antelope Valley Best Start Region 5 is home to a population of
-368,522 people <a href="https://public.tableau.com/app/profile/luz3725/viz/2020CensusData-AVBESTSTARTREGION5/GRAPI">1</a>.
+<p><strong>The Antelope Valley Best Start Region 5 is home to a
+population of 368,522 people <a href="https://public.tableau.com/app/profile/luz3725/viz/2020CensusData-AVBESTSTARTREGION5/GRAPI">1</a></strong>.
 According to Catalyst California calculations of 2020 American Community
-Survey estimates, the Lancaster and Palmdale Best Start geographies hold
-12,821 and 13,068 children ages 0 to 5, respectively. These 25,000+
-children represent more than 7% of the Lancaster and Palmdale Best Start
+Survey estimates, <strong>the Lancaster and Palmdale Best Start
+geographies hold roughly 25,000 children</strong>, with 12,821 and
+13,068 children ages 0 to 5, respectively. These 25,000+ children
+represent more than 7% of the Lancaster and Palmdale Best Start
 geography populations.</p>
 </div>
 <div id="racial-ethnic-breakdown" class="section level2">
 <h2>Racial Ethnic Breakdown</h2>
 <p>According to the latest American Community Survey data calculated by
-Lucy Wilkerson, Region 5 is majority Latinx. The regional share of the
-Black population is twice the LA County share and nearly three times the
-State share. On the other hand, the region is home to relatively fewer
-Asian residents than the County and State as a whole.</p>
+Lucy Wilkerson, <strong>Region 5 is majority Latinx and the regional
+share of the Black population is twice the LA County share and nearly
+three times the State share</strong>. On the other hand, the region is
+home to relatively fewer Asian residents than the County and State as a
+whole.</p>
+<p><strong>Race-ethnicity of Region 5 and Key Geographies</strong></p>
 <pre class="r"><code>source(&quot;W:/Project/RDA Team/Region 5 State of the Child/R/race.R&quot;)
 
 library(kableExtra)
@@ -2214,8 +2217,9 @@ births). Not available by race, but First 5 LA reports Children’s Data
 Network infant mortality rates for the total populations of the
 Lancaster and Palmdale Best Start geographies at 6.0 and 5.7 per 1,000,
 respectively.<a href="https://www.first5la.org/wp-content/uploads/2020/09/First-5-LA-2020-Indicators-Report.pdf">1</a></p>
-<p><strong>9.3 Black LA County infant deaths per 1,000 live births
-compared to total rate of 4.2 per 1,000</strong><a href="https://data.chhs.ca.gov/dataset/infant-mortality-deaths-per-1000-live-births-lghc-indicator-01/resource/ae78da8f-1661-45f6-b2d0-1014857d16e3">1</a></p>
+<p><strong>The County’s Black infant mortality rate is twice the infant
+mortality rate overall: 9.3 Black LA County infant deaths per 1,000 live
+births compared to total rate of 4.2 per 1,000</strong><a href="https://data.chhs.ca.gov/dataset/infant-mortality-deaths-per-1000-live-births-lghc-indicator-01/resource/ae78da8f-1661-45f6-b2d0-1014857d16e3">1</a></p>
 <p>Recent data are a challenge as this data, from the California Health
 and Human Services Open Data Portal is from 2015-2017. The <a href="https://www.blackinfantsandfamilies.org/">African American Infant
 and Maternal Mortality (AAIMM) Initiative</a> is a coalition working to
@@ -4454,6 +4458,8 @@ that 4,500+ homeless population shows that figure is made up of 3,681
 individuals, 910 family members, and 7 unaccompanied minors.A <a href="https://www.youtube.com/watch?v=LzbU-9L1WS4">Vice News Report</a>
 details that law enforcement contributes to moving homeless persons
 outside of city boundaries and into the broader region.</p>
+<p><strong>Adult &amp; youth sheltered and adult unsheltered in Antelope
+Valley geographies, 2022</strong></p>
 <pre class="r"><code>source(&quot;W:/Project/RDA Team/Region 5 State of the Child/R/homeless.R&quot;)
 
 library(kableExtra)
@@ -5080,6 +5086,8 @@ speakers. The East Antelope Valley and Palmdale areas have a larger
 shares of Spanish speakers than the County or State as a whole. There
 are relatively fewer speakers of Asian or Pacific Islander languages,
 with West Antelope Valley having the largest share of this group.</p>
+<p><strong>Language Spoken at Home for Antelope Valley geographies,
+2020</strong></p>
 <pre class="r"><code>source(&quot;W:/Project/RDA Team/Region 5 State of the Child/R/language.R&quot;)
 
 library(kableExtra)
@@ -5262,8 +5270,8 @@ CALIFORNIA
 </tbody>
 </table>
 <p>Source: <a href="https://public.tableau.com/app/profile/luz3725/viz/2020CensusData-AVBESTSTARTREGION5/GRAPI">American
-Community Survey 2016-2020 5-year estimates calculated for Antelope
-Valley neighborhoods by Lucy Wilkerson</a></p>
+Community Survey 2016-2020 5-year estimates (population age 5 and over)
+calculated for Antelope Valley neighborhoods by Lucy Wilkerson</a></p>
 </div>
 <div id="english-language-learners" class="section level2">
 <h2>English Language Learners</h2>
@@ -5790,6 +5798,8 @@ it is difficult for parents to find care for their children and may need
 to reduce working hours to care for them. 40.9% of Antelope Valley
 parents report difficulty finding childcare (highest among county
 SPAs).<a href="http://publichealth.lacounty.gov/ha/hasurveyintro.htm">1</a></p>
+<p><strong>Unmet need for infant/toddler and preschool-aged children,
+2020</strong></p>
 <pre class="r"><code>drv &lt;- dbDriver(&quot;PostgreSQL&quot;)
 
 con &lt;- dbConnect(drv, dbname = &quot;region5stateofthechild&quot;,
@@ -6070,6 +6080,8 @@ pct_unmet_need_children_prek
 </tr>
 </tbody>
 </table>
+<p>Source: <a href="https://elneedsassessment.org/">American Institutes
+of Research, 2020</a></p>
 </div>
 <div id="parks" class="section level2">
 <h2>Parks</h2>
@@ -6290,12 +6302,14 @@ Valley neighborhoods by Lucy Wilkerson</a></p>
 </div>
 <div id="cost-of-living" class="section level2">
 <h2>Cost of Living</h2>
-<p>According to the United Ways of California, roughly half of
+<p>According to the United Ways of California, <strong>roughly half of
 households in and around Lancaster and Palmdale do not earn sufficient
-incomes to meet their basic costs of living (i.e., they earn incomes
-below the real cost measure of living). Lancaster and Palmdale adjusted
-median household incomes are well below other parts of the County and
-State.</p>
+incomes to meet their basic costs of living</strong> (i.e., they earn
+incomes below the real cost measure of living). Lancaster and Palmdale
+adjusted median household incomes are well below other parts of the
+County and State.</p>
+<p><strong>Households below the real cost of living and median household
+income, 2019</strong></p>
 <pre class="r"><code>source(&quot;W:/Project/RDA Team/Region 5 State of the Child/R/cost_of_living.R&quot;)
 
 library(kableExtra)
@@ -6423,15 +6437,19 @@ State of California
 </tbody>
 </table>
 <p>Source: <a href="https://www.unitedwaysca.org/realcost/39-real-cost">United Ways of
-California Real Cost Measure, 2021</a></p>
+California Real Cost Measure, 2019</a></p>
 </div>
 <div id="food-insecurity" class="section level2">
 <h2>Food Insecurity</h2>
-<p>Feeding America estimates that 22,740 children are food insecure<a href="https://map.feedingamerica.org/">1</a>. Over 10,000 Antelope
-Valley children under 5 participate in WIC. Latinx children comprise the
-largest share of Antelope Valley WIC participants, with nearly 1 in 5
-Palmdale participants live in a Spanish-only home. Black children make
-up nearly 1 in 4 Lancaster WIC participants.</p>
+<p>Feeding America estimates that 55,110 children are food insecure in
+Congressional District 25, covering Antelope Valley<a href="https://map.feedingamerica.org/district/2020/overall/california/district/25">1</a>.
+<strong>Over 10,000 Antelope Valley children under 5 participate in
+WIC</strong>. Latinx children comprise the largest share of Antelope
+Valley WIC participants, with nearly 1 in 5 Palmdale participants live
+in a Spanish-only home. Black children make up nearly 1 in 4 Lancaster
+WIC participants.</p>
+<p><strong>WIC participants by race, Antelope Valley geographies,
+2021</strong></p>
 <pre class="r"><code>source(&quot;W:/Project/RDA Team/Region 5 State of the Child/R/food_security.R&quot;)
 
 library(kableExtra)
@@ -6780,12 +6798,15 @@ of Education, Adjusted Cohort Graduation Rate and Outcome Data,
 <div id="teacher-staff-diversity" class="section level2">
 <h2>Teacher &amp; Staff Diversity</h2>
 <p>The most recent California Department of Education data on
-certificated staff is from the 2018-19 school year. It shows that the
-majority of AV school district students are Latinx but see relatively
-few Latinx teachers. In that year White students made up 13.4% of
-enrolled students and White staff made up 69.4% of certificated staff.
-By contrast Latinx students made up 63.2% of enrolled students and
-Latinx staff made up 17.9% of certificated staff</p>
+certificated staff is from the 2018-19 school year. It shows that
+<strong>the majority of AV school district students are Latinx but see
+relatively few Latinx teachers</strong>. In that year White students
+made up 13.4% of enrolled students and White staff made up 69.4% of
+certificated staff. By contrast Latinx students made up 63.2% of
+enrolled students and Latinx staff made up 17.9% of certificated
+staff</p>
+<p><strong>Shares of student enrollment &amp; certificated staff in
+Antelope Valley schools, 2018-19</strong></p>
 <pre class="r"><code>drv &lt;- dbDriver(&quot;PostgreSQL&quot;)
 
 con &lt;- dbConnect(drv, dbname = &quot;region5stateofthechild&quot;,
@@ -6983,21 +7004,23 @@ Hispanic or Latino
 </tr>
 </tbody>
 </table>
+<p>Source: <a href="https://www.cde.ca.gov/ds/">California Department of
+Education, 2018-19</a></p>
 </div>
 <div id="chronic-absenteeism" class="section level2">
 <h2>Chronic Absenteeism</h2>
-<p>More than 1 in 6 Antelope Valley students (17.5%) were chronically
-absent in the 2018-19 school year, the last year we have a complete
-year’s data from the California Department of Education. Black students
-were most likely to be chronically absent in Antelope Valley schools
-with 27.5% of eligible Black Antelope Valley students absent for 10% or
-more of the days they were expected to attend.</p>
+<p><strong>More than 1 in 6 Antelope Valley students (17.5%) were
+chronically absent in the 2018-19 school year</strong>, the last year we
+have a complete year’s data from the California Department of Education.
+Black students were most likely to be chronically absent in Antelope
+Valley schools with 27.5% of eligible Black Antelope Valley students
+absent for 10% or more of the days they were expected to attend.</p>
 <p>Chronic absenteeism stems for a variety of factors including
 student-specific, family-specific, school-specific, and
-community-specific factors, which vary by age. For example, children who
-are disengaged from their school or who have families with work
-schedules making it difficult to monitor their children’s schooling, are
-two contributors to absenteeism.<a href="https://www.brookings.edu/research/chronic-absenteeism-an-old-problem-in-search-of-new-answers/">1</a>.</p>
+community-specific factors, which vary by age. For example, schools that
+do not engage children and families with work schedules making it
+difficult to monitor their children’s schooling, are two contributors to
+absenteeism.<a href="https://www.brookings.edu/research/chronic-absenteeism-an-old-problem-in-search-of-new-answers/">1</a>.</p>
 <p><strong>Chronic Absenteeism in Antelope Valley Schools,
 2018-19</strong></p>
 <pre class="r"><code>drv &lt;- dbDriver(&quot;PostgreSQL&quot;)
@@ -7168,11 +7191,13 @@ Elementary.</p>
 <div id="suspensions" class="section level2">
 <h2>Suspensions</h2>
 <p>The last full year of in-class learning for which the California
-Department of Education publishes data is 2018-19. That year suspension
-rates for Black students were higher than district totals in every
-Antelope Valley school district. American Indian or Alaska Native and
-Multiracial suspension rates were also often above totals in most area
-school districts.</p>
+Department of Education publishes data is 2018-19. That year
+<strong>suspension rates for Black students were higher than district
+totals in every Antelope Valley school district</strong>. American
+Indian or Alaska Native and Multiracial suspension rates were also often
+above totals in most area school districts.</p>
+<p><strong>Suspension rates by race, Antelope Valley school districts,
+2018-19</strong></p>
 <pre class="r"><code>drv &lt;- dbDriver(&quot;PostgreSQL&quot;)
 
 con &lt;- dbConnect(drv, dbname = &quot;region5stateofthechild&quot;,
@@ -7562,6 +7587,8 @@ NA
 </tr>
 </tbody>
 </table>
+<p>Source: <a href="https://www.cde.ca.gov/ds/">California Department of
+Education, 2018-19</a></p>
 </div>
 <div id="rd-grade-math-scores" class="section level2">
 <h2>3rd Grade Math Scores</h2>
@@ -7575,11 +7602,7 @@ NA
 <div id="police-violence" class="section level2">
 <h2>Police Violence</h2>
 <p>In Antelope Valley ZIP codes, law enforcement visits the most
-violence on Black residents per 100,000 people. Source: California
-Department of Justice 2016-21 and American Community Survey 5-year
-population estimates. Catalyst California aggregated incidents of
-violence and population figures and calculated rates of violence visited
-on civilians per 1,000 people.</p>
+violence on Black residents per 100,000 people.</p>
 <pre class="r"><code>source(&quot;W:/Project/RDA Team/Region 5 State of the Child/R/use_of_force.R&quot;)
 
 library(kableExtra)
@@ -7689,6 +7712,10 @@ API
 </tr>
 </tbody>
 </table>
+<p>Source: California Department of Justice 2016-21 and American
+Community Survey 5-year population estimates. Catalyst California
+aggregated incidents of violence and population figures and calculated
+rates of violence visited on civilians per 1,000 people.</p>
 </div>
 <div id="traffic-stops" class="section level2">
 <h2>Traffic Stops</h2>
