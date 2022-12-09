@@ -1260,6 +1260,7 @@ Source: [California Department of Education, Adjusted Cohort Graduation Rate and
 The most recent California Department of Education data on certificated staff is from the 2018-19 school year. It shows that the majority of AV school district students are Latinx but see relatively few Latinx teachers. In that year White students made up 13.4% of enrolled students and White staff made up 69.4% of certificated staff. By contrast Latinx students made up 63.2% of enrolled students and Latinx staff made up 17.9% of certificated staff
 
 ```{r}
+
 drv <- dbDriver("PostgreSQL")
 
 con <- dbConnect(drv, dbname = "region5stateofthechild",
@@ -1274,11 +1275,33 @@ kbl(av_staff_student_race) %>%
 
 ```
 
-## Chronic Absenteeism 
+## Chronic Absenteeism
+More than 1 in 6 Antelope Valley students (17.5%) were chronically absent in the 2018-19 school year, the last year we have a complete year's data from the California Department of Education. Black students were most likely to be chronically absent in Antelope Valley schools with 27.5% of eligible Black Antelope Valley students absent for 10% or more of the days they were expected to attend.
+
+Chronic absenteeism stems for a variety of factors including student-specific, family-specific, school-specific, and community-specific factors, which vary by age. For example, children who are disengaged from their school or who have families with work schedules making it difficult to monitor their children's schooling, are two contributors to absenteeism.[1](https://www.brookings.edu/research/chronic-absenteeism-an-old-problem-in-search-of-new-answers/).
+
+**Chronic Absenteeism in Antelope Valley Schools, 2018-19**
+```{r}
+
+drv <- dbDriver("PostgreSQL")
+
+con <- dbConnect(drv, dbname = "region5stateofthechild",
+                   host = "aws-postgres-db.c5udgz7ro8hq.us-west-2.rds.amazonaws.com", port = 5432,
+                   user = "postgres", password = pw)
+
+av_chronic_absenteeism_18_19 <- st_read(con, query = "SELECT * FROM av_chronic_absenteeism_18_19")
+
+library(kableExtra)
+kbl(av_chronic_absenteeism_18_19) %>%
+  kable_styling(bootstrap_options = c("striped", "bordered", "condensed"))
+
+```
+Source: Catalyst California calculations of [California Department of Education, 2018-19](https://www.cde.ca.gov/ds/ad/filesabd.asp) data. Antelope Valley schools are schools from the following districts: Acton-Agua Dulce Unified, Antelope Valley Union High, Eastside Union Elementary, Gorman Joint, Hughes-Elizabeth Lakes Union Elementary, Keppel Union Elementary, Lancaster Elementary, Palmdale Elementary, Westside Union Elementary, and Wilsona Elementary.
 
 ## Suspensions
 The last full year of in-class learning for which the California Department of Education publishes data is 2018-19. That year suspension rates for Black students were higher than district totals in every Antelope Valley school district. American Indian or Alaska Native and Multiracial suspension rates were also often above totals in most area school districts.
 ```{r}
+
 drv <- dbDriver("PostgreSQL")
 
 con <- dbConnect(drv, dbname = "region5stateofthechild",
