@@ -1077,42 +1077,42 @@ Source: [American Community Survey 2016-2020 5-year estimates calculated for Ant
 
 
 ```{r}
-## AV Bar Chart
-
-s <- df %>% select("NEIGHBORHOOD", "Rent_Burdened") %>% as.data.frame()
-tot <- s %>% select(Rent_Burdened)%>% filter(Rent_Burdened!="59.2") %>% round(1)  # pull out total_rate
-s <-  s %>% filter(Rent_Burdened!="59.2") # pull out raced rates
-
-# create english / spanish labels
-engvar = c("NEIGHBORHOOD", "Rent_Burdened")
-esvar = c("VECINDARIO", "ALQUILER CARGADO")
-labels <- data.frame(engvar, esvar)
-# labels
-
-df_chart <- data.frame(s, tot) %>% dplyr::rename("total_rate" = "Rent_Burdened.1")        # add total_rate to long table s_long
-df_chart <- na.omit(df_chart)             # drop NA's
-# create labels
-label <-  c("NEIGHBORHOOD", "Rent_Burden") %>% as.data.frame()
-
-# df_chart
-engtot_stat <- paste("Overall Rate =", min(df_chart$total_rate))   # total_rate line annotation
-estot_stat <- paste("Promedio Total =", min(df_chart$total_rate))   # total_rate line annotation
-
-region <- "Antelope Valley"
-
-# Define chart height as max y value varies by indicator. Set vertical position for total line label - may need to be customized for each chart.
-max_y = 1.15 * max(df$Rent_Burdened)
-annotate_y = 1.12 * (df_chart$total_rate)
-
-av_plot <- ggplot(df_chart, aes(x=NEIGHBORHOOD, y=Rent_Burdened))+
-  annotate("text", hjust=-0.33, vjust = 0.35, label = str_wrap(engtot_stat, width = 20), family= font_table_text, color = red)+ #, x=6.25, y = annotate_y,  ,
-  geom_bar(stat = "identity", position = position_dodge(0.7), show.legend = FALSE) +
-  labs(title = "High School Graduation Rates (%)", subtitle = region) +
-  geom_col(fill = lightblue, color = darkblue) +
-  geom_hline(aes(yintercept = round(total_rate, 1)), color = red, size = .5) +
-  geom_text(aes(label = round(value, digits = 1)), family = font_bar_label, hjust = -.5) +
-  coord_flip()
-av_plot
+# ## AV Bar Chart
+# 
+# s <- df %>% select("NEIGHBORHOOD", "Rent_Burdened") %>% as.data.frame()
+# tot <- s %>% select(Rent_Burdened)%>% filter(Rent_Burdened!="59.2") %>% round(1)  # pull out total_rate
+# s <-  s %>% filter(Rent_Burdened!="59.2") # pull out raced rates
+# 
+# # create english / spanish labels
+# engvar = c("NEIGHBORHOOD", "Rent_Burdened")
+# esvar = c("VECINDARIO", "ALQUILER CARGADO")
+# labels <- data.frame(engvar, esvar)
+# # labels
+# 
+# df_chart <- data.frame(s, tot) %>% dplyr::rename("total_rate" = "Rent_Burdened.1")        # add total_rate to long table s_long
+# df_chart <- na.omit(df_chart)             # drop NA's
+# # create labels
+# label <-  c("NEIGHBORHOOD", "Rent_Burden") %>% as.data.frame()
+# 
+# # df_chart
+# engtot_stat <- paste("Overall Rate =", min(df_chart$total_rate))   # total_rate line annotation
+# estot_stat <- paste("Promedio Total =", min(df_chart$total_rate))   # total_rate line annotation
+# 
+# region <- "Antelope Valley"
+# 
+# # Define chart height as max y value varies by indicator. Set vertical position for total line label - may need to be customized for each chart.
+# max_y = 1.15 * max(df$Rent_Burdened)
+# annotate_y = 1.12 * (df_chart$total_rate)
+# 
+# av_plot <- ggplot(df_chart, aes(x=NEIGHBORHOOD, y=Rent_Burdened))+
+#   annotate("text", hjust=-0.33, vjust = 0.35, label = str_wrap(engtot_stat, width = 20), family= font_table_text, color = red)+ #, x=6.25, y = annotate_y,  ,
+#   geom_bar(stat = "identity", position = position_dodge(0.7), show.legend = FALSE) +
+#   labs(title = "Rent Burden Rates (%)", subtitle = region) +
+#   geom_col(fill = lightblue, color = darkblue) +
+#   geom_hline(aes(yintercept = round(total_rate, 1)), color = red, size = .5) +
+#   geom_text(aes(label = round(value, digits = 1)), family = font_bar_label, hjust = -.5) +
+#   coord_flip()
+# av_plot
 
 
 ```
