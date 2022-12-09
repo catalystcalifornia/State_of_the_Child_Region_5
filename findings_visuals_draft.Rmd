@@ -1012,27 +1012,15 @@ kbl(av_table) %>%
 Source: [American Community Survey 2016-2020 5-year estimates calculated for Antelope Valley neighborhoods by Lucy Wilkerson](https://public.tableau.com/app/profile/luz3725/viz/2020CensusData-AVBESTSTARTREGION5/GRAPI)
 
 
-<!-- ```{r} -->
-<!-- # source("W:/Project/RDA Team/Region 5 State of the Child/R/rent_burden.R") -->
-<!-- # library(kableExtra) -->
-<!-- # kbl(av_table) %>% -->
-<!-- #  kable_styling(bootstrap_options = c("striped", "bordered", "condensed")) -->
-<!-- ```  -->
-
-<!-- Sources: [HUD CHAS 2014-2018](https://www.huduser.gov/portal/datasets/cp.html#2006-2018)  -->
-
 
 <!-- ```{r} -->
 <!-- ### AV Bar Chart -->
 <!-- #s <- AV -->
 <!-- # tot = subset(s, select=c(total_rate)) %>% round(1)  # pull out total_rate -->
-<!-- # s = subset(s, select=-c(total_rate)) # pull out raced rates -->
-<!-- # # oldnames = c("nh_black_rate","nh_aian_rate", "nh_asian_rate", "nh_other_rate", "latino_rate", "nh_pacisl_rate", "nh_white_rate") -->
-<!-- # # engvar = c("Black", "AIAN", "Asian", "Other", "Latinx", "NHPI", "White") -->
-<!-- # # s = s %>% rename_at(vars(oldnames), ~ engvar) -->
+
 <!-- #  -->
 <!-- # # create english / spanish labels -->
-<!-- # engvar = c("Latinx", "AIAN", "Asian", "Black", "Other",  "NHPI", "White") -->
+<!-- # engvar = c("NEIGHBORHOOD", "Rent_Burden") -->
 <!-- # esvar = c("Latino", "Indígena Americano", "Asiático", "Negro", "Otra Raza",  "Isleño del Pacifico", "Blanco") -->
 <!-- # #esvar_long = c("NEGRO O AFROAMERICANO", "INDÍGENA AMERICANO O NATIVO DE ALASKA", "ASIÁTICO", "OTRA RAZA", "LATINO", "ISLEÑO DEL PACIFICO", "BLANCO") -->
 <!-- # labels <- data.frame(engvar, esvar) -->
@@ -1154,7 +1142,7 @@ Source: [L.A. County WIC Administrative Data, 2021](https://lawicdata.org/data-r
 ```{r}
 source("W:/Project/RDA Team/Region 5 State of the Child/R/hs_grad.R")
 library(kableExtra)
-kbl(AV) %>%
+kbl(av_table) %>%
  kable_styling(bootstrap_options = c("striped", "bordered", "condensed"))
 ```
 
@@ -1165,20 +1153,20 @@ Source: [California Department of Education, Adjusted Cohort Graduation Rate and
 s <- AV
 tot = subset(s, select=c(total_rate)) %>% round(1)  # pull out total_rate
 s = subset(s, select=-c(total_rate)) # pull out raced rates
-oldnames = c("nh_asian_rate", "nh_black_rate", "nh_filipino_rate", "latino_rate", "nh_twoormor_rate", "nh_white_rate", "nh_pacisl_rate")
-engvar = c("Asian", "Black", "Filipino", "Latinx", "Two or More Races", "White", "NHPI")
-s = s %>% rename_at(vars(oldnames), ~ engvar)
+# oldnames = c("nh_asian_rate", "nh_black_rate", "nh_filipino_rate", "latino_rate", "nh_twoormor_rate", "nh_white_rate")
+# engvar = c("Asian", "Black", "Filipino", "Latinx", "Two or More Races", "White")
+# s = s %>% rename_at(vars(oldnames), ~ engvar)
 
 # create english / spanish labels
-engvar = c("Asian", "Black", "Filipino", "Latinx", "Two or More Races", "White", "NHPI")
-esvar = c("Asiático", "Negro", "Filipino", "Latino", "Dos o Mas Razas",  "Blanco", "Isleño del Pacifico")
-#esvar_long = c("NEGRO O AFROAMERICANO", "INDÍGENA AMERICANO O NATIVO DE ALASKA", "ASIÁTICO", "OTRA RAZA", "LATINO", "ISLEÑO DEL PACIFICO", "BLANCO")
+engvar = c("Asian", "Black", "Filipino", "Latinx", "Two or More Races", "White")
+esvar = c("Asiático", "Negro", "Filipino", "Latino", "Dos o Mas Razas",  "Blanco")
+#esvar_long = c("ASIÁTICO", "NEGRO O AFROAMERICANO", "LATINO", "OTRA RAZA","BLANCO")
 labels <- data.frame(engvar, esvar)
 # labels
 
 
 # convert df to long format
-s_long <- reshape2::melt(s, id.vars=c("geoname"))
+s_long <- reshape2::melt(s, id.vars=c("Geography"))
 # Round 'value' field to 1 decimal, rename 'variable' field, add Spanish labels
 s_long <- s_long %>% mutate(value = round(value, 1)) %>% dplyr::rename(engvar = variable)  %>%
   left_join(labels, by = "engvar")
