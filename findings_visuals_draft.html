@@ -5767,6 +5767,332 @@ Department of Education, 2015-2022</a></p>
 </div>
 <div id="resources-and-barriers-to-access" class="section level1">
 <h1>Resources (and barriers to access)</h1>
+<p>Antelope Valley stakeholders have been clear about the need for
+additional resources, including health and mental health services, early
+childhood education, and parks and recreation. According to the <a href="http://publichealth.lacounty.gov/ha/hasurveyintro.htm">Los Angeles
+County Health Survey</a>, <strong>16.4% of Antelope Valley children
+report difficulty accessing medical care (highest among county Service
+Planning Areas or SPAs)</strong>. Medical care can be especially
+important for chronic conditions that need periodic medical care such as
+asthma. 18.8% of Antelope Valley children have been diagnosed with
+asthma at some point in their lives (highest among LA SPAs), meaning
+access to health care is especially important for the Antelope Valley
+population.</p>
+<div id="early-childhood-education" class="section level2">
+<h2>Early Childhood Education</h2>
+<p>According to estimates from the <a href="https://elneedsassessment.org/">American Institutes of
+Research</a>, <strong>no Antelope Valley ZIP code had an unmet need for
+infant/toddler care rate below 93.55% of eligible children in
+2020</strong>. Preschool accessibility was hardly better, with no
+Antelope Valley ZIP code having an unmet need for preschool rate below
+64.23%. These high rates of unmet need for early care and education mean
+it is difficult for parents to find care for their children and may need
+to reduce working hours to care for them. 40.9% of Antelope Valley
+parents report difficulty finding childcare (highest among county
+SPAs).<a href="http://publichealth.lacounty.gov/ha/hasurveyintro.htm">1</a></p>
+<pre class="r"><code>drv &lt;- dbDriver(&quot;PostgreSQL&quot;)
+
+con &lt;- dbConnect(drv, dbname = &quot;region5stateofthechild&quot;,
+                   host = &quot;aws-postgres-db.c5udgz7ro8hq.us-west-2.rds.amazonaws.com&quot;, port = 5432,
+                   user = &quot;postgres&quot;, password = pw)
+
+ece_access_it_2020 &lt;- st_read(con, query = &quot;SELECT zipcode, neighborhood, unmet_need_children_it, pct_unmet_need_children_it FROM data.ece_access_it_2020&quot;)
+
+ece_access_prek_2020 &lt;- st_read(con, query = &quot;SELECT zipcode, neighborhood, unmet_need_children_prek, pct_unmet_need_children_prek FROM data.ece_access_prek_2020&quot;)
+
+library(kableExtra)
+kbl(ece_access_it_2020) %&gt;%
+  kable_styling(bootstrap_options = c(&quot;striped&quot;, &quot;bordered&quot;, &quot;condensed&quot;))</code></pre>
+<table class="table table-striped table-bordered table-condensed" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+zipcode
+</th>
+<th style="text-align:left;">
+neighborhood
+</th>
+<th style="text-align:right;">
+unmet_need_children_it
+</th>
+<th style="text-align:right;">
+pct_unmet_need_children_it
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+93523
+</td>
+<td style="text-align:left;">
+{“Northeast Antelope Valley”}
+</td>
+<td style="text-align:right;">
+110
+</td>
+<td style="text-align:right;">
+100.00
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+93534
+</td>
+<td style="text-align:left;">
+{“Northeast Antelope Valley”,Lancaster}
+</td>
+<td style="text-align:right;">
+1014
+</td>
+<td style="text-align:right;">
+89.26
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+93535
+</td>
+<td style="text-align:left;">
+{Lancaster,“Northeast Antelope Valley”}
+</td>
+<td style="text-align:right;">
+1725
+</td>
+<td style="text-align:right;">
+88.92
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+93536
+</td>
+<td style="text-align:left;">
+{“Northwest Antelope Valley”,Lancaster}
+</td>
+<td style="text-align:right;">
+1977
+</td>
+<td style="text-align:right;">
+95.05
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+93550
+</td>
+<td style="text-align:left;">
+{“Angeles Crest”,Palmdale,“Tujunga Canyons”}
+</td>
+<td style="text-align:right;">
+2664
+</td>
+<td style="text-align:right;">
+93.41
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+93551
+</td>
+<td style="text-align:left;">
+{“Leona Valley”,Palmdale,“Southeast Antelope Valley”}
+</td>
+<td style="text-align:right;">
+1800
+</td>
+<td style="text-align:right;">
+96.46
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+93552
+</td>
+<td style="text-align:left;">
+{“Angeles Crest”,Palmdale,“Southeast Antelope Valley”}
+</td>
+<td style="text-align:right;">
+1377
+</td>
+<td style="text-align:right;">
+94.32
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+93591
+</td>
+<td style="text-align:left;">
+{“Northeast Antelope Valley”,Palmdale}
+</td>
+<td style="text-align:right;">
+116
+</td>
+<td style="text-align:right;">
+93.55
+</td>
+</tr>
+</tbody>
+</table>
+<pre class="r"><code>library(kableExtra)
+kbl(ece_access_prek_2020) %&gt;%
+  kable_styling(bootstrap_options = c(&quot;striped&quot;, &quot;bordered&quot;, &quot;condensed&quot;))</code></pre>
+<table class="table table-striped table-bordered table-condensed" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+zipcode
+</th>
+<th style="text-align:left;">
+neighborhood
+</th>
+<th style="text-align:right;">
+unmet_need_children_prek
+</th>
+<th style="text-align:right;">
+pct_unmet_need_children_prek
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+93523
+</td>
+<td style="text-align:left;">
+{“Northeast Antelope Valley”}
+</td>
+<td style="text-align:right;">
+106
+</td>
+<td style="text-align:right;">
+92.17
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+93534
+</td>
+<td style="text-align:left;">
+{“Northeast Antelope Valley”,Lancaster}
+</td>
+<td style="text-align:right;">
+1284
+</td>
+<td style="text-align:right;">
+75.57
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+93535
+</td>
+<td style="text-align:left;">
+{Lancaster,“Northeast Antelope Valley”}
+</td>
+<td style="text-align:right;">
+2034
+</td>
+<td style="text-align:right;">
+72.13
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+93536
+</td>
+<td style="text-align:left;">
+{“Northwest Antelope Valley”,Lancaster}
+</td>
+<td style="text-align:right;">
+2599
+</td>
+<td style="text-align:right;">
+85.72
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+93550
+</td>
+<td style="text-align:left;">
+{“Angeles Crest”,Palmdale,“Tujunga Canyons”}
+</td>
+<td style="text-align:right;">
+2429
+</td>
+<td style="text-align:right;">
+79.59
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+93551
+</td>
+<td style="text-align:left;">
+{“Leona Valley”,Palmdale,“Southeast Antelope Valley”}
+</td>
+<td style="text-align:right;">
+1779
+</td>
+<td style="text-align:right;">
+88.99
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+93552
+</td>
+<td style="text-align:left;">
+{“Angeles Crest”,Palmdale,“Southeast Antelope Valley”}
+</td>
+<td style="text-align:right;">
+1330
+</td>
+<td style="text-align:right;">
+85.15
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+93591
+</td>
+<td style="text-align:left;">
+{“Northeast Antelope Valley”,Palmdale}
+</td>
+<td style="text-align:right;">
+88
+</td>
+<td style="text-align:right;">
+64.23
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="parks" class="section level2">
+<h2>Parks</h2>
+<p>The Los Angeles County County Department of Parks and Recreation
+completed a Countywide Parks and Recreation Needs Assessment addition in
+2022. The assessment has findings for the region in an <a href="https://lacountyparkneeds.org/wp-content/uploads/2022/11/AppA_RegionalProfiles_AntelopeValley_11282022.pdf">Antelope
+Valley regional profile</a>. Some key findings from that profile:</p>
+<ul>
+<li>The regional recreation facilities and trails in the area are poorly
+served by public transportation and largely inaccessible without the use
+of a personal vehicle.</li>
+<li>The highest Regional Recreation Need is found in Lake Los Angeles,
+Littlerock, and Sun Village due to a combination of social and
+environmental factors.</li>
+<li>Community members identified heat, distance, safety, lack of
+information and limited facilities as barriers to park use for residents
+in the study area.</li>
+<li><strong>Residents say they need more shade, cooling centers and
+access to water, affordable transit access to parks, additional
+facilities and programming, enhanced safety measures and more
+information about parks and amenities</strong>.</li>
+</ul>
+</div>
 </div>
 <div id="economics" class="section level1">
 <h1>Economics</h1>
@@ -7237,294 +7563,6 @@ NA
 </tbody>
 </table>
 </div>
-<div id="early-childhood-education" class="section level2">
-<h2>Early Childhood Education</h2>
-<p>According to estimates from the <a href="https://elneedsassessment.org/">American Institutes of
-Research</a>, no Antelope Valley ZIP code had an unmet need for
-infant/toddler care rate below 93.55% of eligible children in 2020.
-Preschool accessibility was hardly better, with no Antelope Valley ZIP
-code having an unmet need for preschool rate below 64.23%</p>
-<pre class="r"><code>drv &lt;- dbDriver(&quot;PostgreSQL&quot;)
-
-con &lt;- dbConnect(drv, dbname = &quot;region5stateofthechild&quot;,
-                   host = &quot;aws-postgres-db.c5udgz7ro8hq.us-west-2.rds.amazonaws.com&quot;, port = 5432,
-                   user = &quot;postgres&quot;, password = pw)
-
-ece_access_it_2020 &lt;- st_read(con, query = &quot;SELECT zipcode, neighborhood, unmet_need_children_it, pct_unmet_need_children_it FROM data.ece_access_it_2020&quot;)
-
-ece_access_prek_2020 &lt;- st_read(con, query = &quot;SELECT zipcode, neighborhood, unmet_need_children_prek, pct_unmet_need_children_prek FROM data.ece_access_prek_2020&quot;)
-
-library(kableExtra)
-kbl(ece_access_it_2020) %&gt;%
-  kable_styling(bootstrap_options = c(&quot;striped&quot;, &quot;bordered&quot;, &quot;condensed&quot;))</code></pre>
-<table class="table table-striped table-bordered table-condensed" style="margin-left: auto; margin-right: auto;">
-<thead>
-<tr>
-<th style="text-align:left;">
-zipcode
-</th>
-<th style="text-align:left;">
-neighborhood
-</th>
-<th style="text-align:right;">
-unmet_need_children_it
-</th>
-<th style="text-align:right;">
-pct_unmet_need_children_it
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left;">
-93523
-</td>
-<td style="text-align:left;">
-{“Northeast Antelope Valley”}
-</td>
-<td style="text-align:right;">
-110
-</td>
-<td style="text-align:right;">
-100.00
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-93534
-</td>
-<td style="text-align:left;">
-{“Northeast Antelope Valley”,Lancaster}
-</td>
-<td style="text-align:right;">
-1014
-</td>
-<td style="text-align:right;">
-89.26
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-93535
-</td>
-<td style="text-align:left;">
-{Lancaster,“Northeast Antelope Valley”}
-</td>
-<td style="text-align:right;">
-1725
-</td>
-<td style="text-align:right;">
-88.92
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-93536
-</td>
-<td style="text-align:left;">
-{“Northwest Antelope Valley”,Lancaster}
-</td>
-<td style="text-align:right;">
-1977
-</td>
-<td style="text-align:right;">
-95.05
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-93550
-</td>
-<td style="text-align:left;">
-{“Angeles Crest”,Palmdale,“Tujunga Canyons”}
-</td>
-<td style="text-align:right;">
-2664
-</td>
-<td style="text-align:right;">
-93.41
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-93551
-</td>
-<td style="text-align:left;">
-{“Leona Valley”,Palmdale,“Southeast Antelope Valley”}
-</td>
-<td style="text-align:right;">
-1800
-</td>
-<td style="text-align:right;">
-96.46
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-93552
-</td>
-<td style="text-align:left;">
-{“Angeles Crest”,Palmdale,“Southeast Antelope Valley”}
-</td>
-<td style="text-align:right;">
-1377
-</td>
-<td style="text-align:right;">
-94.32
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-93591
-</td>
-<td style="text-align:left;">
-{“Northeast Antelope Valley”,Palmdale}
-</td>
-<td style="text-align:right;">
-116
-</td>
-<td style="text-align:right;">
-93.55
-</td>
-</tr>
-</tbody>
-</table>
-<pre class="r"><code>library(kableExtra)
-kbl(ece_access_prek_2020) %&gt;%
-  kable_styling(bootstrap_options = c(&quot;striped&quot;, &quot;bordered&quot;, &quot;condensed&quot;))</code></pre>
-<table class="table table-striped table-bordered table-condensed" style="margin-left: auto; margin-right: auto;">
-<thead>
-<tr>
-<th style="text-align:left;">
-zipcode
-</th>
-<th style="text-align:left;">
-neighborhood
-</th>
-<th style="text-align:right;">
-unmet_need_children_prek
-</th>
-<th style="text-align:right;">
-pct_unmet_need_children_prek
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left;">
-93523
-</td>
-<td style="text-align:left;">
-{“Northeast Antelope Valley”}
-</td>
-<td style="text-align:right;">
-106
-</td>
-<td style="text-align:right;">
-92.17
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-93534
-</td>
-<td style="text-align:left;">
-{“Northeast Antelope Valley”,Lancaster}
-</td>
-<td style="text-align:right;">
-1284
-</td>
-<td style="text-align:right;">
-75.57
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-93535
-</td>
-<td style="text-align:left;">
-{Lancaster,“Northeast Antelope Valley”}
-</td>
-<td style="text-align:right;">
-2034
-</td>
-<td style="text-align:right;">
-72.13
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-93536
-</td>
-<td style="text-align:left;">
-{“Northwest Antelope Valley”,Lancaster}
-</td>
-<td style="text-align:right;">
-2599
-</td>
-<td style="text-align:right;">
-85.72
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-93550
-</td>
-<td style="text-align:left;">
-{“Angeles Crest”,Palmdale,“Tujunga Canyons”}
-</td>
-<td style="text-align:right;">
-2429
-</td>
-<td style="text-align:right;">
-79.59
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-93551
-</td>
-<td style="text-align:left;">
-{“Leona Valley”,Palmdale,“Southeast Antelope Valley”}
-</td>
-<td style="text-align:right;">
-1779
-</td>
-<td style="text-align:right;">
-88.99
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-93552
-</td>
-<td style="text-align:left;">
-{“Angeles Crest”,Palmdale,“Southeast Antelope Valley”}
-</td>
-<td style="text-align:right;">
-1330
-</td>
-<td style="text-align:right;">
-85.15
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-93591
-</td>
-<td style="text-align:left;">
-{“Northeast Antelope Valley”,Palmdale}
-</td>
-<td style="text-align:right;">
-88
-</td>
-<td style="text-align:right;">
-64.23
-</td>
-</tr>
-</tbody>
-</table>
-</div>
 <div id="rd-grade-math-scores" class="section level2">
 <h2>3rd Grade Math Scores</h2>
 </div>
@@ -7534,28 +7572,6 @@ pct_unmet_need_children_prek
 </div>
 <div id="safety-and-justice" class="section level1">
 <h1>Safety and Justice</h1>
-<div id="parks-and-safe-spaces" class="section level2">
-<h2>Parks and Safe Spaces</h2>
-<p>The Los Angeles County County Department of Parks and Recreation
-completed a Countywide Parks and Recreation Needs Assessment addition in
-2022. The assessment has findings for the region in an <a href="https://lacountyparkneeds.org/wp-content/uploads/2022/11/AppA_RegionalProfiles_AntelopeValley_11282022.pdf">Antelope
-Valley regional profile</a>. Some key findings from that profile:</p>
-<ul>
-<li>The regional recreation facilities and trails in the area are poorly
-served by public transportation and largely inaccessible without the use
-of a personal vehicle.</li>
-<li>The highest Regional Recreation Need is found in Lake Los Angeles,
-Littlerock, and Sun Village due to a combination of social and
-environmental factors.</li>
-<li>Community members identified heat, distance, safety, lack of
-information and limited facilities as barriers to park use for residents
-in the study area.</li>
-<li>Residents say they need more shade, cooling centers and access to
-water, affordable transit access to parks, additional facilities and
-programming, enhanced safety measures and more information about parks
-and amenities.</li>
-</ul>
-</div>
 <div id="police-violence" class="section level2">
 <h2>Police Violence</h2>
 <p>In Antelope Valley ZIP codes, law enforcement visits the most
