@@ -164,7 +164,7 @@ library(kableExtra)
  
 kbl(av_table) %>%
   kable_styling(bootstrap_options = c("striped", "bordered", "condensed"))
-# View(av_table)
+
 
 ```
 
@@ -277,7 +277,7 @@ library(kableExtra)
  
 kbl(av_table) %>%
   kable_styling(bootstrap_options = c("striped", "bordered", "condensed"))
-# View(av_table)
+
 
 ```
 
@@ -391,7 +391,7 @@ library(kableExtra)
  
 kbl(av_table) %>%
   kable_styling(bootstrap_options = c("striped", "bordered", "condensed"))
-# View(av_table)
+
 ```
 
 Source: [California Department of Education, 2015-2022](https://dq.cde.ca.gov/dataquest/)
@@ -630,7 +630,7 @@ library(kableExtra)
  
 kbl(av_table) %>%
   kable_styling(bootstrap_options = c("striped", "bordered", "condensed"))
-# View(av_table)
+
 
 ```
 
@@ -762,7 +762,7 @@ kbl(av_table) %>%
 View(av_table)
 total_grade_only <- total_grade_only %>% select(year, geoname, ends_with("_rate"))
 # View(total_grade_only)
-# View(av_table)
+
 
 #Raw values
 
@@ -894,7 +894,7 @@ kbl(av_table) %>%
 View(av_table)
 total_grade_only <- total_grade_only %>% select(year, geoname, ends_with("_rate"))
 # View(total_grade_only)
-# View(av_table)
+
 
 ```
 
@@ -1076,95 +1076,46 @@ Source: [American Community Survey 2016-2020 5-year estimates calculated for Ant
 
 
 
-<!-- ```{r} -->
-<!-- ### AV Bar Chart -->
-<!-- #s <- AV -->
-<!-- # tot = subset(s, select=c(total_rate)) %>% round(1)  # pull out total_rate -->
+```{r}
+## AV Bar Chart
 
-<!-- #  -->
-<!-- # # create english / spanish labels -->
-<!-- # engvar = c("NEIGHBORHOOD", "Rent_Burden") -->
-<!-- # esvar = c("Latino", "Indígena Americano", "Asiático", "Negro", "Otra Raza",  "Isleño del Pacifico", "Blanco") -->
-<!-- # #esvar_long = c("NEGRO O AFROAMERICANO", "INDÍGENA AMERICANO O NATIVO DE ALASKA", "ASIÁTICO", "OTRA RAZA", "LATINO", "ISLEÑO DEL PACIFICO", "BLANCO") -->
-<!-- # labels <- data.frame(engvar, esvar) -->
-<!-- # # labels -->
-<!-- #  -->
-<!-- #  -->
-<!-- # # convert df to long format -->
-<!-- # s_long <- reshape2::melt(s, id.vars=c("Geography")) -->
-<!-- # # Round 'value' field to 1 decimal, rename 'variable' field, add Spanish labels -->
-<!-- # s_long <- s_long %>% mutate(value = round(value, 1)) %>% dplyr::rename(engvar = variable)  %>% -->
-<!-- #   left_join(labels, by = "engvar") -->
-<!-- # s_long <- s_long %>% filter(value > 0) -->
-<!-- #  -->
-<!-- #  -->
-<!-- # df <- data.frame(s_long, tot)       # add total_rate to long table -->
-<!-- # df <- na.omit(df)             # drop NA's -->
-<!-- # # df -->
-<!-- #  -->
-<!-- # engtot_stat <- paste("Overall Rate =", min(df$total_rate))   # total_rate line annotation -->
-<!-- # estot_stat <- paste("Promedio Total =", min(df$total_rate))   # total_rate line annotation -->
-<!-- #  -->
-<!-- #  -->
-<!-- # # Set region name for file name -->
-<!-- # region <- "Antelope Valley" -->
-<!-- #  -->
-<!-- #  -->
-<!-- # # write the name of your indicator here: -->
-<!-- # var <- "rent_burdened" -->
-<!-- #  -->
-<!-- #  -->
-<!-- # # Define chart height as max y value varies by indicator. Set vertical position for total line label - may need to be customized for each chart. -->
-<!-- # max_y = 1.15 * max(df$value) -->
-<!-- # annotate_y = 1.12 * df$total_rate -->
-<!-- #  -->
-<!-- # # specify language: comment out based on language of chart created below -->
-<!-- # lang <- "eng" -->
-<!-- #  -->
-<!-- #  -->
-<!-- #  -->
-<!-- #  -->
-<!-- # # # ggplot method that should export as .svg ## -->
-<!-- # av_plot <- -->
-<!-- #   #English -->
-<!-- #   ggplot(df, aes(x= reorder(engvar, -value), y=value)) +     # set up manual fill using 'test', add "-" before value to order bars when MAX is best -->
-<!-- #   annotate("text", x=6.25, y = annotate_y, label = str_wrap(engtot_stat, width = 20), hjust=-0.33, vjust = 0.35, family= font_table_text, color = red) + -->
-<!-- #   labs(title = "**<span style='font-size:20pt;'>Rent Burdened (%)</span>**", subtitle = region, caption = "*American Indian and Alaska Native (AIAN), Native Hawaiian and Pacific Islander (NHPI)") + -->
-<!-- #   # rest of chart -->
-<!-- #   geom_bar(stat="identity", position = position_dodge(0.7), show.legend = FALSE) + -->
-<!-- #   geom_col(fill = lightblue, color = darkblue) +         # all bars in "#355C7D" -->
-<!-- #   geom_hline(aes(yintercept = round(total_rate, 1)), color = red, size = .5) + -->
-<!-- #   geom_text(aes(label = round(value, digits = 1)), family = font_bar_label, hjust = -.5) +       # format data labels, adjust hjust to avoid overlap w/ total line -->
-<!-- #   # scale_y_continuous(limits = c(0, max_y), breaks = seq(0, max_y, by = 20)) + -->
-<!-- #   scale_x_discrete(labels = function(engvar) str_wrap(engvar, width = 20)) +            # wrap long labels -->
-<!-- #   xlab("") + -->
-<!-- #   ylab("") + -->
-<!-- #   coord_flip() -->
-<!-- # # av_plot -->
-<!-- #  -->
-<!-- # av_plot <- av_plot + theme( -->
-<!-- #   panel.background = element_rect(fill = "transparent"), # bg of the panel -->
-<!-- #   plot.background = element_rect(fill = 'transparent', color=NA), -->
-<!-- #   panel.grid.major.y = element_line(colour = textgrey),    # add major y-axis gridlines -->
-<!-- #   panel.grid.minor = element_blank(), # bg of the plot -->
-<!-- #   axis.title.x = element_blank(), -->
-<!-- #   axis.title.y = element_blank(), -->
-<!-- #   axis.text.x = element_text(size = 12, family= font_axis_label), -->
-<!-- #   axis.text.y = element_text(size = 12, family= font_axis_label), -->
-<!-- #   axis.ticks = element_blank(), -->
-<!-- #   plot.title = element_markdown(family = font_title, face = "bold", size = 15, hjust = 0), -->
-<!-- #   plot.title.position = "plot", -->
-<!-- #   plot.subtitle = element_text(family = font_title, hjust = 0), -->
-<!-- #   plot.margin = margin(t = 10, -->
-<!-- #                        b = 10, -->
-<!-- #                        r = 10, -->
-<!-- #                        l = 10) -->
-<!-- # ) -->
-<!-- #  -->
-<!-- #  -->
-<!-- # av_plot <- av_plot + ylim(0, max_y)     # add buffer between title and chart/data labels -->
-<!-- # av_plot -->
-<!-- ``` -->
+s <- df %>% select("NEIGHBORHOOD", "Rent_Burdened") %>% as.data.frame()
+tot <- s %>% select(Rent_Burdened)%>% filter(Rent_Burdened!="59.2") %>% round(1)  # pull out total_rate
+s <-  s %>% filter(Rent_Burdened!="59.2") # pull out raced rates
+
+# create english / spanish labels
+engvar = c("NEIGHBORHOOD", "Rent_Burdened")
+esvar = c("VECINDARIO", "ALQUILER CARGADO")
+labels <- data.frame(engvar, esvar)
+# labels
+
+df_chart <- data.frame(s, tot) %>% dplyr::rename("total_rate" = "Rent_Burdened.1")        # add total_rate to long table s_long
+df_chart <- na.omit(df_chart)             # drop NA's
+# create labels
+label <-  c("NEIGHBORHOOD", "Rent_Burden") %>% as.data.frame()
+
+# df_chart
+engtot_stat <- paste("Overall Rate =", min(df_chart$total_rate))   # total_rate line annotation
+estot_stat <- paste("Promedio Total =", min(df_chart$total_rate))   # total_rate line annotation
+
+region <- "Antelope Valley"
+
+# Define chart height as max y value varies by indicator. Set vertical position for total line label - may need to be customized for each chart.
+max_y = 1.15 * max(df$Rent_Burdened)
+annotate_y = 1.12 * (df_chart$total_rate)
+
+av_plot <- ggplot(df_chart, aes(x=NEIGHBORHOOD, y=Rent_Burdened))+
+  annotate("text", hjust=-0.33, vjust = 0.35, label = str_wrap(engtot_stat, width = 20), family= font_table_text, color = red)+ #, x=6.25, y = annotate_y,  ,
+  geom_bar(stat = "identity", position = position_dodge(0.7), show.legend = FALSE) +
+  labs(title = "High School Graduation Rates (%)", subtitle = region) +
+  geom_col(fill = lightblue, color = darkblue) +
+  geom_hline(aes(yintercept = round(total_rate, 1)), color = red, size = .5) +
+  geom_text(aes(label = round(value, digits = 1)), family = font_bar_label, hjust = -.5) +
+  coord_flip()
+av_plot
+
+
+```
 
 
 ## Foreclosures
@@ -1205,7 +1156,7 @@ Source: [L.A. County WIC Administrative Data, 2021](https://lawicdata.org/data-r
 
 ## Highschool Graduation
 
-The average high school graduation rate in the Antelope Valley is 47%. 
+The average high school graduation rate in the Antelope Valley is 46.9%. In the AV, Latinx (43.8%) followed by Black (44%) students had the lowest graduation rates while Asian (71.6%) and Filipino (70.3%) students had the highest. The Acton-Agua Dulce Unified School District has the lowest graduation rate (34.7%). Notably in the Acton-Agua Dulce Unified School District Latinx, Black, Filipino, and students who identified as non-Hispanic Two or More Races all had under 50% graduation rates. The Gorman Joint School District had the highest rate (81.9%). 
 
 ##### Highschool Graduation Rates by School District 2021-22 School Year
 ```{r}
@@ -1223,9 +1174,6 @@ Source: [California Department of Education, Adjusted Cohort Graduation Rate and
 s <- AV
 tot = subset(s, select=c(total_rate)) %>% round(1)  # pull out total_rate
 s = subset(s, select=-c(total_rate)) # pull out raced rates
-# oldnames = c("nh_asian_rate", "nh_black_rate", "nh_filipino_rate", "latino_rate", "nh_twoormor_rate", "nh_white_rate")
-# engvar = c("Asian", "Black", "Filipino", "Latinx", "Two or More Races", "White")
-# s = s %>% rename_at(vars(oldnames), ~ engvar)
 
 # create english / spanish labels
 engvar = c("Asian", "Black", "Filipino", "Latinx", "Two or More Races", "White")
