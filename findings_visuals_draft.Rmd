@@ -990,7 +990,39 @@ av_plot
 Source: [California Department of Education, 2015-2022](https://dq.cde.ca.gov/dataquest/)
 
 # Resources (and barriers to access)
+Antelope Valley stakeholders have been clear about the need for additional resources, including health and mental health services, early childhood education, and parks and recreation. According to the [Los Angeles County Health Survey](http://publichealth.lacounty.gov/ha/hasurveyintro.htm), **16.4% of Antelope Valley children report difficulty accessing medical care (highest among county Service Planning Areas or SPAs)**. Medical care can be especially important for chronic conditions that need periodic medical care such as asthma. 18.8% of Antelope Valley children have been diagnosed with asthma at some point in their lives (highest among LA SPAs), meaning access to health care is especially important for the Antelope Valley population.
 
+## Early Childhood Education
+According to estimates from the [American Institutes of Research](https://elneedsassessment.org/), **no Antelope Valley ZIP code had an unmet need for infant/toddler care rate below 93.55% of eligible children in 2020**. Preschool accessibility was hardly better, with no Antelope Valley ZIP code having an unmet need for preschool rate below 64.23%. These high rates of unmet need for early care and education mean it is difficult for parents to find care for their children and may need to reduce working hours to care for them. 40.9% of Antelope Valley parents report difficulty finding childcare (highest among county SPAs).[1](http://publichealth.lacounty.gov/ha/hasurveyintro.htm)
+
+```{r}
+drv <- dbDriver("PostgreSQL")
+
+con <- dbConnect(drv, dbname = "region5stateofthechild",
+                   host = "aws-postgres-db.c5udgz7ro8hq.us-west-2.rds.amazonaws.com", port = 5432,
+                   user = "postgres", password = pw)
+
+ece_access_it_2020 <- st_read(con, query = "SELECT zipcode, neighborhood, unmet_need_children_it, pct_unmet_need_children_it FROM data.ece_access_it_2020")
+
+ece_access_prek_2020 <- st_read(con, query = "SELECT zipcode, neighborhood, unmet_need_children_prek, pct_unmet_need_children_prek FROM data.ece_access_prek_2020")
+
+library(kableExtra)
+kbl(ece_access_it_2020) %>%
+  kable_styling(bootstrap_options = c("striped", "bordered", "condensed"))
+
+library(kableExtra)
+kbl(ece_access_prek_2020) %>%
+  kable_styling(bootstrap_options = c("striped", "bordered", "condensed"))
+
+```
+
+## Parks
+The Los Angeles County County Department of Parks and Recreation completed a Countywide Parks and Recreation Needs Assessment addition in 2022. The assessment has findings for the region in an [Antelope Valley regional profile](https://lacountyparkneeds.org/wp-content/uploads/2022/11/AppA_RegionalProfiles_AntelopeValley_11282022.pdf). Some key findings from that profile:
+
+* The regional recreation facilities and trails in the area are poorly served by public transportation and largely inaccessible without the use of a personal vehicle.
+* The highest Regional Recreation Need is found in Lake Los Angeles, Littlerock, and Sun Village due to a combination of social and environmental factors.
+* Community members identified heat, distance, safety, lack of information and limited facilities as barriers to park use for residents in the study area.
+* **Residents say they need more shade, cooling centers and access to water, affordable transit access to parks, additional facilities and programming, enhanced safety measures and more information about parks and amenities**.
 
 # Economics 
 
@@ -1336,43 +1368,11 @@ kbl(district_suspensions_by_race_2018_19) %>%
 
 ```
 
-## Early Childhood Education
-According to estimates from the [American Institutes of Research](https://elneedsassessment.org/), no Antelope Valley ZIP code had an unmet need for infant/toddler care rate below 93.55% of eligible children in 2020. Preschool accessibility was hardly better, with no Antelope Valley ZIP code having an unmet need for preschool rate below 64.23%
-
-```{r}
-drv <- dbDriver("PostgreSQL")
-
-con <- dbConnect(drv, dbname = "region5stateofthechild",
-                   host = "aws-postgres-db.c5udgz7ro8hq.us-west-2.rds.amazonaws.com", port = 5432,
-                   user = "postgres", password = pw)
-
-ece_access_it_2020 <- st_read(con, query = "SELECT zipcode, neighborhood, unmet_need_children_it, pct_unmet_need_children_it FROM data.ece_access_it_2020")
-
-ece_access_prek_2020 <- st_read(con, query = "SELECT zipcode, neighborhood, unmet_need_children_prek, pct_unmet_need_children_prek FROM data.ece_access_prek_2020")
-
-library(kableExtra)
-kbl(ece_access_it_2020) %>%
-  kable_styling(bootstrap_options = c("striped", "bordered", "condensed"))
-
-library(kableExtra)
-kbl(ece_access_prek_2020) %>%
-  kable_styling(bootstrap_options = c("striped", "bordered", "condensed"))
-
-```
-
 ## 3rd Grade Math Scores
 
 ## 3rd Grade English Scores
 
 # Safety and Justice 
-
-## Parks and Safe Spaces
-The Los Angeles County County Department of Parks and Recreation completed a Countywide Parks and Recreation Needs Assessment addition in 2022. The assessment has findings for the region in an [Antelope Valley regional profile](https://lacountyparkneeds.org/wp-content/uploads/2022/11/AppA_RegionalProfiles_AntelopeValley_11282022.pdf). Some key findings from that profile:
-
-* The regional recreation facilities and trails in the area are poorly served by public transportation and largely inaccessible without the use of a personal vehicle.
-* The highest Regional Recreation Need is found in Lake Los Angeles, Littlerock, and Sun Village due to a combination of social and environmental factors.
-* Community members identified heat, distance, safety, lack of information and limited facilities as barriers to park use for residents in the study area.
-* Residents say they need more shade, cooling centers and access to water, affordable transit access to parks, additional facilities and programming, enhanced safety measures and more information about parks and amenities.
 
 ## Police Violence
 In Antelope Valley ZIP codes, law enforcement visits the most violence on Black residents per 100,000 people. Source: California Department of Justice 2016-21 and American Community Survey 5-year population estimates. Catalyst California aggregated incidents of violence and population figures and calculated rates of violence visited on civilians per 1,000 people.
