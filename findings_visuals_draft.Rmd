@@ -168,7 +168,7 @@ kbl(av_table) %>%
 
 ```
 
-Source: [California Department of Education, 2021-2022](https://dq.cde.ca.gov/dataquest/)
+Source: [California Department of Education, 2016-2022](https://dq.cde.ca.gov/dataquest/)
 
 ```{r}
 # AV Bar Chart
@@ -262,7 +262,7 @@ av_plot
 
 ```
 
-Source: [California Department of Education, 2021-2022](https://dq.cde.ca.gov/dataquest/)
+Source: [California Department of Education, 2016-2022](https://dq.cde.ca.gov/dataquest/)
 
 
 ## Student Migrant Population
@@ -281,7 +281,7 @@ kbl(av_table) %>%
 
 ```
 
-Source: [California Department of Education, 2021-2022](https://dq.cde.ca.gov/dataquest/)
+Source: [California Department of Education, 2016-2022](https://dq.cde.ca.gov/dataquest/)
 
 ```{r}
 # AV Bar Chart
@@ -375,7 +375,7 @@ av_plot
 
 ```
 
-Source: [California Department of Education, 2021-2022](https://dq.cde.ca.gov/dataquest/)
+Source: [California Department of Education, 2016-2022](https://dq.cde.ca.gov/dataquest/)
 
 ### Non-binary
 The CDE started tracking students who identify as non-binary gender in the 2020-21 School Year. At that time, 23 students in the Antelope Valley identified as non-binary. Now in the 2021-22 School Year, that number has increased to 51 students or 0.1% of the total AV student population. By percent, AIAN students had the highest rate of students who identified (0.6%) while in raw count Latinx students had the most students (26 students).
@@ -394,7 +394,7 @@ kbl(av_table) %>%
 
 ```
 
-Source: [California Department of Education, 2021-2022](https://dq.cde.ca.gov/dataquest/)
+Source: [California Department of Education, 2016-2022](https://dq.cde.ca.gov/dataquest/)
 
 ```{r}
 # AV Bar Chart
@@ -487,7 +487,7 @@ av_plot
 
 ```
 
-Source: [California Department of Education, 2021-2022](https://dq.cde.ca.gov/dataquest/)
+Source: [California Department of Education, 2016-2022](https://dq.cde.ca.gov/dataquest/)
 
 ## Socioeconomically Disadvantaged
 
@@ -510,7 +510,7 @@ kbl(av_table) %>%
 View(av_table)
 ```
 
-Source: [California Department of Education, 2021-2022](https://dq.cde.ca.gov/dataquest/)
+Source: [California Department of Education, 2016-2022](https://dq.cde.ca.gov/dataquest/)
 
 ```{r}
 ## AV Bar Chart
@@ -605,7 +605,7 @@ av_plot
 
 ```
 
-Source: [California Department of Education, 2021-2022](https://dq.cde.ca.gov/dataquest/)
+Source: [California Department of Education, 2016-2022](https://dq.cde.ca.gov/dataquest/)
 
 ## Student Homelessness
 
@@ -634,7 +634,7 @@ kbl(av_table) %>%
 
 ```
 
-Source: [California Department of Education, 2021-2022](https://dq.cde.ca.gov/dataquest/)
+Source: [California Department of Education, 2016-2022](https://dq.cde.ca.gov/dataquest/)
 
 
 ```{r}
@@ -729,7 +729,7 @@ av_plot
 
 ```
 
-Source: [California Department of Education, 2021-2022](https://dq.cde.ca.gov/dataquest/)
+Source: [California Department of Education, 2016-2022](https://dq.cde.ca.gov/dataquest/)
 
 
 ## Homelessness
@@ -768,7 +768,7 @@ total_grade_only <- total_grade_only %>% select(year, geoname, ends_with("_rate"
 
 ```
 
-Source: [California Department of Education, 2021-2022](https://dq.cde.ca.gov/dataquest/)
+Source: [California Department of Education, 2016-2022](https://dq.cde.ca.gov/dataquest/)
 
 American Indian Alaskan Native (AIAN) students had the highest percentage of students with disabilities by race/ethnicity with 21.3% of AIAN students having disabilities. Black (20.8%), Two or More Races (16.7%) and White students (15.6%) all had above Antelope Valley average rates as well. Given the extremely large number of students with disabilities, the Antelope Valley has an urgent priority need for additional resources for students with disabilities. 
 
@@ -863,7 +863,7 @@ av_plot <- av_plot + ylim(0, max_y)     # add buffer between title and chart/dat
 av_plot
 ```
 
-Source: [California Department of Education, 2021-2022](https://dq.cde.ca.gov/dataquest/)
+Source: [California Department of Education, 2016-2022](https://dq.cde.ca.gov/dataquest/)
 
 
 ## Languages of Children and Families
@@ -991,7 +991,7 @@ av_plot
 
 ```
 
-Source: [California Department of Education, 2021-2022](https://dq.cde.ca.gov/dataquest/)
+Source: [California Department of Education, 2016-2022](https://dq.cde.ca.gov/dataquest/)
 
 # Resources (and barriers to access)
 Antelope Valley stakeholders have been clear about the need for additional resources, including health and mental health services, early childhood education, and parks and recreation. According to the [Los Angeles County Health Survey](http://publichealth.lacounty.gov/ha/hasurveyintro.htm), **16.4% of Antelope Valley children report difficulty accessing medical care (highest among county Service Planning Areas or SPAs)**. Medical care can be especially important for chronic conditions that need periodic medical care such as asthma. 18.8% of Antelope Valley children have been diagnosed with asthma at some point in their lives (highest among LA SPAs), meaning access to health care is especially important for the Antelope Valley population.
@@ -1166,27 +1166,30 @@ kbl(av_table) %>%
  kable_styling(bootstrap_options = c("striped", "bordered", "condensed"))
 ```
 
-Source: [California Department of Education, Adjusted Cohort Graduation Rate and Outcome Data, 2021-2022](https://www.cde.ca.gov/ds/ad/filesacgr.asp)
+Source: [California Department of Education, Adjusted Cohort Graduation Rate and Outcome Data, 2016-2022](https://www.cde.ca.gov/ds/ad/filesacgr.asp)
 
 ```{r}
 # AV Bar Chart
 
-s <- AV
+s <- AV 
 tot = subset(s, select=c(total_rate)) %>% round(1)  # pull out total_rate
 s = subset(s, select=-c(total_rate)) # pull out raced rates
+oldnames = c("nh_asian_rate", "nh_black_rate", "nh_filipino_rate", "latino_rate", "nh_twoormor_rate", "nh_white_rate")
+engvar = c("Asian", "Black", "Filipinx", "Latinx", "Two or more", "White")
+s = s %>% rename_at(vars(oldnames), ~ engvar)
 
 # create english / spanish labels
-engvar = c("Asian", "Black", "Filipino", "Latinx", "Two or More Races", "White")
-esvar = c("Asiático", "Negro", "Filipino", "Latino", "Dos o Mas Razas",  "Blanco")
-#esvar_long = c("ASIÁTICO", "NEGRO O AFROAMERICANO", "LATINO", "OTRA RAZA","BLANCO")
+engvar = c("Black", "AIAN", "Asian", "Filipinx", "Latinx", "NHPI", "White", "Two or more")
+esvar = c("Negro", "Indígena Americano", "Asiático", "Filipino", "Latino", "Isleño del Pacifico", "Blanco", "Dos o mas") 
+#esvar_long = c("NEGRO O AFROAMERICANO", "INDÍGENA AMERICANO O NATIVO DE ALASKA", "ASIÁTICO", "FILIPINO", "LATINO", "ISLEÑO DEL PACIFICO", "BLANCO", "DOS O MAS")
 labels <- data.frame(engvar, esvar)
 # labels
 
 
 # convert df to long format
-s_long <- reshape2::melt(s, id.vars=c("Geography"))
+s_long <- reshape2::melt(s, id.vars=c("geoname"))
 # Round 'value' field to 1 decimal, rename 'variable' field, add Spanish labels
-s_long <- s_long %>% mutate(value = round(value, 1)) %>% dplyr::rename(engvar = variable)  %>%
+s_long <- s_long %>% mutate(value = round(value, 1)) %>% dplyr::rename(engvar = variable)  %>% 
   left_join(labels, by = "engvar")
 s_long <- s_long %>% filter(value > 0)
 
@@ -1209,7 +1212,7 @@ var <- "hs_graduation"
 
 # Define chart height as max y value varies by indicator. Set vertical position for total line label - may need to be customized for each chart.
 max_y = 1.15 * max(df$value)
-annotate_y = 1.12 * df$total_rate
+annotate_y = 1.12 * (df$total_rate)
 
 # specify language: comment out based on language of chart created below
 lang <- "eng"
@@ -1260,7 +1263,7 @@ av_plot
 ```
 
 
-Source: [California Department of Education, Adjusted Cohort Graduation Rate and Outcome Data, 2021-2022](https://www.cde.ca.gov/ds/ad/filesacgr.asp)
+Source: [California Department of Education, Adjusted Cohort Graduation Rate and Outcome Data, 2016-2022](https://www.cde.ca.gov/ds/ad/filesacgr.asp)
 
 ## Teacher & Staff Diversity 
 
