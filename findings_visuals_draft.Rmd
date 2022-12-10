@@ -1156,7 +1156,7 @@ kbl(av_table) %>%
  kable_styling(bootstrap_options = c("striped", "bordered", "condensed"))
 ```
 
-Source: [California Department of Education, Adjusted Cohort Graduation Rate and Outcome Data, 2016-2022](https://www.cde.ca.gov/ds/ad/filesacgr.asp)
+Source: [California Department of Education, Adjusted Five-Year Cohort Graduation Rate and Outcome Data, 2020-2021](https://www.cde.ca.gov/ds/ad/filesacgr.asp)
 
 ```{r}
 # AV Bar Chart
