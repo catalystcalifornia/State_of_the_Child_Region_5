@@ -3752,7 +3752,6 @@ NA
 </tr>
 </tbody>
 </table>
-<pre class="r"><code>View(av_table)</code></pre>
 <p>Source: <a href="https://dq.cde.ca.gov/dataquest/">California
 Department of Education, 2016-2022</a></p>
 <pre class="r"><code>## AV Bar Chart
@@ -4898,12 +4897,6 @@ Wilsona Elementary School District
 </tr>
 </tbody>
 </table>
-<pre class="r"><code>View(av_table)
-total_grade_only &lt;- total_grade_only %&gt;% select(year, geoname, ends_with(&quot;_rate&quot;))
-# View(total_grade_only)
-
-
-#Raw values</code></pre>
 <p>Source: <a href="https://dq.cde.ca.gov/dataquest/">California
 Department of Education, 2016-2022</a></p>
 <p>American Indian Alaskan Native (AIAN) students had the highest
@@ -5602,9 +5595,6 @@ NA
 </tr>
 </tbody>
 </table>
-<pre class="r"><code>View(av_table)
-total_grade_only &lt;- total_grade_only %&gt;% select(year, geoname, ends_with(&quot;_rate&quot;))
-# View(total_grade_only)</code></pre>
 <pre class="r"><code># AV Bar Chart
 s &lt;- AV 
 tot = subset(s, select=c(total_rate)) %&gt;% round(1)  # pull out total_rate

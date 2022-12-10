@@ -507,7 +507,7 @@ source("W:/Project/RDA Team/Region 5 State of the Child/R/socioeconomically_disa
 library(kableExtra)
 kbl(av_table) %>%
  kable_styling(bootstrap_options = c("striped", "bordered", "condensed"))
-View(av_table)
+
 ```
 
 Source: [California Department of Education, 2016-2022](https://dq.cde.ca.gov/dataquest/)
@@ -759,13 +759,6 @@ source("W:/Project/RDA Team/Region 5 State of the Child/R/disabilties.R")
 library(kableExtra)
 kbl(av_table) %>%
   kable_styling(bootstrap_options = c("striped", "bordered", "condensed"))
-View(av_table)
-total_grade_only <- total_grade_only %>% select(year, geoname, ends_with("_rate"))
-# View(total_grade_only)
-
-
-#Raw values
-
 ```
 
 Source: [California Department of Education, 2016-2022](https://dq.cde.ca.gov/dataquest/)
@@ -891,9 +884,6 @@ source("W:/Project/RDA Team/Region 5 State of the Child/R/ell.R")
 library(kableExtra)
 kbl(av_table) %>%
   kable_styling(bootstrap_options = c("striped", "bordered", "condensed"))
-View(av_table)
-total_grade_only <- total_grade_only %>% select(year, geoname, ends_with("_rate"))
-# View(total_grade_only)
 
 
 ```
