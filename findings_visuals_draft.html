@@ -3752,7 +3752,6 @@ NA
 </tr>
 </tbody>
 </table>
-<pre class="r"><code>View(av_table)</code></pre>
 <p>Source: <a href="https://dq.cde.ca.gov/dataquest/">California
 Department of Education, 2016-2022</a></p>
 <pre class="r"><code>## AV Bar Chart
@@ -4898,12 +4897,6 @@ Wilsona Elementary School District
 </tr>
 </tbody>
 </table>
-<pre class="r"><code>View(av_table)
-total_grade_only &lt;- total_grade_only %&gt;% select(year, geoname, ends_with(&quot;_rate&quot;))
-# View(total_grade_only)
-
-
-#Raw values</code></pre>
 <p>Source: <a href="https://dq.cde.ca.gov/dataquest/">California
 Department of Education, 2016-2022</a></p>
 <p>American Indian Alaskan Native (AIAN) students had the highest
@@ -5602,9 +5595,6 @@ NA
 </tr>
 </tbody>
 </table>
-<pre class="r"><code>View(av_table)
-total_grade_only &lt;- total_grade_only %&gt;% select(year, geoname, ends_with(&quot;_rate&quot;))
-# View(total_grade_only)</code></pre>
 <pre class="r"><code># AV Bar Chart
 s &lt;- AV 
 tot = subset(s, select=c(total_rate)) %&gt;% round(1)  # pull out total_rate
@@ -6527,7 +6517,7 @@ kbl(av_table) %&gt;%
 <thead>
 <tr>
 <th style="text-align:left;">
-School Year 2021-22
+Adjusted 5-Year 2020-2021
 </th>
 <th style="text-align:right;">
 Asian
@@ -6608,8 +6598,8 @@ Count
 </tbody>
 </table>
 <p>Source: <a href="https://www.cde.ca.gov/ds/ad/filesacgr.asp">California Department
-of Education, Adjusted Cohort Graduation Rate and Outcome Data,
-2016-2022</a></p>
+of Education, Adjusted Five-Year Cohort Graduation Rate and Outcome
+Data, 2020-2021</a></p>
 <pre class="r"><code># AV Bar Chart
 
 s &lt;- AV 
@@ -7503,9 +7493,336 @@ Education, 2018-19</a></p>
 </div>
 <div id="rd-grade-math-scores" class="section level2">
 <h2>3rd Grade Math Scores</h2>
+<p>The California Department of Education suppresses data for districts
+under a certain count, for that reason, there is not a lot of data
+available for 3rd grade math scores at the district level. The Los
+Angeles County average was 37% while the one district with data at the
+AV level was 32%, slightly lower than the Los Angeles County average. In
+Los Angleles County, Asian 3rd grade students scored the best, followed
+by White and Filipino students while AIAN, Black, and Latinx students
+scored the worst. Compared to Los Angeles County, White 3rd grade
+students in the Hughes-Elizabeth School District scored worse than their
+Los Angeles County counterparts scored worse by almost 18 percentage
+points in Math.</p>
+<p><strong>Los Angeles County 3rd Grade Math Scores</strong></p>
+<pre class="r"><code>source(&quot;W:/Project/RDA Team/Region 5 State of the Child/R/math.R&quot;)
+
+library(kableExtra)
+kbl(la_table) %&gt;%
+  kable_styling(bootstrap_options = c(&quot;striped&quot;, &quot;bordered&quot;, &quot;condensed&quot;))</code></pre>
+<table class="table table-striped table-bordered table-condensed" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+Indicator
+</th>
+<th style="text-align:right;">
+Total
+</th>
+<th style="text-align:right;">
+Black
+</th>
+<th style="text-align:right;">
+AIAN
+</th>
+<th style="text-align:right;">
+Asian
+</th>
+<th style="text-align:right;">
+Filipino
+</th>
+<th style="text-align:right;">
+Latinx
+</th>
+<th style="text-align:right;">
+NHPI
+</th>
+<th style="text-align:right;">
+White
+</th>
+<th style="text-align:right;">
+Two or More Races
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Los Angeles County Count
+</td>
+<td style="text-align:right;">
+5390.0
+</td>
+<td style="text-align:right;">
+305.0
+</td>
+<td style="text-align:right;">
+6.0
+</td>
+<td style="text-align:right;">
+612.0
+</td>
+<td style="text-align:right;">
+153
+</td>
+<td style="text-align:right;">
+2515.0
+</td>
+<td style="text-align:right;">
+16.0
+</td>
+<td style="text-align:right;">
+1359.0
+</td>
+<td style="text-align:right;">
+424.0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Los Angeles County Rate
+</td>
+<td style="text-align:right;">
+36.8
+</td>
+<td style="text-align:right;">
+25.2
+</td>
+<td style="text-align:right;">
+23.1
+</td>
+<td style="text-align:right;">
+71.1
+</td>
+<td style="text-align:right;">
+64
+</td>
+<td style="text-align:right;">
+26.2
+</td>
+<td style="text-align:right;">
+25.4
+</td>
+<td style="text-align:right;">
+69.9
+</td>
+<td style="text-align:right;">
+61.6
+</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Antelope Valley District Level 3rd Grade Math
+Scores</strong></p>
+<pre class="r"><code>kbl(av_table) %&gt;%
+  kable_styling(bootstrap_options = c(&quot;striped&quot;, &quot;bordered&quot;, &quot;condensed&quot;))</code></pre>
+<table class="table table-striped table-bordered table-condensed" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+Indicator
+</th>
+<th style="text-align:right;">
+Total
+</th>
+<th style="text-align:right;">
+White
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Hughes-Elizabeth Lakes Union Elementary School District Count
+</td>
+<td style="text-align:right;">
+7.0
+</td>
+<td style="text-align:right;">
+7.0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Hughes-Elizabeth Lakes Union Elementary School District Rate
+</td>
+<td style="text-align:right;">
+31.8
+</td>
+<td style="text-align:right;">
+43.8
+</td>
+</tr>
+</tbody>
+</table>
 </div>
 <div id="rd-grade-english-scores" class="section level2">
 <h2>3rd Grade English Scores</h2>
+<p>The California Department of Education suppresses data for districts
+under a certain count, for that reason, there is not a lot of data
+available for 3rd grade math scores at the district level. The Los
+Angeles County average was 37% while the one district with data at the
+AV level was 32%, slightly lower than the Los Angeles County
+average.Simiar to the Math trends, in English and Language Arts, Asian,
+Filipino, and White 3rd grade students had the highest ELA scores in Los
+Angleles County. The LA County average was 35.7%. Comparatively
+Hughes-Elizabeth Lake Elementary School District, the only AV school
+District with data, scored 16.5 percentage points higher than their Los
+Angeles County counterparts. That said, White students in the
+Hughes-Elizabeth Lake Elementary School District still scored lower than
+their LA County counterparts by 11.5 percentage points.</p>
+<p><strong>Los Angeles County 3rd Grade English and Language Arts
+Scores</strong></p>
+<pre class="r"><code>source(&quot;W:/Project/RDA Team/Region 5 State of the Child/R/ela.R&quot;)
+
+library(kableExtra)
+kbl(la_table) %&gt;%
+  kable_styling(bootstrap_options = c(&quot;striped&quot;, &quot;bordered&quot;, &quot;condensed&quot;))</code></pre>
+<table class="table table-striped table-bordered table-condensed" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+Indicator
+</th>
+<th style="text-align:right;">
+Total
+</th>
+<th style="text-align:right;">
+Black
+</th>
+<th style="text-align:right;">
+AIAN
+</th>
+<th style="text-align:right;">
+Asian
+</th>
+<th style="text-align:right;">
+Filipino
+</th>
+<th style="text-align:right;">
+Latinx
+</th>
+<th style="text-align:right;">
+NHPI
+</th>
+<th style="text-align:right;">
+White
+</th>
+<th style="text-align:right;">
+Two or More Races
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Los Angeles County Count
+</td>
+<td style="text-align:right;">
+3720.0
+</td>
+<td style="text-align:right;">
+196.0
+</td>
+<td style="text-align:right;">
+3.0
+</td>
+<td style="text-align:right;">
+422.0
+</td>
+<td style="text-align:right;">
+86.0
+</td>
+<td style="text-align:right;">
+1768.0
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+970.0
+</td>
+<td style="text-align:right;">
+271
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Los Angeles County Rate
+</td>
+<td style="text-align:right;">
+35.7
+</td>
+<td style="text-align:right;">
+27.1
+</td>
+<td style="text-align:right;">
+13.6
+</td>
+<td style="text-align:right;">
+74.7
+</td>
+<td style="text-align:right;">
+71.1
+</td>
+<td style="text-align:right;">
+24.9
+</td>
+<td style="text-align:right;">
+20
+</td>
+<td style="text-align:right;">
+67.7
+</td>
+<td style="text-align:right;">
+62
+</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Antelope Valley District Level 3rd Grade English and Language
+Arts Scores</strong></p>
+<pre class="r"><code>kbl(av_table) %&gt;%
+  kable_styling(bootstrap_options = c(&quot;striped&quot;, &quot;bordered&quot;, &quot;condensed&quot;))</code></pre>
+<table class="table table-striped table-bordered table-condensed" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+Indicator
+</th>
+<th style="text-align:right;">
+Total
+</th>
+<th style="text-align:right;">
+White
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Hughes-Elizabeth Lakes Union Elementary School District Count
+</td>
+<td style="text-align:right;">
+12.0
+</td>
+<td style="text-align:right;">
+9.0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Hughes-Elizabeth Lakes Union Elementary School District Rate
+</td>
+<td style="text-align:right;">
+52.2
+</td>
+<td style="text-align:right;">
+56.2
+</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 <div id="safety-and-justice" class="section level1">
