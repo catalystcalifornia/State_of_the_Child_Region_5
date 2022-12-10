@@ -1156,7 +1156,7 @@ kbl(av_table) %>%
  kable_styling(bootstrap_options = c("striped", "bordered", "condensed"))
 ```
 
-Source: [California Department of Education, Adjusted Cohort Graduation Rate and Outcome Data, 2016-2022](https://www.cde.ca.gov/ds/ad/filesacgr.asp)
+Source: [California Department of Education, Adjusted Five-Year Cohort Graduation Rate and Outcome Data, 2020-2021](https://www.cde.ca.gov/ds/ad/filesacgr.asp)
 
 ```{r}
 # AV Bar Chart
@@ -1343,8 +1343,45 @@ Source: [California Department of Education, 2018-19](https://www.cde.ca.gov/ds/
 
 ## 3rd Grade Math Scores
 
+The California Department of Education suppresses data for districts under a certain count, for that reason, there is not a lot of data available for 3rd grade math scores at the district level. The Los Angeles County average was 37% while the one district with data at the AV level was 32%, slightly lower than the Los Angeles County average. In Los Angleles County, Asian 3rd grade students scored the best, followed by White and Filipino students while AIAN, Black, and Latinx students scored the worst. Compared to Los Angeles County, White 3rd grade students in the Hughes-Elizabeth School District scored worse than their Los Angeles County counterparts scored worse by almost 18 percentage points in Math.
+
+**Los Angeles County 3rd Grade Math Scores**
+```{r}
+source("W:/Project/RDA Team/Region 5 State of the Child/R/math.R")
+
+library(kableExtra)
+kbl(la_table) %>%
+  kable_styling(bootstrap_options = c("striped", "bordered", "condensed"))
+
+```
+**Antelope Valley District Level 3rd Grade Math Scores**
+```{r}
+
+kbl(av_table) %>%
+  kable_styling(bootstrap_options = c("striped", "bordered", "condensed"))
+
+```
+
 ## 3rd Grade English Scores
 
+The California Department of Education suppresses data for districts under a certain count, for that reason, there is not a lot of data available for 3rd grade math scores at the district level. The Los Angeles County average was 37% while the one district with data at the AV level was 32%, slightly lower than the Los Angeles County average.Simiar to the Math trends, in English and Language Arts, Asian, Filipino, and White 3rd grade students had the highest ELA scores in Los Angleles County. The LA County average was 35.7%. Comparatively Hughes-Elizabeth Lake Elementary School District, the only AV school District with data, scored 16.5 percentage points higher than their Los Angeles County counterparts. That said, White students in the Hughes-Elizabeth Lake Elementary School District still scored lower than their LA County counterparts by 11.5 percentage points.
+
+**Los Angeles County 3rd Grade English and Language Arts Scores**
+```{r}
+source("W:/Project/RDA Team/Region 5 State of the Child/R/ela.R")
+
+library(kableExtra)
+kbl(la_table) %>%
+  kable_styling(bootstrap_options = c("striped", "bordered", "condensed"))
+
+```
+**Antelope Valley District Level 3rd Grade English and Language Arts Scores**
+```{r}
+
+kbl(av_table) %>%
+  kable_styling(bootstrap_options = c("striped", "bordered", "condensed"))
+
+```
 # Safety and Justice 
 
 ## Police Violence
