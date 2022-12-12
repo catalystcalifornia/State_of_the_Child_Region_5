@@ -1146,7 +1146,7 @@ Source: [L.A. County WIC Administrative Data, 2021](https://lawicdata.org/data-r
 
 ## Highschool Graduation
 
-The average high school graduation rate in the Antelope Valley is 65.2%. In the AV, Latinx (64.1%) followed by Black (62.7%) students had the lowest graduation rates while Filipino (85.3%) and Asian (80.8%) students had the highest. The Acton-Agua Dulce Unified School District has the lowest graduation rate (34.7%). Notably in the Acton-Agua Dulce Unified School District Latinx, Black, Filipino, and students who identified as non-Hispanic Two or More Races all had under 50% graduation rates. The Gorman Joint School District had the highest rate (81.9%). 
+The average high school graduation rate in the Antelope Valley is 65%. In the AV, Latinx (63.6%) followed by Black (64.8%) students had the lowest graduation rates while Filipino (82.7%) and Asian (80.7%) students had the highest. The Acton-Agua Dulce Unified School District has the lowest graduation rate (34.7%). Notably in the Acton-Agua Dulce Unified School District Latinx, Black, Filipino, and students who identified as non-Hispanic Two or More Races all had under 50% graduation rates. The Gorman Joint School District had the highest rate (81.9%). 
 
 The Antelope Valley Union High School District had a total rate of 80.3%, comparable to the LA County average. Similar to county trends, Black students had the lowest graduation rates (73.1%) followed by students who identified as Two or More Races (80.9%) and Latinx students (81.5%). Filipino (93.8%) followed by Asian (88.6%) and White (81.9%) students have the highest rates.
 
