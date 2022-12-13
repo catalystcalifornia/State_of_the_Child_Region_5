@@ -1036,19 +1036,20 @@ kbl(ece_access_prek_2020) %>%
 ```
 Source: [American Institutes of Research, 2020](https://elneedsassessment.org/)
 
+<!--
+# ```{r}
+# #bilingual chart
+# av_bilingual <- ece_access_prek_2020
+# av_bilingual <- av_bilingual %>% dplyr::rename("Zip Code - Codigo Postal" = "ZIP code",
+#   "Neighborhood - Vecindario"="Neighborhood", "Unmet need for Preschool - Necesidad no satisfecha en preescolar"="Unmet need for preschool", "% of preschoolers with unmet need - % de niños en edad preescolar con necesidades insatisfechas"="% of preschoolers with unmet need")
+# 
+# kbl(av_bilingual) %>%
+#  kable_styling(bootstrap_options = c("striped", "bordered", "condensed"))
+# # View(av_bilingual)
 
-```{r}
-#bilingual chart
-av_bilingual <- ece_access_prek_2020
-av_bilingual <- av_bilingual %>% dplyr::rename("Zip Code - Codigo Postal" = "ZIP code",
-  "Neighborhood - Vecindario"="Neighborhood", "Unmet need for Preschool - Necesidad no satisfecha en preescolar"="Unmet need for preschool", "% of preschoolers with unmet need - % de niños en edad preescolar con necesidades insatisfechas"="% of preschoolers with unmet need")
 
-kbl(av_bilingual) %>%
- kable_styling(bootstrap_options = c("striped", "bordered", "condensed"))
-# View(av_bilingual)
-
-
-```
+ ``` 
+ -->
 
 
 ## Parks
@@ -1078,15 +1079,15 @@ kbl(av_table) %>%
 
 Source: [American Community Survey 2016-2020 5-year estimates calculated for Antelope Valley neighborhoods by Lucy Wilkerson](https://public.tableau.com/app/profile/luz3725/viz/2020CensusData-AVBESTSTARTREGION5/GRAPI)
 
-```{r}
-#bilingual chart
-av_bilingual <- av_table
-av_bilingual <- av_bilingual %>% dplyr::rename("Rent Burdened - Alquiler Dañado" = "Rent_Burdened",
-  "Neighborhood - Vecindario"="NEIGHBORHOOD")
-kbl(av_bilingual) %>%
- kable_styling(bootstrap_options = c("striped", "bordered", "condensed"))
+<!--  ```{r}
+# #bilingual chart
+# av_bilingual <- av_table
+# av_bilingual <- av_bilingual %>% dplyr::rename("Rent Burdened - Alquiler Dañado" = "Rent_Burdened",
+#   "Neighborhood - Vecindario"="NEIGHBORHOOD")
+# kbl(av_bilingual) %>%
+#  kable_styling(bootstrap_options = c("striped", "bordered", "condensed"))
 
-```
+``` -->
 
 
 ```{r}
@@ -1150,30 +1151,27 @@ kbl(rcm_data) %>%
 ```
 Source: [United Ways of California Real Cost Measure, 2019](https://www.unitedwaysca.org/realcost/39-real-cost)
 
+<!-- 
 ```{r}
-#bilingual chart
-av_bilingual <- rcm_data
-av_bilingual$"Geography/GeografÃ­a"[av_bilingual$"Geography/GeografÃ­a" == 'Los Angeles County (North Central)--Lancaster City'] <- 'Los Ángeles County (North Central) Lancaster City - Condado de Los Ángeles Ciudad de Lancaster (Norte Central)'
-av_bilingual$"Geography/GeografÃ­a"[av_bilingual$"Geography/GeografÃ­a" == 'Los Angeles County (North Central)--Palmdale City'] <- 'Los Ángeles County (North Central) Palmdale City - Condado de Los Ángeles Ciudad de Palmdale (Norte Central)'
-av_bilingual$"Geography/GeografÃ­a"[av_bilingual$"Geography/GeografÃ­a" == 'Los Angeles County'] <- 'Los Ángeles County - Condado de Los Ángeles'
-av_bilingual$"Geography/GeografÃ­a"[av_bilingual$"Geography/GeografÃ­a" == 'State of California'] <- 'State of California - Estado de California'
-
-av_bilingual <- av_bilingual %>% dplyr::rename("Geography - Geografía"="Geography/GeografÃ­a", "Households below RCM - Hogares por debajo de la CRM (%)" = "% Households Below RCM",
-"White Households Below RCM - Hogares blancos por debajo de RCM (%)"="% White Households Below RCM",
-"Black Households below RCM - Hogares negros por debajo de RCM (%)"="% Black Households Below RCM",
-"Latino Households below RCM - Hogares latinos por debajo de RCM (%)"= "% Latino Households Below RCM",
-"Households with a child under 6 below RCM - Hogares con un niño menor de 6 años por debajo de la CRM (%)"="% Households with a child under 6 Below RCM",
- "Median Adjusted Household Income - Hogares mediano con ingreso familiar ajustado"="Median Adjusted Household Income")
-kbl(av_bilingual) %>%
- kable_styling(bootstrap_options = c("striped", "bordered", "condensed"))
-# View(av_bilingual)
-
-
-
-
+# #bilingual chart
+# av_bilingual <- rcm_data
+# av_bilingual$"Geography"[av_bilingual$"Geography" == 'Los Angeles County (North Central)--Lancaster City'] <- 'Los Ángeles County (North Central) Lancaster City - Condado de Los Ángeles Ciudad de Lancaster (Norte Central)'
+# av_bilingual$"Geography"[av_bilingual$"Geography" == 'Los Angeles County (North Central)--Palmdale City'] <- 'Los Ángeles County (North Central) Palmdale City - Condado de Los Ángeles Ciudad de Palmdale (Norte Central)'
+# av_bilingual$"Geography"[av_bilingual$"Geography" == 'Los Angeles County'] <- 'Los Ángeles County - Condado de Los Ángeles'
+# av_bilingual$"Geography"[av_bilingual$"Geography" == 'State of California'] <- 'State of California - Estado de California'
+# 
+# av_bilingual <- av_bilingual %>% dplyr::rename("Geography - Geografía"="Geography", "Households below RCM - Hogares por debajo de la CRM (%)" = "% Households Below RCM",
+# "White Households Below RCM - Hogares blancos por debajo de RCM (%)"="% White Households Below RCM",
+# "Black Households below RCM - Hogares negros por debajo de RCM (%)"="% Black Households Below RCM",
+# "Latino Households below RCM - Hogares latinos por debajo de RCM (%)"= "% Latino Households Below RCM",
+# "Households with a child under 6 below RCM - Hogares con un niño menor de 6 años por debajo de la CRM (%)"="% Households with a child under 6 Below RCM",
+#  "Median Adjusted Household Income - Hogares mediano con ingreso familiar ajustado"="Median Adjusted Household Income")
+# kbl(av_bilingual) %>%
+#  kable_styling(bootstrap_options = c("striped", "bordered", "condensed"))
+# # View(av_bilingual)
 
 ```
-
+-->
 
 ## Food Insecurity 
 
@@ -1206,22 +1204,30 @@ kbl(av_table) %>%
  kable_styling(bootstrap_options = c("striped", "bordered", "condensed"))
 ```
 
+<!-- 
 ```{r}
-#bilingual chart
-av_bilingual <- av_table
-av_bilingual$"Adjusted 5-Year 2020-2021"[av_bilingual$"Adjusted 5-Year 2020-2021" == 'Rate'] <- 'Rate - Tasa'
-av_bilingual$"Adjusted 5-Year 2020-2021"[av_bilingual$"Adjusted 5-Year 2020-2021" == 'Count'] <- 'Count -  Calculación'
-av_bilingual <- av_bilingual %>% dplyr::rename("Adjusted 5-year–Modificación de 5 años (2020-2021)" = "Adjusted 5-Year 2020-2021",
-"Asian-Asiático"="Asian",
-"Black-Negro"="Black",
-"Latinx–Latino"= "Latinx",
-"Two or more-Dos o más"="Two or More Races",
- "White-Blanco"="White")
-kbl(av_bilingual) %>%
- kable_styling(bootstrap_options = c("striped", "bordered", "condensed"))
+# #bilingual chart
+# av_bilingual <- av_table
+# av_bilingual$"Adjusted 5-Year 2020-2021"[av_bilingual$"Adjusted 5-Year 2020-2021" == 'Rate'] <- 'Rate - Tasa'
+# av_bilingual$"Adjusted 5-Year 2020-2021"[av_bilingual$"Adjusted 5-Year 2020-2021" == 'Count'] <- 'Count -  Calculación'
+# av_bilingual$"Asian"[av_bilingual$"Asian"=="88.0"] <- '88'
+# av_bilingual$"Black"[av_bilingual$"Black"=="797.0"] <- '797'
+# av_bilingual$"Filipino"[av_bilingual$"Filipino"=='67.0'] <- '67'
+# av_bilingual$"Latinx"[av_bilingual$"Latinx"=='3539.0'] <- '3539'
+# av_bilingual$"Two or More Races"[av_bilingual$"Two or More Races"=="234.0"] <- '234'
+# av_bilingual$"White"[av_bilingual$"White"=="843.0"] <- '843'
+# 
+# av_bilingual <- av_bilingual %>% dplyr::rename("Adjusted 5-year–Modificación de 5 años (2020-2021)" = "Adjusted 5-Year 2020-2021",
+# "Asian-Asiático"="Asian",
+# "Black-Negro"="Black",
+# "Latinx–Latino"= "Latinx",
+# "Two or more-Dos o más"="Two or More Races",
+#  "White-Blanco"="White")
+# kbl(av_bilingual) %>%
+#  kable_styling(bootstrap_options = c("striped", "bordered", "condensed"))
 
-```
-
+``` 
+-->
 
 Source: [California Department of Education, Adjusted Five-Year Cohort Graduation Rate and Outcome Data, 2020-2021](https://www.cde.ca.gov/ds/ad/filesacgr.asp)
 
@@ -1528,24 +1534,24 @@ kbl(stop_data) %>%
 Source: [Open Justice CA DOJ Portal, 2020](https://openjustice.doj.ca.gov/data) <br>
 [American Community Survey Table DP05, 2020](https://data.census.gov/table?tid=ACSDP5Y2020.DP05)
 
+<!-- 
 ```{r}
-#bilingual chart
-av_bilingual <- stop_data
-av_bilingual$"Race"[av_bilingual$"Race" == 'Latinx'] <- 'LatinX- Latino'
-av_bilingual$"Race"[av_bilingual$"Race" == 'Black'] <- 'Black – Negro'
-av_bilingual$"Race"[av_bilingual$"Race" == 'Asian'] <- 'Asian – Asiático'
-av_bilingual$"Race"[av_bilingual$"Race" == 'American Indian/Alaska Native'] <- 'American Indian/Alaska Native - Indio americano/nativo de Alaska'
-av_bilingual$"Race"[av_bilingual$"Race" == 'White'] <- 'White - Blanco'
-av_bilingual$"Race"[av_bilingual$"Race" == 'Native Hawaiian/Pacific Islander'] <- 'Native Hawaiian/Pacific Islander - Nativo hawaiano/isleño del Pacíficoa'
-av_bilingual$"Race"[av_bilingual$"Race" == 'Two or More'] <- 'Two or more - Dos o más'
+# #bilingual chart
+# av_bilingual <- stop_data
+# av_bilingual$"Race"[av_bilingual$"Race" == 'Latinx'] <- 'LatinX- Latino'
+# av_bilingual$"Race"[av_bilingual$"Race" == 'Black'] <- 'Black – Negro'
+# av_bilingual$"Race"[av_bilingual$"Race" == 'Asian'] <- 'Asian – Asiático'
+# av_bilingual$"Race"[av_bilingual$"Race" == 'American Indian/Alaska Native'] <- 'American Indian/Alaska Native - Indio americano/nativo de Alaska'
+# av_bilingual$"Race"[av_bilingual$"Race" == 'White'] <- 'White - Blanco'
+# av_bilingual$"Race"[av_bilingual$"Race" == 'Native Hawaiian/Pacific Islander'] <- 'Native Hawaiian/Pacific Islander - Nativo hawaiano/isleño del Pacíficoa'
+# av_bilingual$"Race"[av_bilingual$"Race" == 'Two or More'] <- 'Two or more - Dos o más'
+# 
+# av_bilingual <- av_bilingual %>% dplyr::rename("Race - Raza"="Race", "Stops Estimated - el número estimado de paradas por la policía" = "Stops_Estimated",
+# "Stops Rate - la tasa de paradas por la policía"="Stops_Rate")
+# kbl(av_bilingual) %>%
+#  kable_styling(bootstrap_options = c("striped", "bordered", "condensed"))
+# # View(av_bilingual)
 
-av_bilingual <- av_bilingual %>% dplyr::rename("Race - Raza"="Race", "Stops Estimated - el número estimado de paradas por la policía" = "Stops_Estimated",
-"Stops Rate - la tasa de paradas por la policía"="Stops_Rate")
-kbl(av_bilingual) %>%
- kable_styling(bootstrap_options = c("striped", "bordered", "condensed"))
-# View(av_bilingual)
-
-
-
-```
+``` 
+-->
 
