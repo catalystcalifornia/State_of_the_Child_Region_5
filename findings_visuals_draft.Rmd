@@ -1200,6 +1200,14 @@ The Antelope Valley Union High School District had a total rate of 80.3%, compar
 ```{r}
 source("W:/Project/RDA Team/Region 5 State of the Child/R/hs_grad.R")
 library(kableExtra)
+
+av_table$"Asian"[av_table$"Asian"=="88.0"] <- '88'
+av_table$"Black"[av_table$"Black"=="797.0"] <- '797'
+av_table$"Filipino"[av_table$"Filipino"=='67.0'] <- '67'
+av_table$"Latinx"[av_table$"Latinx"=='3539.0'] <- '3539'
+av_table$"Two or More Races"[av_table$"Two or More Races"=="234.0"] <- '234'
+av_table$"White"[av_table$"White"=="843.0"] <- '843'
+
 kbl(av_table) %>%
  kable_styling(bootstrap_options = c("striped", "bordered", "condensed"))
 ```
