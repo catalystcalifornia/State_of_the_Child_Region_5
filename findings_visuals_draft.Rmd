@@ -43,7 +43,33 @@ library(data.table)
 library(sysfonts)
 library(showtext)
 library(sf)
+library(stringr)
 
+
+library(janitor)
+library(DT)
+library(formattable)
+library(knitr)
+library(rgdal)
+library(RColorBrewer)
+library(scales)
+library(colorspace)
+library(devtools)
+library(broom)
+library(reshape2)
+library(ggplot2)
+library(extrafont)
+library(showtext)
+library(sp)
+library(tigris)
+library(forcats)
+library(ggtext)
+library(ggrepel)
+library(rlang)
+library(svglite)
+library(kableExtra)
+library(flextable)
+library(highcharter)
 #### First 5 LA Style Guide ####
 ## COLORS## Taken from W:\Project\RDA Team\Region 5 State of the Child\Documentation\F5LA_BrandGuidelines_COLORS.pdf
 #primary
@@ -1201,12 +1227,6 @@ The Antelope Valley Union High School District had a total rate of 80.3%, compar
 source("W:/Project/RDA Team/Region 5 State of the Child/R/hs_grad.R")
 library(kableExtra)
 
-av_table$"Asian"[av_table$"Asian"=="88.0"] <- '88'
-av_table$"Black"[av_table$"Black"=="797.0"] <- '797'
-av_table$"Filipino"[av_table$"Filipino"=='67.0'] <- '67'
-av_table$"Latinx"[av_table$"Latinx"=='3539.0'] <- '3539'
-av_table$"Two or More Races"[av_table$"Two or More Races"=="234.0"] <- '234'
-av_table$"White"[av_table$"White"=="843.0"] <- '843'
 
 kbl(av_table) %>%
  kable_styling(bootstrap_options = c("striped", "bordered", "condensed"))
@@ -1424,45 +1444,215 @@ Source: [California Department of Education, 2018-19](https://www.cde.ca.gov/ds/
 
 ## 3rd Grade Math Scores
 
-The California Department of Education suppresses data for districts under a certain count, for that reason, there is not a lot of data available for 3rd grade math scores at the district level. The Los Angeles County average was 37% while the one district with data at the AV level was 32%, slightly lower than the Los Angeles County average. In Los Angleles County, Asian 3rd grade students scored the best, followed by White and Filipino students while AIAN, Black, and Latinx students scored the worst. Compared to Los Angeles County, White 3rd grade students in the Hughes-Elizabeth School District scored worse than their Los Angeles County counterparts scored worse by almost 18 percentage points in Math.
+In the 2021-22 School Year in the Antelope Valley, 24% of Students in the 3rd Grade scored Proficient or Better in Math. That means that about 1 in 5 3rd grade students in the AV had sufficient Math scores. Black students in the AV had the lowest scores with about 1 in 10 scoring proficient or better in Math while Asian students had the highest rate of students scoring proficient or better at a rate of 54%. 24% of Latinx students, the most populous group int he AV, scored proficient in Math, which is also likely why the AV average score was also at 24%, because of the heavy influence of the low scores for the greatest populations of students. At the school district level, the Eastside  Union Elementary School District had the lowest scores with only 16% of 3rd grade students scoring proficient or better while the Acton-Agua Unified School District had the highest at 40%. None of the school districts scored above 40% while most of them scored around 20%. This means that across the board, math scores were fairly low for 3rd grade students in the AV. 
 
-**Los Angeles County 3rd Grade Math Scores**
+**Antelope Valley District Level 3rd Graders Scoring Proficient or Better in Math (%)**
 ```{r}
 source("W:/Project/RDA Team/Region 5 State of the Child/R/math.R")
 
 library(kableExtra)
-kbl(la_table) %>%
-  kable_styling(bootstrap_options = c("striped", "bordered", "condensed"))
-
-```
-**Antelope Valley District Level 3rd Grade Math Scores**
-```{r}
-
 kbl(av_table) %>%
   kable_styling(bootstrap_options = c("striped", "bordered", "condensed"))
 
 ```
 
+
+```{r}
+# AV Bar Chart
+
+s <- AV 
+tot = subset(s, select=c(Total)) # pull out Total
+s = subset(s, select=-c(Total)) # pull out raced rates
+
+
+# create english / spanish labels
+engvar = c("Black", "Filipinx", "Latinx", "White", "Two or more", "Asian")
+esvar = c("Negro", "Filipino", "Latino", "Blanco", "Dos o mas", "Asiático") 
+
+labels <- data.frame(engvar, esvar)
+# labels
+
+
+# convert df to long format
+s_long <- reshape2::melt(s, id.vars=c("geoname"))
+# Round 'value' field to 1 decimal, rename 'variable' field, add Spanish labels
+s_long <- s_long %>% mutate(value = round(value, 1)) %>% dplyr::rename(engvar = variable)  %>% 
+  left_join(labels, by = "engvar")
+s_long <- s_long %>% filter(value > 0)
+
+
+df <- data.frame(s_long, tot)       # add Total to long table
+df <- na.omit(df)             # drop NA's
+# df
+
+engtot_stat <- paste("Overall Rate =", min(df$Total))   # Total line annotation
+estot_stat <- paste("Promedio Total =", min(df$Total))   # Total line annotation
+
+
+# Set region name for file name
+region <- "Antelope Valley"
+
+
+# write the name of your indicator here:
+var <- "3rd_grade_math"
+
+
+# Define chart height as max y value varies by indicator. Set vertical position for total line label - may need to be customized for each chart.
+max_y = 1.15 * max(df$value)
+annotate_y = 1.12 * (df$Total)
+
+# specify language: comment out based on language of chart created below
+lang <- "eng"
+
+
+# # ggplot method that should export as .svg ##
+av_plot <-
+  #English
+  ggplot(df, aes(x= reorder(engvar, -value), y=value)) +     # set up manual fill using 'test', add "-" before value to order bars when MAX is best
+  annotate("text", x=4.25, y = annotate_y, label = str_wrap(engtot_stat, width = 20), hjust=-0.33, vjust = 0.35, family= font_table_text, color = red) +
+  labs(title = "**<span style='font-size:20pt;'>3rd Grade Math Score Rates (%)</span>**", subtitle = region) +
+  # rest of chart
+  geom_bar(stat="identity", position = position_dodge(0.7), show.legend = FALSE) +
+  geom_col(fill = lightblue, color = darkblue) +         # all bars in "#355C7D"
+  geom_hline(aes(yintercept = round(Total, 1)), color = red, size = .5) +
+  geom_text(aes(label = round(value, digits = 1)), family = font_bar_label, hjust = -.5) +       # format data labels, adjust hjust to avoid overlap w/ total line
+  # scale_y_continuous(limits = c(0, max_y), breaks = seq(0, max_y, by = 20)) +
+  scale_x_discrete(labels = function(engvar) str_wrap(engvar, width = 20)) +            # wrap long labels
+  xlab("") +
+  ylab("") +
+  coord_flip()
+# av_plot
+
+av_plot <- av_plot + theme(
+  panel.background = element_rect(fill = "transparent"), # bg of the panel
+  plot.background = element_rect(fill = 'transparent', color=NA),
+  panel.grid.major.y = element_line(colour = textgrey),    # add major y-axis gridlines
+  panel.grid.minor = element_blank(), # bg of the plot
+  axis.title.x = element_blank(),
+  axis.title.y = element_blank(),
+  axis.text.x = element_text(size = 12, family= font_axis_label),
+  axis.text.y = element_text(size = 12, family= font_axis_label),
+  axis.ticks = element_blank(),
+  plot.title = element_markdown(family = font_title, face = "bold", size = 15, hjust = 0),
+  plot.title.position = "plot",
+  plot.subtitle = element_text(family = font_title, hjust = 0),
+  plot.margin = margin(t = 10,
+                       b = 10,
+                       r = 10,
+                       l = 10)
+)
+
+
+av_plot <- av_plot + ylim(0, max_y)     # add buffer between title and chart/data labels
+av_plot
+```
+
+
 ## 3rd Grade English Scores
 
-The California Department of Education suppresses data for districts under a certain count, for that reason, there is not a lot of data available for 3rd grade math scores at the district level. The Los Angeles County average was 37% while the one district with data at the AV level was 32%, slightly lower than the Los Angeles County average.Simiar to the Math trends, in English and Language Arts, Asian, Filipino, and White 3rd grade students had the highest ELA scores in Los Angleles County. The LA County average was 35.7%. Comparatively Hughes-Elizabeth Lake Elementary School District, the only AV school District with data, scored 16.5 percentage points higher than their Los Angeles County counterparts. That said, White students in the Hughes-Elizabeth Lake Elementary School District still scored lower than their LA County counterparts by 11.5 percentage points.
+Only about 1 in 4 3rd grade students int he AV scored proficient or better in English Language Arts. The overall score was 25% of students passing, which was 12 percentage points lower than the The Los Angeles County average, 37%. Black (13%) followed by Latinx (25%) students had the lowest rates while Asian and Filipino 3rd grade students had the highest rates, with both scoring a little less than half. At the school district level Wilsona Elementary followed by Lancaster Elementary had the lowest average rates, 14% and 20% respectively. Lancaster Elementary and Palmdale Elementary School Districts had especially low rates for Black 3rd grade students, 12% for both. Wilsona had an especially low rate for Latinx students about 14%.
 
-**Los Angeles County 3rd Grade English and Language Arts Scores**
+**Antelope Valley District Level 3rd Graders Scoring Proficient or Better in English and Language Arts (%)**
 ```{r}
 source("W:/Project/RDA Team/Region 5 State of the Child/R/ela.R")
 
 library(kableExtra)
-kbl(la_table) %>%
-  kable_styling(bootstrap_options = c("striped", "bordered", "condensed"))
-
-```
-**Antelope Valley District Level 3rd Grade English and Language Arts Scores**
-```{r}
-
 kbl(av_table) %>%
   kable_styling(bootstrap_options = c("striped", "bordered", "condensed"))
 
 ```
+
+
+```{r}
+# AV Bar Chart
+
+s <- AV 
+tot = subset(s, select=c(Total)) # pull out Total
+s = subset(s, select=-c(Total)) # pull out raced rates
+
+
+# create english / spanish labels
+engvar = c("Black", "Filipinx", "Latinx", "White", "Two or more", "Asian")
+esvar = c("Negro", "Filipino", "Latino", "Blanco", "Dos o mas", "Asiático") 
+
+labels <- data.frame(engvar, esvar)
+# labels
+
+
+# convert df to long format
+s_long <- reshape2::melt(s, id.vars=c("geoname"))
+# Round 'value' field to 1 decimal, rename 'variable' field, add Spanish labels
+s_long <- s_long %>% mutate(value = round(value, 1)) %>% dplyr::rename(engvar = variable)  %>% 
+  left_join(labels, by = "engvar")
+s_long <- s_long %>% filter(value > 0)
+
+
+df <- data.frame(s_long, tot)       # add Total to long table
+df <- na.omit(df)             # drop NA's
+# df
+
+engtot_stat <- paste("Overall Rate =", min(df$Total))   # Total line annotation
+estot_stat <- paste("Promedio Total =", min(df$Total))   # Total line annotation
+
+
+# Set region name for file name
+region <- "Antelope Valley"
+
+
+# write the name of your indicator here:
+var <- "3rd_grade_ela"
+
+
+# Define chart height as max y value varies by indicator. Set vertical position for total line label - may need to be customized for each chart.
+max_y = 1.15 * max(df$value)
+annotate_y = 1.12 * (df$Total)
+
+# specify language: comment out based on language of chart created below
+lang <- "eng"
+
+
+# # ggplot method that should export as .svg ##
+av_plot <-
+  #English
+  ggplot(df, aes(x= reorder(engvar, -value), y=value)) +     # set up manual fill using 'test', add "-" before value to order bars when MAX is best
+  annotate("text", x=4.25, y = annotate_y, label = str_wrap(engtot_stat, width = 20), hjust=-0.33, vjust = 0.35, family= font_table_text, color = red) +
+  labs(title = "**<span style='font-size:20pt;'>3rd Grade English & Language Arts Score Rates (%)</span>**", subtitle = region) +
+  # rest of chart
+  geom_bar(stat="identity", position = position_dodge(0.7), show.legend = FALSE) +
+  geom_col(fill = lightblue, color = darkblue) +         # all bars in "#355C7D"
+  geom_hline(aes(yintercept = round(Total, 1)), color = red, size = .5) +
+  geom_text(aes(label = round(value, digits = 1)), family = font_bar_label, hjust = -.5) +       # format data labels, adjust hjust to avoid overlap w/ total line
+  # scale_y_continuous(limits = c(0, max_y), breaks = seq(0, max_y, by = 20)) +
+  scale_x_discrete(labels = function(engvar) str_wrap(engvar, width = 20)) +            # wrap long labels
+  xlab("") +
+  ylab("") +
+  coord_flip()
+# av_plot
+
+av_plot <- av_plot + theme(
+  panel.background = element_rect(fill = "transparent"), # bg of the panel
+  plot.background = element_rect(fill = 'transparent', color=NA),
+  panel.grid.major.y = element_line(colour = textgrey),    # add major y-axis gridlines
+  panel.grid.minor = element_blank(), # bg of the plot
+  axis.title.x = element_blank(),
+  axis.title.y = element_blank(),
+  axis.text.x = element_text(size = 12, family= font_axis_label),
+  axis.text.y = element_text(size = 12, family= font_axis_label),
+  axis.ticks = element_blank(),
+  plot.title = element_markdown(family = font_title, face = "bold", size = 15, hjust = 0),
+  plot.title.position = "plot",
+  plot.subtitle = element_text(family = font_title, hjust = 0),
+  plot.margin = margin(t = 10,
+                       b = 10,
+                       r = 10,
+                       l = 10)
+)
+
+
+av_plot <- av_plot + ylim(0, max_y)     # add buffer between title and chart/data labels
+av_plot
+```
+
 # Safety and Justice 
 
 ## Police Violence
