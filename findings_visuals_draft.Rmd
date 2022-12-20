@@ -293,7 +293,9 @@ Source: [California Department of Education, 2016-2022](https://dq.cde.ca.gov/da
 
 ## Student Migrant Population
 
-Overall, 281 students (or 0.3%) are in the California's Migrant Education Program in the Antelope Valley. This count is likely an undercount since this number represents only the students who are registered through the Migrant Education Program. Palmdale Elementary School District has a 2.7 times greater percentage of migratory students than the AV average. That is because of American Indian Alaskan Native students in the Palmdale elementary school district has 3.2 times more migratory student than even the next largest group of migratory students, Latinx students. At the region level as well, American Indian Alaskan Native students has the greatest percentage of migratory students.
+Overall, 281 students (or 0.3%) are in the California's Migrant Education Program in the Antelope Valley. This count is likely an undercount since this number represents only the students who are registered through the Migrant Education Program. Palmdale Elementary School District has a 2.7 times greater percentage of migratory students than the AV average. 
+
+<!-- That is because of American Indian Alaskan Native students in the Palmdale elementary school district has 3.2 times more migratory student than even the next largest group of migratory students, Latinx students. At the region level as well, American Indian Alaskan Native students has the greatest percentage of migratory students. -->
 
  **Student Migrant Population Counts by District 2021-22 School Year**
 ```{r}
@@ -778,7 +780,11 @@ Source: [Los Angeles Homeless Services Authority, 2022](https://www.lahsa.org/da
 
 ## Children with Disabilities 
 
-Overall in the Antelope Valley, 14.9% of students have disabilities, 2.4 percentage points higher than the state average.[2](https://lao.ca.gov/reports/2019/4110/overview-spec-ed-110619.pdf) The percentage of students with disabilities in the Antelope Valley has steadily increased by 2.6 percentage points since the 2015-16 school year. The grades with the highest percentage of students with disabilities were 6th grade (73.5%), 8th grade (71.8%), and 7th grade (73.5%). At the school district level, the Antelope Valley Union Joint High School District has the highest, 17.2% and Eastside Elementary School District has the lowest, 12.5%.  Students in the 4th and 5th grades also had a larger percentage of students with disabilities. Despite the high reported numbers of students with disabilities, the actual numbers are likely higher. Younger students with disabilities tend to be underrepresented because students are assessed for disabilities on an as-needed basis, therefore, it takes time for students to be assessed and as more time passes, more students are assessed thereby increasing the reported number of students with disabilities. 
+Overall in the Antelope Valley, 15% of students have disabilities in the 2021-22 school year, 2.5 percentage points higher than the state average.[2](https://lao.ca.gov/reports/2019/4110/overview-spec-ed-110619.pdf) The percentage of students with disabilities in the Antelope Valley has steadily increased by 2.7 percentage points since the 2015-16 school year. In particular, the Acton-Agua Dulce Unified and Antelope Valley Union High School Districts have above AV average rates of students with disabilities, 16.5% and 17.2% respectively. Given the extremely large number of students with disabilities, the Antelope Valley has an urgent priority need for additional resources for students with disabilities. 
+
+<!-- The grades with the highest percentage of students with disabilities were 6th grade (73.5%), 8th grade (71.8%), and 7th grade (73.5%). At the school district level, the Antelope Valley Union Joint High School District has the highest, 17.2% and Eastside Elementary School District has the lowest, 12.5%.  Students in the 4th and 5th grades also had a larger percentage of students with disabilities. Despite the high reported numbers of students with disabilities, the actual numbers are likely higher. Younger students with disabilities tend to be underrepresented because students are assessed for disabilities on an as-needed basis, therefore, it takes time for students to be assessed and as more time passes, more students are assessed thereby increasing the reported number of students with disabilities.  -->
+<!-- American Indian Alaskan Native (AIAN) students had the highest percentage of students with disabilities by race/ethnicity with 21.3% of AIAN students having disabilities. Black (20.8%), Two or More Races (16.7%) and White students (15.6%) all had above Antelope Valley average rates as well.  -->
+
 
  **Students with Disabilities Counts by School District 2021-22 School Year**
 ```{r}
@@ -790,7 +796,7 @@ kbl(av_table) %>%
 
 Source: [California Department of Education, 2016-2022](https://dq.cde.ca.gov/dataquest/)
 
-American Indian Alaskan Native (AIAN) students had the highest percentage of students with disabilities by race/ethnicity with 21.3% of AIAN students having disabilities. Black (20.8%), Two or More Races (16.7%) and White students (15.6%) all had above Antelope Valley average rates as well. Given the extremely large number of students with disabilities, the Antelope Valley has an urgent priority need for additional resources for students with disabilities. 
+
 
 <!-- 
 ```{r}
