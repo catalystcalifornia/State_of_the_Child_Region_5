@@ -377,7 +377,7 @@ var <- "non-binary"
 
 
 # Define chart height as max y value varies by indicator. Set vertical position for total line label - may need to be customized for each chart.
-max_y = max(df$value) 
+max_y = 1.12 * max(df$value) 
 annotate_y = 1.12 * df$total_rate
 
 # specify language: comment out based on language of chart created below
