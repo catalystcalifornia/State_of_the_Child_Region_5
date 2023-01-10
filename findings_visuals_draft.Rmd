@@ -321,6 +321,8 @@ The CDE started tracking students who identify as non-binary gender in the 2020-
 
 The Acton-Agua Dulce School District has the largest percentage of students who identify as non-binary during the 2020-21 school year. 44 out of the 51 students who identify as non-binary were in the Acton-Agua School District. 
 
+Non-binary gender is tracked via students or school staff such as teachers electing to change the student's gender categorization on their Statewide Student Identifier (SSID). Because of the need for students to change their gender on their SSIDs to be counted as non-binary, this indicator likely undercounts non-binary students.
+
  **Non-Binary Counts by School District 2021-22 School Year**
 ```{r}
 
