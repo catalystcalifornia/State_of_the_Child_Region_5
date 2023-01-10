@@ -148,7 +148,7 @@ Source: [American Community Survey 2016-2020 5-year estimates calculated for Ant
 
 ## Black Infant Mortality 
 
-According to the California Department of Public Health, Los Angeles County Black infant mortality rates are more than twice the rate of infant mortality overall (9.3 vs. 4.2 infant deaths per 1,000 live births). Not available by race, but First 5 LA reports Children's Data Network infant mortality rates for the total populations of the Lancaster and Palmdale Best Start geographies at 6.0 and 5.7 per 1,000, respectively.[1](https://www.first5la.org/wp-content/uploads/2020/09/First-5-LA-2020-Indicators-Report.pdf)
+According to the California Department of Public Health, Los Angeles County 20015-17 Black infant mortality rates are more than twice the rate of infant mortality overall (9.3 vs. 4.2 infant deaths per 1,000 live births). Not available by race, but First 5 LA reports 2011-16 Children's Data Network infant mortality rates for the total populations of the Lancaster and Palmdale Best Start geographies at 6.0 and 5.7 per 1,000, respectively.[1](https://www.first5la.org/wp-content/uploads/2020/09/First-5-LA-2020-Indicators-Report.pdf)
 
 **The County's Black infant mortality rate is twice the infant mortality rate overall: 9.3 Black LA County infant deaths per 1,000 live births compared to total rate of 4.2 per 1,000**[1](https://data.chhs.ca.gov/dataset/infant-mortality-deaths-per-1000-live-births-lghc-indicator-01/resource/ae78da8f-1661-45f6-b2d0-1014857d16e3)
 
@@ -179,6 +179,7 @@ kbl(incarc_table) %>%
   kable_styling(bootstrap_options = c("striped", "bordered", "condensed"))
 
 ```
+Source: Catalyst California calculations of [2022 jail](https://www.vera.org/care-first-la-tracking-jail-decarceration) and [2020 prison](https://www.vera.org/downloads/publications/people-in-jail-and-prison-in-2020.pdf) population data from the Vera Institute of Justice and 2020 probation data from County of Los Angeles Probation.
 
 This matters because separation or probation impacts the ability of parents to live with, supervise, and be attentive to their children. They are not as able to help with homework, know who their kids’ friends are, have a sense of how school is going, and what their children are eating, for example. Each of these things impact a child’s ability to succeed in school, be healthy, and otherwise thrive.
 
