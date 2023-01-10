@@ -959,7 +959,7 @@ kbl(av_count) %>%
   kable_styling(bootstrap_options = c("striped", "bordered", "condensed"))
 
 ```
-
+** Eviction Rates Per 100 People by Race and Neighborhood   **
 ```{r}
 source("W:/Project/RDA Team/Region 5 State of the Child/R/eviction.R")
 
@@ -968,6 +968,7 @@ kbl(av_table) %>%
   kable_styling(bootstrap_options = c("striped", "bordered", "condensed"))
 
 ```
+
 
 <!-- ```{r} -->
 <!-- # AV Bar Chart -->
