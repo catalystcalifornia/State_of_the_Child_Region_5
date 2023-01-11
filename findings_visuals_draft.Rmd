@@ -1268,7 +1268,7 @@ kbl(av_table) %>%
   kable_styling(bootstrap_options = c("striped", "bordered", "condensed"))
 
 ```
-
+Please note that data for AIAN and NHPI groups are not present in the table because of a lack of data for these two groups.
 
 ```{r}
 # AV Bar Chart
