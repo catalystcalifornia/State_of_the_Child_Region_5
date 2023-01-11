@@ -1193,45 +1193,19 @@ kbl(av_chronic_absenteeism_21_22) %>%
 Source: Catalyst California calculations of [California Department of Education, 2021-22](https://www.cde.ca.gov/ds/ad/filesabd.asp) data. Antelope Valley schools are schools from the following districts: Acton-Agua Dulce Unified, Antelope Valley Union High, Eastside Union Elementary, Gorman Joint, Hughes-Elizabeth Lakes Union Elementary, Keppel Union Elementary, Lancaster Elementary, Palmdale Elementary, Westside Union Elementary, and Wilsona Elementary.
 
 ## Suspensions
-The last full year of in-class learning for which the California Department of Education publishes data is 2018-19. That year **suspension rates for Black students were higher than district totals in every Antelope Valley school district**. American Indian or Alaska Native and Multiracial suspension rates were also often above totals in most area school districts.
+The last full year of in-class learning for which the California Department of Education publishes data is 2021-22. That year **suspension rates for Foster and Black students were more than double the district total suspension rate Antelope Valley school districts**. American Indian or Alaska Native and Multiracial suspension rates were also often above totals in most area school districts.
 
-**Suspension rates by race, Antelope Valley school districts, 2018-19**
+**Suspension rates by race, Antelope Valley school districts, 2021-22**
 ```{r}
+source("W:/Project/RDA Team/Region 5 State of the Child/R/suspension.R")
 
-drv <- dbDriver("PostgreSQL")
-
-con <- dbConnect(drv, dbname = "region5stateofthechild",
-                   host = "aws-postgres-db.c5udgz7ro8hq.us-west-2.rds.amazonaws.com", port = 5432,
-                   user = "postgres", password = pw)
-
-district_suspensions_by_race_2018_19 <- st_read(con, query = "SELECT districtname as district,
-nh_black_rate as black, 
-latino_rate as latinx, 
-nh_white_rate as white, 
-nh_aian_rate as aian, 
-nh_asian_rate as asian, 
-nh_filipino_rate as filipino,  
-nh_pacisl_rate as nhpi, 
-nh_twoormor_rate as multiracial, 
-total_rate as total
-                                                FROM district_suspensions_by_race_2018_19
-WHERE districtname IN ('Acton-Agua Dulce Unified',
-    'Antelope Valley Union High',
-    'Eastside Union Elementary',
-    'Gorman Joint',
-    'Hughes-Elizabeth Lakes Union Elementary',
-    'Keppel Union Elementary',
-    'Lancaster Elementary',
-    'Palmdale Elementary',
-    'Westside Union Elementary',
-    'Wilsona Elementary') ORDER BY total_rate DESC")
-
+library(stringr)
 library(kableExtra)
-kbl(district_suspensions_by_race_2018_19) %>%
+kbl(susp_table) %>%
   kable_styling(bootstrap_options = c("striped", "bordered", "condensed"))
 
 ```
-Source: [California Department of Education, 2018-19](https://www.cde.ca.gov/ds/)
+Source: Catalyst California calculations of [California Department of Education, 2021-22](https://www.cde.ca.gov/ds/) data. Antelope Valley schools are schools from the following districts: Acton-Agua Dulce Unified, Antelope Valley Union High, Eastside Union Elementary, Gorman Joint, Hughes-Elizabeth Lakes Union Elementary, Keppel Union Elementary, Lancaster Elementary, Palmdale Elementary, Westside Union Elementary, and Wilsona Elementary. 
 
 ## 3rd Grade Math Scores
 
