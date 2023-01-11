@@ -952,6 +952,28 @@ Source: [American Community Survey 2016-2020 5-year estimates calculated for Ant
 
 ## Evictions
 
+To calculate evictions, 2013-2017 data was used due to the limitations of available data. There have been 636 evictions in the AV between 2013-2017. Meaning 2.1 out of 100 people in the AV faced evictions during this time period.by rate, Lake Los Angeles had the most evictions while Quartz Hill had the least. The neighborhoods of Lancaster (350 evictions) and Palmdale (226 evictions) had the most evictions by count. About half of all evictions during this time period were in Lancaster.
+
+** Totals by Region and Neighborhood **
+```{r}
+source("W:/Project/RDA Team/Region 5 State of the Child/R/eviction.R")
+
+library(kableExtra)
+kbl(av_count2) %>%
+  kable_styling(bootstrap_options = c("striped", "bordered", "condensed"))
+
+```
+Source: [Eviction Lab with ACS 2013-2017, 2020](https://data-downloads.evictionlab.org/#data-for-analysis/)
+
+** Eviction Rates Per 100 People by Race and Neighborhood  **
+```{r}
+source("W:/Project/RDA Team/Region 5 State of the Child/R/eviction.R")
+kbl(av_table) %>%
+  kable_styling(bootstrap_options = c("striped", "bordered", "condensed"))
+
+```
+
+
 ## Cost of Living
 
 According to the United Ways of California, **roughly half of households in and around Lancaster and Palmdale do not earn sufficient incomes to meet their basic costs of living** (i.e., they earn incomes below the real cost measure of living). Lancaster and Palmdale adjusted median household incomes are well below other parts of the County and State.
