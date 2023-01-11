@@ -5439,33 +5439,35 @@ community-specific factors, which vary by age. For example, schools that
 do not engage children and families with work schedules making it
 difficult to monitor their children’s schooling, are two contributors to
 absenteeism.<a href="https://www.brookings.edu/research/chronic-absenteeism-an-old-problem-in-search-of-new-answers/">1</a>.</p>
-<p><strong>Chronic Absenteeism in Antelope Valley Schools,
-2018-19</strong></p>
+<p><strong>Chronic Absenteeism by Race-ethnicity in Antelope Valley
+Schools, 2018-19</strong></p>
 <pre class="r"><code>drv &lt;- dbDriver(&quot;PostgreSQL&quot;)
 
 con &lt;- dbConnect(drv, dbname = &quot;region5stateofthechild&quot;,
                    host = &quot;aws-postgres-db.c5udgz7ro8hq.us-west-2.rds.amazonaws.com&quot;, port = 5432,
                    user = &quot;postgres&quot;, password = pw)
 
-av_chronic_absenteeism_18_19 &lt;- st_read(con, query = &quot;SELECT * FROM av_chronic_absenteeism_18_19&quot;)
+av_chronic_absenteeism_21_22 &lt;- st_read(con, query = &quot;SELECT * FROM av_chronic_absenteeism_21_22&quot;)
+
+names(av_chronic_absenteeism_21_22) &lt;- c(&quot;Race-ethnicity&quot;, &quot;Student enrollment&quot;, &quot;Chronically absent students&quot;, &quot;Chronic absenteeism rate (%)&quot;)
 
 library(kableExtra)
-kbl(av_chronic_absenteeism_18_19) %&gt;%
+kbl(av_chronic_absenteeism_21_22) %&gt;%
   kable_styling(bootstrap_options = c(&quot;striped&quot;, &quot;bordered&quot;, &quot;condensed&quot;))</code></pre>
 <table class="table table-striped table-bordered table-condensed" style="margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
 <th style="text-align:left;">
-race_ethnicity
+Race-ethnicity
 </th>
 <th style="text-align:right;">
-enrollment
+Student enrollment
 </th>
 <th style="text-align:right;">
-absentees
+Chronically absent students
 </th>
 <th style="text-align:right;">
-absenteeism_rate
+Chronic absenteeism rate (%)
 </th>
 </tr>
 </thead>
@@ -5475,27 +5477,13 @@ absenteeism_rate
 Black
 </td>
 <td style="text-align:right;">
-17093
+14757
 </td>
 <td style="text-align:right;">
-4707
+6739
 </td>
 <td style="text-align:right;">
-27.5
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-AIAN
-</td>
-<td style="text-align:right;">
-442
-</td>
-<td style="text-align:right;">
-90
-</td>
-<td style="text-align:right;">
-20.4
+45.7
 </td>
 </tr>
 <tr>
@@ -5503,27 +5491,27 @@ AIAN
 NHPI
 </td>
 <td style="text-align:right;">
-208
+144
 </td>
 <td style="text-align:right;">
-41
+58
 </td>
 <td style="text-align:right;">
-19.7
+40.3
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-Total
+AIAN
 </td>
 <td style="text-align:right;">
-107911
+367
 </td>
 <td style="text-align:right;">
-18937
+145
 </td>
 <td style="text-align:right;">
-17.5
+39.5
 </td>
 </tr>
 <tr>
@@ -5531,13 +5519,27 @@ Total
 Latinx
 </td>
 <td style="text-align:right;">
-63378
+62585
 </td>
 <td style="text-align:right;">
-11102
+23059
 </td>
 <td style="text-align:right;">
-17.5
+36.8
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Total
+</td>
+<td style="text-align:right;">
+96902
+</td>
+<td style="text-align:right;">
+35442
+</td>
+<td style="text-align:right;">
+36.6
 </td>
 </tr>
 <tr>
@@ -5545,13 +5547,13 @@ Latinx
 Multiracial
 </td>
 <td style="text-align:right;">
-4437
+3885
 </td>
 <td style="text-align:right;">
-763
+1367
 </td>
 <td style="text-align:right;">
-17.2
+35.2
 </td>
 </tr>
 <tr>
@@ -5559,27 +5561,13 @@ Multiracial
 White
 </td>
 <td style="text-align:right;">
-17583
+12408
 </td>
 <td style="text-align:right;">
-1952
+3502
 </td>
 <td style="text-align:right;">
-11.1
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Filipino
-</td>
-<td style="text-align:right;">
-1225
-</td>
-<td style="text-align:right;">
-62
-</td>
-<td style="text-align:right;">
-5.1
+28.2
 </td>
 </tr>
 <tr>
@@ -5587,19 +5575,33 @@ Filipino
 Asian
 </td>
 <td style="text-align:right;">
-1723
+1136
 </td>
 <td style="text-align:right;">
-82
+175
 </td>
 <td style="text-align:right;">
-4.8
+15.4
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Filipino
+</td>
+<td style="text-align:right;">
+936
+</td>
+<td style="text-align:right;">
+143
+</td>
+<td style="text-align:right;">
+15.3
 </td>
 </tr>
 </tbody>
 </table>
 <p>Source: Catalyst California calculations of <a href="https://www.cde.ca.gov/ds/ad/filesabd.asp">California Department
-of Education, 2018-19</a> data. Antelope Valley schools are schools from
+of Education, 2021-22</a> data. Antelope Valley schools are schools from
 the following districts: Acton-Agua Dulce Unified, Antelope Valley Union
 High, Eastside Union Elementary, Gorman Joint, Hughes-Elizabeth Lakes
 Union Elementary, Keppel Union Elementary, Lancaster Elementary,

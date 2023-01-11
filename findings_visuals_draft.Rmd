@@ -1000,7 +1000,6 @@ source("W:/Project/RDA Team/Region 5 State of the Child/R/food_security.R")
 library(kableExtra)
 kbl(wic_data) %>%
   kable_styling(bootstrap_options = c("striped", "bordered", "condensed"))
-
 ```
 Source: [L.A. County WIC Administrative Data, 2021](https://lawicdata.org/data-research/by-region/)
 
@@ -1173,7 +1172,7 @@ Source: [California Department of Education, 2018-19](https://www.cde.ca.gov/ds/
 
 Chronic absenteeism stems for a variety of factors including student-specific, family-specific, school-specific, and community-specific factors, which vary by age. For example, schools that do not engage children and families with work schedules making it difficult to monitor their children's schooling, are two contributors to absenteeism.[1](https://www.brookings.edu/research/chronic-absenteeism-an-old-problem-in-search-of-new-answers/).
 
-**Chronic Absenteeism in Antelope Valley Schools, 2018-19**
+**Chronic Absenteeism by Race-ethnicity in Antelope Valley Schools, 2018-19**
 ```{r}
 
 drv <- dbDriver("PostgreSQL")
@@ -1182,14 +1181,16 @@ con <- dbConnect(drv, dbname = "region5stateofthechild",
                    host = "aws-postgres-db.c5udgz7ro8hq.us-west-2.rds.amazonaws.com", port = 5432,
                    user = "postgres", password = pw)
 
-av_chronic_absenteeism_18_19 <- st_read(con, query = "SELECT * FROM av_chronic_absenteeism_18_19")
+av_chronic_absenteeism_21_22 <- st_read(con, query = "SELECT * FROM av_chronic_absenteeism_21_22")
+
+names(av_chronic_absenteeism_21_22) <- c("Race-ethnicity", "Student enrollment", "Chronically absent students", "Chronic absenteeism rate (%)")
 
 library(kableExtra)
-kbl(av_chronic_absenteeism_18_19) %>%
+kbl(av_chronic_absenteeism_21_22) %>%
   kable_styling(bootstrap_options = c("striped", "bordered", "condensed"))
 
 ```
-Source: Catalyst California calculations of [California Department of Education, 2018-19](https://www.cde.ca.gov/ds/ad/filesabd.asp) data. Antelope Valley schools are schools from the following districts: Acton-Agua Dulce Unified, Antelope Valley Union High, Eastside Union Elementary, Gorman Joint, Hughes-Elizabeth Lakes Union Elementary, Keppel Union Elementary, Lancaster Elementary, Palmdale Elementary, Westside Union Elementary, and Wilsona Elementary.
+Source: Catalyst California calculations of [California Department of Education, 2021-22](https://www.cde.ca.gov/ds/ad/filesabd.asp) data. Antelope Valley schools are schools from the following districts: Acton-Agua Dulce Unified, Antelope Valley Union High, Eastside Union Elementary, Gorman Joint, Hughes-Elizabeth Lakes Union Elementary, Keppel Union Elementary, Lancaster Elementary, Palmdale Elementary, Westside Union Elementary, and Wilsona Elementary.
 
 ## Suspensions
 The last full year of in-class learning for which the California Department of Education publishes data is 2018-19. That year **suspension rates for Black students were higher than district totals in every Antelope Valley school district**. American Indian or Alaska Native and Multiracial suspension rates were also often above totals in most area school districts.
