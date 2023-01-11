@@ -951,118 +951,27 @@ Source: [American Community Survey 2016-2020 5-year estimates calculated for Ant
 
 ## Evictions
 
+To calculate evictions, 2013-2017 data was used due to the limitations of available data. There have been 636 evictions in the AV between 2013-2017. Meaning 2.1 out of 100 people in the AV faced evictions during this time period.by rate, Lake Los Angeles had the most evictions while Quartz Hill had the least. The neighborhoods of Lancaster (350 evictions) and Palmdale (226 evictions) had the most evictions by count. About half of all evictions during this time period were in Lancaster.
+
+** Totals by Region and Neighborhood **
 ```{r}
 source("W:/Project/RDA Team/Region 5 State of the Child/R/eviction.R")
 
 library(kableExtra)
-kbl(av_count) %>%
+kbl(av_count2) %>%
   kable_styling(bootstrap_options = c("striped", "bordered", "condensed"))
 
 ```
-** Eviction Rates Per 100 People by Race and Neighborhood   **
+Source: [Eviction Lab with ACS 2013-2017, 2020](https://data-downloads.evictionlab.org/#data-for-analysis/)
+
+** Eviction Rates Per 100 People by Race and Neighborhood  **
 ```{r}
 source("W:/Project/RDA Team/Region 5 State of the Child/R/eviction.R")
-
-library(kableExtra)
 kbl(av_table) %>%
   kable_styling(bootstrap_options = c("striped", "bordered", "condensed"))
 
 ```
 
-
-<!-- ```{r} -->
-<!-- # AV Bar Chart -->
-
-<!-- s <- AV  -->
-<!-- tot = subset(s, select=c(total_rate)) %>% round(1)  # pull out total_rate -->
-<!-- s = subset(s, select=-c(total_rate)) # pull out raced rates -->
-<!-- oldnames = c("nh_asian_rate", "nh_black_rate", "nh_filipino_rate", "latino_rate", "nh_twoormor_rate", "nh_white_rate") -->
-<!-- engvar = c("Asian", "Black", "Filipinx", "Latinx", "Two or more", "White") -->
-<!-- s = s %>% rename_at(vars(oldnames), ~ engvar) -->
-
-<!-- # create english / spanish labels -->
-<!-- engvar = c("Black", "AIAN", "Asian", "Filipinx", "Latinx", "NHPI", "White", "Two or more") -->
-<!-- esvar = c("Negro", "Indígena Americano", "Asiático", "Filipino", "Latino", "Isleño del Pacifico", "Blanco", "Dos o mas")  -->
-<!-- #esvar_long = c("NEGRO O AFROAMERICANO", "INDÍGENA AMERICANO O NATIVO DE ALASKA", "ASIÁTICO", "FILIPINO", "LATINO", "ISLEÑO DEL PACIFICO", "BLANCO", "DOS O MAS") -->
-<!-- labels <- data.frame(engvar, esvar) -->
-<!-- # labels -->
-
-
-<!-- # convert df to long format -->
-<!-- s_long <- reshape2::melt(s, id.vars=c("geoname")) -->
-<!-- # Round 'value' field to 1 decimal, rename 'variable' field, add Spanish labels -->
-<!-- s_long <- s_long %>% mutate(value = round(value, 1)) %>% dplyr::rename(engvar = variable)  %>%  -->
-<!--   left_join(labels, by = "engvar") -->
-<!-- s_long <- s_long %>% filter(value > 0) -->
-
-
-<!-- df <- data.frame(s_long, tot)       # add total_rate to long table -->
-<!-- df <- na.omit(df)             # drop NA's -->
-<!-- # df -->
-
-<!-- engtot_stat <- paste("Overall Rate =", min(df$total_rate))   # total_rate line annotation -->
-<!-- estot_stat <- paste("Promedio Total =", min(df$total_rate))   # total_rate line annotation -->
-
-
-<!-- # Set region name for file name -->
-<!-- region <- "Antelope Valley" -->
-
-
-<!-- # write the name of your indicator here: -->
-<!-- var <- "hs_graduation" -->
-
-
-<!-- # Define chart height as max y value varies by indicator. Set vertical position for total line label - may need to be customized for each chart. -->
-<!-- max_y = 1.15 * max(df$value) -->
-<!-- annotate_y = 1.12 * (df$total_rate) -->
-
-<!-- # specify language: comment out based on language of chart created below -->
-<!-- lang <- "eng" -->
-
-
-
-
-<!-- # # ggplot method that should export as .svg ## -->
-<!-- av_plot <- -->
-<!--   #English -->
-<!--   ggplot(df, aes(x= reorder(engvar, -value), y=value)) +     # set up manual fill using 'test', add "-" before value to order bars when MAX is best -->
-<!--   annotate("text", x=6.25, y = annotate_y, label = str_wrap(engtot_stat, width = 20), hjust=-0.33, vjust = 0.35, family= font_table_text, color = red) + -->
-<!--   labs(title = "**<span style='font-size:20pt;'>High School Graduation Rates (%)</span>**", subtitle = region, caption = "*Rates are out of 100 students, American Indian and Alaska Native (AIAN), Native Hawaiian and Pacific Islander (NHPI)") + -->
-<!--   # rest of chart -->
-<!--   geom_bar(stat="identity", position = position_dodge(0.7), show.legend = FALSE) + -->
-<!--   geom_col(fill = lightblue, color = darkblue) +         # all bars in "#355C7D" -->
-<!--   geom_hline(aes(yintercept = round(total_rate, 1)), color = red, size = .5) + -->
-<!--   geom_text(aes(label = round(value, digits = 1)), family = font_bar_label, hjust = -.5) +       # format data labels, adjust hjust to avoid overlap w/ total line -->
-<!--   # scale_y_continuous(limits = c(0, max_y), breaks = seq(0, max_y, by = 20)) + -->
-<!--   scale_x_discrete(labels = function(engvar) str_wrap(engvar, width = 20)) +            # wrap long labels -->
-<!--   xlab("") + -->
-<!--   ylab("") + -->
-<!--   coord_flip() -->
-<!-- # av_plot -->
-
-<!-- av_plot <- av_plot + theme( -->
-<!--   panel.background = element_rect(fill = "transparent"), # bg of the panel -->
-<!--   plot.background = element_rect(fill = 'transparent', color=NA), -->
-<!--   panel.grid.major.y = element_line(colour = textgrey),    # add major y-axis gridlines -->
-<!--   panel.grid.minor = element_blank(), # bg of the plot -->
-<!--   axis.title.x = element_blank(), -->
-<!--   axis.title.y = element_blank(), -->
-<!--   axis.text.x = element_text(size = 12, family= font_axis_label), -->
-<!--   axis.text.y = element_text(size = 12, family= font_axis_label), -->
-<!--   axis.ticks = element_blank(), -->
-<!--   plot.title = element_markdown(family = font_title, face = "bold", size = 15, hjust = 0), -->
-<!--   plot.title.position = "plot", -->
-<!--   plot.subtitle = element_text(family = font_title, hjust = 0), -->
-<!--   plot.margin = margin(t = 10, -->
-<!--                        b = 10, -->
-<!--                        r = 10, -->
-<!--                        l = 10) -->
-<!-- ) -->
-
-
-<!-- av_plot <- av_plot + ylim(0, max_y)     # add buffer between title and chart/data labels -->
-<!-- av_plot -->
-<!-- ``` -->
 
 ## Cost of Living
 
