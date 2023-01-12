@@ -144,7 +144,7 @@ kbl(race_data) %>%
   kable_styling(bootstrap_options = c("striped", "bordered", "condensed"))
 
 ```
-Source: [American Community Survey 2016-2020 5-year estimates calculated for Antelope Valley neighborhoods by Lucy Wilkerson](https://public.tableau.com/app/profile/luz3725/viz/2020CensusData-AVBESTSTARTREGION5/GRAPI)
+Source: [American Community Survey 2016-2020 5-year estimates calculated for Antelope Valley neighborhoods by Lucy Wilkerson](https://public.tableau.com/app/profile/luz3725/viz/2020CensusData-AVBESTSTARTREGION5/GRAPI). Note: All racial-ethnic groups in the table other than Latinx are non-Hispanic. Lancaster and Palmdale above are neighborhoods created by census tract aggregations as opposed to cities.
 
 ## Black Infant Mortality 
 
