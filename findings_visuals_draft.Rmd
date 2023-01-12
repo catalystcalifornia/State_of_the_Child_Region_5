@@ -1217,7 +1217,7 @@ Source: Catalyst California calculations of [California Department of Education,
 ## Suspensions
 The last full year of in-class learning for which the California Department of Education publishes data is 2021-22. That year **suspension rates for Foster and Black students were more than double the district total suspension rate Antelope Valley school districts**. American Indian or Alaska Native and Multiracial suspension rates were also often above totals in most area school districts.
 
-**Suspension rates by race, Antelope Valley school districts, 2021-22**
+**Suspension Rates by Student Group, Antelope Valley School Districts, 2021-22**
 ```{r}
 source("W:/Project/RDA Team/Region 5 State of the Child/R/suspension.R")
 
