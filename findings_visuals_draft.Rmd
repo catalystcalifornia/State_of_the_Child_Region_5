@@ -952,7 +952,7 @@ Source: [American Community Survey 2016-2020 5-year estimates calculated for Ant
 
 ## Evictions
 
-To calculate evictions, 2013-2017 data was used due to the limitations of available data. There have been 636 evictions in the AV between 2013-2017. Meaning 2.1 out of 100 people in the AV faced evictions during this time period.by rate, Lake Los Angeles had the most evictions while Quartz Hill had the least. The neighborhoods of Lancaster (350 evictions) and Palmdale (226 evictions) had the most evictions by count. About half of all evictions during this time period were in Lancaster.
+To calculate evictions, 2013-2017 data was used due to the limitations of available data. There have been 636 evictions in the AV between 2013-2017. Meaning 1 out of 50 people in the AV faced evictions during this time period. By rate, Lake Los Angeles had the most evictions while Quartz Hill had the least. The neighborhoods of Lancaster (350 evictions) and Palmdale (226 evictions) had the most evictions by count. About half of all evictions during this time period were in Lancaster.
 
 ** Totals by Region and Neighborhood **
 ```{r}
@@ -965,6 +965,8 @@ kbl(av_count2) %>%
 ```
 Source: [Eviction Lab with ACS 2013-2017, 2020](https://data-downloads.evictionlab.org/#data-for-analysis/)
 
+Asian, White, and Latinx residents had the highest rate of most evictions in the Lake Los Angeles Neighborhood by per 100 people. In Lancaster, Black, Latinx, NHPI and residents who identified as Non-Hispanic Two or More Races all faced evictions at a rate at or above the AV overall total. The same was true in Palmdale, the neighborhood with the second highest population in which Black and residents who identified as Non-Hispanic Two or More Races. In Quartz Hill, residents who identified as Non-Hispanic Other Races had the highest rate of evictions which shows the need to further investigate and disaggregate who might identify as Non-Hispanic Other in the area.
+
 ** Eviction Rates Per 100 People by Race and Neighborhood  **
 ```{r}
 source("W:/Project/RDA Team/Region 5 State of the Child/R/eviction.R")
@@ -973,6 +975,7 @@ kbl(av_table) %>%
 
 ```
 
+Source: [Eviction Lab with ACS 2013-2017, 2020](https://data-downloads.evictionlab.org/#data-for-analysis/)
 
 ## Cost of Living
 
@@ -987,6 +990,7 @@ kbl(rcm_data) %>%
   kable_styling(bootstrap_options = c("striped", "bordered", "condensed"))
 
 ```
+
 Source: [United Ways of California Real Cost Measure, 2019](https://www.unitedwaysca.org/realcost/39-real-cost)
 
 <!-- 
