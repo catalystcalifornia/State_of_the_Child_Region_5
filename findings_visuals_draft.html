@@ -1836,7 +1836,7 @@ div.tocify {
 <h1 class="title toc-ignore">Region 5 State of the Child: Draft Data
 Findings and Visuals</h1>
 <h4 class="author">Catalyst California</h4>
-<h4 class="date">11 January, 2023</h4>
+<h4 class="date">12 January, 2023</h4>
 
 </div>
 
@@ -7359,6 +7359,145 @@ Two or More
 <p>Source: <a href="https://openjustice.doj.ca.gov/data">Open Justice CA
 DOJ Portal, 2020</a> <br> <a href="https://data.census.gov/table?tid=ACSDP5Y2020.DP05">American
 Community Survey Table DP05, 2020</a></p>
+</div>
+<div id="hate-crimes" class="section level2">
+<h2>Hate Crimes</h2>
+<p>Between 2003 and 2020, 385 hate crimes were reported in the Antelope
+Valley, SPA 1, for a rate of 97 hate crimes per 100,000 people. Antelope
+Valley residents were subject to more hate crimes per capita than LA
+County residents, as LA County’s hate crime rate was 67 hate crimes per
+100,000 people during the same time period. Hate crimes against
+racial-ethnic groups made up 71% of AV hate crimes with 169 hate crimes
+perpetrated against Black AV residents, 61 hate crimes perpetrated
+against Latinx residents, and 45 hate crimes perpetrated against
+others.</p>
+<pre class="r"><code>source(&quot;W:/Project/RDA Team/Region 5 State of the Child/R/hate_crimes.R&quot;)</code></pre>
+<pre><code>FALSE Reading layer `hate_crime_2003_2020_LAC_HRC_by_tract&#39; from data source 
+FALSE   `W:\Project\RDA Team\Region 5 State of the Child\Shapes\hate_crime_2003_2020_LAC_HRC_by_tract.shp&#39; 
+FALSE   using driver `ESRI Shapefile&#39;
+FALSE Simple feature collection with 2346 features and 72 fields
+FALSE Geometry type: MULTIPOLYGON
+FALSE Dimension:     XY
+FALSE Bounding box:  xmin: 6273178 ymin: 1367712 xmax: 6668481 ymax: 2122084
+FALSE Projected CRS: NAD83 / California zone 5 (ftUS)
+FALSE Reading layer `LA_County_Service_Planning_Area&#39; from data source 
+FALSE   `W:\Project\RDA Team\Region 5 State of the Child\Shapes\LA_County_Service_Planning_Area.shp&#39; 
+FALSE   using driver `ESRI Shapefile&#39;
+FALSE Simple feature collection with 8 features and 7 fields
+FALSE Geometry type: MULTIPOLYGON
+FALSE Dimension:     XY
+FALSE Bounding box:  xmin: -13240860 ymin: 3868152 xmax: -13096340 ymax: 4139895
+FALSE Projected CRS: WGS 84 / Pseudo-Mercator</code></pre>
+<pre class="r"><code>library(kableExtra)
+kbl(hate_crime_table) %&gt;%
+  kable_styling(bootstrap_options = c(&quot;striped&quot;, &quot;bordered&quot;, &quot;condensed&quot;))</code></pre>
+<table class="table table-striped table-bordered table-condensed" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:right;">
+AV Hate Crimes
+</th>
+<th style="text-align:right;">
+AV Hate Crimes per 100k
+</th>
+<th style="text-align:right;">
+LA County Hate Crimes per 100k
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Disability
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Race-ethnicity
+</td>
+<td style="text-align:right;">
+275
+</td>
+<td style="text-align:right;">
+69
+</td>
+<td style="text-align:right;">
+38
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Religion
+</td>
+<td style="text-align:right;">
+41
+</td>
+<td style="text-align:right;">
+10
+</td>
+<td style="text-align:right;">
+12
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Sexual Orientation
+</td>
+<td style="text-align:right;">
+54
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:right;">
+13
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Unknown
+</td>
+<td style="text-align:right;">
+10
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+TOTAL
+</td>
+<td style="text-align:right;">
+385
+</td>
+<td style="text-align:right;">
+97
+</td>
+<td style="text-align:right;">
+67
+</td>
+</tr>
+</tbody>
+</table>
+<p>Source: California Department of Justice 2016-21 and American
+Community Survey 5-year population estimates. Catalyst California
+aggregated incidents of violence and population figures and calculated
+rates of violence visited on civilians per 1,000 people.</p>
 <!-- 
 
 ```r

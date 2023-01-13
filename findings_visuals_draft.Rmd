@@ -1523,6 +1523,19 @@ kbl(stop_data) %>%
 Source: [Open Justice CA DOJ Portal, 2020](https://openjustice.doj.ca.gov/data) <br>
 [American Community Survey Table DP05, 2020](https://data.census.gov/table?tid=ACSDP5Y2020.DP05)
 
+## Hate Crimes
+Between 2003 and 2020, 385 hate crimes were reported in the Antelope Valley, SPA 1, for a rate of 97 hate crimes per 100,000 people. Antelope Valley residents were subject to more hate crimes per capita than LA County residents, as LA County's hate crime rate was 67 hate crimes per 100,000 people during the same time period. Hate crimes against racial-ethnic groups made up 71% of AV hate crimes with 169 hate crimes perpetrated against Black AV residents, 61 hate crimes perpetrated against Latinx residents, and 45 hate crimes perpetrated against others.
+```{r message=FALSE, warning=FALSE}
+source("W:/Project/RDA Team/Region 5 State of the Child/R/hate_crimes.R")
+
+library(kableExtra)
+kbl(hate_crime_table) %>%
+  kable_styling(bootstrap_options = c("striped", "bordered", "condensed"))
+
+```
+Source: California Department of Justice 2016-21 and American Community Survey 5-year population estimates. Catalyst California aggregated incidents of violence and population figures and calculated rates of violence visited on civilians per 1,000 people.
+
+
 <!-- 
 ```{r}
 # #bilingual chart
