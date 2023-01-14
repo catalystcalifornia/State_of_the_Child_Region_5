@@ -918,6 +918,16 @@ These parents are part of the larger adult population that reports highest-among
 
 On a positive note, there are many services aimed at children and families in the Antelope Valley, including the Black Infant Health Program of Antelope Valley, the Children's Bureau Sunrise Center, and others who work to ensure families have what they need to thrive.
 
+
+## Health
+
+The Antelope Valley has fewer health and medical professionals than other parts of the county and state. The area has a variety of medical and health professional shortage designations, including: 
+
+* The Lake Los Angeles and Juniper Hills Little Rock Medical Services Study Areas (MSSAs) are Medically Underserved Areas[1](https://gis.data.ca.gov/datasets/CHHSAgency::medically-underserved-areas/explore?location=34.269244%2C-118.153917%2C9.58)
+* The two MSSAs plus the Lancaster Central/Palmdale North Central and Palmdale Central MSSAs are Primary Care Health Professional Shortage Areas[1](https://gis.data.ca.gov/datasets/CHHSAgency::health-professional-shortage-area-primary-care/explore?location=34.384784%2C-117.925067%2C9.00)
+* These four MSSAs plus the Acton/Ravenna, Desert View Highlands/Lancaster West/Palmdale Northwest/Quartz Hill, and Elizabeth Lake/Gorman/Green Valley/Lake Hughes/Leona Valley/Neenach MSSAs are mental health professional shortage areas[1](https://gis.data.ca.gov/datasets/CHHSAgency::health-professional-shortage-area-mental-health/explore?location=34.300335%2C-118.134212%2C9.00).This means that virtually the entire Antelope Valley is a mental health professional shortage areas.
+
+
 ## Parks
 The Los Angeles County County Department of Parks and Recreation completed a Countywide Parks and Recreation Needs Assessment addition in 2022. The assessment has findings for the region in an [Antelope Valley regional profile](https://lacountyparkneeds.org/wp-content/uploads/2022/11/AppA_RegionalProfiles_AntelopeValley_11282022.pdf). Some key findings from that profile:
 
@@ -925,6 +935,8 @@ The Los Angeles County County Department of Parks and Recreation completed a Cou
 * The highest Regional Recreation Need is found in Lake Los Angeles, Littlerock, and Sun Village due to a combination of social and environmental factors.
 * Community members identified heat, distance, safety, lack of information and limited facilities as barriers to park use for residents in the study area.
 * **Residents say they need more shade, cooling centers and access to water, affordable transit access to parks, additional facilities and programming, enhanced safety measures and more information about parks and amenities**.
+
+
 
 # Economics 
 
