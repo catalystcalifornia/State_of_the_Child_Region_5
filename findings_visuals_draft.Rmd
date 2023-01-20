@@ -974,7 +974,7 @@ Source: [American Community Survey 2016-2020 5-year estimates calculated for Ant
 
 ## Foreclosures
 
-Foreclosure data was calcuated using 2017 to partial 2022 data. In this time period there were a total of 546 foreclosures. On average 0.01% of 10,000 households in the AV faced foreclosures during this time period. By rate, Lake Los Angeles had the most foreclosures where  while Quartz Hill had the least. The neighborhoods of Lancaster (350 evictions) and Palmdale (226 evictions) had the most evictions by count. About half of all evictions during this time period were in Lancaster. 
+Foreclosure data was calcuated using 2017 to partial 2022 data. In this time period there were a total of 546 foreclosures. On average 0.01% of 10,000 households in the AV faced foreclosures during this time period. By rate, Lake Los Angeles had the most foreclosures where 0.6% out of 10,000 households faced foreclosures while Palmdale had the least (0.02%). Similary Lancaster also faced a small rate of foreclosures (0.04%). However count wise, because of the Lancaster and Palmdale having the greatest population in the AV, by count they still had the most foreclosures, 239 and 181 respectively.
 
 ** Foreclosure Totals by Region and Neighborhood **
 ```{r}
