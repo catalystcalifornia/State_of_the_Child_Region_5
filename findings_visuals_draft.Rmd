@@ -974,7 +974,11 @@ Source: [American Community Survey 2016-2020 5-year estimates calculated for Ant
 
 ## Foreclosures
 
-Foreclosure data was calcuated using 2017 to partial 2022 data. In this time period there were a total of 546 foreclosures. On average 0.01% of 10,000 households in the AV faced foreclosures during this time period. By rate, Lake Los Angeles had the most foreclosures where 0.6% out of 10,000 households faced foreclosures while Palmdale had the least (0.02%). Similary Lancaster also faced a small rate of foreclosures (0.04%). However count wise, because of the Lancaster and Palmdale having the greatest population in the AV, by count they still had the most foreclosures, 239 and 181 respectively.
+Foreclosure data was calculated using 2017 to partial 2022 data. In this time period there were a total of 546 foreclosures. On average 0.01 of 10,000 owner households in the AV faced foreclosures.
+
+Comparatively, there were much more foreclosures in Los Angeles County and the state where 1.8 per 10,000 owner households and 2 per 10,000 owner households faced foreclosures respectively. 
+
+By rate, Lake Los Angeles had the most foreclosures where 0.6 out of 10,000 owner households faced foreclosures while Palmdale had the least (0.02). Similary Lancaster also faced a small rate of foreclosures (0.04). However count wise, because of the Lancaster and Palmdale having the greatest population in the AV, by count they still had the most foreclosures, 239 and 181 respectively.
 
 ** Foreclosure Totals by Region and Neighborhood **
 ```{r}
@@ -990,7 +994,7 @@ Source: [DataQuick (2017 to partial 2022) purchased from DQNews](https://dqnews.
 
 ## Evictions
 
-To calculate evictions, 2013-2017 data was used due to the limitations of available data. There have been 636 evictions in the AV between 2013-2017. Meaning 1 out of 50 households in the AV faced evictions during this time period. By rate, Lake Los Angeles had the most evictions while Quartz Hill had the least. The neighborhoods of Lancaster (350 evictions) and Palmdale (226 evictions) had the most evictions by count. About half of all evictions during this time period were in Lancaster.
+To calculate evictions, 2013-2017 data was used due to the limitations of available data. There have been 636 evictions in the AV between 2013-2017. Meaning 1 out of 50 households in the AV faced evictions during this time period. This is twice the rate of California and more than twice the rate of Los Angeles County where 1 in 100 households and 0.8 in 100 households face evictions respectively. By rate, Lake Los Angeles had the most evictions while Quartz Hill had the least. The neighborhoods of Lancaster (350 evictions) and Palmdale (226 evictions) had the most evictions by count. About half of all evictions during this time period were in Lancaster.
 
 ** Eviction Totals by Region and Neighborhood **
 ```{r}
@@ -1003,7 +1007,7 @@ kbl(av_count2) %>%
 ```
 Source: [Eviction Lab with ACS 2013-2017, 2020](https://data-downloads.evictionlab.org/#data-for-analysis/)
 
-Asian, White, and Latinx residents had the highest rate of most evictions in the Lake Los Angeles Neighborhood by per 100 Households. In Lancaster, Black, Latinx, NHPI and residents who identified as Non-Hispanic Two or More Races all faced evictions at a rate at or above the AV overall total. The same was true in Palmdale, the neighborhood with the second highest population in which Black and residents who identified as Non-Hispanic Two or More Races. In Quartz Hill, residents who identified as Non-Hispanic Other Races had the highest rate of evictions which shows the need to further investigate and disaggregate who might identify as Non-Hispanic Other in the area.
+Asian, White, and Latinx residents had the highest rate of most evictions in the Lake Los Angeles Neighborhood . In Lancaster, Black, Latinx, NHPI and residents who identified as Non-Hispanic Two or More Races all faced evictions at a rate at or above the AV overall total. The same was true in Palmdale, the neighborhood with the second highest population in which Black and residents who identified as Non-Hispanic Two or More Races. In Quartz Hill, residents who identified as Non-Hispanic Other Races had the highest rate of evictions which shows the need to further investigate and disaggregate who might identify as Non-Hispanic Other in the area.
 
 
 ## Cost of Living
@@ -1065,6 +1069,8 @@ Source: [L.A. County WIC Administrative Data, 2021](https://lawicdata.org/data-r
 The average high school graduation rate in the Antelope Valley is 65%. In the AV, Latinx (63.6%) followed by Black (64.8%) students had the lowest graduation rates while Filipino (82.7%) and Asian (80.7%) students had the highest. The Acton-Agua Dulce Unified School District has the lowest graduation rate (34.7%). Notably in the Acton-Agua Dulce Unified School District Latinx, Black, Filipino, and students who identified as non-Hispanic Two or More Races all had under 50% graduation rates. The Gorman Joint School District had the highest rate (81.9%). 
 
 The Antelope Valley Union High School District had a total rate of 80.3%, comparable to the LA County average. Similar to county trends, Black students had the lowest graduation rates (73.1%) followed by students who identified as Two or More Races (80.9%) and Latinx students (81.5%). Filipino (93.8%) followed by Asian (88.6%) and White (81.9%) students have the highest rates.
+
+In the Antelope Valley female Students graduation rates (72%) were 10 percentage points higher than their male counterparts (62%). About half of students with Disabilities (51%), English Language Learners (50%), and students in Foster Care (47%) were able to graduate in the AV. Students experiencing homelessness fared far worse with only 38% or 19 out of 50 students graduating from High School. According to the CDE students in the Migrant program had a much higher graduation rate with 89% graduating. However this number does not account for migrant students who are not registered in the Migrant Program. Students that the CDE considered Socioeconomically Disadvantaged (65%) around the total average (67%) which makes sense since the majority of the student population in the AV is considered to Socioeconomically Disadvantaged (82%).
 
 **Highschool Graduation Rates out of 100 by School District 2021-22 School Year**
 ```{r}
@@ -1264,7 +1270,9 @@ Source: Catalyst California calculations of [California Department of Education,
 
 ## 3rd Grade Math Scores
 
-In the 2021-22 School Year in the Antelope Valley, 24% of Students in the 3rd Grade scored Proficient or Better in Math. That means that about 1 in 5 3rd grade students in the AV had sufficient Math scores. Black students in the AV had the lowest scores with about 1 in 10 scoring proficient or better in Math while Asian students had the highest rate of students scoring proficient or better at a rate of 54%. 24% of Latinx students, the most populous group int he AV, scored proficient in Math, which is also likely why the AV average score was also at 24%, because of the heavy influence of the low scores for the greatest populations of students. At the school district level, the Eastside  Union Elementary School District had the lowest scores with only 16% of 3rd grade students scoring proficient or better while the Acton-Agua Unified School District had the highest at 40%. None of the school districts scored above 40% while most of them scored around 20%. This means that across the board, math scores were fairly low for 3rd grade students in the AV. 
+In the 2021-22 School Year in the Antelope Valley, 24% of Students in the 3rd Grade scored Proficient or Better in Math. That means that 3rd Grade Math Proficiency was 12.8 percentage points lower than in Los Angles County and 15.7 percentage points lower than in California. That means that about 1 in 5 3rd grade students in the AV had sufficient Math scores. Black students in the AV had the lowest scores with about 1 in 10 scoring proficient or better in Math while Asian students had the highest rate of students scoring proficient or better at a rate of 54%. 24% of Latinx students, the most populous group int he AV, scored proficient in Math, which is also likely why the AV average score was also at 24%, because of the heavy influence of the low scores for the greatest populations of students. At the school district level, the Eastside  Union Elementary School District had the lowest scores with only 16% of 3rd grade students scoring proficient or better while the Acton-Agua Unified School District had the highest at 40%. None of the school districts scored above 40% while most of them scored around 20%. This means that across the board, math scores were fairly low for 3rd grade students in the AV. 
+
+Male students scored proficiently 5.6 percentage points higher than their female counterparts in the AV. Students that were considered Economically Disadvantaged scored proficiently 3.7 percentage points under the total AV average. English Language Learners (14%), students experiencing Homelessness (12.7%), students with disabilities (9.6%), and students in Foster Care (8.7%) all scored proficient results much lower than the AV average, with students in Foster Care scoring the lowest.
 
 **Antelope Valley District Level 3rd Graders Scoring Proficient or Better in Math (%)**
 ```{r}
@@ -1371,6 +1379,8 @@ av_plot
 ## 3rd Grade English Scores
 
 Only about 1 in 4 3rd grade students int he AV scored proficient or better in English Language Arts. The overall score was 25% of students passing, which was 12 percentage points lower than the The Los Angeles County average, 37%. Black (13%) followed by Latinx (25%) students had the lowest rates while Asian and Filipino 3rd grade students had the highest rates, with both scoring a little less than half. At the school district level Wilsona Elementary followed by Lancaster Elementary had the lowest average rates, 14% and 20% respectively. Lancaster Elementary and Palmdale Elementary School Districts had especially low rates for Black 3rd grade students, 12% for both. Wilsona had an especially low rate for Latinx students about 14%.
+
+In the AV, female students scored proficiently 6 percentage points higher than their male counterparts. Economically Disadvantaged Students passed at a rate 3.6 percentage points under that of the AV average. Students experiencing homelessness, English Language Learners, and  students in Foster Care all scored proficiently 10 percentage points under the AV average. Students with disabilities had the lowest passing rate with only 9.4% getting proficient results.
 
 **Antelope Valley District Level 3rd Graders Scoring Proficient or Better in English and Language Arts (%)**
 ```{r}
