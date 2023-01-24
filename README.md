@@ -2,7 +2,7 @@
 Draft Findings and Visuals for the State of the Child Region 5 Report.
 
  <li>
-      <a href="https://advancementprojectca-rda.github.io/State_of_the_Child_Region_5/findings_visuals_draft.html"> Draft Findings HTML Link<br>https://advancementprojectca-rda.github.io/State_of_the_Child_Region_5/findings_visuals_draft.html</a>
+      <a href="https://catalystcalifornia.github.io/State_of_the_Child_Region_5/findings_visuals_draft.html"> Draft Findings HTML Link<br>https://catalystcalifornia.github.io/State_of_the_Child_Region_5/findings_visuals_draft.html</a>
       </li>
 
 <details>
@@ -39,23 +39,24 @@ The State of the Child Antelope Valley Report seeks to understand the conditions
 
 
 ### Data Source(s)
-# *[American Community Survey 2016-2020 5-year estimates calculated for Antelope Valley neighborhoods by Lucy Wilkerson](https://public.tableau.com/app/profile/luz3725/viz/2020CensusData-AVBESTSTARTREGION5/GRAPI)
-# *[2019 US Census American Community Survey (ACS) 1-year Estimates, Table S0201](https://data.census.gov/cedsci/table?q=S0201&t=-00%20-%20All%20available%20races&g=0400000US06%240500000&tid=ACSSPP1Y2019.S0201)
-# *[Children's Data Network Infant Mortality Rates](https://www.first5la.org/wp-content/uploads/2020/09/First-5-LA-2020-Indicators-Report.pdf)
-# *[California Department of Public Health](https://data.chhs.ca.gov/dataset/infant-mortality-deaths-per-1000-live-births-lghc-indicator-01/resource/ae78da8f-1661-45f6-b2d0-1014857d16e3)
-# *[African American Infant and Maternal Mortality (AAIMM) Initiative](https://www.blackinfantsandfamilies.org/)
-# *[A Pathway to Equity](http://publichealth.lacounty.gov/centerforhealthequity/PDF/AAIM-ActionPlan.pdf)
-# *[Vera Institute for Justice](https://www.vera.org/)
-# *[California Department of Education, 2015-2022](https://dq.cde.ca.gov/dataquest/)
-# *[Los Angeles Homeless Services Authority, 2022](https://www.lahsa.org/data)
-# *[United Ways of California Real Cost Measure, 2021](https://www.unitedwaysca.org/realcost/39-real-cost)
-# *[L.A. County WIC Administrative Data, 2021](https://lawicdata.org/data-research/by-region/)
+ *[American Community Survey 2016-2020 5-year estimates calculated for Antelope Valley neighborhoods by Lucy Wilkerson](https://public.tableau.com/app/profile/luz3725/viz/2020CensusData-AVBESTSTARTREGION5/GRAPI)
+ *[2019 US Census American Community Survey (ACS) 1-year Estimates, Table S0201](https://data.census.gov/cedsci/table?q=S0201&t=-00%20-%20All%20available%20races&g=0400000US06%240500000&tid=ACSSPP1Y2019.S0201)
+ *[Children's Data Network Infant Mortality Rates](https://www.first5la.org/wp-content/uploads/2020/09/First-5-LA-2020-Indicators-Report.pdf)
+ *[California Department of Public Health](https://data.chhs.ca.gov/dataset/infant-mortality-deaths-per-1000-live-births-lghc-indicator-01/resource/ae78da8f-1661-45f6-b2d0-1014857d16e3)
+ *[African American Infant and Maternal Mortality (AAIMM) Initiative](https://www.blackinfantsandfamilies.org/)
+ *[A Pathway to Equity](http://publichealth.lacounty.gov/centerforhealthequity/PDF/AAIM-ActionPlan.pdf)
+ *[Vera Institute for Justice](https://www.vera.org/)
+ *[California Department of Education, 2015-2022](https://dq.cde.ca.gov/dataquest/)
+ *[Los Angeles Homeless Services Authority, 2022](https://www.lahsa.org/data)
+ *[United Ways of California Real Cost Measure, 2021](https://www.unitedwaysca.org/realcost/39-real-cost)
+ *[L.A. County WIC Administrative Data, 2021](https://lawicdata.org/data-research/by-region/)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 ### Built with
-<img-align="left" alt="R" width="32px", src="https://upload.wikimedia.org/wikipedia/commons/1/1b/R_logo.svg"/><img-align="left" alt="RStudio" width="32px", src="https://upload.wikimedia.org/wikipedia/commons/d/d0/RStudio_logo_flat.svg"/>
-
+<!--<img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/R_logo.svg" align="left" alt="R" width="32px">
+<img src="https://upload.wikimedia.org/wikipedia/commons/d/d0/RStudio_logo_flat.svg" align="left" alt="RStudio" width="32px">-->
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/R_logo.svg/1086px-R_logo.svg.png?20160212050515" alt="R" height="32px"/> &nbsp; <img  src="https://upload.wikimedia.org/wikipedia/commons/d/d0/RStudio_logo_flat.svg" alt="RStudio" height="32px"/> &nbsp; <img  src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Git-logo.svg/768px-Git-logo.svg.png?20160811101906" alt="RStudio" height="32px"/>
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -92,8 +93,11 @@ The data cleaning, analysis, and visualization was conducted with the following 
 * kableExtra
 * RPostgreSQL
 * usethis
-  ```sh
-list.of.packages <- c("openxlsx","tidycensus", "tidyr","dplyr","stringr","RPostgreSQL","data.table", "kableExtra", "ggplot2", "ggtext", "janitor","sf") 
+
+
+```
+list.of.packages <- c("openxlsx", "tidycensus", "tidyr","dplyr", "stringr", "RPostgreSQL",
+"data.table", "kableExtra", "ggplot2", "ggtext", "janitor","sf") 
 new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"Package"])]
 if(length(new.packages)) install.packages(new.packages)
 
@@ -112,13 +116,14 @@ library(kableExtra)
 library(ggplot2)
 library(ggtext)
 library(usethis)
-
-  ```
+```
 
 4. Enter your API in `.Renviron` File for Repeated Use
 [https://walker-data.com/tidycensus/reference/census_api_key.html](https://walker-data.com/tidycensus/reference/census_api_key.html)
-```r
 
+
+
+```
 if (FALSE) {
 census_api_key("111111abc", install = TRUE)
 # First time, reload your environment so you can use the key without restarting R.
