@@ -978,7 +978,7 @@ Foreclosure data was calculated using 2017 to partial 2022 data. In this time pe
 
 Comparatively, there were much more foreclosures in Los Angeles County and the state where 1.8 per 10,000 owner households and 2 per 10,000 owner households faced foreclosures respectively. 
 
-By rate, Lake Los Angeles had the most foreclosures where 0.6 out of 10,000 owner households faced foreclosures while Palmdale had the least (0.02). Similary Lancaster also faced a small rate of foreclosures (0.04). However count wise, because of the Lancaster and Palmdale having the greatest population in the AV, by count they still had the most foreclosures, 239 and 181 respectively.
+By rate, Lake Los Angeles had the most foreclosures where 0.6 out of 10,000 owner households faced foreclosures while Palmdale had the least (0.02). Similarly Lancaster also faced a small rate of foreclosures (0.04). However count wise, because of Lancaster and Palmdale having the greatest populations in the AV, by count they still had the most foreclosures, 239 and 181 respectively.
 
 ** Foreclosure Totals by Region and Neighborhood **
 ```{r}
