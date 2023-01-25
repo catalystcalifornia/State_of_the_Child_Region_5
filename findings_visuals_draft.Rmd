@@ -48,9 +48,6 @@ library(sysfonts)
 library(showtext)
 library(sf)
 library(stringr)
-
-
-library(janitor)
 library(DT)
 library(formattable)
 library(knitr)
@@ -61,9 +58,7 @@ library(colorspace)
 library(devtools)
 library(broom)
 library(reshape2)
-library(ggplot2)
 library(extrafont)
-library(showtext)
 library(sp)
 library(tigris)
 library(forcats)
@@ -1572,7 +1567,7 @@ kbl(hate_crime_table) %>%
   kable_styling(bootstrap_options = c("striped", "bordered", "condensed"))
 
 ```
-Source: California Department of Justice 2016-21 and American Community Survey 5-year population estimates. Catalyst California aggregated incidents of violence and population figures and calculated rates of violence visited on civilians per 1,000 people.
+Source: Catalyst California calculations of [Los Angeles County Human Resources Commission 2003-2020](https://egis-lacounty.hub.arcgis.com/datasets/lacounty::reported-hate-crimes/explore?location=34.215272%2C-118.173107%2C7.95) hate crimes and 2020 American Community Survey 5-year population estimates. Rates of hate crimes presented are the average number of hate crimes in the time period per 100,000 people. Antelope Valley in this table is the aggregation of census tracts in SPA 1.
 
 
 <!-- 
