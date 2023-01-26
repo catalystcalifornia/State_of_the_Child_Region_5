@@ -35,6 +35,7 @@ if(length(new.packages)) install.packages(new.packages)
 The following site holds the draft findings and draft visuals from various data sources to better understand the well-being and health of children in Best Start Region 5, the Antelope Valley. The findings and visuals are being developed by Catalyst California for the Region 5 State of the Child report in collaboration with The Children's Bureau.
 
 ```{r}
+
 # Prep and Set Up 
 #### Loading Libraries ####
 library(dplyr)
@@ -103,13 +104,9 @@ font_axis_label <- "GothamBook"
 font_table_text<-"GothamBook"
 
 #### Loading Database from PgAdmin/Postgres #### 
-source("password_protection.R")
+source("W://Project//RDA Team//Region 5 State of the Child//R//passwords.R")
 
-drv <- dbDriver("PostgreSQL")
-
-con <- dbConnect(drv, dbname = "region5stateofthechild",
-                   host = "aws-postgres-db.c5udgz7ro8hq.us-west-2.rds.amazonaws.com", port = 5432,
-                   user = "postgres", password = pw)
+con_rc
 
 #### Static Visual Functions ####
 
