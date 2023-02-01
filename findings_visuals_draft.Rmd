@@ -321,7 +321,7 @@ Non-binary gender is tracked via students or school staff such as teachers elect
 
 source("W:/Project/RDA Team/Region 5 State of the Child/R/non-binary.R")
 library(kableExtra)
-av_table <- av_table %>% mutate(across(c(`2021-22 Count`), comma))
+
  
 kbl(av_table) %>%
   kable_styling(bootstrap_options = c("striped", "bordered", "condensed"))
