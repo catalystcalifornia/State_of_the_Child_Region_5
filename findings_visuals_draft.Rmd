@@ -183,7 +183,7 @@ Overall in the Antelope Valley (AV) during the 2021-2022 school year, 2,008 stud
 ```{r}
 source("W:/Project/RDA Team/Region 5 State of the Child/R/foster.R")
 library(kableExtra)
-
+av_table <- av_table %>% mutate(across(c(`2021-22 Count`), comma))
  
 kbl(av_table) %>%
   kable_styling(bootstrap_options = c("striped", "bordered", "condensed"))
@@ -299,7 +299,7 @@ Overall, 281 students (0.3% or 0.3 out of 100 students) are in the California's 
 source("W:/Project/RDA Team/Region 5 State of the Child/R/migrant.R")
 library(kableExtra)
 
- 
+av_table <- av_table %>% mutate(across(c(`2021-22 Count`), comma)) 
 kbl(av_table) %>%
   kable_styling(bootstrap_options = c("striped", "bordered", "condensed"))
 
@@ -321,7 +321,7 @@ Non-binary gender is tracked via students or school staff such as teachers elect
 
 source("W:/Project/RDA Team/Region 5 State of the Child/R/non-binary.R")
 library(kableExtra)
-
+av_table <- av_table %>% mutate(across(c(`2021-22 Count`), comma))
  
 kbl(av_table) %>%
   kable_styling(bootstrap_options = c("striped", "bordered", "condensed"))
@@ -440,6 +440,7 @@ In the 2021-22 school year, an extremely high percentage, 75% of students (or 3 
 source("W:/Project/RDA Team/Region 5 State of the Child/R/socioeconomically_disadvantaged.R")
 library(kableExtra)
 # av_table <- av_table %>% filter(Geography=='Antelope Valley Best Start Region 5')
+av_table <- av_table %>% mutate(across(c(`2021-22 Count`), comma))
 kbl(av_table) %>%
  kable_styling(bootstrap_options = c("striped", "bordered", "condensed"))
 
@@ -562,7 +563,7 @@ Given this information, interventions targeting current elementary and middle sc
 source("W:/Project/RDA Team/Region 5 State of the Child/R/student_homelessness.R")
 library(kableExtra)
 
- 
+ av_table <- av_table %>% mutate(across(c(`2021-22 Count`), comma))
 kbl(av_table) %>%
   kable_styling(bootstrap_options = c("striped", "bordered", "condensed"))
 
@@ -700,6 +701,7 @@ American Indian Alaskan Native (AIAN) students had the highest percentage of stu
 ```{r}
 source("W:/Project/RDA Team/Region 5 State of the Child/R/disabilties.R")
 library(kableExtra)
+av_table <- av_table %>% mutate(across(c(`2021-22 Count`), comma))
 kbl(av_table) %>%
   kable_styling(bootstrap_options = c("striped", "bordered", "condensed"))
 ```
@@ -729,6 +731,7 @@ In the Antelope Valley 14% of students were considered English Language Learners
 ```{r}
 source("W:/Project/RDA Team/Region 5 State of the Child/R/ell.R")
 library(kableExtra)
+av_table <- av_table %>% mutate(across(c(`2021-22 Count`), comma))
 kbl(av_table) %>%
   kable_styling(bootstrap_options = c("striped", "bordered", "condensed"))
 
@@ -993,13 +996,13 @@ To calculate evictions, 2013-2017 data was used due to the limitations of availa
 source("W:/Project/RDA Team/Region 5 State of the Child/R/eviction.R")
 
 library(kableExtra)
+av_count2 <- av_count2 %>% 
+  mutate_at(vars(-c(Geography, `Total Population`, `Eviction Count`)), funs(round(., 2))) %>% mutate(across(c(`Total Population`, `Eviction Count`), comma))
 kbl(av_count2) %>%
   kable_styling(bootstrap_options = c("striped", "bordered", "condensed"))
 
 ```
 Source: [Eviction Lab with ACS 2013-2017, 2020](https://data-downloads.evictionlab.org/#data-for-analysis/)
-
-Asian, White, and Latinx residents had the highest rate of most evictions in the Lake Los Angeles Neighborhood . In Lancaster, Black, Latinx, NHPI and residents who identified as Non-Hispanic Two or More Races all faced evictions at a rate at or above the AV overall total. The same was true in Palmdale, the neighborhood with the second highest population in which Black and residents who identified as Non-Hispanic Two or More Races. In Quartz Hill, residents who identified as Non-Hispanic Other Races had the highest rate of evictions which shows the need to further investigate and disaggregate who might identify as Non-Hispanic Other in the area.
 
 
 ## Cost of Living
