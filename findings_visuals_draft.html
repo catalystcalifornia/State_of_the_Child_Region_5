@@ -1836,7 +1836,7 @@ div.tocify {
 <h1 class="title toc-ignore">Region 5 State of the Child: Draft Data
 Findings and Visuals</h1>
 <h4 class="author">Catalyst California</h4>
-<h4 class="date">19 January, 2023</h4>
+<h4 class="date">01 February, 2023</h4>
 
 </div>
 
@@ -4515,27 +4515,26 @@ supporting children and families in the child welfare system</strong>,
 unfortunately. Some families experience domestic violence at the same
 time child abuse or neglect is occurring. According to Catalyst
 California calculations of LA County Open Data Portal data<a href="https://data.lacounty.gov/datasets/lacounty::domestic-violence-services/explore?location=34.366623%2C-118.041732%2C8.00">1</a>,
-<strong>the Antelope Valley has eight times fewer domestic violence
-services per capita than the county as a whole.</strong> Three
-organizations are listed as offering domestic violence services in the
-Antelope Valley (High Road Program - Lancaster, Neighborhood Legal
-Services Of Los Angeles County - Antelope Valley Domestic Abuse Self
-Help, and Antelope Valley Domestic Violence Council - Homeless Solutions
-Access Center). While capacities of domestic violence services across
-the county are unavailable, there are 0.8 domestic violence services per
-100,000 people in the Av, and 6.4 domestic violence services per 100,000
-people countywide.</p>
+the Antelope Valley has half as many domestic violence services per
+capita than the county as a whole. Three organizations are listed as
+offering domestic violence services in the Antelope Valley (High Road
+Program - Lancaster, Neighborhood Legal Services Of Los Angeles County -
+Antelope Valley Domestic Abuse Self Help, and Antelope Valley Domestic
+Violence Council - Homeless Solutions Access Center). While capacities
+of domestic violence services across the county are unavailable, there
+are 0.8 domestic violence services per 100,000 people in the Av, and 6.4
+domestic violence services per 100,000 people countywide.</p>
 <p>All foster children are required to have a mental health screening <a href="https://theacademy.sdsu.edu/wp-content/uploads/2015/01/understanding-cws.pdf">1</a>,
-but <strong>AV (SPA 1) parents are most likely to report difficulties
-accessing medical care for their children among SPAs.</strong> AV
-parents reported medical care access difficulties for 16.4% of AV
-children, whereas LA County parents reported difficulties for 9.3% of
-county children overall<a href="http://publichealth.lacounty.gov/ha/docs/2018LACHS/MDT/Child/M3_ChildAccessToCare/M3_AccessToHealthCare_CACCDIFF.xlsx">1</a>.</p>
-<p>These <strong>AV parents are part of the larger adult population that
+but AV (SPA 1) parents are most likely to report difficulties accessing
+medical care for their children than parents in all other SPAs.
+<strong>AV parents reported medical care access difficulties for 16.4%
+of AV children, whereas LA County parents reported difficulties for 9.3%
+of county children overall</strong><a href="http://publichealth.lacounty.gov/ha/docs/2018LACHS/MDT/Child/M3_ChildAccessToCare/M3_AccessToHealthCare_CACCDIFF.xlsx">1</a>.</p>
+<p>These parents are part of the larger <strong>adult population that
 reports highest-among-SPA rates of discrimination when seeking health
-care.</strong> 6.7% of AV adults rated their experience as worse
-Compared to people of other races when seeking health care in 2018,
-compared to 3.8% of county adults overall<a href="http://publichealth.lacounty.gov/ha/docs/2018LACHS/MDT/Adult/M3_SocialDeterminantsOfHealth/M3_Discrimination_DISC66HC.xlsx">1</a>.</p>
+care. 6.7% of AV adults rated their experience as worse Compared to
+people of other races when seeking health care in 2018, compared to 3.8%
+of county adults overall</strong><a href="http://publichealth.lacounty.gov/ha/docs/2018LACHS/MDT/Adult/M3_SocialDeterminantsOfHealth/M3_Discrimination_DISC66HC.xlsx">1</a>.</p>
 <p>On a positive note, there are many services aimed at children and
 families in the Antelope Valley, including the Black Infant Health
 Program of Antelope Valley, the Children’s Bureau Sunrise Center, and
@@ -4688,18 +4687,158 @@ Valley neighborhoods by Lucy Wilkerson</a></p>
 </div>
 <div id="foreclosures" class="section level2">
 <h2>Foreclosures</h2>
+<p>Foreclosure data was calcuated using 2017 to partial 2022 data. In
+this time period there were a total of 546 foreclosures. On average
+0.01% of 10,000 households in the AV faced foreclosures during this time
+period. By rate, Lake Los Angeles had the most foreclosures where while
+Quartz Hill had the least. The neighborhoods of Lancaster (350
+evictions) and Palmdale (226 evictions) had the most evictions by count.
+About half of all evictions during this time period were in
+Lancaster.</p>
+<p>** Foreclosure Totals by Region and Neighborhood **</p>
+<pre class="r"><code>source(&quot;W:/Project/RDA Team/Region 5 State of the Child/R/foreclosure.R&quot;)
+
+library(kableExtra)
+kbl(av_table) %&gt;%
+  kable_styling(bootstrap_options = c(&quot;striped&quot;, &quot;bordered&quot;, &quot;condensed&quot;))</code></pre>
+<table class="table table-striped table-bordered table-condensed" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+Geography
+</th>
+<th style="text-align:right;">
+Total Count
+</th>
+<th style="text-align:right;">
+Total Population
+</th>
+<th style="text-align:right;">
+Avg Foreclosure Rate Per 10K Households
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+6
+</td>
+<td style="text-align:left;">
+AV BEST START REGION 5
+</td>
+<td style="text-align:right;">
+546
+</td>
+<td style="text-align:right;">
+39575
+</td>
+<td style="text-align:right;">
+6.271177
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+3
+</td>
+<td style="text-align:left;">
+EAST ANTELOPE VALLEY
+</td>
+<td style="text-align:right;">
+28
+</td>
+<td style="text-align:right;">
+1214
+</td>
+<td style="text-align:right;">
+10.483750
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+4
+</td>
+<td style="text-align:left;">
+LAKE LOS ANGELES
+</td>
+<td style="text-align:right;">
+57
+</td>
+<td style="text-align:right;">
+2221
+</td>
+<td style="text-align:right;">
+11.665507
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+LANCASTER
+</td>
+<td style="text-align:right;">
+239
+</td>
+<td style="text-align:right;">
+14923
+</td>
+<td style="text-align:right;">
+7.279794
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2
+</td>
+<td style="text-align:left;">
+PALMDALE
+</td>
+<td style="text-align:right;">
+181
+</td>
+<td style="text-align:right;">
+17510
+</td>
+<td style="text-align:right;">
+4.698614
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+5
+</td>
+<td style="text-align:left;">
+QUARTZ HILL
+</td>
+<td style="text-align:right;">
+41
+</td>
+<td style="text-align:right;">
+3707
+</td>
+<td style="text-align:right;">
+5.027344
+</td>
+</tr>
+</tbody>
+</table>
+<p>Source: <a href="https://dqnews.com.cutestat.com/">DataQuick (2017 to
+partial 2022) purchased from DQNews</a></p>
 </div>
 <div id="evictions" class="section level2">
 <h2>Evictions</h2>
 <p>To calculate evictions, 2013-2017 data was used due to the
 limitations of available data. There have been 636 evictions in the AV
-between 2013-2017. Meaning 1 out of 50 people in the AV faced evictions
-during this time period. By rate, Lake Los Angeles had the most
-evictions while Quartz Hill had the least. The neighborhoods of
+between 2013-2017. Meaning 1 out of 50 households in the AV faced
+evictions during this time period. By rate, Lake Los Angeles had the
+most evictions while Quartz Hill had the least. The neighborhoods of
 Lancaster (350 evictions) and Palmdale (226 evictions) had the most
 evictions by count. About half of all evictions during this time period
 were in Lancaster.</p>
-<p>** Totals by Region and Neighborhood **</p>
+<p>** Eviction Totals by Region and Neighborhood **</p>
 <pre class="r"><code>source(&quot;W:/Project/RDA Team/Region 5 State of the Child/R/eviction.R&quot;)
 
 library(kableExtra)
@@ -4728,10 +4867,10 @@ Eviction Count
 ANTELOPE VALLEY BEST START REGION 5
 </td>
 <td style="text-align:right;">
-2.133584
+2.021294
 </td>
 <td style="text-align:right;">
-29809
+31465
 </td>
 <td style="text-align:right;">
 636
@@ -4745,7 +4884,7 @@ EAST ANTELOPE VALLEY
 NA
 </td>
 <td style="text-align:right;">
-558
+714
 </td>
 <td style="text-align:right;">
 5
@@ -4756,10 +4895,10 @@ NA
 LAKE LOS ANGELES
 </td>
 <td style="text-align:right;">
-2.125850
+2.116850
 </td>
 <td style="text-align:right;">
-1176
+1181
 </td>
 <td style="text-align:right;">
 25
@@ -4770,10 +4909,10 @@ LAKE LOS ANGELES
 LANCASTER
 </td>
 <td style="text-align:right;">
-2.007524
+1.865543
 </td>
 <td style="text-align:right;">
-16214
+17448
 </td>
 <td style="text-align:right;">
 350
@@ -4784,10 +4923,10 @@ LANCASTER
 PALMDALE
 </td>
 <td style="text-align:right;">
-2.016624
+1.991604
 </td>
 <td style="text-align:right;">
-10587
+10720
 </td>
 <td style="text-align:right;">
 226
@@ -4798,10 +4937,10 @@ PALMDALE
 QUARTZ HILL
 </td>
 <td style="text-align:right;">
-1.923077
+1.747504
 </td>
 <td style="text-align:right;">
-1274
+1402
 </td>
 <td style="text-align:right;">
 30
@@ -4812,7 +4951,7 @@ QUARTZ HILL
 <p>Source: <a href="https://data-downloads.evictionlab.org/#data-for-analysis/">Eviction
 Lab with ACS 2013-2017, 2020</a></p>
 <p>Asian, White, and Latinx residents had the highest rate of most
-evictions in the Lake Los Angeles Neighborhood by per 100 people. In
+evictions in the Lake Los Angeles Neighborhood by per 100 Households. In
 Lancaster, Black, Latinx, NHPI and residents who identified as
 Non-Hispanic Two or More Races all faced evictions at a rate at or above
 the AV overall total. The same was true in Palmdale, the neighborhood
@@ -4821,178 +4960,6 @@ identified as Non-Hispanic Two or More Races. In Quartz Hill, residents
 who identified as Non-Hispanic Other Races had the highest rate of
 evictions which shows the need to further investigate and disaggregate
 who might identify as Non-Hispanic Other in the area.</p>
-<p>** Eviction Rates Per 100 People by Race and Neighborhood **</p>
-<pre class="r"><code>source(&quot;W:/Project/RDA Team/Region 5 State of the Child/R/eviction.R&quot;)
-kbl(av_table) %&gt;%
-  kable_styling(bootstrap_options = c(&quot;striped&quot;, &quot;bordered&quot;, &quot;condensed&quot;))</code></pre>
-<table class="table table-striped table-bordered table-condensed" style="margin-left: auto; margin-right: auto;">
-<thead>
-<tr>
-<th style="text-align:left;">
-Geography
-</th>
-<th style="text-align:right;">
-AIAN
-</th>
-<th style="text-align:right;">
-Asian
-</th>
-<th style="text-align:right;">
-Black
-</th>
-<th style="text-align:right;">
-Latinx
-</th>
-<th style="text-align:right;">
-White
-</th>
-<th style="text-align:right;">
-Other
-</th>
-<th style="text-align:right;">
-NHPI
-</th>
-<th style="text-align:right;">
-Two or More
-</th>
-<th style="text-align:right;">
-Total
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left;">
-LAKE LOS ANGELES
-</td>
-<td style="text-align:right;">
-NA
-</td>
-<td style="text-align:right;">
-2.52
-</td>
-<td style="text-align:right;">
-2.09
-</td>
-<td style="text-align:right;">
-2.12
-</td>
-<td style="text-align:right;">
-2.13
-</td>
-<td style="text-align:right;">
-1.86
-</td>
-<td style="text-align:right;">
-NA
-</td>
-<td style="text-align:right;">
-1.90
-</td>
-<td style="text-align:right;">
-2.13
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-LANCASTER
-</td>
-<td style="text-align:right;">
-2.09
-</td>
-<td style="text-align:right;">
-1.55
-</td>
-<td style="text-align:right;">
-2.13
-</td>
-<td style="text-align:right;">
-2.14
-</td>
-<td style="text-align:right;">
-1.79
-</td>
-<td style="text-align:right;">
-2.04
-</td>
-<td style="text-align:right;">
-2.97
-</td>
-<td style="text-align:right;">
-2.23
-</td>
-<td style="text-align:right;">
-2.01
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-PALMDALE
-</td>
-<td style="text-align:right;">
-1.59
-</td>
-<td style="text-align:right;">
-2.09
-</td>
-<td style="text-align:right;">
-2.22
-</td>
-<td style="text-align:right;">
-2.07
-</td>
-<td style="text-align:right;">
-1.67
-</td>
-<td style="text-align:right;">
-1.98
-</td>
-<td style="text-align:right;">
-NA
-</td>
-<td style="text-align:right;">
-2.46
-</td>
-<td style="text-align:right;">
-2.02
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-QUARTZ HILL
-</td>
-<td style="text-align:right;">
-NA
-</td>
-<td style="text-align:right;">
-2.07
-</td>
-<td style="text-align:right;">
-1.62
-</td>
-<td style="text-align:right;">
-1.99
-</td>
-<td style="text-align:right;">
-2.02
-</td>
-<td style="text-align:right;">
-2.67
-</td>
-<td style="text-align:right;">
-NA
-</td>
-<td style="text-align:right;">
-1.34
-</td>
-<td style="text-align:right;">
-1.92
-</td>
-</tr>
-</tbody>
-</table>
-<p>Source: <a href="https://data-downloads.evictionlab.org/#data-for-analysis/">Eviction
-Lab with ACS 2013-2017, 2020</a></p>
 </div>
 <div id="cost-of-living" class="section level2">
 <h2>Cost of Living</h2>
@@ -5370,28 +5337,52 @@ kbl(av_table) %&gt;%
 <th style="text-align:left;">
 Adjusted 5-Year 2020-2021
 </th>
-<th style="text-align:right;">
+<th style="text-align:left;">
+Female
+</th>
+<th style="text-align:left;">
+Male
+</th>
+<th style="text-align:left;">
 Asian
 </th>
-<th style="text-align:right;">
+<th style="text-align:left;">
 Black
 </th>
-<th style="text-align:right;">
+<th style="text-align:left;">
 Filipino
 </th>
-<th style="text-align:right;">
+<th style="text-align:left;">
 Latinx
 </th>
-<th style="text-align:right;">
+<th style="text-align:left;">
 AIAN
 </th>
-<th style="text-align:right;">
+<th style="text-align:left;">
 Two or More
 </th>
-<th style="text-align:right;">
+<th style="text-align:left;">
 White
 </th>
-<th style="text-align:right;">
+<th style="text-align:left;">
+Disability
+</th>
+<th style="text-align:left;">
+ELL
+</th>
+<th style="text-align:left;">
+Foster
+</th>
+<th style="text-align:left;">
+Homeless
+</th>
+<th style="text-align:left;">
+Migrant
+</th>
+<th style="text-align:left;">
+Socioconomically Disadvantaged
+</th>
+<th style="text-align:left;">
 Total
 </th>
 </tr>
@@ -5401,28 +5392,52 @@ Total
 <td style="text-align:left;">
 Total Rate
 </td>
-<td style="text-align:right;">
+<td style="text-align:left;">
+72
+</td>
+<td style="text-align:left;">
+62
+</td>
+<td style="text-align:left;">
 87
 </td>
-<td style="text-align:right;">
+<td style="text-align:left;">
 66
 </td>
-<td style="text-align:right;">
+<td style="text-align:left;">
 81
 </td>
-<td style="text-align:right;">
+<td style="text-align:left;">
 66
 </td>
-<td style="text-align:right;">
+<td style="text-align:left;">
 70
 </td>
-<td style="text-align:right;">
+<td style="text-align:left;">
 75
 </td>
-<td style="text-align:right;">
+<td style="text-align:left;">
 74
 </td>
-<td style="text-align:right;">
+<td style="text-align:left;">
+51
+</td>
+<td style="text-align:left;">
+50
+</td>
+<td style="text-align:left;">
+47
+</td>
+<td style="text-align:left;">
+38
+</td>
+<td style="text-align:left;">
+89
+</td>
+<td style="text-align:left;">
+65
+</td>
+<td style="text-align:left;">
 67
 </td>
 </tr>
@@ -5430,29 +5445,53 @@ Total Rate
 <td style="text-align:left;">
 Total Count
 </td>
-<td style="text-align:right;">
+<td style="text-align:left;">
+3,116
+</td>
+<td style="text-align:left;">
+2,690
+</td>
+<td style="text-align:left;">
 80
 </td>
-<td style="text-align:right;">
+<td style="text-align:left;">
 738
 </td>
-<td style="text-align:right;">
+<td style="text-align:left;">
 82
 </td>
-<td style="text-align:right;">
-3702
+<td style="text-align:left;">
+3,702
 </td>
-<td style="text-align:right;">
+<td style="text-align:left;">
 9
 </td>
-<td style="text-align:right;">
+<td style="text-align:left;">
 244
 </td>
-<td style="text-align:right;">
+<td style="text-align:left;">
 896
 </td>
-<td style="text-align:right;">
-5812
+<td style="text-align:left;">
+738
+</td>
+<td style="text-align:left;">
+534
+</td>
+<td style="text-align:left;">
+150
+</td>
+<td style="text-align:left;">
+166
+</td>
+<td style="text-align:left;">
+41
+</td>
+<td style="text-align:left;">
+4,770
+</td>
+<td style="text-align:left;">
+5,812
 </td>
 </tr>
 </tbody>
@@ -6322,6 +6361,18 @@ geoname
 Total
 </th>
 <th style="text-align:right;">
+Male
+</th>
+<th style="text-align:right;">
+Female
+</th>
+<th style="text-align:right;">
+Economically Disadvantaged
+</th>
+<th style="text-align:right;">
+Homeless
+</th>
+<th style="text-align:right;">
 Black
 </th>
 <th style="text-align:right;">
@@ -6334,10 +6385,16 @@ Latinx
 White
 </th>
 <th style="text-align:right;">
-disability_rate
+Disability
 </th>
 <th style="text-align:right;">
 Two or More indicators
+</th>
+<th style="text-align:right;">
+ELL
+</th>
+<th style="text-align:right;">
+Foster
 </th>
 <th style="text-align:right;">
 Asian
@@ -6356,6 +6413,18 @@ Antelope Valley Best Start Region 5
 24.0
 </td>
 <td style="text-align:right;">
+26.6
+</td>
+<td style="text-align:right;">
+21.0
+</td>
+<td style="text-align:right;">
+20.3
+</td>
+<td style="text-align:right;">
+12.7
+</td>
+<td style="text-align:right;">
 9.0
 </td>
 <td style="text-align:right;">
@@ -6368,10 +6437,16 @@ Antelope Valley Best Start Region 5
 41.9
 </td>
 <td style="text-align:right;">
-54.8
+9.6
 </td>
 <td style="text-align:right;">
 25.0
+</td>
+<td style="text-align:right;">
+14.0
+</td>
+<td style="text-align:right;">
+8.7
 </td>
 <td style="text-align:right;">
 54.2
@@ -6386,6 +6461,18 @@ Acton-Agua Dulce Unified School District
 </td>
 <td style="text-align:right;">
 39.6
+</td>
+<td style="text-align:right;">
+51.9
+</td>
+<td style="text-align:right;">
+26.9
+</td>
+<td style="text-align:right;">
+39.4
+</td>
+<td style="text-align:right;">
+NA
 </td>
 <td style="text-align:right;">
 NA
@@ -6408,6 +6495,12 @@ NA
 <td style="text-align:right;">
 NA
 </td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
 </tr>
 <tr>
 <td style="text-align:left;">
@@ -6418,6 +6511,18 @@ Eastside Union Elementary School District
 </td>
 <td style="text-align:right;">
 16.0
+</td>
+<td style="text-align:right;">
+15.5
+</td>
+<td style="text-align:right;">
+16.6
+</td>
+<td style="text-align:right;">
+16.2
+</td>
+<td style="text-align:right;">
+0.0
 </td>
 <td style="text-align:right;">
 9.0
@@ -6438,6 +6543,12 @@ NA
 NA
 </td>
 <td style="text-align:right;">
+11.8
+</td>
+<td style="text-align:right;">
+0.0
+</td>
+<td style="text-align:right;">
 NA
 </td>
 </tr>
@@ -6450,6 +6561,18 @@ Hughes-Elizabeth Lakes Union Elementary School District
 </td>
 <td style="text-align:right;">
 31.8
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+23.1
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
 </td>
 <td style="text-align:right;">
 NA
@@ -6472,6 +6595,12 @@ NA
 <td style="text-align:right;">
 NA
 </td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
 </tr>
 <tr>
 <td style="text-align:left;">
@@ -6482,6 +6611,18 @@ Keppel Union Elementary School District
 </td>
 <td style="text-align:right;">
 28.1
+</td>
+<td style="text-align:right;">
+28.0
+</td>
+<td style="text-align:right;">
+28.1
+</td>
+<td style="text-align:right;">
+27.1
+</td>
+<td style="text-align:right;">
+NA
 </td>
 <td style="text-align:right;">
 NA
@@ -6502,6 +6643,12 @@ NA
 NA
 </td>
 <td style="text-align:right;">
+18.6
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
 NA
 </td>
 </tr>
@@ -6514,6 +6661,18 @@ Lancaster Elementary School District
 </td>
 <td style="text-align:right;">
 19.4
+</td>
+<td style="text-align:right;">
+22.7
+</td>
+<td style="text-align:right;">
+15.9
+</td>
+<td style="text-align:right;">
+17.4
+</td>
+<td style="text-align:right;">
+10.3
 </td>
 <td style="text-align:right;">
 7.3
@@ -6534,6 +6693,12 @@ Lancaster Elementary School District
 24.6
 </td>
 <td style="text-align:right;">
+10.7
+</td>
+<td style="text-align:right;">
+9.8
+</td>
+<td style="text-align:right;">
 63.6
 </td>
 </tr>
@@ -6546,6 +6711,18 @@ Palmdale Elementary School District
 </td>
 <td style="text-align:right;">
 22.0
+</td>
+<td style="text-align:right;">
+24.6
+</td>
+<td style="text-align:right;">
+19.4
+</td>
+<td style="text-align:right;">
+20.4
+</td>
+<td style="text-align:right;">
+NA
 </td>
 <td style="text-align:right;">
 8.7
@@ -6566,6 +6743,12 @@ Palmdale Elementary School District
 24.4
 </td>
 <td style="text-align:right;">
+13.1
+</td>
+<td style="text-align:right;">
+8.6
+</td>
+<td style="text-align:right;">
 NA
 </td>
 </tr>
@@ -6578,6 +6761,18 @@ Westside Union Elementary School District
 </td>
 <td style="text-align:right;">
 36.7
+</td>
+<td style="text-align:right;">
+40.5
+</td>
+<td style="text-align:right;">
+32.7
+</td>
+<td style="text-align:right;">
+26.7
+</td>
+<td style="text-align:right;">
+19.4
 </td>
 <td style="text-align:right;">
 20.0
@@ -6598,6 +6793,12 @@ Westside Union Elementary School District
 31.2
 </td>
 <td style="text-align:right;">
+26.3
+</td>
+<td style="text-align:right;">
+13.3
+</td>
+<td style="text-align:right;">
 65.5
 </td>
 </tr>
@@ -6610,6 +6811,18 @@ Wilsona Elementary School District
 </td>
 <td style="text-align:right;">
 18.0
+</td>
+<td style="text-align:right;">
+21.0
+</td>
+<td style="text-align:right;">
+14.0
+</td>
+<td style="text-align:right;">
+17.6
+</td>
+<td style="text-align:right;">
+15.4
 </td>
 <td style="text-align:right;">
 NA
@@ -6625,6 +6838,12 @@ NA
 </td>
 <td style="text-align:right;">
 7.1
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+11.8
 </td>
 <td style="text-align:right;">
 NA
@@ -6758,6 +6977,18 @@ geoname
 Total
 </th>
 <th style="text-align:right;">
+Male
+</th>
+<th style="text-align:right;">
+Female
+</th>
+<th style="text-align:right;">
+Economically Disadvantaged
+</th>
+<th style="text-align:right;">
+Homeless
+</th>
+<th style="text-align:right;">
 Black
 </th>
 <th style="text-align:right;">
@@ -6770,7 +7001,16 @@ Latinx
 White
 </th>
 <th style="text-align:right;">
-Two or More Races
+Disability
+</th>
+<th style="text-align:right;">
+Two or More indicators
+</th>
+<th style="text-align:right;">
+ELL
+</th>
+<th style="text-align:right;">
+Foster
 </th>
 <th style="text-align:right;">
 Asian
@@ -6789,6 +7029,18 @@ Antelope Valley Best Start Region 5
 25.2
 </td>
 <td style="text-align:right;">
+22.2
+</td>
+<td style="text-align:right;">
+28.0
+</td>
+<td style="text-align:right;">
+21.6
+</td>
+<td style="text-align:right;">
+14.8
+</td>
+<td style="text-align:right;">
 12.9
 </td>
 <td style="text-align:right;">
@@ -6801,7 +7053,16 @@ Antelope Valley Best Start Region 5
 39.5
 </td>
 <td style="text-align:right;">
+9.4
+</td>
+<td style="text-align:right;">
 26.1
+</td>
+<td style="text-align:right;">
+13.0
+</td>
+<td style="text-align:right;">
+12.9
 </td>
 <td style="text-align:right;">
 47.9
@@ -6816,6 +7077,18 @@ Acton-Agua Dulce Unified School District
 </td>
 <td style="text-align:right;">
 41.5
+</td>
+<td style="text-align:right;">
+37.0
+</td>
+<td style="text-align:right;">
+46.1
+</td>
+<td style="text-align:right;">
+42.4
+</td>
+<td style="text-align:right;">
+NA
 </td>
 <td style="text-align:right;">
 NA
@@ -6835,6 +7108,15 @@ NA
 <td style="text-align:right;">
 NA
 </td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
 </tr>
 <tr>
 <td style="text-align:left;">
@@ -6845,6 +7127,18 @@ Eastside Union Elementary School District
 </td>
 <td style="text-align:right;">
 18.4
+</td>
+<td style="text-align:right;">
+16.0
+</td>
+<td style="text-align:right;">
+21.3
+</td>
+<td style="text-align:right;">
+17.3
+</td>
+<td style="text-align:right;">
+11.8
 </td>
 <td style="text-align:right;">
 13.4
@@ -6859,7 +7153,16 @@ NA
 15.8
 </td>
 <td style="text-align:right;">
+10.0
+</td>
+<td style="text-align:right;">
 NA
+</td>
+<td style="text-align:right;">
+12.9
+</td>
+<td style="text-align:right;">
+0.0
 </td>
 <td style="text-align:right;">
 NA
@@ -6879,6 +7182,18 @@ Hughes-Elizabeth Lakes Union Elementary School District
 NA
 </td>
 <td style="text-align:right;">
+61.5
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
 NA
 </td>
 <td style="text-align:right;">
@@ -6886,6 +7201,15 @@ NA
 </td>
 <td style="text-align:right;">
 50.0
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
 </td>
 <td style="text-align:right;">
 NA
@@ -6905,6 +7229,18 @@ Keppel Union Elementary School District
 26.1
 </td>
 <td style="text-align:right;">
+20.5
+</td>
+<td style="text-align:right;">
+32.6
+</td>
+<td style="text-align:right;">
+26.3
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
 NA
 </td>
 <td style="text-align:right;">
@@ -6915,6 +7251,15 @@ NA
 </td>
 <td style="text-align:right;">
 30.8
+</td>
+<td style="text-align:right;">
+8.0
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+14.6
 </td>
 <td style="text-align:right;">
 NA
@@ -6934,6 +7279,18 @@ Lancaster Elementary School District
 19.8
 </td>
 <td style="text-align:right;">
+18.0
+</td>
+<td style="text-align:right;">
+21.8
+</td>
+<td style="text-align:right;">
+18.4
+</td>
+<td style="text-align:right;">
+14.0
+</td>
+<td style="text-align:right;">
 12.1
 </td>
 <td style="text-align:right;">
@@ -6946,7 +7303,16 @@ Lancaster Elementary School District
 36.4
 </td>
 <td style="text-align:right;">
+8.6
+</td>
+<td style="text-align:right;">
 27.9
+</td>
+<td style="text-align:right;">
+9.8
+</td>
+<td style="text-align:right;">
+15.0
 </td>
 <td style="text-align:right;">
 54.5
@@ -6963,6 +7329,18 @@ Palmdale Elementary School District
 24.0
 </td>
 <td style="text-align:right;">
+21.7
+</td>
+<td style="text-align:right;">
+26.4
+</td>
+<td style="text-align:right;">
+22.5
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
 12.1
 </td>
 <td style="text-align:right;">
@@ -6975,7 +7353,16 @@ Palmdale Elementary School District
 33.8
 </td>
 <td style="text-align:right;">
+7.1
+</td>
+<td style="text-align:right;">
 31.0
+</td>
+<td style="text-align:right;">
+14.0
+</td>
+<td style="text-align:right;">
+11.4
 </td>
 <td style="text-align:right;">
 NA
@@ -6992,6 +7379,18 @@ Westside Union Elementary School District
 37.8
 </td>
 <td style="text-align:right;">
+34.2
+</td>
+<td style="text-align:right;">
+41.7
+</td>
+<td style="text-align:right;">
+28.2
+</td>
+<td style="text-align:right;">
+19.4
+</td>
+<td style="text-align:right;">
 21.4
 </td>
 <td style="text-align:right;">
@@ -7004,7 +7403,16 @@ Westside Union Elementary School District
 45.5
 </td>
 <td style="text-align:right;">
+15.9
+</td>
+<td style="text-align:right;">
 26.6
+</td>
+<td style="text-align:right;">
+16.8
+</td>
+<td style="text-align:right;">
+21.4
 </td>
 <td style="text-align:right;">
 58.6
@@ -7021,6 +7429,18 @@ Wilsona Elementary School District
 14.3
 </td>
 <td style="text-align:right;">
+11.8
+</td>
+<td style="text-align:right;">
+17.5
+</td>
+<td style="text-align:right;">
+13.6
+</td>
+<td style="text-align:right;">
+7.7
+</td>
+<td style="text-align:right;">
 NA
 </td>
 <td style="text-align:right;">
@@ -7031,6 +7451,15 @@ NA
 </td>
 <td style="text-align:right;">
 23.1
+</td>
+<td style="text-align:right;">
+14.3
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+11.8
 </td>
 <td style="text-align:right;">
 NA
@@ -7464,22 +7893,22 @@ perpetrated against Black AV residents, 61 hate crimes perpetrated
 against Latinx residents, and 45 hate crimes perpetrated against
 others.</p>
 <pre class="r"><code>source(&quot;W:/Project/RDA Team/Region 5 State of the Child/R/hate_crimes.R&quot;)</code></pre>
-<pre><code>FALSE Reading layer `hate_crime_2003_2020_LAC_HRC_by_tract&#39; from data source 
-FALSE   `W:\Project\RDA Team\Region 5 State of the Child\Shapes\hate_crime_2003_2020_LAC_HRC_by_tract.shp&#39; 
-FALSE   using driver `ESRI Shapefile&#39;
-FALSE Simple feature collection with 2346 features and 72 fields
-FALSE Geometry type: MULTIPOLYGON
-FALSE Dimension:     XY
-FALSE Bounding box:  xmin: 6273178 ymin: 1367712 xmax: 6668481 ymax: 2122084
-FALSE Projected CRS: NAD83 / California zone 5 (ftUS)
-FALSE Reading layer `LA_County_Service_Planning_Area&#39; from data source 
+<pre><code>FALSE Reading layer `LA_County_Service_Planning_Area&#39; from data source 
 FALSE   `W:\Project\RDA Team\Region 5 State of the Child\Shapes\LA_County_Service_Planning_Area.shp&#39; 
 FALSE   using driver `ESRI Shapefile&#39;
 FALSE Simple feature collection with 8 features and 7 fields
 FALSE Geometry type: MULTIPOLYGON
 FALSE Dimension:     XY
 FALSE Bounding box:  xmin: -13240860 ymin: 3868152 xmax: -13096340 ymax: 4139895
-FALSE Projected CRS: WGS 84 / Pseudo-Mercator</code></pre>
+FALSE Projected CRS: WGS 84 / Pseudo-Mercator
+FALSE Reading layer `hate_crime_2003_2020_LAC_HRC_by_tract&#39; from data source 
+FALSE   `W:\Project\RDA Team\Region 5 State of the Child\Shapes\hate_crime_2003_2020_LAC_HRC_by_tract.shp&#39; 
+FALSE   using driver `ESRI Shapefile&#39;
+FALSE Simple feature collection with 2346 features and 72 fields
+FALSE Geometry type: MULTIPOLYGON
+FALSE Dimension:     XY
+FALSE Bounding box:  xmin: 6273178 ymin: 1367712 xmax: 6668481 ymax: 2122084
+FALSE Projected CRS: NAD83 / California zone 5 (ftUS)</code></pre>
 <pre class="r"><code>library(kableExtra)
 kbl(hate_crime_table) %&gt;%
   kable_styling(bootstrap_options = c(&quot;striped&quot;, &quot;bordered&quot;, &quot;condensed&quot;))</code></pre>
@@ -7489,7 +7918,7 @@ kbl(hate_crime_table) %&gt;%
 <th style="text-align:left;">
 </th>
 <th style="text-align:right;">
-AV Hate Crimes
+AV Hate Crimes 2003-2020
 </th>
 <th style="text-align:right;">
 AV Hate Crimes per 100k
@@ -7508,10 +7937,10 @@ Disability
 1
 </td>
 <td style="text-align:right;">
-0
+0.01
 </td>
 <td style="text-align:right;">
-0
+0.01
 </td>
 </tr>
 <tr>
@@ -7522,10 +7951,10 @@ Race-ethnicity
 275
 </td>
 <td style="text-align:right;">
-69
+3.77
 </td>
 <td style="text-align:right;">
-38
+2.13
 </td>
 </tr>
 <tr>
@@ -7536,10 +7965,10 @@ Religion
 41
 </td>
 <td style="text-align:right;">
-10
+0.56
 </td>
 <td style="text-align:right;">
-12
+0.67
 </td>
 </tr>
 <tr>
@@ -7550,10 +7979,10 @@ Sexual Orientation
 54
 </td>
 <td style="text-align:right;">
-14
+0.74
 </td>
 <td style="text-align:right;">
-13
+0.74
 </td>
 </tr>
 <tr>
@@ -7564,10 +7993,10 @@ Unknown
 10
 </td>
 <td style="text-align:right;">
-3
+0.14
 </td>
 <td style="text-align:right;">
-2
+0.10
 </td>
 </tr>
 <tr>
@@ -7578,10 +8007,10 @@ TOTAL
 385
 </td>
 <td style="text-align:right;">
-97
+5.28
 </td>
 <td style="text-align:right;">
-67
+3.81
 </td>
 </tr>
 </tbody>
