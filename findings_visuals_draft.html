@@ -1847,7 +1847,81 @@ children in Best Start Region 5, the Antelope Valley. The findings and
 visuals are being developed by Catalyst California for the Region 5
 State of the Child report in collaboration with The Children’s
 Bureau.</p>
-<pre><code>FALSE &lt;PostgreSQLConnection&gt;</code></pre>
+<pre class="r"><code># Prep and Set Up 
+#### Loading Libraries ####
+library(dplyr)
+library(ggplot2)
+library(RPostgreSQL)
+library(devtools)
+library(janitor)
+library(tidyr)
+library(data.table)
+library(sysfonts)
+library(showtext)
+library(sf)
+library(stringr)
+library(DT)
+library(formattable)
+library(knitr)
+library(rgdal)
+library(RColorBrewer)
+library(scales)
+library(colorspace)
+library(devtools)
+library(broom)
+library(reshape2)
+library(extrafont)
+library(sp)
+library(tigris)
+library(forcats)
+library(ggtext)
+library(ggrepel)
+library(rlang)
+library(svglite)
+library(kableExtra)
+library(flextable)
+library(highcharter)
+#### First 5 LA Style Guide ####
+## COLORS## Taken from W:\Project\RDA Team\Region 5 State of the Child\Documentation\F5LA_BrandGuidelines_COLORS.pdf
+#primary
+lightblue &lt;- &quot;#009CDB&quot;
+darkblue &lt;- &quot;#332985&quot;
+tealblue &lt;- &quot;#22BCB8&quot;
+black &lt;- &quot;#000000&quot;
+textgrey &lt;- &quot;#919191&quot;
+#secondary 
+green &lt;- &quot;#54B847&quot;
+orange &lt;- &quot;#F58326&quot;
+hotpink &lt;- &quot;#EC098C&quot;
+red &lt;- &quot;#EF4034&quot;
+
+## FONTS ##
+# Step 1: Download fonts (Gotham Bold and Gotham Book) 
+# Step 2: Load the downloaded fonts into the R script:
+# General: See tutorial here, under &quot;THE SHOWTEXT PACKAGE&quot; section: https://r-coder.com/custom-fonts-r/#The_showtext_package 
+# Step 3: Run the code below in each R script
+
+font_add(family = &quot;GothamBold&quot;, regular = &quot;C:/Windows/Fonts/Gotham-Bold 700.otf&quot;)
+font_add(family = &quot;GothamBook&quot;, regular = &quot;C:/Windows/Fonts/Gotham-Book 325.otf&quot;)
+
+showtext_auto()
+
+# define fonts in chart
+font_title &lt;- &quot;GothamBold&quot;
+font_subtitle &lt;- &quot;GothamBook&quot;
+font_caption &lt;- &quot;GothamBook&quot;
+font_bar_label &lt;- &quot;GothamBold&quot;
+font_axis_label &lt;- &quot;GothamBook&quot;
+font_table_text&lt;-&quot;GothamBook&quot;
+
+#### Loading Database from PgAdmin/Postgres #### 
+source(&quot;W://Project//RDA Team//Region 5 State of the Child//R//passwords.R&quot;)
+
+#con_rc
+
+#### Static Visual Functions ####
+
+#Reference: W:\Project\RDA Team\LAFed\R\LAFed\visual_functions_static.R</code></pre>
 <div id="demographics" class="section level1">
 <h1>Demographics</h1>
 <div id="population-of-children-and-families" class="section level2">
