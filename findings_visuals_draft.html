@@ -1829,7 +1829,7 @@ div.tocify {
 <h1 class="title toc-ignore">Region 5 State of the Child: Draft Data
 Findings and Visuals</h1>
 <h4 class="author">Catalyst California</h4>
-<h4 class="date">01 February, 2023</h4>
+<h4 class="date">03 February, 2023</h4>
 
 </div>
 
@@ -4718,19 +4718,19 @@ Avg Foreclosure Rate Per 10K Households
 <tbody>
 <tr>
 <td style="text-align:left;">
-6
+7
 </td>
 <td style="text-align:left;">
 AV BEST START REGION 5
 </td>
 <td style="text-align:right;">
-546
+49
 </td>
 <td style="text-align:right;">
-39575
+84
 </td>
 <td style="text-align:right;">
-6.271177
+265.1515
 </td>
 </tr>
 <tr>
@@ -4741,30 +4741,30 @@ AV BEST START REGION 5
 EAST ANTELOPE VALLEY
 </td>
 <td style="text-align:right;">
-28
+1
 </td>
 <td style="text-align:right;">
-1214
+3
 </td>
 <td style="text-align:right;">
-10.483750
+151.5152
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-4
+5
 </td>
 <td style="text-align:left;">
 LAKE LOS ANGELES
 </td>
 <td style="text-align:right;">
-57
+2
 </td>
 <td style="text-align:right;">
-2221
+2
 </td>
 <td style="text-align:right;">
-11.665507
+454.5455
 </td>
 </tr>
 <tr>
@@ -4775,13 +4775,13 @@ LAKE LOS ANGELES
 LANCASTER
 </td>
 <td style="text-align:right;">
-239
+22
 </td>
 <td style="text-align:right;">
-14923
+38
 </td>
 <td style="text-align:right;">
-7.279794
+263.1579
 </td>
 </tr>
 <tr>
@@ -4792,30 +4792,47 @@ LANCASTER
 PALMDALE
 </td>
 <td style="text-align:right;">
-181
+21
 </td>
 <td style="text-align:right;">
-17510
+37
 </td>
 <td style="text-align:right;">
-4.698614
+257.9853
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-5
+6
 </td>
 <td style="text-align:left;">
 QUARTZ HILL
 </td>
 <td style="text-align:right;">
-41
+3
 </td>
 <td style="text-align:right;">
-3707
+3
 </td>
 <td style="text-align:right;">
-5.027344
+454.5455
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+4
+</td>
+<td style="text-align:left;">
+WEST ANTELOPE VALLEY
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0.0000
 </td>
 </tr>
 </tbody>
@@ -7911,24 +7928,9 @@ racial-ethnic groups made up 71% of AV hate crimes with 169 hate crimes
 perpetrated against Black AV residents, 61 hate crimes perpetrated
 against Latinx residents, and 45 hate crimes perpetrated against
 others.</p>
-<pre class="r"><code>source(&quot;W:/Project/RDA Team/Region 5 State of the Child/R/hate_crimes.R&quot;)</code></pre>
-<pre><code>FALSE Reading layer `LA_County_Service_Planning_Area&#39; from data source 
-FALSE   `W:\Project\RDA Team\Region 5 State of the Child\Shapes\LA_County_Service_Planning_Area.shp&#39; 
-FALSE   using driver `ESRI Shapefile&#39;
-FALSE Simple feature collection with 8 features and 7 fields
-FALSE Geometry type: MULTIPOLYGON
-FALSE Dimension:     XY
-FALSE Bounding box:  xmin: -13240860 ymin: 3868152 xmax: -13096340 ymax: 4139895
-FALSE Projected CRS: WGS 84 / Pseudo-Mercator
-FALSE Reading layer `hate_crime_2003_2020_LAC_HRC_by_tract&#39; from data source 
-FALSE   `W:\Project\RDA Team\Region 5 State of the Child\Shapes\hate_crime_2003_2020_LAC_HRC_by_tract.shp&#39; 
-FALSE   using driver `ESRI Shapefile&#39;
-FALSE Simple feature collection with 2346 features and 72 fields
-FALSE Geometry type: MULTIPOLYGON
-FALSE Dimension:     XY
-FALSE Bounding box:  xmin: 6273178 ymin: 1367712 xmax: 6668481 ymax: 2122084
-FALSE Projected CRS: NAD83 / California zone 5 (ftUS)</code></pre>
-<pre class="r"><code>library(kableExtra)
+<pre class="r"><code>source(&quot;W:/Project/RDA Team/Region 5 State of the Child/R/hate_crimes.R&quot;)
+
+library(kableExtra)
 kbl(hate_crime_table) %&gt;%
   kable_styling(bootstrap_options = c(&quot;striped&quot;, &quot;bordered&quot;, &quot;condensed&quot;))</code></pre>
 <table class="table table-striped table-bordered table-condensed" style="margin-left: auto; margin-right: auto;">
