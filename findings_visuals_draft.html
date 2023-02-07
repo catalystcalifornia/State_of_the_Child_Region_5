@@ -1829,7 +1829,7 @@ div.tocify {
 <h1 class="title toc-ignore">Region 5 State of the Child: Draft Data
 Findings and Visuals</h1>
 <h4 class="author">Catalyst California</h4>
-<h4 class="date">03 February, 2023</h4>
+<h4 class="date">07 February, 2023</h4>
 
 </div>
 
@@ -4677,15 +4677,15 @@ Valley neighborhoods by Lucy Wilkerson</a></p>
 <h2>Foreclosures</h2>
 <p>Foreclosure data was calculated using 2017 to partial 2022 data. In
 this time period there were a total of 546 foreclosures in the Antelope
-Valley Region. On average 6.3 of 10,000 owner households in the AV faced
-foreclosures.</p>
+Valley Region. On average 1 out of 2,500 (or 3.8 out of 10,000) owner
+households in the AV faced foreclosures.</p>
 <p>By rate, Lake Los Angeles had the most foreclosures, where 11.7 out
-of 10,000 owner households faced foreclosures, while Palmdale had the
-least (4.7 out of 10,000 owner households). Even the neighborhood with
-the smallest rate of focreclosures, Palmdale (4.7 out of 10,000 owner
-households), had more foreclosures than at the Los Angeles County or
-state where 1.8 per 10,000 owner households and 2 per 10,000 owner
-households faced foreclosures respectively.</p>
+of 10,000 owner households faced foreclosures, while West Antelope
+Valley had the least. Even the neighborhood with the smallest rate of
+foreclosures, Palmdale (2.8 out of 10,000 owner households), had more
+foreclosures than at the Los Angeles County or state where 1.8 per
+10,000 owner households and 2 per 10,000 owner households faced
+foreclosures respectively.</p>
 <p>Although by rate, Lancaster and Palmdale did not have the highest
 rate of foreclosures, these two locations have the the greatest
 populations in the AV. Thus, they still had the most foreclosures by
@@ -4708,7 +4708,7 @@ Geography
 Total Count
 </th>
 <th style="text-align:right;">
-Total Population
+Total Households
 </th>
 <th style="text-align:right;">
 Avg Foreclosure Rate Per 10K Households
@@ -4724,13 +4724,13 @@ Avg Foreclosure Rate Per 10K Households
 AV BEST START REGION 5
 </td>
 <td style="text-align:right;">
-49
+546
 </td>
 <td style="text-align:right;">
-84
+64730
 </td>
 <td style="text-align:right;">
-265.1515
+3.834108
 </td>
 </tr>
 <tr>
@@ -4741,13 +4741,13 @@ AV BEST START REGION 5
 EAST ANTELOPE VALLEY
 </td>
 <td style="text-align:right;">
-1
+28
 </td>
 <td style="text-align:right;">
-3
+2861
 </td>
 <td style="text-align:right;">
-151.5152
+4.448540
 </td>
 </tr>
 <tr>
@@ -4758,13 +4758,13 @@ EAST ANTELOPE VALLEY
 LAKE LOS ANGELES
 </td>
 <td style="text-align:right;">
-2
+57
 </td>
 <td style="text-align:right;">
-2
+2221
 </td>
 <td style="text-align:right;">
-454.5455
+11.665507
 </td>
 </tr>
 <tr>
@@ -4775,13 +4775,13 @@ LAKE LOS ANGELES
 LANCASTER
 </td>
 <td style="text-align:right;">
-22
+239
 </td>
 <td style="text-align:right;">
-38
+25620
 </td>
 <td style="text-align:right;">
-263.1579
+4.240295
 </td>
 </tr>
 <tr>
@@ -4792,13 +4792,13 @@ LANCASTER
 PALMDALE
 </td>
 <td style="text-align:right;">
-21
+181
 </td>
 <td style="text-align:right;">
-37
+29728
 </td>
 <td style="text-align:right;">
-257.9853
+2.767516
 </td>
 </tr>
 <tr>
@@ -4809,13 +4809,13 @@ PALMDALE
 QUARTZ HILL
 </td>
 <td style="text-align:right;">
-3
+41
 </td>
 <td style="text-align:right;">
-3
+3707
 </td>
 <td style="text-align:right;">
-454.5455
+5.027344
 </td>
 </tr>
 <tr>
@@ -4829,10 +4829,10 @@ WEST ANTELOPE VALLEY
 0
 </td>
 <td style="text-align:right;">
-1
+593
 </td>
 <td style="text-align:right;">
-0.0000
+0.000000
 </td>
 </tr>
 </tbody>
@@ -4856,8 +4856,7 @@ were in Lancaster.</p>
 <pre class="r"><code>source(&quot;W:/Project/RDA Team/Region 5 State of the Child/R/eviction.R&quot;)
 
 library(kableExtra)
-av_count2 &lt;- av_count2 %&gt;% 
-  mutate_at(vars(-c(Geography, `Total Population`, `Eviction Count`)), funs(round(., 2))) %&gt;% mutate(across(c(`Total Population`, `Eviction Count`), comma))
+
 kbl(av_count2) %&gt;%
   kable_styling(bootstrap_options = c(&quot;striped&quot;, &quot;bordered&quot;, &quot;condensed&quot;))</code></pre>
 <table class="table table-striped table-bordered table-condensed" style="margin-left: auto; margin-right: auto;">
@@ -4870,7 +4869,7 @@ Geography
 Total Rate Per 100 People (%)
 </th>
 <th style="text-align:left;">
-Total Population
+Total Households
 </th>
 <th style="text-align:left;">
 Eviction Count
