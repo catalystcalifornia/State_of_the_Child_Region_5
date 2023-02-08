@@ -1007,18 +1007,22 @@ kbl(av_count2) %>%
 ```
 Source: [Eviction Lab with ACS 2013-2017, 2020](https://data-downloads.evictionlab.org/#data-for-analysis/)
 
-According to AntiEvictionMap, in 2022 there were over 34,000 in LA County, a 172% compared to the previous year. 
-In February 2019 in the North Court District, Antelope Valley region, there were 135 eviction filing per month which steadily peaked to 198 eviction filings per month in June 2019. In June 2020 during he eviction mratorium, that number dwindled it its low in the AV of 7 eviction filings month and steadily rose to 61 filings per month by March 2021. While eviction filings were overall lower throughout the pandemic in Antelope Valley eviction trends mirrored those of the the rest of the county and the rates were rates were especially comparable to other outer areas of Los Angeles County. It was lower than the Central Court House District in the middle of the Los Angeles County urban area, which was the most impacted by evictions. Comparatively evictions in the AV were 10 times less than those of the most impacted region.
-##### Eviction Map v1
+According to AntiEvictionMap, in 2022 there were over 34,000 eviction filings in LA Superior Court, a 172% compared to the previous year, 2021. Evictions by the end of 2022 were already at pre-pandemic levels which further exacerbates the loss in jobs, income, and economic security caused by the Pandemic.
 
-<iframe src="https://ampitup.carto.com/builder/8d2822ee-b284-4348-8206-126ca9f2effd/embed?state=%7B%22map%22%3A%7B%22ne%22%3A%5B33.6889244284265%2C-118.65921020507814%5D%2C%22sw%22%3A%5B34.643376870547456%2C-116.61575317382814%5D%2C%22center%22%3A%5B34.16749965237792%2C-117.63748168945314%5D%2C%22zoom%22%3A10%7D%2C%22widgets%22%3A%7B%222f89330c-efd8-4a7d-9367-5ed6cc8f2c0a%22%3A%7B%22normalized%22%3Atrue%2C%22min%22%3A1669852800%7D%7D%7D" frameborder="0" width="100%" height="300px"></iframe>
+In February 2019 in the North Court District, Antelope Valley region, there were 135 eviction filing per month which steadily peaked to 198 eviction filings per month in June 2019. In June 2020 during he eviction moratorium, that number dwindled it its low in the AV of 7 eviction filings month and steadily rose to 61 filings per month by March 2021. While eviction filings were overall lower throughout the pandemic in Antelope Valley eviction trends mirrored those of the the rest of the county and the rates were rates were especially comparable to other outer areas of Los Angeles County. It was lower than the Central Court House District in the middle of the Los Angeles County urban area, which was the most impacted by evictions. Comparatively evictions in the AV were 10 times less than those of the most impacted region.
+
+**Evictions During the Pandemic**
+
+```{r}
+source("W:/Project/RDA Team/Region 5 State of the Child/R/antievictionmap.R")
+line_chart
+```
+
 
 Source: [AntiEvictionMap, 2022](https://antievictionmap.com/there-is-no-eviction-moratorium)
 
-##### Eviction Map v2 
+<div class="infogram-embed" data-id="3ec6cb57-dc01-490e-ab4f-5ae810640467" data-type="interactive" data-title="LA County Eviction Filings During the COVID-19 Pandemic"></div><script>!function(e,i,n,s){var t="InfogramEmbeds",d=e.getElementsByTagName("script")[0];if(window[t]&&window[t].initialized)window[t].process&&window[t].process();else if(!e.getElementById(n)){var o=e.createElement("script");o.async=1,o.id=n,o.src="https://e.infogram.com/js/dist/embed-loader-min.js",d.parentNode.insertBefore(o,d)}}(document,0,"infogram-async");</script><div style="padding:8px 0;font-family:Arial!important;font-size:13px!important;line-height:15px!important;text-align:center;border-top:1px solid #dadada;margin:0 30px"><a href="https://infogram.com/3ec6cb57-dc01-490e-ab4f-5ae810640467" style="color:#989898!important;text-decoration:none!important;" target="_blank">LA County Eviction Filings During the COVID-19 Pandemic</a><br><a href="https://infogram.com" style="color:#989898!important;text-decoration:none!important;" target="_blank" rel="nofollow">Infogram</a></div>
 
-<iframe src="
-https://ampitup.carto.com/builder/f5d9ddc0-be9f-452e-805f-4cde1f099646/embed" frameborder="0" width="100%" height="300px"></iframe>
 
 ## Cost of Living
 
