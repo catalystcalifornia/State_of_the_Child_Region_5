@@ -834,7 +834,7 @@ av_plot
 Source: [California Department of Education, 2016-2022](https://dq.cde.ca.gov/dataquest/)
 
 # Resources (and barriers to access)
-Antelope Valley stakeholders have been clear about the need for additional resources, including health and mental health services, early childhood education, and parks and recreation. According to the [Los Angeles County Health Survey](http://publichealth.lacounty.gov/ha/hasurveyintro.htm), **16.4% of Antelope Valley children report difficulty accessing medical care (highest among county Service Planning Areas or SPAs)**. Medical care can be especially important for chronic conditions that need periodic medical care such as asthma. 18.8% of Antelope Valley children have been diagnosed with asthma at some point in their lives (highest among LA SPAs), meaning access to health care is especially important for the Antelope Valley population.
+Antelope Valley stakeholders have been clear about the need for additional resources, including health and mental health services, early childhood education, and parks and recreation.
 
 ## Early Childhood Education
 According to estimates from the [American Institutes of Research](https://elneedsassessment.org/), **no Antelope Valley ZIP code had an unmet need for infant/toddler care rate below 93.55% of eligible children in 2020**. Preschool accessibility was hardly better, with no Antelope Valley ZIP code having an unmet need for preschool rate below 64.23%. These high rates of unmet need for early care and education mean it is difficult for parents to find care for their children and may need to reduce working hours to care for them. 40.9% of Antelope Valley parents report difficulty finding childcare (highest among county SPAs).[1](http://publichealth.lacounty.gov/ha/hasurveyintro.htm)
@@ -916,13 +916,17 @@ On a positive note, there are many services aimed at children and families in th
 
 ## Health
 
-The Antelope Valley has fewer health and medical professionals than other parts of the county and state. The area has a variety of medical and health professional shortage designations, including: 
+According to the [Los Angeles County Health Survey](http://publichealth.lacounty.gov/ha/hasurveyintro.htm), **16.4% of Antelope Valley children report difficulty accessing medical care (highest among county Service Planning Areas or SPAs)**. The Antelope Valley has fewer health and medical professionals than other parts of the county and state. The area has a variety of medical and health professional shortage designations, including: 
 
 * The Lake Los Angeles and Juniper Hills Little Rock Medical Services Study Areas (MSSAs) are Medically Underserved Areas[1](https://gis.data.ca.gov/datasets/CHHSAgency::medically-underserved-areas/explore?location=34.269244%2C-118.153917%2C9.58)
 * The two MSSAs plus the Lancaster Central/Palmdale North Central and Palmdale Central MSSAs are Primary Care Health Professional Shortage Areas[1](https://gis.data.ca.gov/datasets/CHHSAgency::health-professional-shortage-area-primary-care/explore?location=34.384784%2C-117.925067%2C9.00)
 * These four MSSAs plus the Acton/Ravenna, Desert View Highlands/Lancaster West/Palmdale Northwest/Quartz Hill, and Elizabeth Lake/Gorman/Green Valley/Lake Hughes/Leona Valley/Neenach MSSAs are mental health professional shortage areas[1](https://gis.data.ca.gov/datasets/CHHSAgency::health-professional-shortage-area-mental-health/explore?location=34.300335%2C-118.134212%2C9.00). This means that virtually the entire Antelope Valley is a mental health professional shortage areas.
 
 Source: California Health and Human Services Geospatial Data portal for [Medically Underserved Areas](https://gis.data.ca.gov/datasets/CHHSAgency::medically-underserved-areas/explore?location=34.514402%2C-118.185118%2C9.58) and [Primary Care Health Professional](https://gis.data.ca.gov/datasets/CHHSAgency::health-professional-shortage-area-primary-care/explore?location=34.380830%2C-117.925067%2C9.00) and [Mental Health Professional](https://gis.data.ca.gov/datasets/CHHSAgency::health-professional-shortage-area-mental-health/explore?location=34.296386%2C-118.134212%2C9.00) Shortages Areas.
+
+Health and mental health outcomes might suffer because of the lack of services. Medical care can be especially important for chronic conditions that need periodic treatment such as asthma. Antelope Valley adults are most likely to say they've ever seriously thought about committing suicide, 13% of the AV adult population, compared to 9.8% of LA County residents overall.[1](https://ask.chis.ucla.edu/)
+
+18.8% of Antelope Valley children have been diagnosed with asthma at some point in their lives (highest among LA SPAs), meaning access to health care is especially important for the Antelope Valley population.
 
 ## Parks
 The Los Angeles County County Department of Parks and Recreation completed a Countywide Parks and Recreation Needs Assessment addition in 2022. The assessment has findings for the region in an [Antelope Valley regional profile](https://lacountyparkneeds.org/wp-content/uploads/2022/11/AppA_RegionalProfiles_AntelopeValley_11282022.pdf). Some key findings from that profile:
