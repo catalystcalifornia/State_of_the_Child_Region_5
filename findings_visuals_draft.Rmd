@@ -177,7 +177,7 @@ This matters because separation or probation impacts the ability of parents to l
 
 ## Foster Youth Population 
 
-Overall in the Antelope Valley (AV) during the 2021-2022 school year, 2,008 students (or 2.3%) are in the Foster Care System. Black (5.2%) and American Indian / Alaskan Native (5.3%) students are over 10 times more likely to be in the foster care system than Asian (0.5%) students, the group least likely to be in the foster care system in the AV. Native Hawaiian / Pacific Islander (4.2%) students also have a high rate of students in foster care compared to the AV average, almost 2 times more in fact. At the district level, the Eastside Union Elementary School District has almost double the percentage of students in foster care compared to the AV average and over 7 times more compared to the School District with the lowest percentage.
+Overall in the Antelope Valley (AV) during the 2021-2022 school year, 2,008 students (or 2.3%) are in the Foster Care System. Black (5.2%) and American Indian / Alaskan Native (5.4%) students are over 10 times more likely to be in the foster care system than Asian (0.5%) students, the group least likely to be in the foster care system in the AV. Native Hawaiian / Pacific Islander (4.3%) students also have a high rate of students in foster care compared to the AV average, almost 2 times more in fact. At the district level, the Eastside Union Elementary School District has almost double the percentage of students in foster care compared to the AV average and over 7 times more compared to the School District with the lowest percentage.
 
  **Foster Youth Rates out of 100 by District 2021-22 School Year**
 ```{r}
@@ -549,13 +549,9 @@ According to the California Department Of Education 2021_22 school year data, St
 
 Student Homelessness is especially high in the Westside Union Elementary School District with an average rate of 7.2%, over 3 times the average of the entire Antelope Valley, 2.1%. That means that approx. 7 out of every 100 students in the Westside Union Elementary School District is experiencing homelessness. Although there are high rates among all groups in the the Westside Union Elementary School District, the high rates of homelessness among Non-Hispanic American Indian Alaskan Native (AIAN) students (14.3%), Non-Hispanic Black students (7.6%), Latinx students (8.2%), and students who identified as Non-Hispanic Two or More Races (8.1%) especially stand out. 
 
-The Hughes-Elizabeth Lakes Union Elementary School District and the Wilsona Elementary School District had the next highest rates, both being 2.3 times higher than the state average. For the Hughes-Elizabeth Lakes Union Elementary School District, the high rates for Latinx students were the highest (5.7%). In the case of the Wilsona Elementary School District, the high rates for Black (11.5%), Latinx (6.6%), and White students (6.2%) especially drove up the average.
+The Hughes-Elizabeth Lakes Union Elementary School District and the Wilsona Elementary School District had the next highest rates, both being 2.3 times higher than the state average. For the Hughes-Elizabeth Lakes Union Elementary School District, the high rates for Latinx students were the highest (5.7%). In the case of the Wilsona Elementary School District, the high rates for Black (11.5%), Latinx (6.6%), and White students (6.2%) especially drove up the average. Eastside Union Elementary School District and Lancaster Elementary School District also had above average rates, being 2 and 1.2 times higher than the state average respectively. 
 
-The Eastside Union Elementary School District and Lancaster Elementary School District also had above average rates, being 2 and 1.2 times higher than the state average respectively. Regionally, students who identified as Non-Hispanic Two or More Races and Non-Hispanic Black and Non-Hispanic AIAN students had the highest rates. 
-
-The bulk of the students experiencing homelessness in the Antelope Valley are in grades 1-8. Notably, student homelessness rates range between 15 to 20% of students. Second-grade students had the highest rates with 2 out of 10 experiencing homelessness. 
-
-Given this information, interventions targeting current elementary and middle school students,  and Black, Latinx, AIAN, and Two or More Race students are pressing.
+Regionally, students who identified as Non-Hispanic Two or More Races (3.2%) and Non-Hispanic Black (3.3%) and Non-Hispanic AIAN (2.7%) students had the highest rates. The bulk of the students experiencing homelessness in the Antelope Valley are in grades 1-8. Notably, student homelessness rates range between 15 to 20% of students. Second-grade students had the highest rates with 2 out of 10 experiencing homelessness. Given this information, interventions targeting current elementary and middle school students,  and Black, Latinx, AIAN, and Two or More Race students are pressing.
 
  **Student Homelessness Rates out of 100 by School District 2021-22 School Year**
 ```{r}
@@ -1080,7 +1076,7 @@ Source: [L.A. County WIC Administrative Data, 2021](https://lawicdata.org/data-r
 
 ## Highschool Graduation
 
-The average high school graduation rate in the Antelope Valley is 65%. In the AV, Latinx (63.6%) followed by Black (64.8%) students had the lowest graduation rates while Filipino (82.7%) and Asian (80.7%) students had the highest. The Acton-Agua Dulce Unified School District has the lowest graduation rate (34.7%). Notably in the Acton-Agua Dulce Unified School District Latinx, Black, Filipino, and students who identified as non-Hispanic Two or More Races all had under 50% graduation rates. The Gorman Joint School District had the highest rate (81.9%). 
+The average high school graduation rate in the Antelope Valley is 67%. In the AV, Latinx (66%) followed by Black (66%) students had the lowest graduation rates while Filipino (81%) and Asian (87%) students had the highest. The Acton-Agua Dulce Unified School District has the lowest graduation rate (35%). Notably in the Acton-Agua Dulce Unified School District Latinx, Black, Filipino, and students who identified as non-Hispanic Two or More Races all had under 50% graduation rates.  
 
 The Antelope Valley Union High School District had a total rate of 80.3%, comparable to the LA County average. Similar to county trends, Black students had the lowest graduation rates (73.1%) followed by students who identified as Two or More Races (80.9%) and Latinx students (81.5%). Filipino (93.8%) followed by Asian (88.6%) and White (81.9%) students have the highest rates.
 
