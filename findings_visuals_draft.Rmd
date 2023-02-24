@@ -183,10 +183,16 @@ Overall in the Antelope Valley (AV) during the 2021-2022 school year, 2,008 stud
 ```{r}
 source("W:/Project/RDA Team/Region 5 State of the Child/R/foster.R")
 library(kableExtra)
-av_table <- av_table %>% mutate(across(c(`2021-22 Count`), comma))
+av_table <- av_table %>% mutate(across(c(`2021-22 Count`), comma))%>% rename("Count"="2021-22 Count")
  
 kbl(av_table) %>%
-  kable_styling(bootstrap_options = c("striped", "bordered", "condensed"))
+    kable_classic() %>%
+  add_header_above(c("2021-22" = 1, "Foster" = 2))
+ # kable_styling(bootstrap_options = c("striped", "bordered", "condensed"))
+cde_foster <- av_table
+
+
+
 
 
 ```
@@ -299,11 +305,11 @@ Overall, 281 students (0.3% or 0.3 out of 100 students) are in the California's 
 source("W:/Project/RDA Team/Region 5 State of the Child/R/migrant.R")
 library(kableExtra)
 
-av_table <- av_table %>% mutate(across(c(`2021-22 Count`), comma)) 
+av_table <- av_table %>% mutate(across(c(`2021-22 Count`), comma)) %>% rename("Count"="2021-22 Count")
 kbl(av_table) %>%
   kable_styling(bootstrap_options = c("striped", "bordered", "condensed"))
 
-
+cde_migrant <- av_table
 ```
 
 Source: [California Department of Education, 2016-2022](https://dq.cde.ca.gov/dataquest/)
@@ -324,8 +330,10 @@ library(kableExtra)
 
  
 kbl(av_table) %>%
-  kable_styling(bootstrap_options = c("striped", "bordered", "condensed"))
-
+  # kable_styling(bootstrap_options = c("striped", "bordered", "condensed"))
+    kable_classic() %>%
+  add_header_above(c(" " = 1, "Non-Binary" = 2))
+cde_nonbinary <- av_table
 ```
 
 Source: [California Department of Education, 2016-2022](https://dq.cde.ca.gov/dataquest/)
@@ -440,10 +448,12 @@ In the 2021-22 school year, an extremely high percentage, 75% of students (or 3 
 source("W:/Project/RDA Team/Region 5 State of the Child/R/socioeconomically_disadvantaged.R")
 library(kableExtra)
 # av_table <- av_table %>% filter(Geography=='Antelope Valley Best Start Region 5')
-av_table <- av_table %>% mutate(across(c(`2021-22 Count`), comma))
+av_table <- av_table %>% mutate(across(c(`2021-22 Count`), comma)) %>% rename("Count"="2021-22 Count")
 kbl(av_table) %>%
- kable_styling(bootstrap_options = c("striped", "bordered", "condensed"))
-
+    kable_classic() %>%
+  add_header_above(c("2021-22" = 1, "Socioeconomically Disadvantaged" = 2))
+ # kable_styling(bootstrap_options = c("striped", "bordered", "condensed"))
+cde_socieconomically_disadvantaged <- av_table 
 ```
 
 Source: [California Department of Education, 2016-2022](https://dq.cde.ca.gov/dataquest/)
@@ -559,11 +569,11 @@ Regionally, students who identified as Non-Hispanic Two or More Races (3.2%) and
 source("W:/Project/RDA Team/Region 5 State of the Child/R/student_homelessness.R")
 library(kableExtra)
 
- av_table <- av_table %>% mutate(across(c(`2021-22 Count`), comma))
+ av_table <- av_table %>% mutate(across(c(`2021-22 Count`), comma))%>% rename("Count"="2021-22 Count")
 kbl(av_table) %>%
   kable_styling(bootstrap_options = c("striped", "bordered", "condensed"))
 
-
+cde_student_homelessness <- av_table
 ```
 
 Source: [California Department of Education, 2016-2022](https://dq.cde.ca.gov/dataquest/)
@@ -697,9 +707,11 @@ American Indian Alaskan Native (AIAN) students had the highest percentage of stu
 ```{r}
 source("W:/Project/RDA Team/Region 5 State of the Child/R/disabilties.R")
 library(kableExtra)
-av_table <- av_table %>% mutate(across(c(`2021-22 Count`), comma))
+av_table <- av_table %>% mutate(across(c(`2021-22 Count`), comma))%>% rename("Count"="2021-22 Count")
 kbl(av_table) %>%
   kable_styling(bootstrap_options = c("striped", "bordered", "condensed"))
+
+cde_disability <- av_table
 ```
 
 Source: [California Department of Education, 2016-2022](https://dq.cde.ca.gov/dataquest/)
@@ -727,11 +739,11 @@ In the Antelope Valley 14% of students were considered English Language Learners
 ```{r}
 source("W:/Project/RDA Team/Region 5 State of the Child/R/ell.R")
 library(kableExtra)
-av_table <- av_table %>% mutate(across(c(`2021-22 Count`), comma))
+av_table <- av_table %>% mutate(across(c(`2021-22 Count`), comma))%>% rename("Count"="2021-22 Count")
 kbl(av_table) %>%
   kable_styling(bootstrap_options = c("striped", "bordered", "condensed"))
 
-
+cde_ell <- av_table
 ```
 
 ```{r}
@@ -828,6 +840,25 @@ av_plot
 ```
 
 Source: [California Department of Education, 2016-2022](https://dq.cde.ca.gov/dataquest/)
+
+
+### CDE table creation
+```{r}
+
+cde_nonbinary$Geography <- "Antelope Valley Best Start Region 5"
+cde_nonbinary <- cde_nonbinary[!(cde_nonbinary$`School Year`=="2020-21"),]
+cde_nonbinary <- cde_nonbinary %>% select(Geography, Count, `Rate (%)`)
+
+cde <- left_join(cde_foster, cde_socieconomically_disadvantaged, by="Geography") %>% left_join(cde_student_homelessness, by="Geography") %>% left_join(cde_disability, by="Geography") %>% left_join(cde_migrant, by="Geography") %>% left_join(cde_ell, by="Geography") %>% left_join(cde_nonbinary)
+
+cde_table <- kbl(cde, col.names = c("Geography", "Count", "Rate (%)", "Count", "Rate (%)", "Count", "Rate (%)", "Count", "Rate (%)", "Count", "Rate (%)", "Count", "Rate (%)", "Count", "Rate (%)")) %>%
+    kable_classic() %>%
+  add_header_above(c("2021-22" = 1, "Foster" = 2, "Socioeconomically Disadvantaged" = 2, "Homeless" = 2, "Disability" = 2,"Migrant" = 2,  "ELL" = 2, "Non-Binary" = 2))
+
+cde_table
+
+```
+
 
 # Resources (and barriers to access)
 Antelope Valley stakeholders have been clear about the need for additional resources, including health and mental health services, early childhood education, and parks and recreation.
@@ -1090,6 +1121,8 @@ library(kableExtra)
 
 kbl(av_table) %>%
  kable_styling(bootstrap_options = c("striped", "bordered", "condensed"))
+
+cde_hs <- av_table
 ```
 
 <!-- 
@@ -1292,6 +1325,8 @@ library(kableExtra)
 kbl(av_table) %>%
   kable_styling(bootstrap_options = c("striped", "bordered", "condensed"))
 
+cde_math <- av_table
+
 ```
 Please note that data for AIAN and NHPI groups are not present in the table because of a lack of data for these two groups.
 
@@ -1400,6 +1435,8 @@ library(kableExtra)
 kbl(av_table) %>%
   kable_styling(bootstrap_options = c("striped", "bordered", "condensed"))
 
+cde_ela <- av_table
+
 ```
 
 
@@ -1491,6 +1528,16 @@ av_plot <- av_plot + theme(
 
 av_plot <- av_plot + ylim(0, max_y)     # add buffer between title and chart/data labels
 av_plot
+```
+
+# Combined 3rd Grade Table
+```{r}
+cde_math$Test <- "Math"
+cde_ela$Test <- "ELA"
+third_grade <- rbind(cde_math, cde_ela)
+third_grade_table <- kbl(third_grade)%>%
+    kable_classic() 
+third_grade_table
 ```
 
 # Safety and Justice 
@@ -1605,4 +1652,6 @@ Source: Catalyst California calculations of [Los Angeles County Human Resources 
 
 ``` 
 -->
+
+
 
