@@ -853,9 +853,10 @@ cde <- left_join(cde_foster, cde_socieconomically_disadvantaged, by="Geography")
 
 cde_table <- kbl(cde, col.names = c("Geography", "Count", "Rate (%)", "Count", "Rate (%)", "Count", "Rate (%)", "Count", "Rate (%)", "Count", "Rate (%)", "Count", "Rate (%)", "Count", "Rate (%)")) %>%
     kable_classic() %>%
-  add_header_above(c("2021-22" = 1, "Foster" = 2, "Socioeconomically Disadvantaged" = 2, "Homeless" = 2, "Disability" = 2,"Migrant" = 2,  "ELL" = 2, "Non-Binary" = 2))
+  add_header_above(c("2021-22" = 1, "Foster" = 2, "Socioeconomically Disadvantaged" = 2, "Homeless" = 2, "Disability" = 2,"Migrant" = 2,  "ELL" = 2, "Non-Binary" = 2))%>%
+  save_kable(file = "cde_table.png")
 
-cde_table
+
 
 ```
 
@@ -1042,7 +1043,7 @@ In February 2019 in the North Court District, Antelope Valley region, there were
 
 ```{r}
 source("W:/Project/RDA Team/Region 5 State of the Child/R/antievictionmap.R")
-line_chart
+line_plot
 ```
 
 
@@ -1099,7 +1100,7 @@ source("W:/Project/RDA Team/Region 5 State of the Child/R/food_security.R")
 
 library(kableExtra)
 kbl(wic_data) %>%
-  kable_styling(bootstrap_options = c("striped", "bordered", "condensed"))
+  kable_styling(bootstrap_options = c("striped", "bordered", "condensed"), full_width = F)
 ```
 Source: [L.A. County WIC Administrative Data, 2021](https://lawicdata.org/data-research/by-region/)
 
