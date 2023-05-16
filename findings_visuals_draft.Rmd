@@ -21,7 +21,7 @@ knitr::opts_chunk$set(comment=FALSE, message=FALSE, warning=FALSE)
 
 
 # install packages if not already installed
-list.of.packages <- c("plyr", "devtools",  "rlang",  "openxlsx", "tidyr", "dplyr", "stringr", "RPostgreSQL", "data.table", "janitor", "ggplot2", "kableExtra", "extrafont", "tigris", "ggtext", "flextable", "highcharter", "tidycensus", "srvyr", "sysfonts", "showtext", "kableExtra", "janitor", "plotly", "leaflet", "rmarkdown", "RPostgreSQL", "rpostgis", "naniar", "dbplyr", "DT", "sf", "formattable", "knitr", "rgdal", "RColorBrewer", "scales", "colorspace", "broom", "reshape2", "sp", "forcats", "ggrepel", "sp", "svglite", "readxl", "htmltools", "usethis") 
+list.of.packages <- c("plyr", "devtools",  "rlang",  "openxlsx", "tidyr", "dplyr", "stringr", "RPostgreSQL", "data.table", "janitor", "ggplot2", "kableExtra", "extrafont", "tigris", "ggtext", "flextable", "highcharter", "tidycensus", "srvyr", "sysfonts", "showtext", "kableExtra", "janitor", "plotly", "leaflet", "rmarkdown", "RPostgreSQL", "rpostgis", "naniar", "dbplyr", "DT", "sf", "formattable", "knitr", "rgdal", "RColorBrewer", "scales", "colorspace", "broom", "reshape2", "sp", "forcats", "ggrepel", "sp", "svglite", "readxl", "htmltools", "usethis", "webshot") 
 
 new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"Package"])] 
 
@@ -29,19 +29,11 @@ if(length(new.packages)) install.packages(new.packages)
 new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"Package"])]
 if(length(new.packages)) install.packages(new.packages)
 
-
-```
-
-The following site holds the draft findings and draft visuals from various data sources to better understand the well-being and health of children in Best Start Region 5, the Antelope Valley. The findings and visuals are being developed by Catalyst California for the Region 5 State of the Child report in collaboration with The Children's Bureau.
-
-```{r}
-
 # Prep and Set Up 
 #### Loading Libraries ####
 library(dplyr)
 library(ggplot2)
 library(RPostgreSQL)
-library(devtools)
 library(janitor)
 library(tidyr)
 library(data.table)
@@ -70,6 +62,13 @@ library(svglite)
 library(kableExtra)
 library(flextable)
 library(highcharter)
+library(webshot)
+
+```
+
+The following site holds the draft findings and draft visuals from various data sources to better understand the well-being and health of children in Best Start Region 5, the Antelope Valley. The findings and visuals are being developed by Catalyst California for the Region 5 State of the Child report in collaboration with The Children's Bureau.
+
+```{r}
 #### First 5 LA Style Guide ####
 ## COLORS## Taken from W:\Project\RDA Team\Region 5 State of the Child\Documentation\F5LA_BrandGuidelines_COLORS.pdf
 #primary
@@ -326,14 +325,41 @@ Non-binary gender is tracked via students or school staff such as teachers elect
 ```{r}
 
 source("W:/Project/RDA Team/Region 5 State of the Child/R/non-binary.R")
-library(kableExtra)
 
- 
-kbl(av_table) %>%
-  # kable_styling(bootstrap_options = c("striped", "bordered", "condensed"))
-    kable_classic() %>%
-  add_header_above(c(" " = 1, "Non-Binary" = 2))
-cde_nonbinary <- av_table
+# library(DT)
+# library(htmltools)
+# library(webshot)
+# if(is.null(webshot:::find_phantom())){webshot::install_phantomjs()}
+# 
+# library(htmlTable)
+# library(htmlwidgets)
+# 
+# title <- 'Non-Binary Counts by School District 2021-22 School Year'
+# table_name <- "Nonbinary"
+# html <- "Nonbinary.html"
+# 
+# 
+# print_table <- function(x) {
+# table_create <-   DT::datatable(x, extensions = 'FixedColumns', options = list(initComplete = JS(
+#     "function(settings, json) {",
+#     "$('body').css({'font-family': 'GothamBook'});",
+#     "}"), 
+#     dom = 't', ordering=F, searching=FALSE, scrollx = FALSE, fixedColumns = TRUE), caption = htmltools::tags$caption( style = 'caption-side: top; text-align: center; color:black;  font-size:200% ; ',title), rownames = FALSE, class = list(stripe = FALSE))
+# 
+# saveWidget(table_create, html)
+# webshot(html, print(paste0(table_name,".png"))) # you can also export to pdf
+# }
+#  
+# test_table2 <- print_table(av_table) 
+# 
+# # simplified version
+# 
+# table_create <- DT::datatable(av_table)
+# ggplot(table_create + 
+#          ggsave("mtcars.png"))
+# html <- "table_create.html"
+# saveWidget(table_create, html)
+# webshot(html, "table_create.png") # you can also export to pdf
 ```
 
 Source: [California Department of Education, 2016-2022](https://dq.cde.ca.gov/dataquest/)
@@ -845,17 +871,34 @@ Source: [California Department of Education, 2016-2022](https://dq.cde.ca.gov/da
 ### CDE table creation
 ```{r}
 
-cde_nonbinary$Geography <- "Antelope Valley Best Start Region 5"
-cde_nonbinary <- cde_nonbinary[!(cde_nonbinary$`School Year`=="2020-21"),]
-cde_nonbinary <- cde_nonbinary %>% select(Geography, Count, `Rate (%)`)
 
-cde <- left_join(cde_foster, cde_socieconomically_disadvantaged, by="Geography") %>% left_join(cde_student_homelessness, by="Geography") %>% left_join(cde_disability, by="Geography") %>% left_join(cde_migrant, by="Geography") %>% left_join(cde_ell, by="Geography") %>% left_join(cde_nonbinary)
 
-cde_table <- kbl(cde, col.names = c("Geography", "Count", "Rate (%)", "Count", "Rate (%)", "Count", "Rate (%)", "Count", "Rate (%)", "Count", "Rate (%)", "Count", "Rate (%)", "Count", "Rate (%)")) %>%
-    kable_classic() %>%
-  add_header_above(c("2021-22" = 1, "Foster" = 2, "Socioeconomically Disadvantaged" = 2, "Homeless" = 2, "Disability" = 2,"Migrant" = 2,  "ELL" = 2, "Non-Binary" = 2))%>%
-  save_kable(file = "cde_table.png")
+cde <- left_join(cde_foster, cde_socieconomically_disadvantaged, by="Geography") %>% left_join(cde_student_homelessness, by="Geography") %>% left_join(cde_disability, by="Geography") #%>% left_join(cde_ell, by="Geography")
 
+# cde_table <- kbl(cde, col.names = c("Geography", "Count", "Rate (%)", "Count", "Rate (%)", "Count", "Rate (%)", "Count", "Rate (%)", "Count", "Rate (%)", "Count", "Rate (%)", "Count", "Rate (%)")) %>%
+#     kable_classic() %>%
+#   add_header_above(c("2021-22" = 1, "Foster" = 2, "Socioeconomically Disadvantaged" = 2, "Homeless" = 2, "Disability" = 2,"Migrant" = 2,  "ELL" = 2, "Non-Binary" = 2))%>%
+#   save_kable(file = "cde_table.png")
+
+# grouping variables for DT table creation
+# sketch = htmltools::withTags(table(
+#   class = 'display',
+#   thead(
+# # Define the grouping of your df
+#     tr(
+#       th(colspan = 1, '2021-22'),
+#       th(colspan = 2, 'Foster'),
+#       th(colspan = 2, 'Socioeconomically Disadvantaged'),
+#       th(colspan = 2, 'Homeless'),
+#       th(colspan = 2, 'Disability'),
+# #      th(colspan = 2, 'ELL'),
+#     )#,
+# # # Repeat column names 8 times
+# #     tr(
+# #       lapply(paste0("Col ", 1:8), th)
+# #     )
+#   )
+# ))
 
 
 ```
