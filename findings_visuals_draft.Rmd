@@ -104,7 +104,7 @@ font_axis_label <- "GothamBook"
 font_table_text<-"GothamBook"
 
 #### Loading Database from PgAdmin/Postgres #### 
-source("W://Project//RDA Team//Region 5 State of the Child//R//passwords.R")
+source("W:\\RDA Team\\R\\credentials_source.R") 
 
 #con_rc
 
@@ -841,11 +841,14 @@ According to estimates from the [American Institutes of Research](https://elneed
 
 **Unmet need for infant/toddler and preschool-aged children, 2020**
 ```{r}
-drv <- dbDriver("PostgreSQL")
+# drv <- dbDriver("PostgreSQL")
+# 
+# con <- dbConnect(drv, dbname = "region5stateofthechild",
+#                    host = "aws-postgres-db.c5udgz7ro8hq.us-west-2.rds.amazonaws.com", port = 5432,
+#                    user = "postgres", password = pw)
 
-con <- dbConnect(drv, dbname = "region5stateofthechild",
-                   host = "aws-postgres-db.c5udgz7ro8hq.us-west-2.rds.amazonaws.com", port = 5432,
-                   user = "postgres", password = pw)
+source("W:\\RDA Team\\R\\credentials_source.R") 
+con <- connect_to_db("region5stateofthechild") 
 
 ece_access_it_2020 <- st_read(con, query = "SELECT zipcode, neighborhood, unmet_need_children_it, pct_unmet_need_children_it FROM data.ece_access_it_2020")
 
@@ -926,7 +929,7 @@ Source: California Health and Human Services Geospatial Data portal for [Medical
 
 Health and mental health outcomes might suffer because of the lack of services. Medical care can be especially important for chronic conditions that need periodic treatment such as asthma. Antelope Valley adults are most likely to say they've ever seriously thought about committing suicide, 13% of the AV adult population, compared to 9.8% of LA County residents overall.[1](https://ask.chis.ucla.edu/)
 
-18.8% of Antelope Valley children have been diagnosed with asthma at some point in their lives (highest among LA SPAs), meaning access to health care is especially important for the Antelope Valley population.
+12.2% of Antelope Valley children have been diagnosed with asthma at some point in their lives (a higher percentage than the 11.1% county total), meaning access to health care is important for the Antelope Valley population.
 
 ## Parks
 The Los Angeles County County Department of Parks and Recreation completed a Countywide Parks and Recreation Needs Assessment addition in 2022. The assessment has findings for the region in an [Antelope Valley regional profile](https://lacountyparkneeds.org/wp-content/uploads/2022/11/AppA_RegionalProfiles_AntelopeValley_11282022.pdf). Some key findings from that profile:
@@ -1211,11 +1214,14 @@ The most recent California Department of Education data on certificated staff is
 **Shares of student enrollment & certificated staff in Antelope Valley schools, 2018-19**
 ```{r}
 
-drv <- dbDriver("PostgreSQL")
+# drv <- dbDriver("PostgreSQL")
+# 
+# con <- dbConnect(drv, dbname = "region5stateofthechild",
+#                    host = "aws-postgres-db.c5udgz7ro8hq.us-west-2.rds.amazonaws.com", port = 5432,
+#                    user = "postgres", password = pw)
 
-con <- dbConnect(drv, dbname = "region5stateofthechild",
-                   host = "aws-postgres-db.c5udgz7ro8hq.us-west-2.rds.amazonaws.com", port = 5432,
-                   user = "postgres", password = pw)
+source("W:\\RDA Team\\R\\credentials_source.R") 
+con <- connect_to_db("region5stateofthechild") 
 
 av_staff_student_race <- st_read(con, query = "SELECT * FROM av_staff_student_race")
 
@@ -1234,11 +1240,14 @@ Chronic absenteeism stems for a variety of factors including student-specific, f
 **Chronic Absenteeism by Race-ethnicity in Antelope Valley Schools, 2018-19**
 ```{r}
 
-drv <- dbDriver("PostgreSQL")
+# drv <- dbDriver("PostgreSQL")
+# 
+# con <- dbConnect(drv, dbname = "region5stateofthechild",
+#                    host = "aws-postgres-db.c5udgz7ro8hq.us-west-2.rds.amazonaws.com", port = 5432,
+#                    user = "postgres", password = pw)
 
-con <- dbConnect(drv, dbname = "region5stateofthechild",
-                   host = "aws-postgres-db.c5udgz7ro8hq.us-west-2.rds.amazonaws.com", port = 5432,
-                   user = "postgres", password = pw)
+source("W:\\RDA Team\\R\\credentials_source.R") 
+con <- connect_to_db("region5stateofthechild") 
 
 av_chronic_absenteeism_21_22 <- st_read(con, query = "SELECT * FROM av_chronic_absenteeism_21_22")
 
@@ -1500,9 +1509,13 @@ Black and NHPI populations are significantly more likely to be stopped by the Sh
 For example, Blacks are 2.4 times more likely to be stopped than Whites and NHPIs are 2.5 times more likely to be stopped than Whites. While there is not a data set available that can be clipped for the just the Antelope Valley region, we do see that within the police jurisdiction that covers this region, there is a racial discrepancy in stop rates. 
 ```{r}
 library(RPostgreSQL)
-con <- dbConnect(drv, dbname = "region5stateofthechild",
-                   host = "aws-postgres-db.c5udgz7ro8hq.us-west-2.rds.amazonaws.com", port = 5432,
-                   user = "postgres", password = pw)
+# con <- dbConnect(drv, dbname = "region5stateofthechild",
+#                    host = "aws-postgres-db.c5udgz7ro8hq.us-west-2.rds.amazonaws.com", port = 5432,
+#                    user = "postgres", password = pw)
+
+source("W:\\RDA Team\\R\\credentials_source.R") 
+con <- connect_to_db("region5stateofthechild") 
+
 df <- dbGetQuery(con, "SELECT * FROM lasd_stop_rate_by_race_2020")
 
 
