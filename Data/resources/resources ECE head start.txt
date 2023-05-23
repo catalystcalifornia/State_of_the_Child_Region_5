@@ -1,2 +1,0 @@
-https://data.lacounty.gov/datasets/lacounty::early-childhoold-education-and-head-start/explore?location=34.222647%2C-118.098220%2C7.97
-https://data.lacounty.gov/datasets/lacounty::child-care-1/explore?location=33.800844%2C-118.295000%2C7.97

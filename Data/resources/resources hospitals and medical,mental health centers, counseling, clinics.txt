@@ -1,4 +1,0 @@
-https://data.lacounty.gov/datasets/lacounty::hospitals-and-medical-centers/explore?location=34.223979%2C-117.987527%2C8.30
-https://data.lacounty.gov/datasets/lacounty::mental-health-centers/explore?location=34.241345%2C-118.109529%2C7.97
-https://data.lacounty.gov/datasets/lacounty::mental-health-counseling/explore?location=33.800844%2C-118.295000%2C7.97
-https://data.lacounty.gov/datasets/lacounty::health-clinics/explore?location=34.215166%2C-118.261072%2C7.97

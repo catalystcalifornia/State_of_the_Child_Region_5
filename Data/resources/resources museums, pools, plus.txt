@@ -1,1 +1,0 @@
-https://egis-lacounty.hub.arcgis.com/search?categories=infrastructure&q=recreation

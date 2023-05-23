@@ -1,1 +1,0 @@
-https://egis-lacounty.hub.arcgis.com/datasets/lacounty::reported-hate-crimes/explore?location=34.219621%2C-118.173107%2C7.95&showTable=true

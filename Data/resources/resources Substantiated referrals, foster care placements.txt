@@ -1,2 +1,0 @@
-https://data.lacounty.gov/datasets/lacounty::dcfs-all-substantiated-referrals-2021/explore?location=34.066615%2C-118.298788%2C8.47
-https://egis-lacounty.hub.arcgis.com/datasets/lacounty::dcfs-all-children-in-foster-care-2021/explore?location=34.066615%2C-118.298788%2C8.47
