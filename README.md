@@ -1,206 +1,108 @@
-# State_of_the_Child_Region_5
-Draft Findings and Visuals for the State of the Child Region 5 Report.
-
- <li>
-      <a href="https://catalystcalifornia.github.io/State_of_the_Child_Region_5/findings_visuals_draft.html"> Draft Findings HTML Link<br>https://catalystcalifornia.github.io/State_of_the_Child_Region_5/findings_visuals_draft.html</a>
-      </li>
+# State of the Child Region 5: Antelope Valley
 
 <details>
   <summary>Table of Contents</summary>
   <ol>
     <li>
-      <a href="#about-the-project">About The Project</a>
+      <a href="#about-the-project">About The Project</a></li>
+    <li><a href="#data">Data</a>
+    </li>
+    <li><a href="#contributors">Contributors</a></li>
+    <li><a href="#contact-us">Contact Us</a></li>
+    <li><a href="#about-catalyst-california">About Catalyst California</a>
       <ul>
-        <li><a href="#built-with">Built With</a></li>
+        <li><a href="#our-vision">Our Vision</a></li>
+        <li><a href="#our-mission">Our Mission</a></li>
       </ul>
     </li>
-    <li>
-      <a href="#getting-started">Getting Started</a>
-      <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Installation</a></li>
-      </ul>
-    </li>
-    <li><a href="#usage">Usage</a></li>
-    <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#contributing">Contributing</a></li>
+    <li><a href="#citation">Citation</a></li>
     <li><a href="#license">License</a></li>
-    <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgments">Acknowledgments</a></li>
+    <li><a href="#partners">Partners</a></li>
   </ol>
 </details>
 
-
 ## About The Project
 
-The State of the Child Antelope Valley Report seeks to understand the conditions of children and families within this current moment in the Antelope Valley, California Best Start Region 5. It encompasses topics including demographics, education, economic wellbeing, etc.
+This report presents findings on the state of children and public systems in the Antelope Valley. It represents the most comprehensive analysis of data from the Antelope Valley region to date. The Children’s Bureau commissioned it to understand the state of children in the Antelope Valley, identify indicators to monitor, and increase the amount of data available to advocates. We hope that county agencies, funders, and other partners use this report to learn more about the Antelope Valley and engage with Antelope Valley communities in their work. Catalyst California partnered with the Children’s Bureau to ask over 100 residents and advocates for recommendations on what issues to consider, positive examples of programs to uplift, and data to include in the report. Their recommendations shape the content gathered for this report and were reviewed and approved by a steering committee of 20 community experts. 
 
-<p align="right">(<a href="#top">back to top</a>)</p>
+The State of the Child Antelope Valley Report seeks to understand the conditions of children and families within this current moment in the Antelope Valley, California Best Start Region 5. It encompasses topics including demographics, education, economic well being, etc.
 
-
-### Data Source(s)
- *[American Community Survey 2016-2020 5-year estimates calculated for Antelope Valley neighborhoods by Lucy Wilkerson](https://public.tableau.com/app/profile/luz3725/viz/2020CensusData-AVBESTSTARTREGION5/GRAPI)
- *[2019 US Census American Community Survey (ACS) 1-year Estimates, Table S0201](https://data.census.gov/cedsci/table?q=S0201&t=-00%20-%20All%20available%20races&g=0400000US06%240500000&tid=ACSSPP1Y2019.S0201)
- *[Children's Data Network Infant Mortality Rates](https://www.first5la.org/wp-content/uploads/2020/09/First-5-LA-2020-Indicators-Report.pdf)
- *[California Department of Public Health](https://data.chhs.ca.gov/dataset/infant-mortality-deaths-per-1000-live-births-lghc-indicator-01/resource/ae78da8f-1661-45f6-b2d0-1014857d16e3)
- *[African American Infant and Maternal Mortality (AAIMM) Initiative](https://www.blackinfantsandfamilies.org/)
- *[A Pathway to Equity](http://publichealth.lacounty.gov/centerforhealthequity/PDF/AAIM-ActionPlan.pdf)
- *[Vera Institute for Justice](https://www.vera.org/)
- *[California Department of Education, 2015-2022](https://dq.cde.ca.gov/dataquest/)
- *[Los Angeles Homeless Services Authority, 2022](https://www.lahsa.org/data)
- *[United Ways of California Real Cost Measure, 2021](https://www.unitedwaysca.org/realcost/39-real-cost)
- *[L.A. County WIC Administrative Data, 2021](https://lawicdata.org/data-research/by-region/)
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-### Built with
-<!--<img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/R_logo.svg" align="left" alt="R" width="32px">
-<img src="https://upload.wikimedia.org/wikipedia/commons/d/d0/RStudio_logo_flat.svg" align="left" alt="RStudio" width="32px">-->
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/R_logo.svg/1086px-R_logo.svg.png?20160212050515" alt="R" height="32px"/> &nbsp; <img  src="https://upload.wikimedia.org/wikipedia/commons/d/d0/RStudio_logo_flat.svg" alt="RStudio" height="32px"/> &nbsp; <img  src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Git-logo.svg/768px-Git-logo.svg.png?20160811101906" alt="RStudio" height="32px"/>
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-
-<!-- GETTING STARTED -->
-## Getting Started
-
-<!--This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps. -->
-
-### Prerequisites
-
-The data cleaning, analysis, and visualization was conducted with the following software. In addition to that, there are several R packages that were used to pull Census data and perform different functions.
-* [R](https://cran.rstudio.com/)
-* [RStudio](https://posit.co/download/rstudio-desktop/)
-
-
-### Installation
-
-1. Get a free TidyCensus API Key at [https://walker-data.com/tidycensus/articles/basic-usage.html](https://walker-data.com/tidycensus/articles/basic-usage.html)
-2. Clone the repo
-   ```sh
-   git clone https://github.com/github_username/repo_name.git
-   ```
-3. Install R packages
-* dplyr
-* tidyr
-* ggplot2
-* stringr
-* sf
-* data.table
-* janitor
-* ggtext
-* kableExtra
-* RPostgreSQL
-* usethis
-
-
-```
-list.of.packages <- c("openxlsx", "tidycensus", "tidyr","dplyr", "stringr", "RPostgreSQL",
-"data.table", "kableExtra", "ggplot2", "ggtext", "janitor","sf") 
-new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"Package"])]
-if(length(new.packages)) install.packages(new.packages)
-
-devtools::install_github("r-lib/usethis")
-
-library(openxlsx)
-library(stringr)
-library(tidycensus)
-library(tidyr)
-library(dplyr)
-library(RPostgreSQL)
-library(data.table)
-library(sf)
-library(janitor)
-library(kableExtra)
-library(ggplot2)
-library(ggtext)
-library(usethis)
-```
-
-4. Enter your API in `.Renviron` File for Repeated Use
-[https://walker-data.com/tidycensus/reference/census_api_key.html](https://walker-data.com/tidycensus/reference/census_api_key.html)
-
-
-
-```
-if (FALSE) {
-census_api_key("111111abc", install = TRUE)
-# First time, reload your environment so you can use the key without restarting R.
-readRenviron("~/.Renviron")
-# You can check it with:
-Sys.getenv("CENSUS_API_KEY")
-}
-
-if (FALSE) {
-# If you need to overwrite an existing key:
-census_api_key("111111abc", overwrite = TRUE, install = TRUE)
-# First time, relead your environment so you can use the key without restarting R.
-readRenviron("~/.Renviron")
-# You can check it with:
-Sys.getenv("CENSUS_API_KEY")
-}
-
-```
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-
-<!--## Usage
-
-Use this space to show useful examples of how a project can be used (e.g. iframes, citation, etc). Additional screenshots, code examples and demos work well in this space. You may also link to more resources.-->
-
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-
-<!--## Roadmap
-
-Use this space to list out future goals for this project (if any)
-- [ ] Feature 1
-- [ ] Feature 2
-- [ ] Feature 3
-    - [ ] Nested Feature-->
-
+<li><a href="https://catalystcalifornia.github.io/State_of_the_Child_Region_5/findings_visuals_draft.html">Draft Findings and Visuals</a></li>
+<li><a href="">English Report</a></li>
+<li><a href="">Informe en Español</a></li>
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 
 ## Contributors
 
 * [Alexandra Baker](https://github.com/bakeralexan)
+* [Maria Khan](https://github.com/mariatkhan)
+* [Elycia Mulholland-Graves](https://github.com/elyciamg)
 * [Chris Ringewald](https://github.com/cringewald)
 * [David Segovia](https://github.com/davidseg1997)
-* [Maria Khan](https://github.com/mariatkhan)
-
-
-
 <p align="right">(<a href="#top">back to top</a>)</p>
 
+## Data
 
-## Contact
+California Department of Education Indicators
+<ul>
+  <li><a href="R_Scripts/ela.r">3rd Grade English Language Arts Proficiency Rates</a></li>  
+  <li><a href="R_Scripts/math.r">3rd Grade Math Proficiency Rates</a></li>
+  <li><a href="R_Scripts/cde_functions.r">CDE Functions</a></li>
+  <li><a href="R_Scripts/ell.r">English Language Learners Rates</a></li>
+  <li><a href="R_Scripts/hs_grad.r">High School Graduation Rates</a></li>
+  <li><a href="R_Scripts/socioeconomically_disadvantaged.r">Socioeconomically Disadvantaged Rates</a></li>
+  <li><a href="R_Scripts/suspension.r">Suspension Rates</a></li>  
+  <li><a href="R_Scripts/student_homelessness.r">Youth Experiencing Homelessness Rates</a></li>  
+  <li><a href="R_Scripts/non-binary.r">Youth Identifying as Non-Binary Rates</a></li>  
+  <li><a href="R_Scripts/foster.r">Youth in Foster Care Rates</a></li>
+  <li><a href="R_Scripts/migrant.r">Youth in Migrant Program Rates</a></li>
+  <li><a href="R_Scripts/disabilities.r">Youth with Disabilities Rates</a></li> 
+</ul>
+Demographic Indicators
+<ul>
+  <li><a href="R_Scripts/age.r">3rd Grade English Language Arts Proficiency Rates</a></li>  
+  <li><a href="R_Scripts/language.r">3rd Grade Math Proficiency Rates</a></li>
+  <li><a href="R_Scripts/language_entire_av.r">CDE Functions</a></li>
+  <li><a href="R_Scripts/population.r">English Language Learners Rates</a></li>
+  <li><a href="R_Scripts/population_change.r">High School Graduation Rates</a></li>
+  <li><a href="R_Scripts/race.r">Socioeconomically Disadvantaged Rates</a></li>
+  <li><a href="R_Scripts/race_entire_av.r">Socioeconomically Disadvantaged Rates</a></li>
+</ul>
+Economic Indicators
+Visualization
+<ul>
+  <li><a href="R_Scripts/AV_Reference_Map.r">Reference Map</a></li>
+  <li><a href="R_Scripts/HPSAs_Map.r">Health Planning Service Areas Map</a></li>
+  <li><a href="R_Scripts/substantiated_referrals_map.r">Reference Map</a></li>
+  <li><a href="R_Scripts/ggplot_visuals.r">Ggplot2 Visuals</a></li>
+  <li><a href="R_Scripts/static_table.r">Static Tables</a></li>
+</ul>
 
-<!--Use this space to add a contact for questions/concerns that visitors may have-->
+## Contact Us
 
 [Chris Ringewald](https://www.linkedin.com/in/chris-ringewald-6766369/) - cringewald@catalystcalifornia.org
-[Alexandra Baker](https://www.linkedin.com/in/alexandra-baker-84696075/) - abaker@catalystcalifornia.org
-
-Project Link: [https://github.com/advancementprojectca-rda/State_of_the_Child_Region_5](https://github.com/advancementprojectca-rda/State_of_the_Child_Region_5)
-
 <p align="right">(<a href="#top">back to top</a>)</p>
-<!--
+
+## About Catalyst California
+
+### Our Vision
+A world where systems are designed for justice and support equitable access to resources and opportunities for all Californians to thrive.
+
+### Our Mission
+[Catalyst California](https://www.catalystcalifornia.org/) advocates for racial justice by building power and transforming public systems. We partner with communities of color, conduct innovative research, develop policies for actionable change, and shift money and power back into our communities. 
+
+[Click here to view Catalyst California's Projects on GitHub](https://github.com/catalystcalifornia)
+<p align="right">(<a href="#top">back to top</a>)</p>
 
 ## License
 
-Distributed under the MIT License. See `LICENSE.txt` for more information.-->
-
+Distributed under the MIT License. See `LICENSE.txt` for more information.
 <p align="right">(<a href="#top">back to top</a>)</p>
 
+## Partners
+[Children's Bureau](https://www.all4kids.org/)
 
-## Acknowledgments
-<!--Use this space for any additional acknowledgments (project partners, etc)-->
-
-* [Children's Bureau](https://www.all4kids.org/)
-* [Tracey La Monica](traceylamonica@all4kids.org)
-* [Sylvia Scott](sylviascott@all4kids.org)
-
+<img src="Images/ChildrensBureauLogo.jpg" alt="Childrens Bureau Logo" width="30%" 
+     height="20%">
 <p align="right">(<a href="#top">back to top</a>)</p>
