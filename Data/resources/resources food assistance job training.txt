@@ -1,0 +1,2 @@
+https://data.lacounty.gov/datasets/lacounty::food-assistance/explore?location=34.188980%2C-118.229407%2C7.97
+https://data.lacounty.gov/datasets/lacounty::job-training/explore?location=34.323567%2C-118.064293%2C7.97

@@ -1,0 +1,2 @@
+https://data.lacounty.gov/datasets/lacounty::health-education-and-counseling/explore?location=34.260039%2C-118.222621%2C7.97
+https://data.lacounty.gov/datasets/lacounty::cooling-and-warming-centers/explore?location=34.323567%2C-118.161552%2C7.97
