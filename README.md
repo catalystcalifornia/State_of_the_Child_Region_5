@@ -78,9 +78,9 @@ The State of the Child Antelope Valley Report seeks to understand the conditions
 
 ### Resources Indicators
 <ul>
-  <li><a href="R_Scripts/health.R">Health</a></li>
   <li><a href="R_Scripts/child_welfare.R">Child Welfare</a></li>
-
+  <li><a href="R_Scripts/ece.R">Early Childhood Education</a></li>
+  <li><a href="R_Scripts/health.R">Health</a></li>
 </ul>
 
 #### Functions for Indicator Scripts
