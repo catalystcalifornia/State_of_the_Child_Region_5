@@ -34,30 +34,30 @@ The State of the Child Antelope Valley Report seeks to understand the conditions
 
 #### Education Indicators
 <ul>
-  <li><a href="R_Scripts/ela.R">3rd Grade English Language Arts Proficiency Rates</a></li>  
-  <li><a href="R_Scripts/math.R">3rd Grade Math Proficiency Rates</a></li>
-  <li><a href="R_Scripts/ell.R">English Language Learners Rates</a></li>
-  <li><a href="R_Scripts/hs_grad.R">High School Graduation Rates</a></li>
-  <li><a href="R_Scripts/socioeconomically_disadvantaged.R">Socioeconomically Disadvantaged Rates</a></li>
-  <li><a href="R_Scripts/suspension.R">Suspension Rates</a></li>  
-  <li><a href="R_Scripts/student_homelessness.R">Youth Experiencing Homelessness Rates</a></li>  
-  <li><a href="R_Scripts/non-binary.R">Youth Identifying as Non-Binary Rates</a></li>  
-  <li><a href="R_Scripts/foster.R">Youth in Foster Care Rates</a></li>
-  <li><a href="R_Scripts/migrant.R">Youth in Migrant Program Rates</a></li>
-  <li><a href="R_Scripts/disabilities.R">Youth with Disabilities Rates</a></li> 
+  <li><a href="R_Scripts/ela.R">3rd Grade English Language Arts Proficiency</a></li>  
+  <li><a href="R_Scripts/math.R">3rd Grade Math Proficiency</a></li>
+  <li><a href="R_Scripts/ell.R">English Language Learners</a></li>
+  <li><a href="R_Scripts/hs_grad.R">High School Graduation</a></li>
+  <li><a href="R_Scripts/socioeconomically_disadvantaged.R">Socioeconomically Disadvantaged</a></li>
+  <li><a href="R_Scripts/suspension.R">Suspension</a></li>  
+  <li><a href="R_Scripts/student_homelessness.R">Youth Experiencing Homelessness</a></li>  
+  <li><a href="R_Scripts/non-binary.R">Youth Identifying as Non-Binary</a></li>  
+  <li><a href="R_Scripts/foster.R">Youth in Foster Care</a></li>
+  <li><a href="R_Scripts/migrant.R">Youth in Migrant Program</a></li>
+  <li><a href="R_Scripts/disabilities.R">Youth with Disabilities</a></li> 
 </ul>
 
 
 #### Demographic Indicators
 <ul>
-  <li><a href="R_Scripts/age.R">Ages in the Antelope Valley</a></li>  
-    <li><a href="R_Scripts/under18_by_race.R">Children by Race</a></li>  
-  <li><a href="R_Scripts/language.R">Language Spoken at Home for Antelope Valley geographies, 2020</a></li>
-  <li><a href="R_Scripts/language_entire_av.R">Languages in SPA 1</a></li>
+  <li><a href="R_Scripts/age.R">Ages</a></li>  
+  <li><a href="R_Scripts/under18_by_race.R">Children by Race</a></li>
+  <li><a href="R_Scripts/language_entire_av.R">Languages</a></li>    
+  <li><a href="R_Scripts/language.R">Language Spoken at Home</a></li>
   <li><a href="R_Scripts/population.R">Population</a></li>
   <li><a href="R_Scripts/population_change.R">Population Change</a></li>
-  <li><a href="R_Scripts/race.R">Race</a></li>
-  <li><a href="R_Scripts/race_entire_av.R">Race in SPA 1</a></li>
+  <li><a href="R_Scripts/race.R">Races</a></li>
+  <li><a href="R_Scripts/race_entire_av.R">Races</a></li>
 </ul>
 
 #### Economic Indicators
@@ -65,17 +65,22 @@ The State of the Child Antelope Valley Report seeks to understand the conditions
   <li><a href="R_Scripts/cost_of_living.R">Cost of Living</a></li>
   <li><a href="R_Scripts/eviction.R">Evictions</a></li>
   <li><a href="R_Scripts/foreclosure.R">Foreclosures</a></li>
-  <li><a href="R_Scripts/child_welfare.R">Child Welfare</a></li>
   <li><a href="R_Scripts/food_security.R">Food Security</a></li>
-  <li><a href="R_Scripts/rent_burden_totals.R">Rent Burden in the Antelope Valley</a></li>
-  <li><a href="R_Scripts/homeless.R">Homelessness in the Antelope Valley</a></li>
+  <li><a href="R_Scripts/rent_burden_totals.R">Rent </a></li>
+  <li><a href="R_Scripts/homeless.R">Homelessness</a></li>
 </ul> 
 
 #### Crime and Safety Indicators
 <ul>
-  <li><a href="R_Scripts/health.R">Health</a></li>
   <li><a href="R_Scripts/hate_crimes.R">Hate Crimes</a></li>
   <li><a href="R_Scripts/use_of_force.R">Use of Force</a></li>
+</ul>
+
+### Resources Indicators
+<ul>
+  <li><a href="R_Scripts/health.R">Health</a></li>
+  <li><a href="R_Scripts/child_welfare.R">Child Welfare</a></li>
+
 </ul>
 
 #### Functions for Indicator Scripts
