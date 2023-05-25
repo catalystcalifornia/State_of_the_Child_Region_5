@@ -111,42 +111,8 @@ gtsave(suspensions, "suspensions_table.png",path = "W:/Project/RDA Team/Region 5
 
 # ECE ----
 
-# postgres credentials
-source("W:\\RDA Team\\R\\credentials_source.R") 
+source("W:/Project/RDA Team/Region 5 State of the Child/R/ece.R") 
 
-con <- connect_to_db("region5stateofthechild")
-
-ece_access_it_2020 <- st_read(con, query = "SELECT zipcode, neighborhood, unmet_need_children_it, pct_unmet_need_children_it FROM data.ece_access_it_2020")
-
-ece_access_it_2020 <- ece_access_it_2020 %>% rename(
-  "ZIP code" = zipcode,
-  "Neighborhood" = neighborhood,
-  "Unmet need for infant/toddler care" = unmet_need_children_it,
-  "% of infant/toddlers with unmet need" = pct_unmet_need_children_it
-)
-
-ece_access_it_2020$Neighborhood <- gsub('[{]', '', ece_access_it_2020$Neighborhood)
-ece_access_it_2020$Neighborhood <- gsub('[}]', '', ece_access_it_2020$Neighborhood)
-ece_access_it_2020$Neighborhood <- gsub('["]', '', ece_access_it_2020$Neighborhood)
-ece_access_it_2020$Neighborhood <- gsub('[,]', ', ', ece_access_it_2020$Neighborhood)
-
-ece_access_prek_2020 <- st_read(con, query = "SELECT zipcode, neighborhood, unmet_need_children_prek, pct_unmet_need_children_prek FROM data.ece_access_prek_2020")
-
-ece_access_prek_2020 <- ece_access_prek_2020 %>% rename(
-  "ZIP code" = zipcode,
-  "Neighborhood" = neighborhood,
-  "Unmet need for preschool" = unmet_need_children_prek,
-  "% of preschoolers with unmet need" = pct_unmet_need_children_prek
-)
-
-ece_access_prek_2020$Neighborhood <- gsub('[{]', '', ece_access_prek_2020$Neighborhood)
-ece_access_prek_2020$Neighborhood <- gsub('[}]', '', ece_access_prek_2020$Neighborhood)
-ece_access_prek_2020$Neighborhood <- gsub('["]', '', ece_access_prek_2020$Neighborhood)
-ece_access_prek_2020$Neighborhood <- gsub('[,]', ', ', ece_access_prek_2020$Neighborhood)
-
-
-
-# ece <- rbind(ece_access_it_2020, ece_access_prek_2020) 
 ece_access_it_2020 <- ece_access_it_2020 %>% dplyr::rename("With Unmet Need"="Unmet need for infant/toddler care", "% with Unmet Need"="% of infant/toddlers with unmet need") %>% mutate(Name = "Infants & Toddlers")
 
 ece_access_prek_2020 <- ece_access_prek_2020 %>% dplyr::rename("With Unmet Need"="Unmet need for preschool", "% with Unmet Need"="% of preschoolers with unmet need") %>% mutate(Name = "Preschoolers")
