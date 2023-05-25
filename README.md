@@ -6,16 +6,16 @@
     <li>
       <a href="#about-the-project">About The Project</a></li>
     <li><a href="#data">Data</a></li>
-    <li><a href="#contributors">Contributors</a></li>
     <li><a href="#about-catalyst-california">About Catalyst California</a>
       <ul>
         <li><a href="#our-vision">Our Vision</a></li>
         <li><a href="#our-mission">Our Mission</a></li>
       </ul>
     </li>
+    <li><a href="#contributors">Contributors</a></li>    
+    <li><a href="#partners">Partners</a></li>
     <li><a href="#contact-us">Contact Us</a></li>
     <li><a href="#license">License</a></li>
-    <li><a href="#partners">Partners</a></li>
   </ol>
 </details>
 
@@ -30,19 +30,9 @@ The State of the Child Antelope Valley Report seeks to understand the conditions
 <li><a href="">Informe en Español</a></li>
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-
-## Contributors
-
-* [Alexandra Baker](https://github.com/bakeralexan)
-* [Maria Khan](https://github.com/mariatkhan)
-* [Elycia Mulholland-Graves](https://github.com/elyciamg)
-* [Chris Ringewald](https://github.com/cringewald)
-* [David Segovia](https://github.com/davidseg1997)
-<p align="right">(<a href="#top">back to top</a>)</p>
-
 ## Data
 
-California Department of Education Indicators
+#### Education Indicators
 <ul>
   <li><a href="R_Scripts/ela.r">3rd Grade English Language Arts Proficiency Rates</a></li>  
   <li><a href="R_Scripts/math.r">3rd Grade Math Proficiency Rates</a></li>
@@ -58,7 +48,7 @@ California Department of Education Indicators
 </ul>
 
 
-Demographic Indicators
+#### Demographic Indicators
 <ul>
   <li><a href="R_Scripts/age.r">Ages in the Antelope Valley</a></li>  
     <li><a href="R_Scripts/under18_by_race.r">Children by Race</a></li>  
@@ -70,7 +60,7 @@ Demographic Indicators
   <li><a href="R_Scripts/race_entire_av.r">Race in SPA 1</a></li>
 </ul>
 
-Economic Indicators
+#### Economic Indicators
 <ul>
   <li><a href="R_Scripts/cost_of_living.r">Cost of Living</a></li>
   <li><a href="R_Scripts/eviction.r">Evictions</a></li>
@@ -81,20 +71,20 @@ Economic Indicators
   <li><a href="R_Scripts/homeless.r">Homelessness in the Antelope Valley</a></li>
 </ul> 
 
-Crime and Safety
+#### Crime and Safety Indicators
 <ul>
   <li><a href="R_Scripts/health.r">Health</a></li>
   <li><a href="R_Scripts/hate_crimes.r">Hate Crimes</a></li>
   <li><a href="R_Scripts/use_of_force.r">Use of Force</a></li>
 </ul>
 
-Functions
+#### Functions for Indicator Scripts
 <ul>
   <li><a href="R_Scripts/cde_functions.r">CDE Functions</a></li>
   <li><a href="R_Scripts/Tract_Wt_Avg_Functions.r">Census Tract Weighting Functions</a></li>
 </ul>
 
-Visualization
+#### Scripts for Creating Visuals
 <ul>
   <li><a href="R_Scripts/AV_Reference_Map.r">Reference Map</a></li>
   <li><a href="R_Scripts/HPSAs_Map.r">Health Planning Service Areas Map</a></li>
@@ -107,6 +97,16 @@ Visualization
   <li><a href="R_Scripts/static_tables.r">Static Tables</a></li>
 </ul>
 
+#### Helpful Links
+<ul>
+  <li><a href="F5LA_BrandGuidelines_COLORS.pdf">First 5 LA Brand Guide</a></li>
+  <li><a href="https://www.census.gov/geographies/mapping-files/time-series/geo/cartographic-boundary.2020.html">Census Tracts</a></li>
+  <li><a href="https://egis-lacounty.hub.arcgis.com/datasets/service-planning-areas-2022-view/explore?location=34.025999%2C-118.300941%2C8.00">Link to current Service Planning Areas</a></li>
+  <li><a href="https://egis-lacounty.hub.arcgis.com/datasets/lacounty::la-county-service-planning-area-2012/explore">Previous SPAs used in comparison to 2011</a></li>
+  <li><a href="https://maps.latimes.com/neighborhoods/index.html">Los Angeles Times Neighborhoods (used in reference map)</a></li>
+</ul>
+<p align="right">(<a href="#top">back to top</a>)</p>
+
 ## About Catalyst California
 
 ### Our Vision
@@ -116,6 +116,23 @@ A world where systems are designed for justice and support equitable access to r
 [Catalyst California](https://www.catalystcalifornia.org/) advocates for racial justice by building power and transforming public systems. We partner with communities of color, conduct innovative research, develop policies for actionable change, and shift money and power back into our communities. 
 
 [Click here to view Catalyst California's Projects on GitHub](https://github.com/catalystcalifornia)
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+
+## Contributors
+
+* [Alexandra Baker](https://github.com/bakeralexan)
+* [Maria Khan](https://github.com/mariatkhan)
+* [Elycia Mulholland-Graves](https://github.com/elyciamg)
+* [Chris Ringewald](https://github.com/cringewald)
+* [David Segovia](https://github.com/davidseg1997)
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+## Partners
+[Children's Bureau](https://www.all4kids.org/)
+
+<img src="Images/ChildrensBureauLogo.jpg" alt="Childrens Bureau Logo" width="30%" 
+     height="20%">
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 ## Contact Us
@@ -128,9 +145,3 @@ A world where systems are designed for justice and support equitable access to r
 Distributed under the MIT License. See `LICENSE.txt` for more information.
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-## Partners
-[Children's Bureau](https://www.all4kids.org/)
-
-<img src="Images/ChildrensBureauLogo.jpg" alt="Childrens Bureau Logo" width="30%" 
-     height="20%">
-<p align="right">(<a href="#top">back to top</a>)</p>
