@@ -21,7 +21,7 @@ knitr::opts_chunk$set(comment=FALSE, message=FALSE, warning=FALSE)
 
 
 # install packages if not already installed
-list.of.packages <- c("plyr", "devtools",  "rlang",  "openxlsx", "tidyr", "dplyr", "stringr", "RPostgreSQL", "data.table", "janitor", "ggplot2", "kableExtra", "extrafont", "tigris", "ggtext", "flextable", "highcharter", "tidycensus", "srvyr", "sysfonts", "showtext", "kableExtra", "janitor", "plotly", "leaflet", "rmarkdown", "RPostgreSQL", "rpostgis", "naniar", "dbplyr", "DT", "sf", "formattable", "knitr", "rgdal", "RColorBrewer", "scales", "colorspace", "broom", "reshape2", "sp", "forcats", "ggrepel", "sp", "svglite", "readxl", "htmltools", "usethis", "webshot") 
+list.of.packages <- c("plyr", "devtools",  "rlang",  "openxlsx", "tidyr", "dplyr", "stringr", "RPostgreSQL", "data.table", "janitor", "ggplot2", "kableExtra", "extrafont", "tigris", "ggtext", "flextable", "highcharter", "tidycensus", "srvyr", "sysfonts", "showtext", "kableExtra", "janitor", "plotly", "leaflet", "rmarkdown", "RPostgreSQL", "rpostgis", "naniar", "dbplyr", "DT", "sf", "formattable", "knitr", "rgdal", "RColorBrewer", "scales", "colorspace", "broom", "reshape2", "sp", "forcats", "ggrepel", "sp", "svglite", "readxl", "htmltools", "usethis") 
 
 new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"Package"])] 
 
@@ -29,11 +29,19 @@ if(length(new.packages)) install.packages(new.packages)
 new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"Package"])]
 if(length(new.packages)) install.packages(new.packages)
 
+
+```
+
+The following site holds the draft findings and draft visuals from various data sources to better understand the well-being and health of children in Best Start Region 5, the Antelope Valley. The findings and visuals are being developed by Catalyst California for the Region 5 State of the Child report in collaboration with The Children's Bureau.
+
+```{r}
+
 # Prep and Set Up 
 #### Loading Libraries ####
 library(dplyr)
 library(ggplot2)
 library(RPostgreSQL)
+library(devtools)
 library(janitor)
 library(tidyr)
 library(data.table)
@@ -62,13 +70,6 @@ library(svglite)
 library(kableExtra)
 library(flextable)
 library(highcharter)
-library(webshot)
-
-```
-
-The following site holds the draft findings and draft visuals from various data sources to better understand the well-being and health of children in Best Start Region 5, the Antelope Valley. The findings and visuals are being developed by Catalyst California for the Region 5 State of the Child report in collaboration with The Children's Bureau.
-
-```{r}
 #### First 5 LA Style Guide ####
 ## COLORS## Taken from W:\Project\RDA Team\Region 5 State of the Child\Documentation\F5LA_BrandGuidelines_COLORS.pdf
 #primary
@@ -103,7 +104,7 @@ font_axis_label <- "GothamBook"
 font_table_text<-"GothamBook"
 
 #### Loading Database from PgAdmin/Postgres #### 
-source("W://Project//RDA Team//Region 5 State of the Child//R//passwords.R")
+source("W:\\RDA Team\\R\\credentials_source.R") 
 
 #con_rc
 
@@ -176,22 +177,16 @@ This matters because separation or probation impacts the ability of parents to l
 
 ## Foster Youth Population 
 
-Overall in the Antelope Valley (AV) during the 2021-2022 school year, 2,008 students (or 2.3%) are in the Foster Care System. Black (5.2%) and American Indian / Alaskan Native (5.4%) students are over 10 times more likely to be in the foster care system than Asian (0.5%) students, the group least likely to be in the foster care system in the AV. Native Hawaiian / Pacific Islander (4.3%) students also have a high rate of students in foster care compared to the AV average, almost 2 times more in fact. At the district level, the Eastside Union Elementary School District has almost double the percentage of students in foster care compared to the AV average and over 7 times more compared to the School District with the lowest percentage.
+Overall in the Antelope Valley (AV) during the 2021-2022 school year, 2,008 students (or 2.3%) are in the Foster Care System. Black (5.2%) and American Indian / Alaskan Native (5.3%) students are over 10 times more likely to be in the foster care system than Asian (0.5%) students, the group least likely to be in the foster care system in the AV. Native Hawaiian / Pacific Islander (4.2%) students also have a high rate of students in foster care compared to the AV average, almost 2 times more in fact. At the district level, the Eastside Union Elementary School District has almost double the percentage of students in foster care compared to the AV average and over 7 times more compared to the School District with the lowest percentage.
 
  **Foster Youth Rates out of 100 by District 2021-22 School Year**
 ```{r}
 source("W:/Project/RDA Team/Region 5 State of the Child/R/foster.R")
 library(kableExtra)
-av_table <- av_table %>% mutate(across(c(`2021-22 Count`), comma))%>% rename("Count"="2021-22 Count")
+av_table <- av_table %>% mutate(across(c(`2021-22 Count`), comma))
  
 kbl(av_table) %>%
-    kable_classic() %>%
-  add_header_above(c("2021-22" = 1, "Foster" = 2))
- # kable_styling(bootstrap_options = c("striped", "bordered", "condensed"))
-cde_foster <- av_table
-
-
-
+  kable_styling(bootstrap_options = c("striped", "bordered", "condensed"))
 
 
 ```
@@ -304,11 +299,11 @@ Overall, 281 students (0.3% or 0.3 out of 100 students) are in the California's 
 source("W:/Project/RDA Team/Region 5 State of the Child/R/migrant.R")
 library(kableExtra)
 
-av_table <- av_table %>% mutate(across(c(`2021-22 Count`), comma)) %>% rename("Count"="2021-22 Count")
+av_table <- av_table %>% mutate(across(c(`2021-22 Count`), comma)) 
 kbl(av_table) %>%
   kable_styling(bootstrap_options = c("striped", "bordered", "condensed"))
 
-cde_migrant <- av_table
+
 ```
 
 Source: [California Department of Education, 2016-2022](https://dq.cde.ca.gov/dataquest/)
@@ -325,41 +320,12 @@ Non-binary gender is tracked via students or school staff such as teachers elect
 ```{r}
 
 source("W:/Project/RDA Team/Region 5 State of the Child/R/non-binary.R")
+library(kableExtra)
 
-# library(DT)
-# library(htmltools)
-# library(webshot)
-# if(is.null(webshot:::find_phantom())){webshot::install_phantomjs()}
-# 
-# library(htmlTable)
-# library(htmlwidgets)
-# 
-# title <- 'Non-Binary Counts by School District 2021-22 School Year'
-# table_name <- "Nonbinary"
-# html <- "Nonbinary.html"
-# 
-# 
-# print_table <- function(x) {
-# table_create <-   DT::datatable(x, extensions = 'FixedColumns', options = list(initComplete = JS(
-#     "function(settings, json) {",
-#     "$('body').css({'font-family': 'GothamBook'});",
-#     "}"), 
-#     dom = 't', ordering=F, searching=FALSE, scrollx = FALSE, fixedColumns = TRUE), caption = htmltools::tags$caption( style = 'caption-side: top; text-align: center; color:black;  font-size:200% ; ',title), rownames = FALSE, class = list(stripe = FALSE))
-# 
-# saveWidget(table_create, html)
-# webshot(html, print(paste0(table_name,".png"))) # you can also export to pdf
-# }
-#  
-# test_table2 <- print_table(av_table) 
-# 
-# # simplified version
-# 
-# table_create <- DT::datatable(av_table)
-# ggplot(table_create + 
-#          ggsave("mtcars.png"))
-# html <- "table_create.html"
-# saveWidget(table_create, html)
-# webshot(html, "table_create.png") # you can also export to pdf
+ 
+kbl(av_table) %>%
+  kable_styling(bootstrap_options = c("striped", "bordered", "condensed"))
+
 ```
 
 Source: [California Department of Education, 2016-2022](https://dq.cde.ca.gov/dataquest/)
@@ -474,12 +440,10 @@ In the 2021-22 school year, an extremely high percentage, 75% of students (or 3 
 source("W:/Project/RDA Team/Region 5 State of the Child/R/socioeconomically_disadvantaged.R")
 library(kableExtra)
 # av_table <- av_table %>% filter(Geography=='Antelope Valley Best Start Region 5')
-av_table <- av_table %>% mutate(across(c(`2021-22 Count`), comma)) %>% rename("Count"="2021-22 Count")
+av_table <- av_table %>% mutate(across(c(`2021-22 Count`), comma))
 kbl(av_table) %>%
-    kable_classic() %>%
-  add_header_above(c("2021-22" = 1, "Socioeconomically Disadvantaged" = 2))
- # kable_styling(bootstrap_options = c("striped", "bordered", "condensed"))
-cde_socieconomically_disadvantaged <- av_table 
+ kable_styling(bootstrap_options = c("striped", "bordered", "condensed"))
+
 ```
 
 Source: [California Department of Education, 2016-2022](https://dq.cde.ca.gov/dataquest/)
@@ -585,9 +549,13 @@ According to the California Department Of Education 2021_22 school year data, St
 
 Student Homelessness is especially high in the Westside Union Elementary School District with an average rate of 7.2%, over 3 times the average of the entire Antelope Valley, 2.1%. That means that approx. 7 out of every 100 students in the Westside Union Elementary School District is experiencing homelessness. Although there are high rates among all groups in the the Westside Union Elementary School District, the high rates of homelessness among Non-Hispanic American Indian Alaskan Native (AIAN) students (14.3%), Non-Hispanic Black students (7.6%), Latinx students (8.2%), and students who identified as Non-Hispanic Two or More Races (8.1%) especially stand out. 
 
-The Hughes-Elizabeth Lakes Union Elementary School District and the Wilsona Elementary School District had the next highest rates, both being 2.3 times higher than the state average. For the Hughes-Elizabeth Lakes Union Elementary School District, the high rates for Latinx students were the highest (5.7%). In the case of the Wilsona Elementary School District, the high rates for Black (11.5%), Latinx (6.6%), and White students (6.2%) especially drove up the average. Eastside Union Elementary School District and Lancaster Elementary School District also had above average rates, being 2 and 1.2 times higher than the state average respectively. 
+The Hughes-Elizabeth Lakes Union Elementary School District and the Wilsona Elementary School District had the next highest rates, both being 2.3 times higher than the state average. For the Hughes-Elizabeth Lakes Union Elementary School District, the high rates for Latinx students were the highest (5.7%). In the case of the Wilsona Elementary School District, the high rates for Black (11.5%), Latinx (6.6%), and White students (6.2%) especially drove up the average.
 
-Regionally, students who identified as Non-Hispanic Two or More Races (3.2%) and Non-Hispanic Black (3.3%) and Non-Hispanic AIAN (2.7%) students had the highest rates. The bulk of the students experiencing homelessness in the Antelope Valley are in grades 1-8. Notably, student homelessness rates range between 15 to 20% of students. Second-grade students had the highest rates with 2 out of 10 experiencing homelessness. Given this information, interventions targeting current elementary and middle school students,  and Black, Latinx, AIAN, and Two or More Race students are pressing.
+The Eastside Union Elementary School District and Lancaster Elementary School District also had above average rates, being 2 and 1.2 times higher than the state average respectively. Regionally, students who identified as Non-Hispanic Two or More Races and Non-Hispanic Black and Non-Hispanic AIAN students had the highest rates. 
+
+The bulk of the students experiencing homelessness in the Antelope Valley are in grades 1-8. Notably, student homelessness rates range between 15 to 20% of students. Second-grade students had the highest rates with 2 out of 10 experiencing homelessness. 
+
+Given this information, interventions targeting current elementary and middle school students,  and Black, Latinx, AIAN, and Two or More Race students are pressing.
 
  **Student Homelessness Rates out of 100 by School District 2021-22 School Year**
 ```{r}
@@ -595,11 +563,11 @@ Regionally, students who identified as Non-Hispanic Two or More Races (3.2%) and
 source("W:/Project/RDA Team/Region 5 State of the Child/R/student_homelessness.R")
 library(kableExtra)
 
- av_table <- av_table %>% mutate(across(c(`2021-22 Count`), comma))%>% rename("Count"="2021-22 Count")
+ av_table <- av_table %>% mutate(across(c(`2021-22 Count`), comma))
 kbl(av_table) %>%
   kable_styling(bootstrap_options = c("striped", "bordered", "condensed"))
 
-cde_student_homelessness <- av_table
+
 ```
 
 Source: [California Department of Education, 2016-2022](https://dq.cde.ca.gov/dataquest/)
@@ -733,11 +701,9 @@ American Indian Alaskan Native (AIAN) students had the highest percentage of stu
 ```{r}
 source("W:/Project/RDA Team/Region 5 State of the Child/R/disabilties.R")
 library(kableExtra)
-av_table <- av_table %>% mutate(across(c(`2021-22 Count`), comma))%>% rename("Count"="2021-22 Count")
+av_table <- av_table %>% mutate(across(c(`2021-22 Count`), comma))
 kbl(av_table) %>%
   kable_styling(bootstrap_options = c("striped", "bordered", "condensed"))
-
-cde_disability <- av_table
 ```
 
 Source: [California Department of Education, 2016-2022](https://dq.cde.ca.gov/dataquest/)
@@ -765,11 +731,11 @@ In the Antelope Valley 14% of students were considered English Language Learners
 ```{r}
 source("W:/Project/RDA Team/Region 5 State of the Child/R/ell.R")
 library(kableExtra)
-av_table <- av_table %>% mutate(across(c(`2021-22 Count`), comma))%>% rename("Count"="2021-22 Count")
+av_table <- av_table %>% mutate(across(c(`2021-22 Count`), comma))
 kbl(av_table) %>%
   kable_styling(bootstrap_options = c("striped", "bordered", "condensed"))
 
-cde_ell <- av_table
+
 ```
 
 ```{r}
@@ -867,43 +833,6 @@ av_plot
 
 Source: [California Department of Education, 2016-2022](https://dq.cde.ca.gov/dataquest/)
 
-
-### CDE table creation
-```{r}
-
-
-
-cde <- left_join(cde_foster, cde_socieconomically_disadvantaged, by="Geography") %>% left_join(cde_student_homelessness, by="Geography") %>% left_join(cde_disability, by="Geography") #%>% left_join(cde_ell, by="Geography")
-
-# cde_table <- kbl(cde, col.names = c("Geography", "Count", "Rate (%)", "Count", "Rate (%)", "Count", "Rate (%)", "Count", "Rate (%)", "Count", "Rate (%)", "Count", "Rate (%)", "Count", "Rate (%)")) %>%
-#     kable_classic() %>%
-#   add_header_above(c("2021-22" = 1, "Foster" = 2, "Socioeconomically Disadvantaged" = 2, "Homeless" = 2, "Disability" = 2,"Migrant" = 2,  "ELL" = 2, "Non-Binary" = 2))%>%
-#   save_kable(file = "cde_table.png")
-
-# grouping variables for DT table creation
-# sketch = htmltools::withTags(table(
-#   class = 'display',
-#   thead(
-# # Define the grouping of your df
-#     tr(
-#       th(colspan = 1, '2021-22'),
-#       th(colspan = 2, 'Foster'),
-#       th(colspan = 2, 'Socioeconomically Disadvantaged'),
-#       th(colspan = 2, 'Homeless'),
-#       th(colspan = 2, 'Disability'),
-# #      th(colspan = 2, 'ELL'),
-#     )#,
-# # # Repeat column names 8 times
-# #     tr(
-# #       lapply(paste0("Col ", 1:8), th)
-# #     )
-#   )
-# ))
-
-
-```
-
-
 # Resources (and barriers to access)
 Antelope Valley stakeholders have been clear about the need for additional resources, including health and mental health services, early childhood education, and parks and recreation.
 
@@ -912,11 +841,14 @@ According to estimates from the [American Institutes of Research](https://elneed
 
 **Unmet need for infant/toddler and preschool-aged children, 2020**
 ```{r}
-drv <- dbDriver("PostgreSQL")
+# drv <- dbDriver("PostgreSQL")
+# 
+# con <- dbConnect(drv, dbname = "region5stateofthechild",
+#                    host = "aws-postgres-db.c5udgz7ro8hq.us-west-2.rds.amazonaws.com", port = 5432,
+#                    user = "postgres", password = pw)
 
-con <- dbConnect(drv, dbname = "region5stateofthechild",
-                   host = "aws-postgres-db.c5udgz7ro8hq.us-west-2.rds.amazonaws.com", port = 5432,
-                   user = "postgres", password = pw)
+source("W:\\RDA Team\\R\\credentials_source.R") 
+con <- connect_to_db("region5stateofthechild") 
 
 ece_access_it_2020 <- st_read(con, query = "SELECT zipcode, neighborhood, unmet_need_children_it, pct_unmet_need_children_it FROM data.ece_access_it_2020")
 
@@ -997,7 +929,7 @@ Source: California Health and Human Services Geospatial Data portal for [Medical
 
 Health and mental health outcomes might suffer because of the lack of services. Medical care can be especially important for chronic conditions that need periodic treatment such as asthma. Antelope Valley adults are most likely to say they've ever seriously thought about committing suicide, 13% of the AV adult population, compared to 9.8% of LA County residents overall.[1](https://ask.chis.ucla.edu/)
 
-18.8% of Antelope Valley children have been diagnosed with asthma at some point in their lives (highest among LA SPAs), meaning access to health care is especially important for the Antelope Valley population.
+12.2% of Antelope Valley children have been diagnosed with asthma at some point in their lives (a higher percentage than the 11.1% county total), meaning access to health care is important for the Antelope Valley population.
 
 ## Parks
 The Los Angeles County County Department of Parks and Recreation completed a Countywide Parks and Recreation Needs Assessment addition in 2022. The assessment has findings for the region in an [Antelope Valley regional profile](https://lacountyparkneeds.org/wp-content/uploads/2022/11/AppA_RegionalProfiles_AntelopeValley_11282022.pdf). Some key findings from that profile:
@@ -1078,22 +1010,6 @@ kbl(av_count2) %>%
 ```
 Source: [Eviction Lab with ACS 2013-2017, 2020](https://data-downloads.evictionlab.org/#data-for-analysis/)
 
-According to AntiEvictionMap, in 2022 there were over 34,000 eviction filings in LA Superior Court, a 172% compared to the previous year, 2021. Evictions by the end of 2022 were already at pre-pandemic levels which further exacerbates the loss in jobs, income, and economic security caused by the Pandemic.
-
-In February 2019 in the North Court District, Antelope Valley region, there were 135 eviction filing per month which steadily peaked to 198 eviction filings per month in June 2019. In June 2020 during he eviction moratorium, that number dwindled it its low in the AV of 7 eviction filings month and steadily rose to 61 filings per month by March 2021. While eviction filings were overall lower throughout the pandemic in Antelope Valley eviction trends mirrored those of the the rest of the county and the rates were rates were especially comparable to other outer areas of Los Angeles County. It was lower than the Central Court House District in the middle of the Los Angeles County urban area, which was the most impacted by evictions. Comparatively evictions in the AV were 10 times less than those of the most impacted region.
-
-**Evictions During the Pandemic**
-
-```{r}
-source("W:/Project/RDA Team/Region 5 State of the Child/R/antievictionmap.R")
-line_plot
-```
-
-
-Source: [AntiEvictionMap, 2022](https://antievictionmap.com/there-is-no-eviction-moratorium)
-
-<div class="infogram-embed" data-id="3ec6cb57-dc01-490e-ab4f-5ae810640467" data-type="interactive" data-title="LA County Eviction Filings During the COVID-19 Pandemic"></div><script>!function(e,i,n,s){var t="InfogramEmbeds",d=e.getElementsByTagName("script")[0];if(window[t]&&window[t].initialized)window[t].process&&window[t].process();else if(!e.getElementById(n)){var o=e.createElement("script");o.async=1,o.id=n,o.src="https://e.infogram.com/js/dist/embed-loader-min.js",d.parentNode.insertBefore(o,d)}}(document,0,"infogram-async");</script><div style="padding:8px 0;font-family:Arial!important;font-size:13px!important;line-height:15px!important;text-align:center;border-top:1px solid #dadada;margin:0 30px"><a href="https://infogram.com/3ec6cb57-dc01-490e-ab4f-5ae810640467" style="color:#989898!important;text-decoration:none!important;" target="_blank">LA County Eviction Filings During the COVID-19 Pandemic</a><br><a href="https://infogram.com" style="color:#989898!important;text-decoration:none!important;" target="_blank" rel="nofollow">Infogram</a></div>
-
 
 ## Cost of Living
 
@@ -1143,7 +1059,7 @@ source("W:/Project/RDA Team/Region 5 State of the Child/R/food_security.R")
 
 library(kableExtra)
 kbl(wic_data) %>%
-  kable_styling(bootstrap_options = c("striped", "bordered", "condensed"), full_width = F)
+  kable_styling(bootstrap_options = c("striped", "bordered", "condensed"))
 ```
 Source: [L.A. County WIC Administrative Data, 2021](https://lawicdata.org/data-research/by-region/)
 
@@ -1151,7 +1067,7 @@ Source: [L.A. County WIC Administrative Data, 2021](https://lawicdata.org/data-r
 
 ## Highschool Graduation
 
-The average high school graduation rate in the Antelope Valley is 67%. In the AV, Latinx (66%) followed by Black (66%) students had the lowest graduation rates while Filipino (81%) and Asian (87%) students had the highest. The Acton-Agua Dulce Unified School District has the lowest graduation rate (35%). Notably in the Acton-Agua Dulce Unified School District Latinx, Black, Filipino, and students who identified as non-Hispanic Two or More Races all had under 50% graduation rates.  
+The average high school graduation rate in the Antelope Valley is 65%. In the AV, Latinx (63.6%) followed by Black (64.8%) students had the lowest graduation rates while Filipino (82.7%) and Asian (80.7%) students had the highest. The Acton-Agua Dulce Unified School District has the lowest graduation rate (34.7%). Notably in the Acton-Agua Dulce Unified School District Latinx, Black, Filipino, and students who identified as non-Hispanic Two or More Races all had under 50% graduation rates. The Gorman Joint School District had the highest rate (81.9%). 
 
 The Antelope Valley Union High School District had a total rate of 80.3%, comparable to the LA County average. Similar to county trends, Black students had the lowest graduation rates (73.1%) followed by students who identified as Two or More Races (80.9%) and Latinx students (81.5%). Filipino (93.8%) followed by Asian (88.6%) and White (81.9%) students have the highest rates.
 
@@ -1165,8 +1081,6 @@ library(kableExtra)
 
 kbl(av_table) %>%
  kable_styling(bootstrap_options = c("striped", "bordered", "condensed"))
-
-cde_hs <- av_table
 ```
 
 <!-- 
@@ -1300,11 +1214,14 @@ The most recent California Department of Education data on certificated staff is
 **Shares of student enrollment & certificated staff in Antelope Valley schools, 2018-19**
 ```{r}
 
-drv <- dbDriver("PostgreSQL")
+# drv <- dbDriver("PostgreSQL")
+# 
+# con <- dbConnect(drv, dbname = "region5stateofthechild",
+#                    host = "aws-postgres-db.c5udgz7ro8hq.us-west-2.rds.amazonaws.com", port = 5432,
+#                    user = "postgres", password = pw)
 
-con <- dbConnect(drv, dbname = "region5stateofthechild",
-                   host = "aws-postgres-db.c5udgz7ro8hq.us-west-2.rds.amazonaws.com", port = 5432,
-                   user = "postgres", password = pw)
+source("W:\\RDA Team\\R\\credentials_source.R") 
+con <- connect_to_db("region5stateofthechild") 
 
 av_staff_student_race <- st_read(con, query = "SELECT * FROM av_staff_student_race")
 
@@ -1323,11 +1240,14 @@ Chronic absenteeism stems for a variety of factors including student-specific, f
 **Chronic Absenteeism by Race-ethnicity in Antelope Valley Schools, 2018-19**
 ```{r}
 
-drv <- dbDriver("PostgreSQL")
+# drv <- dbDriver("PostgreSQL")
+# 
+# con <- dbConnect(drv, dbname = "region5stateofthechild",
+#                    host = "aws-postgres-db.c5udgz7ro8hq.us-west-2.rds.amazonaws.com", port = 5432,
+#                    user = "postgres", password = pw)
 
-con <- dbConnect(drv, dbname = "region5stateofthechild",
-                   host = "aws-postgres-db.c5udgz7ro8hq.us-west-2.rds.amazonaws.com", port = 5432,
-                   user = "postgres", password = pw)
+source("W:\\RDA Team\\R\\credentials_source.R") 
+con <- connect_to_db("region5stateofthechild") 
 
 av_chronic_absenteeism_21_22 <- st_read(con, query = "SELECT * FROM av_chronic_absenteeism_21_22")
 
@@ -1368,8 +1288,6 @@ source("W:/Project/RDA Team/Region 5 State of the Child/R/math.R")
 library(kableExtra)
 kbl(av_table) %>%
   kable_styling(bootstrap_options = c("striped", "bordered", "condensed"))
-
-cde_math <- av_table
 
 ```
 Please note that data for AIAN and NHPI groups are not present in the table because of a lack of data for these two groups.
@@ -1479,8 +1397,6 @@ library(kableExtra)
 kbl(av_table) %>%
   kable_styling(bootstrap_options = c("striped", "bordered", "condensed"))
 
-cde_ela <- av_table
-
 ```
 
 
@@ -1574,16 +1490,6 @@ av_plot <- av_plot + ylim(0, max_y)     # add buffer between title and chart/dat
 av_plot
 ```
 
-# Combined 3rd Grade Table
-```{r}
-cde_math$Test <- "Math"
-cde_ela$Test <- "ELA"
-third_grade <- rbind(cde_math, cde_ela)
-third_grade_table <- kbl(third_grade)%>%
-    kable_classic() 
-third_grade_table
-```
-
 # Safety and Justice 
 
 ## Police Violence
@@ -1603,9 +1509,13 @@ Black and NHPI populations are significantly more likely to be stopped by the Sh
 For example, Blacks are 2.4 times more likely to be stopped than Whites and NHPIs are 2.5 times more likely to be stopped than Whites. While there is not a data set available that can be clipped for the just the Antelope Valley region, we do see that within the police jurisdiction that covers this region, there is a racial discrepancy in stop rates. 
 ```{r}
 library(RPostgreSQL)
-con <- dbConnect(drv, dbname = "region5stateofthechild",
-                   host = "aws-postgres-db.c5udgz7ro8hq.us-west-2.rds.amazonaws.com", port = 5432,
-                   user = "postgres", password = pw)
+# con <- dbConnect(drv, dbname = "region5stateofthechild",
+#                    host = "aws-postgres-db.c5udgz7ro8hq.us-west-2.rds.amazonaws.com", port = 5432,
+#                    user = "postgres", password = pw)
+
+source("W:\\RDA Team\\R\\credentials_source.R") 
+con <- connect_to_db("region5stateofthechild") 
+
 df <- dbGetQuery(con, "SELECT * FROM lasd_stop_rate_by_race_2020")
 
 
@@ -1696,6 +1606,4 @@ Source: Catalyst California calculations of [Los Angeles County Human Resources 
 
 ``` 
 -->
-
-
 

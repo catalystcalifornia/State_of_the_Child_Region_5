@@ -5,17 +5,15 @@
   <ol>
     <li>
       <a href="#about-the-project">About The Project</a></li>
-    <li><a href="#data">Data</a>
-    </li>
+    <li><a href="#data">Data</a></li>
     <li><a href="#contributors">Contributors</a></li>
-    <li><a href="#contact-us">Contact Us</a></li>
     <li><a href="#about-catalyst-california">About Catalyst California</a>
       <ul>
         <li><a href="#our-vision">Our Vision</a></li>
         <li><a href="#our-mission">Our Mission</a></li>
       </ul>
     </li>
-    <li><a href="#citation">Citation</a></li>
+    <li><a href="#contact-us">Contact Us</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#partners">Partners</a></li>
   </ol>
@@ -58,6 +56,7 @@ California Department of Education Indicators
   <li><a href="R_Scripts/migrant.r">Youth in Migrant Program Rates</a></li>
   <li><a href="R_Scripts/disabilities.r">Youth with Disabilities Rates</a></li> 
 </ul>
+
 
 Demographic Indicators
 <ul>
