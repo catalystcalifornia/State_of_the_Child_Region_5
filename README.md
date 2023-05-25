@@ -34,67 +34,72 @@ The State of the Child Antelope Valley Report seeks to understand the conditions
 
 #### Education Indicators
 <ul>
-  <li><a href="R_Scripts/ela.r">3rd Grade English Language Arts Proficiency Rates</a></li>  
-  <li><a href="R_Scripts/math.r">3rd Grade Math Proficiency Rates</a></li>
-  <li><a href="R_Scripts/ell.r">English Language Learners Rates</a></li>
-  <li><a href="R_Scripts/hs_grad.r">High School Graduation Rates</a></li>
-  <li><a href="R_Scripts/socioeconomically_disadvantaged.r">Socioeconomically Disadvantaged Rates</a></li>
-  <li><a href="R_Scripts/suspension.r">Suspension Rates</a></li>  
-  <li><a href="R_Scripts/student_homelessness.r">Youth Experiencing Homelessness Rates</a></li>  
-  <li><a href="R_Scripts/non-binary.r">Youth Identifying as Non-Binary Rates</a></li>  
-  <li><a href="R_Scripts/foster.r">Youth in Foster Care Rates</a></li>
-  <li><a href="R_Scripts/migrant.r">Youth in Migrant Program Rates</a></li>
-  <li><a href="R_Scripts/disabilities.r">Youth with Disabilities Rates</a></li> 
+  <li><a href="R_Scripts/ela.R">3rd Grade English Language Arts Proficiency</a></li>  
+  <li><a href="R_Scripts/math.R">3rd Grade Math Proficiency</a></li>
+  <li><a href="R_Scripts/ell.R">English Language Learners</a></li>
+  <li><a href="R_Scripts/hs_grad.R">High School Graduation</a></li>
+  <li><a href="R_Scripts/socioeconomically_disadvantaged.R">Socioeconomically Disadvantaged</a></li>
+  <li><a href="R_Scripts/suspension.R">Suspension</a></li>  
+  <li><a href="R_Scripts/student_homelessness.R">Youth Experiencing Homelessness</a></li>  
+  <li><a href="R_Scripts/non-binary.R">Youth Identifying as Non-Binary</a></li>  
+  <li><a href="R_Scripts/foster.R">Youth in Foster Care</a></li>
+  <li><a href="R_Scripts/migrant.R">Youth in Migrant Program</a></li>
+  <li><a href="R_Scripts/disabilities.R">Youth with Disabilities</a></li> 
 </ul>
 
 
 #### Demographic Indicators
 <ul>
-  <li><a href="R_Scripts/age.r">Ages in the Antelope Valley</a></li>  
-    <li><a href="R_Scripts/under18_by_race.r">Children by Race</a></li>  
-  <li><a href="R_Scripts/language.r">Language Spoken at Home for Antelope Valley geographies, 2020</a></li>
-  <li><a href="R_Scripts/language_entire_av.r">Languages in SPA 1</a></li>
-  <li><a href="R_Scripts/population.r">Population</a></li>
-  <li><a href="R_Scripts/population_change.r">Population Change</a></li>
-  <li><a href="R_Scripts/race.r">Race</a></li>
-  <li><a href="R_Scripts/race_entire_av.r">Race in SPA 1</a></li>
+  <li><a href="R_Scripts/age.R">Ages</a></li>  
+  <li><a href="R_Scripts/under18_by_race.R">Children by Race</a></li>
+  <li><a href="R_Scripts/language_entire_av.R">Languages</a></li>    
+  <li><a href="R_Scripts/language.R">Language Spoken at Home</a></li>
+  <li><a href="R_Scripts/population.R">Population</a></li>
+  <li><a href="R_Scripts/population_change.R">Population Change</a></li>
+  <li><a href="R_Scripts/race.R">Races</a></li>
+  <li><a href="R_Scripts/race_entire_av.R">Races</a></li>
 </ul>
 
 #### Economic Indicators
 <ul>
-  <li><a href="R_Scripts/cost_of_living.r">Cost of Living</a></li>
-  <li><a href="R_Scripts/eviction.r">Evictions</a></li>
-  <li><a href="R_Scripts/foreclosure.r">Foreclosures</a></li>
-  <li><a href="R_Scripts/child_welfare.r">Child Welfare</a></li>
-  <li><a href="R_Scripts/food_security.r">Food Security</a></li>
-  <li><a href="R_Scripts/rent_burden_totals.r">Rent Burden in the Antelope Valley</a></li>
-  <li><a href="R_Scripts/homeless.r">Homelessness in the Antelope Valley</a></li>
+  <li><a href="R_Scripts/cost_of_living.R">Cost of Living</a></li>
+  <li><a href="R_Scripts/eviction.R">Evictions</a></li>
+  <li><a href="R_Scripts/foreclosure.R">Foreclosures</a></li>
+  <li><a href="R_Scripts/food_security.R">Food Security</a></li>
+  <li><a href="R_Scripts/rent_burden_totals.R">Rent </a></li>
+  <li><a href="R_Scripts/homeless.R">Homelessness</a></li>
 </ul> 
 
 #### Crime and Safety Indicators
 <ul>
-  <li><a href="R_Scripts/health.r">Health</a></li>
-  <li><a href="R_Scripts/hate_crimes.r">Hate Crimes</a></li>
-  <li><a href="R_Scripts/use_of_force.r">Use of Force</a></li>
+  <li><a href="R_Scripts/hate_crimes.R">Hate Crimes</a></li>
+  <li><a href="R_Scripts/use_of_force.R">Use of Force</a></li>
+</ul>
+
+### Resources Indicators
+<ul>
+  <li><a href="R_Scripts/child_welfare.R">Child Welfare</a></li>
+  <li><a href="R_Scripts/ece.R">Early Childhood Education</a></li>
+  <li><a href="R_Scripts/health.R">Health</a></li>
 </ul>
 
 #### Functions for Indicator Scripts
 <ul>
-  <li><a href="R_Scripts/cde_functions.r">CDE Functions</a></li>
-  <li><a href="R_Scripts/Tract_Wt_Avg_Functions.r">Census Tract Weighting Functions</a></li>
+  <li><a href="R_Scripts/cde_functions.R">CDE Functions</a></li>
+  <li><a href="R_Scripts/Tract_Wt_Avg_Functions.R">Census Tract Weighting Functions</a></li>
 </ul>
 
 #### Scripts for Creating Visuals
 <ul>
-  <li><a href="R_Scripts/AV_Reference_Map.r">Reference Map</a></li>
-  <li><a href="R_Scripts/HPSAs_Map.r">Health Planning Service Areas Map</a></li>
-  <li><a href="R_Scripts/substantiated_referrals_map.r">Reference Map</a></li>
-  <li><a href="R_Scripts/av_children_by_race_chart.r">Children by Race Barchart</a></li>
-  <li><a href="R_Scripts/hs_grad_chart.r">High School Graduation Barchart</a></li>
-  <li><a href="R_Scripts/rcm_chart.r">Real Cost Measure Dumbbell Plot</a></li>
-  <li><a href="R_Scripts/rent_chart.r">Rent Burdened Barchart</a></li>
-  <li><a href="R_Scripts/staff_and_students_by_race_chart.r">Comparing Student and Staff Diversity by Race & Ethnicity Grouped Barchart</a></li>
-  <li><a href="R_Scripts/static_tables.r">Static Tables</a></li>
+  <li><a href="R_Scripts/AV_Reference_Map.R">Reference Map</a></li>
+  <li><a href="R_Scripts/HPSAs_Map.R">Health Planning Service Areas Map</a></li>
+  <li><a href="R_Scripts/substantiated_referrals_map.R">Reference Map</a></li>
+  <li><a href="R_Scripts/av_children_by_race_chart.R">Children by Race Barchart</a></li>
+  <li><a href="R_Scripts/hs_grad_chart.R">High School Graduation Barchart</a></li>
+  <li><a href="R_Scripts/rcm_chart.R">Real Cost Measure Dumbbell Plot</a></li>
+  <li><a href="R_Scripts/rent_chart.R">Rent Burdened Barchart</a></li>
+  <li><a href="R_Scripts/staff_and_students_by_race_chart.R">Comparing Student and Staff Diversity by Race & Ethnicity Grouped Barchart</a></li>
+  <li><a href="R_Scripts/static_tables.R">Static Tables</a></li>
 </ul>
 
 #### Helpful Links
