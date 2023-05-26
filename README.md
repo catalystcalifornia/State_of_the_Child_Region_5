@@ -106,7 +106,7 @@ The State of the Child Antelope Valley Report seeks to understand the conditions
 <ul>
   <li><a href="F5LA_BrandGuidelines_COLORS.pdf">First 5 LA Brand Guide</a></li>
   <li><a href="https://www.census.gov/geographies/mapping-files/time-series/geo/cartographic-boundary.2020.html">Census Tracts</a></li>
-  <li><a href="https://egis-lacounty.hub.arcgis.com/datasets/service-planning-areas-2022-view/explore?location=34.025999%2C-118.300941%2C8.00">Link to current Service Planning Areas</a></li>
+  <li><a href="https://egis-lacounty.hub.arcgis.com/datasets/service-planning-areas-2022-view/explore?location=34.025999%2C-118.300941%2C8.00">Current Service Planning Areas (SPAs)</a></li>
   <li><a href="https://egis-lacounty.hub.arcgis.com/datasets/lacounty::la-county-service-planning-area-2012/explore">Previous SPAs used in comparison to 2011</a></li>
   <li><a href="https://maps.latimes.com/neighborhoods/index.html">Los Angeles Times Neighborhoods (used in reference map)</a></li>
 </ul>
@@ -144,6 +144,7 @@ A world where systems are designed for justice and support equitable access to r
 
 [Chris Ringewald](https://www.linkedin.com/in/chris-ringewald-6766369/) - cringewald@catalystcalifornia.org
 <p align="right">(<a href="#top">back to top</a>)</p>
+[Stephaney Reyes](BeststartAV@all4kids.org) - BeststartAV@all4kids.org
 
 ## License
 
