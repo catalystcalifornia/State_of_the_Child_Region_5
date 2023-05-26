@@ -57,17 +57,17 @@ The State of the Child Antelope Valley Report seeks to understand the conditions
   <li><a href="R_Scripts/population.R">Population</a></li>
   <li><a href="R_Scripts/population_change.R">Population Change</a></li>
   <li><a href="R_Scripts/race.R">Races</a></li>
-  <li><a href="R_Scripts/race_entire_av.R">SPA 1 Races</a></li>
+  <li><a href="R_Scripts/race_entire_av.R">Service Planning Area (SPA) 1 Races</a></li>
 </ul>
 
 #### Economic Indicators
 <ul>
   <li><a href="R_Scripts/cost_of_living.R">Cost of Living</a></li>
   <li><a href="R_Scripts/eviction.R">Evictions</a></li>
-  <li><a href="R_Scripts/foreclosure.R">Foreclosures</a></li>
   <li><a href="R_Scripts/food_security.R">Food Security</a></li>
-  <li><a href="R_Scripts/rent_burden_totals.R">Rent </a></li>
+  <li><a href="R_Scripts/foreclosure.R">Foreclosures</a></li>
   <li><a href="R_Scripts/homeless.R">Homelessness</a></li>
+  <li><a href="R_Scripts/rent_burden_totals.R">Rent </a></li>
 </ul> 
 
 #### Crime and Safety Indicators
@@ -91,15 +91,15 @@ The State of the Child Antelope Valley Report seeks to understand the conditions
 
 #### Scripts for Creating Visuals
 <ul>
-  <li><a href="R_Scripts/AV_Reference_Map.R">Reference Map</a></li>
-  <li><a href="R_Scripts/HPSAs_Map.R">Health Planning Service Areas Map</a></li>
-  <li><a href="R_Scripts/substantiated_referrals_map.R">Reference Map</a></li>
   <li><a href="R_Scripts/av_children_by_race_chart.R">Children by Race Barchart</a></li>
+  <li><a href="R_Scripts/staff_and_students_by_race_chart.R">Comparing Student and Staff Diversity by Race & Ethnicity Grouped Barchart</a></li>
+  <li><a href="R_Scripts/HPSAs_Map.R">Health Planning Service Areas Map</a></li>  
   <li><a href="R_Scripts/hs_grad_chart.R">High School Graduation Barchart</a></li>
   <li><a href="R_Scripts/rcm_chart.R">Real Cost Measure Dumbbell Plot</a></li>
-  <li><a href="R_Scripts/rent_chart.R">Rent Burdened Barchart</a></li>
-  <li><a href="R_Scripts/staff_and_students_by_race_chart.R">Comparing Student and Staff Diversity by Race & Ethnicity Grouped Barchart</a></li>
-  <li><a href="R_Scripts/static_tables.R">Static Tables</a></li>
+  <li><a href="R_Scripts/AV_Reference_Map.R">Reference Map</a></li>  
+  <li><a href="R_Scripts/rent_chart.R">Rent Burdened Barchart</a></li>  
+  <li><a href="R_Scripts/static_tables.R">Static Tables</a></li>  
+  <li><a href="R_Scripts/substantiated_referrals_map.R">Substantiated Referrals Map</a></li>
 </ul>
 
 #### Helpful Links
@@ -107,8 +107,8 @@ The State of the Child Antelope Valley Report seeks to understand the conditions
   <li><a href="F5LA_BrandGuidelines_COLORS.pdf">First 5 LA Brand Guide</a></li>
   <li><a href="https://www.census.gov/geographies/mapping-files/time-series/geo/cartographic-boundary.2020.html">Census Tracts</a></li>
   <li><a href="https://egis-lacounty.hub.arcgis.com/datasets/service-planning-areas-2022-view/explore?location=34.025999%2C-118.300941%2C8.00">Current Service Planning Areas (SPAs)</a></li>
-  <li><a href="https://egis-lacounty.hub.arcgis.com/datasets/lacounty::la-county-service-planning-area-2012/explore">Previous SPAs used in comparison to 2011</a></li>
   <li><a href="https://maps.latimes.com/neighborhoods/index.html">Los Angeles Times Neighborhoods (used in reference map)</a></li>
+  <li><a href="https://egis-lacounty.hub.arcgis.com/datasets/lacounty::la-county-service-planning-area-2012/explore">Previous SPAs used in comparison to 2011</a></li>
 </ul>
 <p align="right">(<a href="#top">back to top</a>)</p>
 
