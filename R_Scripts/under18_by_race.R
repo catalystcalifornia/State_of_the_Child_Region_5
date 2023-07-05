@@ -61,8 +61,8 @@ ppl <- fread(paste0(root, "CA_2017_2021/psam_p06.csv"), header = TRUE, data.tabl
                                              "RACNH")))
 
 # cut the number of variables so it isn't so slow
-ppl <- ppl %>% select(c("RT", "SERIALNO",, "DIVISION", "REGION", "ST", "PUMA", "ANC1P", "ANC2P", "HISP", "RAC1P", "RAC2P", "RAC3P", 
-                        "RACAIAN", "RACPI", "RACNH", "AGEP", starts_with("PWGT"))) 
+ppl <- ppl %>% dplyr::select("RT", "SERIALNO",, "DIVISION", "REGION", "ST", "PUMA", "ANC1P", "ANC2P", "HISP", "RAC1P", "RAC2P", "RAC3P", 
+                        "RACAIAN", "RACPI", "RACNH", "AGEP", starts_with("PWGT"))
 
 ## Add state_geoid to ppl, add state_geoid to PUMA id, so it aligns with crosswalks.puma_county_2020
 ppl$state_geoid <- "06"
@@ -307,5 +307,5 @@ screened <- rc_av  %>%                # screen joined table
   )
 
 
-d <- screened %>% select(c(geoname, ends_with("_raw"), ends_with("_rate")))
+d <- screened %>% dplyr::select(geoname, ends_with("_raw"), ends_with("_rate"))
   

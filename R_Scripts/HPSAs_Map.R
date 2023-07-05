@@ -82,14 +82,14 @@ lac_spas_sngl <- lac_spas_sngl[c(-9, -10),] # 9 and 10 are islands
 
 dev.off() #something was blocking the ggplot from mapping so I used dev.off() to shut down the current plotting device
 
-## visualize school districts and SPAs -----
-hpsas_map <- ggplot(cropped_hpsas) + #lac_hpsas
+# visualize school districts and SPAs -----
+hpsas_map <- ggplot(cropped_hpsas) + 
   geom_sf(data = lac_spas_sngl, color = black, size = 5)+
-  geom_sf(data = av, color = black, size = 10)+
+  geom_sf(data = av, color = black, size = 16)+
   geom_sf(data = cropped_hpsas, color = black, fill = lightblue, size = 0.5)+
-  geom_sf_text(data = lac_spas, aes(label = SPA_NAME), size = 5.5, color = black, position = position_dodge(0.9), 
+  geom_sf_text(data = lac_spas, aes(label = SPA_NAME), size = 18, color = black, position = position_dodge(0.9),
                check_overlap = TRUE, family = font_bar_label)+
-  labs(title="The Entire Antelope Valley is a <span style='color:#009CDB;'>Health Professional Shortage Area</span><br>for Mental Health Professionals", 
+  labs(title="The Entire Antelope Valley is a <span style='color:#009CDB;'>Health Professional<br>Shortage Area</span> for Mental Health Professionals",
        subtitle="LA County Mental Health Professional Shortage Area Designations",
        caption = "Source: Health Professional Shortage Areas, 2022, California State Geoportal.") +#https://gis.data.ca.gov/datasets/CHHSAgency::health-professional-shortage-area-mental-health/explore.
   coord_sf()+
@@ -102,9 +102,9 @@ hpsas_map <- hpsas_map + theme(
   axis.title.y = element_blank(),
   axis.text.x = element_blank(),
   axis.text.y = element_blank(),
-  plot.title = element_markdown(hjust = 0, family = font_title, size = 32, face = "bold", lineheight = 0.4, margin=margin(0,0,0,-62)),
-  plot.subtitle = element_markdown(hjust = -0.7, family = font_title, size = 26, face = "bold", lineheight = 0.4, margin=margin(5,0,0,-59)),
-  plot.caption = element_text(hjust = 2.7, family = font_caption, color = black, size = 20, face = "bold", lineheight = 0.35),  
+  plot.title = element_markdown(hjust = 0, family = font_title, size = 76, face = "bold", lineheight = 0.3, margin=margin(3,0,0,-120)),
+  plot.subtitle = element_markdown(hjust = -0.7, family = font_title, size = 64, face = "bold", lineheight = 0.3, margin=margin(5,0,0,-165)),
+  plot.caption = element_text(hjust = 5, family = font_caption, color = black, size = 40, face = "bold", lineheight = 0.3), 
   plot.title.position = "plot",
   plot.caption.position = "plot",
   legend.position="none",
@@ -116,6 +116,44 @@ hpsas_map <- hpsas_map + theme(
 
 hpsas_map
 
-ggsave(hpsas_map, file="hpsas_map_formatted.png",
-       path="W:/Project/RDA Team/Region 5 State of the Child/GitHub/AB/State_of_the_Child_Region_5/Images/", 
-       bg='transparent', width = 5, height=4)
+ggsave(hpsas_map, file="hpsas_map.png",
+       path="W:/Project/RDA Team/Region 5 State of the Child/GitHub/AB/State_of_the_Child_Region_5/Images/English/",
+       bg='transparent', width = 10, height=8)
+
+#Spanish Version
+hpsas_map <- ggplot(cropped_hpsas) + #lac_hpsas
+  geom_sf(data = lac_spas_sngl, color = black, size = 5)+
+  geom_sf(data = av, color = black, size = 16)+
+  geom_sf(data = cropped_hpsas, color = black, fill = lightblue, size = 0.5)+
+  geom_sf_text(data = lac_spas, aes(label = SPA_NAME), size = 18, color = black, position = position_dodge(0.9), 
+               check_overlap = TRUE, family = font_bar_label)+
+  labs(title="Todo el Antelope Valley es <span style='color:#009CDB;'>un área de escasez de<br>profesionales de la salud</span> para profesionales de la salud<br>mental", 
+       subtitle="Designaciones del Área de Escasez de Profesionales de Salud<br>Mental del Condado de Los Ángeles",
+       caption = "Fuente: Áreas de Escasez de Profesionales de Salud, 2022, Geoportal Del Estado de California.") +#https://gis.data.ca.gov/datasets/CHHSAgency::health-professional-shortage-area-mental-health/explore.
+  coord_sf()+
+  theme_void()
+hpsas_map <- hpsas_map + theme(
+  plot.background = element_blank(),
+  panel.grid.major = element_blank(),
+  panel.grid.minor = element_blank(),
+  axis.title.x = element_blank(),
+  axis.title.y = element_blank(),
+  axis.text.x = element_blank(),
+  axis.text.y = element_blank(),
+  plot.title = element_markdown(hjust = 0, family = font_title, size = 76, face = "bold", lineheight = 0.3, margin=margin(3,0,0,-145)),
+  plot.subtitle = element_markdown(hjust = 0, family = font_title, size = 64, face = "bold", lineheight = 0.3, margin=margin(5,0,0,-145)),#5 for the first one and -59 for the last one
+  plot.caption = element_text(hjust = 0.7, family = font_caption, color = black, size = 40, face = "bold", lineheight = 0.3),  
+  plot.title.position = "plot",
+  plot.caption.position = "plot",
+  legend.position="none",
+  plot.margin = margin(t = 3,
+                       b = 3,
+                       r = 3,
+                       l = 3)
+)
+
+hpsas_map
+
+ggsave(hpsas_map, file="hpsas_map_esp.png",
+       path="W:/Project/RDA Team/Region 5 State of the Child/GitHub/AB/State_of_the_Child_Region_5/Images/Spanish/", 
+       bg='transparent', width = 10, height=8)

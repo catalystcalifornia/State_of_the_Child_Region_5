@@ -84,19 +84,20 @@ av_neighborhoods$name[av_neighborhoods$name=="Castaic Canyons"] <- NA
 av_neighborhoods$name[av_neighborhoods$name=="Santa Clarita"] <- NA
 av_neighborhoods$name[av_neighborhoods$name=="Northwest Palmdale"] <- NA
 
-#visualize school districts and SPAs -----
+
+#visualize English graph -----
 av_neighborhood_map <- ggplot(av_neighborhoods) +
   annotation_map_tile(type ="hotstyle", zoom = 11) + #this is the line that was trying add the topographical element
   # spatial-aware automagic scale bar
   geom_sf(data = av_neighborhoods, color = black, fill = NA)+ 
   geom_sf(data = av, color = black, fill = NA)+
   ggrepel::geom_label_repel(aes(label = name, geometry = geometry), stat = "sf_coordinates",
-                             min.segment.length = 0,  colour = black, family = font_axis_label, size = 5, segment.colour = darkblue) +
+                             min.segment.length = 0,  colour = black, family = font_axis_label, size = 10, segment.colour = darkblue) +
   coord_sf(crs = st_crs(3310))+
 theme_void()+
 theme(panel.grid.major=element_line(color="transparent"), legend.position="none",
-      plot.title = element_text(hjust = 0, family = font_title, size = 32, lineheight = 0.5),
-      plot.caption = element_text(hjust = 0, family = font_caption, color = black, size = 20, lineheight = 0.35),
+      plot.title = element_text(hjust = 0, family = font_title, size = 64, lineheight = 0.5),
+      plot.caption = element_text(hjust = 0, family = font_caption, color = black, size = 40, lineheight = 0.3),
       plot.caption.position = "plot", plot.title.position = "plot",  
 )+
 labs(title="Antelope Valley by Neighborhood",
@@ -106,5 +107,34 @@ Area (SPA) boundaries, 2022.") # https://hub.arcgis.com/datasets/e9134f735c0c473
 av_neighborhood_map
 
 ggsave(av_neighborhood_map, file="AV_Reference_Map.png",
-       path="W:/Project/RDA Team/Region 5 State of the Child/GitHub/AB/State_of_the_Child_Region_5/Images/", bg='transparent', 
-       width = 5, height=4)
+       path="W:/Project/RDA Team/Region 5 State of the Child/GitHub/AB/State_of_the_Child_Region_5/Images/English/", bg='transparent', 
+       width = 10, height=8)
+
+# Spanish Graph -------
+av_neighborhoods_esp <- av_neighborhoods
+av_neighborhoods_esp$name <- gsub("Southeast Antelope Valley", "Sureste del Antelope Valley", av_neighborhoods_esp$name)
+av_neighborhoods_esp$name <- gsub("Northwest Antelope Valley", "Noroeste del Antelope Valley", av_neighborhoods_esp$name)
+av_neighborhoods_esp$name <- gsub("Northeast Antelope Valley", "Noreste del Antelope Valley", av_neighborhoods_esp$name)
+av_neighborhood_map_esp <- ggplot(av_neighborhoods_esp) +
+  annotation_map_tile(type ="hotstyle", zoom = 11) + #this is the line that was trying add the topographical element
+  # spatial-aware automagic scale bar
+  geom_sf(data = av_neighborhoods, color = black, fill = NA)+ 
+  geom_sf(data = av, color = black, fill = NA)+
+  ggrepel::geom_label_repel(aes(label = name, geometry = geometry), stat = "sf_coordinates",
+                            min.segment.length = 0,  colour = black, family = font_axis_label, size = 10, segment.colour = darkblue) +
+  coord_sf(crs = st_crs(3310))+
+  theme_void()+
+  theme(panel.grid.major=element_line(color="transparent"), legend.position="none",
+        plot.title = element_text(hjust = 0, family = font_title, size = 64, lineheight = 0.5),
+        plot.caption = element_text(hjust = 0, family = font_caption, color = black, size = 40, lineheight = 0.3),
+        plot.caption.position = "plot", plot.title.position = "plot",  
+  )+
+  labs(title="Antelope Valley por vecindario",
+       caption = "Fuente: Los Ángeles Times calculó los límites de los vecindarios del condado de Los Ángeles, 2020. 
+Área de planificación de servicios del condado de Los Ángeles ArcGIS Hub, Departamento de Salud Pública 
+(DHS) Servicios de planificación límites del área (SPA), 2022. ") # https://hub.arcgis.com/datasets/e9134f735c0c473d8156f4703a687ce9/explore
+
+
+ggsave(av_neighborhood_map_esp, file="AV_Reference_Map_esp.png",
+       path="W:/Project/RDA Team/Region 5 State of the Child/GitHub/AB/State_of_the_Child_Region_5/Images/Spanish/", bg='transparent', 
+       width = 10, height=8)

@@ -85,20 +85,20 @@ lac_spas_alt <- subset(lac_spas, SPA_NAME!="South Bay") #remove SPA for South Ba
 #visualize substantiated referrals and SPAs -----
 
 
-dv_map <- ggplot(lac_dv) + 
+dv_map <- ggplot(lac_dv) +
   geom_sf(aes(fill = `Rate_per_1`), color = textgrey, size = 0.5)+ #set what the fill is
   scale_fill_gradient2( #create the gradient scale for the data
-                      low = "#1FA6DD", 
+                      low = "#1FA6DD",
                       high = lightblue,
                       na.value = "white"
                       ) +
-  geom_sf(data = av, color = black, size = 100, fill = NA)+ #try to create a thicker border for the AV
-  geom_sf(data = lac_spas_alt, color = black, size = 10, fill = NA)+ #create SPA borders
-  geom_sf_text(data = lac_spas, aes(label = SPA_NAME), size = 5.5, family = font_bar_label)+ #label the SPAs
-  labs(title="<span style='color:#009CDB;'>Substantiated Referral Rates</span> are Higher in the Antelope Valley", #use html language to change the color of part of the title
+  geom_sf(data = av, color = black, size = 20, fill = NA)+ #try to create a thicker border for the AV
+  geom_sf(data = lac_spas_alt, color = black, size = 20, fill = NA)+ #create SPA borders
+  geom_sf_text(data = lac_spas, aes(label = SPA_NAME), size = 18, family = font_bar_label)+ #label the SPAs
+  labs(title="<span style='color:#009CDB;'>Substantiated Referral Rates</span> are Higher in the Antelope<br>Valley", #use html language to change the color of part of the title
        subtitle=("LA County Substantiated Referral Rate Area Designations"),
        caption = "Source: DCFS All Substantiated Referrals 2021, Los Angeles County Data.") + #, https://data/lacounty.gov/datasets/lacounty::dcfs-all-substantiated-referrals-2021/explore
-  coord_sf(crs = st_crs(3310))+ 
+  coord_sf(crs = st_crs(3310))+
   guides(fill=guide_legend(title="Rate per 1000 Children"))+ #rewrite the legend title
   theme_void()
 
@@ -110,16 +110,65 @@ dv_map <- dv_map + theme(  #customize font styling
   axis.title.y = element_blank(),
   axis.text.x = element_blank(),
   axis.text.y = element_blank(),
-  plot.title = element_markdown(hjust = 0, family = font_title, size = 32, face = "bold", lineheight = 0.4, margin=margin(0,0,0,-20)),
-  plot.subtitle = element_markdown(hjust = 0, family = font_title, size = 26, face = "bold", lineheight = 0.4, margin=margin(5,0,0,-20)),
-  plot.caption = element_text(hjust = 6, family = font_caption, color = black, size = 20, face = "bold", lineheight = 0.35),
-  legend.text = element_text(size = 20),
-  legend.title = element_text(size = 20)
+  plot.title = element_markdown(hjust = 0, family = font_title, size = 72, face = "bold", lineheight = 0.2, margin=margin(0,0,0,-20)),
+  plot.subtitle = element_markdown(hjust = 0, family = font_title, size = 64, face = "bold", lineheight = 0.2, margin=margin(5,0,0,-20)),
+  plot.caption = element_text(hjust = -0.99, family = font_caption, color = black, size = 40, face = "bold", lineheight = 0.3),
+  legend.text = element_text(size = 56),
+  legend.title = element_text(size = 56)
 )
 
 dv_map
 
-ggsave(dv_map, file="substantiated_referrals_map_formatted.png",
-       path="W:/Project/RDA Team/Region 5 State of the Child/GitHub/AB/State_of_the_Child_Region_5/Images/", 
+ggsave(dv_map, file="substantiated_referrals_map.png",
+       path="W:/Project/RDA Team/Region 5 State of the Child/GitHub/AB/State_of_the_Child_Region_5/Images/English/",
        bg='transparent',
-       width = 5, height=4)
+       width = 10, height=8)
+
+# Spanish version ----
+# View(lac_dv)
+
+#maybe translate west and east and south in the map
+lac_dv$SPA_NAME <- gsub("West","Oeste",lac_dv$SPA_NAME)
+lac_dv$SPA_NAME <- gsub("East","Este",lac_dv$SPA_NAME)
+lac_dv$SPA_NAME <- gsub("South","Sur",lac_dv$SPA_NAME)
+
+dv_map <- ggplot(lac_dv) + 
+  geom_sf(aes(fill = `Rate_per_1`), color = textgrey, size = 0.5)+ #set what the fill is
+  scale_fill_gradient2( #create the gradient scale for the data
+    low = "#1FA6DD", 
+    high = lightblue,
+    na.value = "white"
+  ) +
+  geom_sf(data = av, color = black, size = 20, fill = NA)+ #try to create a thicker border for the AV
+  geom_sf(data = lac_spas_alt, color = black, size = 20, fill = NA)+ #create SPA borders
+  geom_sf_text(data = lac_spas, aes(label = SPA_NAME), size = 18, family = font_bar_label)+ #label the SPAs
+  labs(title="<span style='color:#009CDB;'>Las tasas de referencia fundamentadas</span> son más altas en<br>Antelope Valley", #use html language to change the color of part of the title
+       subtitle=("Designaciones de área de tasa de referencia justificada del condado<br>de Los Ángeles"),
+       caption = "Fuente: Departamento de Niños y Familias (DCFS por sus siglas en inglés) del Condado de Los 
+Ángeles, todas referencias fundamentadas 2021.") + #, https://data/lacounty.gov/datasets/lacounty::dcfs-all-substantiated-referrals-2021/explore
+  coord_sf(crs = st_crs(3310))+ 
+  guides(fill=guide_legend(title="Tasa por 1000 niños"))+ #rewrite the legend title
+  theme_void()
+
+dv_map <- dv_map + theme(  #customize font styling
+  plot.background = element_blank(),
+  panel.grid.major = element_blank(),
+  panel.grid.minor = element_blank(),
+  axis.title.x = element_blank(),
+  axis.title.y = element_blank(),
+  axis.text.x = element_blank(),
+  axis.text.y = element_blank(),
+  plot.caption.position = "panel",
+  plot.title = element_markdown(hjust = 0, family = font_title, size = 72, face = "bold", lineheight = 0.3, margin=margin(0,0,0,-40)),
+  plot.subtitle = element_markdown(hjust = 0, family = font_title, size = 52, face = "bold", lineheight = 0.3, margin=margin(5,0,0,-40)),
+  plot.caption = element_text(hjust = 0, family = font_caption, color = black, size = 40, face = "bold", lineheight = 0.3), #, margin=margin(0,0,0,-30)
+  legend.text = element_text(size = 56),
+  legend.title = element_text(size = 56)
+)
+
+dv_map
+
+ggsave(dv_map, file="substantiated_referrals_map_esp.png",
+       path="W:/Project/RDA Team/Region 5 State of the Child/GitHub/AB/State_of_the_Child_Region_5/Images/Spanish/", 
+       bg='transparent',
+       width = 10, height=8)
