@@ -1,0 +1,124 @@
+/* CC Brand Guide CSS Stylesheet for RMDs*/
+
+/* Styling from https://www.catalystcalifornia.org/campaign-tools/maps-and-data/justice-equity-need-index */
+/* h1 seems reserved for the title of the webpage */
+h1{
+  font-size: 27px;
+  letter-spacing: normal;
+  line-height: 1.24;
+  font-weight: 600;
+  display: block;
+}
+
+/* h5 headers are wrapped in <strong> for "Overview"/"About" type sections */
+h5{
+  font-size: 21px;
+  letter-spacing: normal;
+  line-height: 1.2;
+  font-weight: 600;
+  margin: 1em 0;
+  display: block;
+}
+
+/* p is for body content - may or may not want to use for visuals */
+p{
+  font-size: 18px; /* consider changing to 15px*/
+  letter-spacing: normal;
+  line-height: 1.5;
+  font-weight: 400;
+  margin: 1em 0;
+  display: block;
+}
+
+table{
+  font-size: 12px;
+  color: #000000;
+}
+
+/* .highcharts-background, .highcharts-root, .highcharts-container {
+  max-height: 100%;
+  max-width: 100%;
+} */
+
+/* Setting global properties */
+* {
+
+  color: #3A207D; /* --Meteor dark purple color the font color-- */
+  font-family: Inter, sans-serif;
+}
+
+/* --Headers-- */
+
+  h1{
+    font-size: 27px;
+    letter-spacing: normal;
+    line-height: 1.24;
+    font-weight: 600;
+    display: block;
+  }
+
+  h2{
+    font-size: 21px;
+    letter-spacing: normal;
+    line-height: 1.2;
+    font-weight: 800;
+    margin: 1em 0;
+    display: block;
+  }
+
+  h3{
+    font-size: 21px;
+    letter-spacing: normal;
+    line-height: 1.2;
+    font-weight: 600;
+    margin: 1em 0;
+    display: block;
+  }
+  
+/* --Link-- */
+
+  a{
+  font-family: Inter;
+  }
+  
+/* --Unordered List (bullet list)-- */
+
+  ul{
+  font-family: Inter;
+  }
+  
+/* --Ordered List (numeric list)-- */
+
+  ol{
+  font-family: Inter;
+  }
+  
+/* --Document body-- */
+
+  body{
+  font-family: Inter;
+  font-size: 14px;
+  background-color: #FFFFFF;
+}
+
+/* --Paragraph-- see above*/
+
+
+
+/* --Footer Logo-- */
+
+.image-container {
+    position: static;
+    /* top: 0; */
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 0;
+}
+
+/* --TOC coloring-- */
+
+.list-group-item.active, .list-group-item.active:focus, .list-group-item.active:hover{
+  background-color: #3A207D;
+  border-color: #3A207D;
+}

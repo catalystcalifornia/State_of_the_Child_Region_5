@@ -82,6 +82,7 @@ engvar = c("Total Households", "White",
            "Black",                
            "Latinx",               
            "Children Under 6")
+esvar = c("Hogares Totales", "Blancos", "Negros", "Latinos", "Niños menores de 6 años")
 labels <- data.frame(engvar)
 
 # convert df to long format
@@ -107,39 +108,37 @@ rcm_df <- rcm_df %>% mutate(engvar = fct_relevel(engvar, "Children Under 6", "Wh
 lac_bell <- rcm_df %>% dplyr::filter(Geography=="Los Angeles County")
 av_bell<- rcm_df %>% dplyr::filter(Geography=="Antelope Valley")
 
-# Define chart height as max y value varies by indicator. Set vertical position for total line label - may need to be customized for each chart.
-
-# # ggplot method that should export as .svg ##
+# english chart -----
 rcm_plot <-
   ggplot(rcm_df) + # set up manual fill using 'test', add "-" before value to order bars when MAX is best
   labs(title = "Compared to <span style='color:#009CDB;'>Los Angeles County</span>, <span style='color:#332985;'>Antelope Valley</span> Families are <br>
 More Likely to Earn Incomes Below the Real Cost of Living", caption = "Source: Catalyst California's calculations based on the United Ways of California Real Cost Measure, 2019.
 Note: The Real Cost Measure is a measure of poverty that factors in the costs of housing, health care, child
-care, transportation and other basic needs to reveal what it really costs to live in California.") + #, https://www.unitedwaysca.org/realcost/39-real-cost. 
+care, transportation and other basic needs to reveal what it really costs to live in California.") + #, https://www.unitedwaysca.org/realcost/39-real-cost.
   geom_segment(data = av_bell,
                aes(x = engvar, y = value,
-                   yend = lac_bell$value, xend = lac_bell$engvar), 
+                   yend = lac_bell$value, xend = lac_bell$engvar),
                color = textgrey, size = 4.5, alpha = .5) +
   geom_point(aes(x = engvar, y = value, color= Geography), size = 4, show.legend = FALSE)+
   scale_color_manual(values = c(darkblue, lightblue))+
-  scale_x_discrete(labels = function(engvar) str_wrap(engvar, width = 20)) +            # wrap long labels, 
+  scale_x_discrete(labels = function(engvar) str_wrap(engvar, width = 20)) +            # wrap long labels,
   xlab("") +
   ylab("") +
   theme_void()+
   geom_text(data=dplyr::filter(rcm_df, Geography=="Los Angeles County"),
-            aes(x = engvar, y = value, label=paste0(value, "%"   )), 
-            color=lightblue, size=7, vjust=-1.5, fontface="bold", family=font_bar_label, hjust = 0.3)+
+            aes(x = engvar, y = value, label=paste0(value, "%"   )),
+            color=lightblue, size=14, vjust=-1.5, fontface="bold", family=font_bar_label, hjust = 0.3)+
   geom_text(data=dplyr::filter(rcm_df, Geography=="Antelope Valley"),
-            aes(x = engvar, y = value, label=paste0(value, "%")), 
-            color=darkblue, size=7, vjust=-1.5, fontface="bold", family=font_bar_label , hjust = -0.1)+
-  
+            aes(x = engvar, y = value, label=paste0(value, "%")),
+            color=darkblue, size=14, vjust=-1.5, fontface="bold", family=font_bar_label , hjust = -0.1)+
+
   geom_rect(data=rcm_df, aes(xmin=-Inf, xmax=Inf, ymin=90, ymax=120), fill="#C0C0C0") +
-  
-  geom_text(data=dplyr::filter(rcm_df, engvar=="Total Households" & Geography=="Antelope Valley"), aes(label=paste0(diff, " Points Higher"), x=5, y=105), fontface="bold", size=9, family=font_bar_label) +
-  geom_text(data=dplyr::filter(rcm_df, engvar=="Black" & Geography=="Antelope Valley"), aes(label=paste0(diff, " Points Higher"), x=4, y=105), fontface="bold", size=9, family=font_bar_label) +
-  geom_text(data=dplyr::filter(rcm_df, engvar=="Latinx" & Geography=="Antelope Valley"), aes(label=paste0(diff, " Points Higher"), x=3, y=105), fontface="bold", size=9, family=font_bar_label) +
-  geom_text(data=dplyr::filter(rcm_df, engvar=="White" & Geography=="Antelope Valley"), aes(label=paste0(diff, " Points Higher"), x=2, y=105), fontface="bold", size=9, family=font_bar_label) +
-  geom_text(data=dplyr::filter(rcm_df, engvar=="Children Under 6" & Geography=="Antelope Valley"), aes(label=paste0(diff, " Points Higher"), x=1, y=105), fontface="bold", size=9, family=font_bar_label) +
+
+  geom_text(data=dplyr::filter(rcm_df, engvar=="Total Households" & Geography=="Antelope Valley"), aes(label=paste0(diff, " Points Higher"), x=5, y=105), fontface="bold", size=18, family=font_bar_label) +
+  geom_text(data=dplyr::filter(rcm_df, engvar=="Black" & Geography=="Antelope Valley"), aes(label=paste0(diff, " Points Higher"), x=4, y=105), fontface="bold", size=18, family=font_bar_label) +
+  geom_text(data=dplyr::filter(rcm_df, engvar=="Latinx" & Geography=="Antelope Valley"), aes(label=paste0(diff, " Points Higher"), x=3, y=105), fontface="bold", size=18, family=font_bar_label) +
+  geom_text(data=dplyr::filter(rcm_df, engvar=="White" & Geography=="Antelope Valley"), aes(label=paste0(diff, " Points Higher"), x=2, y=105), fontface="bold", size=18, family=font_bar_label) +
+  geom_text(data=dplyr::filter(rcm_df, engvar=="Children Under 6" & Geography=="Antelope Valley"), aes(label=paste0(diff, " Points Higher"), x=1, y=105), fontface="bold", size=18, family=font_bar_label) +
   coord_flip()
 
 rcm_plot <- rcm_plot + theme(
@@ -150,12 +149,12 @@ rcm_plot <- rcm_plot + theme(
   axis.title.x = element_blank(),
   axis.title.y =element_blank(),
   axis.text.x = element_blank(),
-  axis.text.y = element_text(size = 24, family= font_axis_label, hjust = 0), 
+  axis.text.y = element_text(size = 52, family= font_axis_label, hjust = 0),
   axis.ticks = element_blank(),
-  plot.title = element_markdown(family = font_title, face = "bold", size = 32, hjust = 0, lineheight=.4, margin=margin(0,0,4,0)),
+  plot.title = element_markdown(family = font_title, face = "bold", size = 64, hjust = 0, lineheight=.2, margin=margin(0,0,4,0)),
   plot.title.position = "plot",
   plot.caption.position = "plot",
-  plot.caption = element_text(family = font_caption, face = "bold", hjust = 0, size = 20,lineheight=0.35), 
+  plot.caption = element_text(family = font_caption, face = "bold", hjust = 0, size = 40,lineheight = 0.3),
   plot.margin = margin(t = 3,
                        b = 3,
                        r = 3,
@@ -164,5 +163,83 @@ rcm_plot <- rcm_plot + theme(
 
 rcm_plot
 
-ggsave(file="rcm_chart.png", path="W:/Project/RDA Team/Region 5 State of the Child/GitHub/AB/State_of_the_Child_Region_5/Images/",
-       plot=rcm_plot, bg='transparent', width = 5, height=4)
+ggsave(file="rcm_chart.png", path="W:/Project/RDA Team/Region 5 State of the Child/GitHub/AB/State_of_the_Child_Region_5/Images/English/",
+       plot=rcm_plot, bg='transparent', width = 10, height=8)
+
+#Spanish Version ------
+rcm_df$Geography <- gsub("Los Angeles County", "Condado de Los Angeles",rcm_df$Geography)
+
+rcm_df <- rcm_df %>% dplyr::rename("esvar"="engvar")
+
+rcm_df$esvar <- gsub("Black","Negrxs (Negros)",rcm_df$esvar)
+rcm_df$esvar <- gsub("Latinx","Latinxs (Latinos)",rcm_df$esvar)
+rcm_df$esvar <- gsub("Children Under 6","Niños menores de 6 años",rcm_df$esvar)
+rcm_df$esvar <- gsub("White","Blancxs (Blancos)",rcm_df$esvar)
+rcm_df$esvar <- gsub("Total Households","Hogares Totales",rcm_df$esvar)
+
+rcm_df <- rcm_df %>% mutate(esvar = fct_relevel(esvar, "Niños menores de 6 años", "Blancxs (Blancos)", "Latinxs (Latinos)", "Negrxs (Negros)", "Hogares Totales"))%>% 
+  group_by(esvar) %>% 
+  mutate(diff = (value[Geography == "Condado de Los Angeles"] - value[Geography == "Antelope Valley"])*-1) %>% 
+  ungroup()
+lac_bell <- rcm_df %>% dplyr::filter(Geography=="Condado de Los Angeles")
+av_bell<- rcm_df %>% dplyr::filter(Geography=="Antelope Valley")
+
+
+rcm_plot_esp <-
+  ggplot(rcm_df) + # set up manual fill using 'test', add "-" before value to order bars when MAX is best
+  labs(title = "En comparación a <span style='color:#009CDB;'>el condado de Los Ángeles</span>, las familias de<br><span style='color:#332985;'>Antelope Valley</span> tienen más probabilidades
+de obtener ingresos<br>por debajo del costo de vida real", caption = "Fuente: Catalyst California's datos basados en United Ways of California Real Cost Measure, 2019. 
+Nota: The Real Cost Measure es una medida de pobreza que tiene en cuenta los costos de vivienda, atención 
+médica, cuidado infantil, transporte y otras necesidades básicas para revelar lo que realmente cuesta 
+vivir en California.") + #, https://www.unitedwaysca.org/realcost/39-real-cost. 
+  geom_segment(data = av_bell,
+               aes(x = esvar, y = value,
+                   yend = lac_bell$value, xend = lac_bell$esvar), 
+               color = textgrey, size = 4.5, alpha = .5) +
+  geom_point(aes(x = esvar, y = value, color= Geography), size = 4, show.legend = FALSE)+
+  scale_color_manual(values = c(darkblue, lightblue))+
+  scale_x_discrete(labels = function(esvar) str_wrap(esvar, width = 20)) +            # wrap long labels, 
+  xlab("") +
+  ylab("") +
+  theme_void()+
+  geom_text(data=dplyr::filter(rcm_df, Geography=="Condado de Los Angeles"),
+            aes(x = esvar, y = value, label=paste0(value, "%")), 
+            color=lightblue, size=14, vjust=-1.5, fontface="bold", family=font_bar_label, hjust = 0.3)+
+  geom_text(data=dplyr::filter(rcm_df, Geography=="Antelope Valley"),
+            aes(x = esvar, y = value, label=paste0(value, "%")), 
+            color=darkblue, size=14, vjust=-1.5, fontface="bold", family=font_bar_label , hjust = -0.1)+
+  
+  geom_rect(data=rcm_df, aes(xmin=-Inf, xmax=Inf, ymin=90, ymax=126), fill="#C0C0C0") +
+  
+  geom_text(data=dplyr::filter(rcm_df, esvar=="Hogares Totales" & Geography=="Antelope Valley"), aes(label=paste0(diff, " puntos más alto"), x=5, y=108), fontface="bold", size=18, family=font_bar_label) +
+  geom_text(data=dplyr::filter(rcm_df, esvar=="Negrxs (Negros)" & Geography=="Antelope Valley"), aes(label=paste0(diff, " puntos más alto"), x=4, y=108), fontface="bold", size=18, family=font_bar_label) +
+  geom_text(data=dplyr::filter(rcm_df, esvar=="Latinxs (Latinos)" & Geography=="Antelope Valley"), aes(label=paste0(diff, " puntos más alto"), x=3, y=108), fontface="bold", size=18, family=font_bar_label) +
+  geom_text(data=dplyr::filter(rcm_df, esvar=="Blancxs (Blancos)" & Geography=="Antelope Valley"), aes(label=paste0(diff, " puntos más alto"), x=2, y=108), fontface="bold", size=18, family=font_bar_label) +
+  geom_text(data=dplyr::filter(rcm_df, esvar=="Niños menores de 6 años" & Geography=="Antelope Valley"), aes(label=paste0(diff, " puntos más alto"), x=1, y=108), fontface="bold", size=18, family=font_bar_label) +
+  coord_flip()
+rcm_plot_esp
+rcm_plot_esp <- rcm_plot_esp + theme(
+  panel.grid.major = element_blank(),
+  panel.grid.minor = element_blank(),
+  panel.border = element_blank(),
+  panel.background = element_blank(),
+  axis.title.x = element_blank(),
+  axis.title.y =element_blank(),
+  axis.text.x = element_blank(),
+  axis.text.y = element_text(size = 52, family= font_axis_label, hjust = 0, lineheight = 0.3), 
+  axis.ticks = element_blank(),
+  plot.title = element_markdown(family = font_title, face = "bold", size = 64, hjust = 0, lineheight=.2, margin=margin(0,0,4,0)),
+  plot.title.position = "plot",
+  plot.caption.position = "plot",
+  plot.caption = element_text(family = font_caption, face = "bold", hjust = 0, size = 40,lineheight = 0.3), 
+  plot.margin = margin(t = 3,
+                       b = 3,
+                       r = 3,
+                       l = 3)
+)
+
+rcm_plot_esp
+
+ggsave(file="rcm_chart_esp.png", path="W:/Project/RDA Team/Region 5 State of the Child/GitHub/AB/State_of_the_Child_Region_5/Images/Spanish/",
+       plot=rcm_plot_esp, bg='transparent', width = 10, height=8)
+
