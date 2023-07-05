@@ -158,27 +158,27 @@ A world where systems are designed for justice and support equitable access to r
 <h3>About</h3>
 With more than a century of experience, Children’s Bureau is a trusted nonprofit leader in strengthening vulnerable children, their parents and the communities in which they live. We thrive on innovation, thinking differently and bringing life-changing moments to those in need.
 <br>
-<h3>Vision</h3>
+<h4>Vision</h4>
 Children thriving in strong families and communities.
 <br>
-###Mission
+<h4>Mission</h4>
 Protecting vulnerable children through prevention, treatment, and advocacy.
 <p align="right">(<a href="#top">back to top</a>)</p>
 <br>
-## Contact Us
-### Catalyst California
+<h3>Contact Us</h3>
+<h4>Catalyst California</h4>
 <a href="https://www.linkedin.com/in/chris-ringewald-6766369/"> Chris Ringewald - cringewald@catalystcalifornia.org</a>
 <br>
-### Children's Bureau of Southern California
+<h4>Children's Bureau of Southern California</h4>
 <a href="BeststartAV@all4kids.org">Stephaney Reyes - BeststartAV@all4kids.org</a>
 <p align="right">(<a href="#top">back to top</a>)</p>
 <br>
-## License
+<h3>License</h3>
 <br>
-Distributed under the MIT License. See <li><a href="https://github.com/catalystcalifornia/State_of_the_Child_Region_5/LICENSE.txt">`LICENSE.txt`</a></li> for more information.
+Distributed under the MIT License. See <li><a href="LICENSE.txt">`LICENSE.txt`</a></li> for more information.
 <p align="right">(<a href="#top">back to top</a>)</p>
 <br>
-## Citation
+<h3>Citation</h3>
 To cite State of the Child Region 5, please use the following:
 <br>
 Catalyst California & Children's Bureau of Southern California; State of the Child Region 5, https://www.all4kids.org/, 2023.
