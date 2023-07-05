@@ -56,7 +56,6 @@ The State of the Child Antelope Valley Report seeks to understand the conditions
   <li><a href="R_Scripts/disabilities.R">Youth with Disabilities</a></li> 
 </ul>
 <br>
-<br>
 <h4>Demographic Indicators</h4>
 <ul>
   <li><a href="R_Scripts/age.R">Ages</a></li>  
@@ -100,7 +99,7 @@ The State of the Child Antelope Valley Report seeks to understand the conditions
 <br>
 <h2>Visuals</h2>
 <br>
-<li><a href="https://github.com/catalystcalifornia/State_of_the_Child_Region_5/tree/main/Images">**Graphs and Images Folder**</a></li>
+<li><a href="https://github.com/catalystcalifornia/State_of_the_Child_Region_5/tree/main/Images">Graphs and Images Folder</a></li>
 <br>
 <h4>Scripts for Creating Visuals</h4>
 <ul>
@@ -116,7 +115,6 @@ The State of the Child Antelope Valley Report seeks to understand the conditions
   <li><a href="R_Scripts/suspensions_table.R">Suspensions Table</a></li>  
   <li><a href="R_Scripts/substantiated_referrals_map.R">Substantiated Referrals Map</a></li>
 </ul>
-<br>
 <br>
 <p align="right">(<a href="#top">back to top</a>)</p>
 <br>
@@ -137,7 +135,7 @@ A world where systems are designed for justice and support equitable access to r
 <br>
 <ul>
   <li><a href="https://github.com/bakeralexan">Alexandra Baker</a></li>
-  <li><a href="https://github.com/mariatkhan">Maria Khan](</a></li>
+  <li><a href="https://github.com/mariatkhan">Maria Khan</a></li>
   <li><a href="https://github.com/elyciamg">Elycia Mulholland-Graves</a></li>
   <li><a href="https://github.com/cringewald">Chris Ringewald</a></li>
   <li><a href="https://github.com/davidseg1997">David Segovia</a></li>
@@ -153,7 +151,6 @@ A world where systems are designed for justice and support equitable access to r
      height="20%">
 <br>
 <a href="https://www.all4kids.org/">Children's Bureau of Southern California</a>
-<br>
 <br>
 <h3>About</h3>
 With more than a century of experience, Children’s Bureau is a trusted nonprofit leader in strengthening vulnerable children, their parents and the communities in which they live. We thrive on innovation, thinking differently and bringing life-changing moments to those in need.
@@ -175,7 +172,7 @@ Protecting vulnerable children through prevention, treatment, and advocacy.
 <br>
 <h3>License</h3>
 <br>
-Distributed under the MIT License. See <li><a href="LICENSE.txt">`LICENSE.txt`</a></li> for more information.
+Distributed under the MIT License. See <li><a href="LICENSE">`LICENSE.txt`</a></li> for more information.
 <p align="right">(<a href="#top">back to top</a>)</p>
 <br>
 <h3>Citation</h3>
