@@ -121,7 +121,7 @@ The State of the Child Antelope Valley Report seeks to understand the conditions
 <p align="right">(<a href="#top">back to top</a>)</p>
 <br>
 <h2>About Catalyst California</h2>
-<img src="Images/Logos/CatalystCalifornia.jpeg" alt="Catalyst California Logo" width="30%" 
+<img src="/Images/Logos/CatalystCalifornia.jpeg" alt="Catalyst California Logo" width="30%" 
      height="20%">
 <h3>Our Vision</h3>
 A world where systems are designed for justice and support equitable access to resources and opportunities for all Californians to thrive.
@@ -146,20 +146,20 @@ A world where systems are designed for justice and support equitable access to r
 <br>
 <h2>Partners</h2>
 <br>
-<img src="Images/Logos/AV_Best_Start_Logo.png" alt="Best Start Logo" width="30%" 
+<img src="/Images/Logos/AV_Best_Start_Logo.png" alt="Best Start Logo" width="30%" 
      height="20%">
 <br>
-<img src="Images/Logos/CB_logo.png" alt="Childrens Bureau Logo" width="30%" 
+<img src="/Images/Logos/CB_logo.png" alt="Children's Bureau Logo" width="30%" 
      height="20%">
 <br>
-[Children's Bureau of Southern California](https://www.all4kids.org/)
+<a href="https://www.all4kids.org/">Children's Bureau of Southern California</a>
 <br>
 <br>
 <h3>About</h3>
 With more than a century of experience, Children’s Bureau is a trusted nonprofit leader in strengthening vulnerable children, their parents and the communities in which they live. We thrive on innovation, thinking differently and bringing life-changing moments to those in need.
 <br>
 <h3>Vision</h3>
-Chidren thriving ins trong families and communities.
+Children thriving in strong families and communities.
 <br>
 ###Mission
 Protecting vulnerable children through prevention, treatment, and advocacy.
