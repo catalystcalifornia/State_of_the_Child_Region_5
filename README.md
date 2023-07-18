@@ -204,7 +204,7 @@ Income Eligibility.
 <br>
 <h2>About Catalyst California</h2>
 <img src="/Images/Logos/CatalystCalifornia.jpeg" alt="Catalyst California Logo" width="30%" 
-     height="20%">
+     height="20%"/>
 <h3>Our Vision</h3>
 A world where systems are designed for justice and support equitable access to resources and opportunities for all Californians to thrive.
 <br>
@@ -229,10 +229,10 @@ A world where systems are designed for justice and support equitable access to r
 <h2>Partners</h2>
 <br>
 <img src="/Images/Logos/AV_Best_Start_Logo.png" alt="Best Start Logo" width="30%" 
-     height="20%">
+     height="20%"/>
 <br>
 <img src="/Images/Logos/CB_logo.png" alt="Children's Bureau Logo" width="30%" 
-     height="20%">
+     height="20%"/>
 <br>
 <a href="https://www.all4kids.org/">Children's Bureau of Southern California</a>
 <br>
