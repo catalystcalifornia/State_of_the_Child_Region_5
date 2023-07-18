@@ -19,6 +19,8 @@
   </ol>
 </details>
 <br>
+<a href="https://catalystcalifornia.github.io/State_of_the_Child_Region_5/">https://catalystcalifornia.github.io/State_of_the_Child_Region_5/</a>
+<br>
 <h2>About The Project</h2>
 <br>
 This report presents findings on the state of children and public systems in the Antelope Valley. It represents the most comprehensive analysis of data from the Antelope Valley region to date. The Children’s Bureau commissioned it to understand the state of children in the Antelope Valley, identify indicators to monitor, and increase the amount of data available to advocates. We hope that county agencies, funders, and other partners use this report to learn more about the Antelope Valley and engage with Antelope Valley communities in their work. Catalyst California partnered with the Children’s Bureau to ask over 100 residents and advocates for recommendations on what issues to consider, positive examples of programs to uplift, and data to include in the report. Their recommendations shape the content gathered for this report and were reviewed and approved by a steering committee of 20 community experts. 
