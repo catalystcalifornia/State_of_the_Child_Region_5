@@ -70,28 +70,28 @@ The State of the Child Antelope Valley Report seeks to understand the conditions
 <h4>Demographic Indicators</h4>
 <ul>
   <li><a href="R_Scripts/age.R">Ages</a></li>  
-  Source: 
+  Source: Ages 0-5 Population data from the US Census American Community Survey 2021, SPAs from https://egis-lacounty.hub.arcgis.com/datasets/service-planning-areas-2022-view/explore?location=34.025999%2C-118.300941%2C8.00 
   
   <li><a href="R_Scripts/under18_by_race.R">Children by Race</a></li>
-  Source: 
+  Source: Ages 0-18 Population data by Race Ethnicity from the US Census American Community Survey 2021, SPAs from https://egis-lacounty.hub.arcgis.com/datasets/service-planning-areas-2022-view/explore?location=34.025999%2C-118.300941%2C8.00 
   
   <li><a href="R_Scripts/language_entire_av.R">Languages</a></li>   
-  Source: 
+  Source: Language data by census tract from the US Census American Community Survey 5-year 2017-2021
   
   <li><a href="R_Scripts/language.R">Language Spoken at Home</a></li>
-  Source: 
+  Source: Language Spoken at home data by census tract from the US Census American Community Survey 5-year 2017-2021
   
   <li><a href="R_Scripts/population.R">Population</a></li>
-  Source: 
+  Source: Population data from the US Census American Community Survey 2021, SPAs from https://egis-lacounty.hub.arcgis.com/datasets/service-planning-areas-2022-view/explore?location=34.025999%2C-118.300941%2C8.00 
   
   <li><a href="R_Scripts/population_change.R">Population Change</a></li>
-  Source: 
+  Source: Population data from the US Census American Community Survey 2021, SPAs from https://egis-lacounty.hub.arcgis.com/datasets/service-planning-areas-2022-view/explore?location=34.025999%2C-118.300941%2C8.00
   
   <li><a href="R_Scripts/race.R">Races</a></li>
-  Source: 
+  Source: Population data by race / ethnicity from the US Census American Community Survey 2021, SPAs from https://egis-lacounty.hub.arcgis.com/datasets/service-planning-areas-2022-view/explore?location=34.025999%2C-118.300941%2C8.00
   
   <li><a href="R_Scripts/race_entire_av.R">Service Planning Area (SPA) 1 Races</a></li>
-  Source: 
+  Source: Population data from the US Census American Community Survey 2021, SPAs from https://egis-lacounty.hub.arcgis.com/datasets/service-planning-areas-2022-view/explore?location=34.025999%2C-118.300941%2C8.00
   
 </ul>
 <br>
